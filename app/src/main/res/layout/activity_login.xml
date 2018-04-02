@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/doctor_bgnew"
+    tools:context="com.drcare.activity.LoginActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/margin50"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/ll_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin20"
+            android:layout_marginRight="@dimen/margin20"
+            android:background="@drawable/login_bg"
+            android:elevation="2dp"
+            android:orientation="vertical"
+            tools:targetApi="lollipop">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:paddingRight="@dimen/margin10"
+                    android:src="@drawable/email" />
+
+                <EditText
+                    android:id="@+id/et_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin40"
+                    android:background="@android:color/transparent"
+                    android:cursorVisible="true"
+                    android:hint="@string/email"
+                    android:inputType="textEmailAddress"
+                    android:singleLine="true"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textColorHint="@color/divider"
+                    android:textCursorDrawable="@drawable/color_cursor"
+                    android:textSize="@dimen/normalText">
+
+                    <requestFocus />
+                </EditText>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:background="#cccccc" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:paddingRight="@dimen/margin10"
+                    android:src="@drawable/password" />
+
+                <EditText
+                    android:id="@+id/et_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin40"
+                    android:background="@android:color/transparent"
+                    android:cursorVisible="true"
+                    android:hint="@string/password"
+                    android:inputType="textPassword"
+                    android:singleLine="true"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textColorHint="@color/divider"
+                    android:textCursorDrawable="@drawable/color_cursor"
+                    android:textSize="@dimen/normalText" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin40"
+            android:layout_marginLeft="@dimen/margin20"
+            android:layout_marginRight="@dimen/margin20"
+            android:layout_marginTop="@dimen/margin15"
+            android:background="@drawable/login_button"
+            android:elevation="2dp"
+            android:text="@string/login"
+            android:textAllCaps="false"
+            android:textColor="@color/colorWhite"
+            android:textSize="16sp"
+            tools:targetApi="lollipop" />
+
+        <TextView
+            android:id="@+id/et_forgotpassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginTop="@dimen/margin15"
+            android:padding="@dimen/margin5"
+            android:text="@string/forogot_password"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/normalText" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginLeft="@dimen/margin40"
+            android:layout_marginRight="@dimen/margin40"
+            android:layout_marginTop="@dimen/margin15"
+            android:background="@color/colorWhite" />
+
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="@dimen/margin15"
+            android:gravity="center"
+            android:text="@string/not_a_member"
+            android:textColor="@color/colorWhite" />
+
+        <Button
+            android:id="@+id/btn_register"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin40"
+            android:layout_marginLeft="@dimen/margin20"
+            android:layout_marginRight="@dimen/margin20"
+            android:layout_marginTop="@dimen/margin15"
+            android:background="@drawable/register_button"
+            android:elevation="2dp"
+            android:layout_marginBottom="@dimen/margin10"
+            android:text="@string/register"
+            android:textAllCaps="false"
+            android:textColor="@color/colorWhite"
+            android:textSize="16sp"
+            tools:targetApi="lollipop" />
+    </LinearLayout>
+</RelativeLayout>

@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Dr.Care</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="forogot_password">Forogot Password?</string>
+    <string name="not_a_member">Not a  Member?</string>
+    <string name="register">Register</string>
+    <string name="civilid">Civil ID</string>
+    <string name="mobile">Mobile</string>
+    <string name="hospital_name">Hospital</string>
+    <string name="first_name">First Name</string>
+    <string name="forgot_pwd">Forgot Password</string>
+    <string name="enter">Submit</string>
 </resources>
