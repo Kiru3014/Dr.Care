@@ -2,10 +2,19 @@ package com.drcare;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.media.RingtoneManager;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.RequiresApi;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -15,6 +24,7 @@ import android.view.Window;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.drcare.activity.HelpActivity;
 import com.scanning.drcare.R;
 import com.drcare.utils.Helper;
 import com.drcare.utils.UserPreferences;
@@ -85,7 +95,35 @@ public class BaseActivity extends AppCompatActivity
     public void commonLoaderstop() {
 
         mAlertDialog.cancel();
+    }
+
+
+
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+    public void addNotification(String msg) {
+        NotificationCompat.Builder builder =
+                new NotificationCompat.Builder(this)
+                        .setSmallIcon(R.drawable.icon)
+                        .setContentTitle("ECMO REFERRAL APPLICATION")
+                        .setAutoCancel(false)
+                        .setContentText(msg);
+
+        Intent notificationIntent = new Intent(this, HelpActivity.class);
+        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent,
+                PendingIntent.FLAG_UPDATE_CURRENT);
+
+        Uri uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+
+        //Vibration
+        builder.setVibrate(new long[]{500, 500});
+        builder.setSound(uri);
+        builder.setContentIntent(contentIntent);
+
+        // Add as notification
+        NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        manager.notify(0, builder.build());
 
     }
+
 
 }

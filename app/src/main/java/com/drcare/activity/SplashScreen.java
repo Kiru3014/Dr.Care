@@ -39,7 +39,7 @@ public class SplashScreen extends BaseActivity
                     }
 
                     if (userProfileSharedPreferences.isUserLogin()) {
-                        Intent intent = new Intent(SplashScreen.this, Home.class);
+                        Intent intent = new Intent(SplashScreen.this, HomeActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         startActivity(intent);
                         finish();

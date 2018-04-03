@@ -2,8 +2,6 @@ package com.drcare.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.Settings;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,9 +12,6 @@ import com.drcare.utils.Constants;
 import com.drcare.utils.Helper;
 import com.drcare.utils.UserPreferences;
 import com.scanning.drcare.R;
-
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 
 
 public class LoginActivity extends BaseActivity implements View.OnClickListener {
@@ -100,16 +95,14 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
     private void initLogin(final String bEmail, String bPassword)
     {
-        userPreferences.setUserLoggedIn(true);
+       /* userPreferences.setUserLoggedIn(true);
         userPreferences.setUserId("1");
         userPreferences.setEmailId(bEmail);
-        userPreferences.setPassword(bPassword);
+        userPreferences.setPassword(bPassword);*/
         zEmail.setText("");
         zPassword.setText("");
-        Intent intent = new Intent(getApplicationContext(), Home.class);
+        Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
         startActivity(intent);
         finish();
-
     }
-
 }

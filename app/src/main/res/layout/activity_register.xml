@@ -38,18 +38,19 @@
         <EditText
             android:id="@+id/et_first_name"
             android:layout_width="match_parent"
+            android:textAllCaps="true"
             android:layout_height="@dimen/margin40"
             android:background="@drawable/form_cell_bg"
             android:cursorVisible="true"
             android:hint="@string/first_name"
-            android:inputType="textCapWords"
+            android:inputType="textCapCharacters"
             android:singleLine="true"
             android:textColor="@color/colorPrimaryDark"
             android:textColorHint="@color/divider"
             android:textCursorDrawable="@drawable/color_cursor"
             android:textSize="@dimen/normalText" />
 
-        <EditText
+        <AutoCompleteTextView
             android:id="@+id/et_hospitalname"
             android:layout_width="match_parent"
             android:layout_height="@dimen/margin40"
@@ -59,7 +60,7 @@
             android:hint="@string/hospital_name"
             android:inputType="textCapWords"
             android:singleLine="true"
-            android:textColor="@color/colorPrimaryDark"
+            android:nextFocusDown="@+id/et_civilid"            android:textColor="@color/colorPrimaryDark"
             android:textColorHint="@color/divider"
             android:textCursorDrawable="@drawable/color_cursor"
             android:textSize="@dimen/normalText" />
@@ -70,6 +71,7 @@
             android:layout_height="@dimen/margin40"
             android:layout_marginTop="@dimen/margin5"
             android:background="@drawable/form_cell_bg"
+            android:textAllCaps="true"
             android:inputType="textCapWords"
             android:hint="@string/civilid"
             android:cursorVisible="true"
