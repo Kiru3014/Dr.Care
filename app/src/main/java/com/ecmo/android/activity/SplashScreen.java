@@ -3,21 +3,16 @@ package com.ecmo.android.activity;
 import android.content.Intent;
 import android.os.Bundle;
 
-
 import com.ecmo.android.BaseActivity;
-import com.ecmo.android.activity.HomeActivity;
-import com.ecmo.android.activity.LoginActivity;
+import com.ecmo.android.R;
 import com.ecmo.android.utils.Helper;
 import com.ecmo.android.utils.UserPreferences;
-import com.scanning.drcare.R;
 
 public class SplashScreen extends BaseActivity
 {
 
     Thread splashTread;
     UserPreferences userProfileSharedPreferences;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

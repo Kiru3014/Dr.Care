@@ -6,11 +6,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.ecmo.android.BaseActivity;
 
+import com.ecmo.android.BaseActivity;
+import com.ecmo.android.R;
 import com.ecmo.android.utils.Constants;
 import com.ecmo.android.utils.Helper;
-import com.scanning.drcare.R;
 
 public class ForgotPasswordActivity extends BaseActivity implements View.OnClickListener {
 

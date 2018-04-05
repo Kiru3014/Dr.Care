@@ -8,7 +8,7 @@ import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 
 import com.ecmo.android.utils.Helper;
-import com.scanning.drcare.R;
+import com.ecmo.android.R;
 
 import java.util.HashMap;
 import java.util.List;

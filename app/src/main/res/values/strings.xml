@@ -12,4 +12,7 @@
     <string name="first_name">First Name</string>
     <string name="forgot_pwd">Forgot Password</string>
     <string name="enter">Submit</string>
+
+    <string name="fcm_sender_id">562387292074</string>
+
 </resources>

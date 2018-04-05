@@ -16,6 +16,7 @@ public class UserPreferences
     private static final String KEY_USER_EMAIL_ID = "email";
     private static final String KEY_IS_LOGGED_IN = "isLogin";
     private static final String KEY_PASSWORD = "password";
+    private static final String PUSHWOSH_TOKEN = "pushwosh_token";
     private SharedPreferences pref;
     private SharedPreferences.Editor editor;
     private Context context;
@@ -86,6 +87,17 @@ public class UserPreferences
     public void clearSession() {
         editor.clear();
         editor.commit();
+    }
+
+
+    public void setPushwooshToken(String pushwooshToken) {
+        editor.putString(PUSHWOSH_TOKEN, pushwooshToken);
+        editor.commit();
+    }
+
+    public String getPushwooshToken()
+    {
+        return pref.getString(PUSHWOSH_TOKEN, "");
     }
 
 

@@ -6,6 +6,28 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <permission
+        android:name="com.ecmo.android.permission.C2D_MESSAGE"
+        android:protectionLevel="signature"/>
+    <uses-permission
+        android:name="com.ecmo.android.permission.C2D_MESSAGE"/>
+
+    <!-- This app has permission to register and receive data message. -->
+    <uses-permission
+        android:name="com.google.android.c2dm.permission.RECEIVE"/>
+
 
     <application
         android:name="DrApplication"
@@ -17,6 +39,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+
+
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+
+        <meta-data android:name="PW_APPID" android:value="E8803-68B8E"/>
+
+        <meta-data android:name="PW_PROJECT_ID" android:value="A562387292074"/>
+
+        <meta-data android:name="com.pushwoosh.appid" android:value="E8803-68B8E" />
+        <meta-data android:name="com.pushwoosh.senderid" android:value="@string/fcm_sender_id" />
+
+
         <activity
             android:name="com.ecmo.android.activity.SplashScreen"
             android:screenOrientation="portrait">
@@ -33,7 +67,7 @@
             android:name="com.ecmo.android.activity.RegisterActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="ForgotPasswordActivity"
+            android:name="com.ecmo.android.activity.ForgotPasswordActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.ecmo.android.activity.HomeActivity"
@@ -44,6 +78,19 @@
         <activity
             android:name="com.ecmo.android.activity.GalleryActivity"
             android:screenOrientation="portrait" />
+
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
+
+        <service
+            android:name="com.ecmo.android.utils.NotificationService"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter android:priority="100">
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            </intent-filter>
+        </service>
+
+
     </application>
 
 </manifest>

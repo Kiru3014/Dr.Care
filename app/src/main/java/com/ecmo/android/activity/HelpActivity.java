@@ -6,9 +6,9 @@ import android.widget.ExpandableListView;
 import android.widget.TextView;
 
 import com.ecmo.android.BaseActivity;
+import com.ecmo.android.R;
 import com.ecmo.android.adaptors.ExpandableListAdapter;
 import com.ecmo.android.utils.Helper;
-import com.scanning.drcare.R;
 
 import java.util.ArrayList;
 import java.util.HashMap;

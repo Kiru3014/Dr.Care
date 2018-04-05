@@ -14,7 +14,7 @@ import com.ecmo.android.BaseActivity;
 import com.ecmo.android.utils.Constants;
 import com.ecmo.android.utils.Helper;
 import com.ecmo.android.utils.UserPreferences;
-import com.scanning.drcare.R;
+import com.ecmo.android.R;
 
 import java.util.ArrayList;
 import java.util.List;

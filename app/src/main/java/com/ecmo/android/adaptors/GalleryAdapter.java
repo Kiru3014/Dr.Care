@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.scanning.drcare.R;
+import com.ecmo.android.R;
 
 import java.util.List;
 
