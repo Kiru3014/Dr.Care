@@ -1,23 +1,13 @@
-package com.drcare.activity;
+package com.ecmo.android.activity;
 
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.content.Context;
-import android.content.Intent;
-import android.media.RingtoneManager;
-import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
-import android.support.annotation.RequiresApi;
-import android.support.v4.app.NotificationCompat;
 import android.view.View;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
 
-import com.drcare.BaseActivity;
-import com.drcare.adaptors.ExpandableListAdapter;
-import com.drcare.utils.Helper;
+import com.ecmo.android.BaseActivity;
+import com.ecmo.android.adaptors.ExpandableListAdapter;
+import com.ecmo.android.utils.Helper;
 import com.scanning.drcare.R;
 
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package com.drcare.activity;
+package com.ecmo.android.activity;
 
 import android.os.Bundle;
 import android.view.View;
@@ -6,10 +6,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.ecmo.android.BaseActivity;
 
-import com.drcare.BaseActivity;
-import com.drcare.utils.Constants;
-import com.drcare.utils.Helper;
+import com.ecmo.android.utils.Constants;
+import com.ecmo.android.utils.Helper;
 import com.scanning.drcare.R;
 
 public class ForgotPasswordActivity extends BaseActivity implements View.OnClickListener {

@@ -1,15 +1,14 @@
-package com.drcare.activity;
+package com.ecmo.android.activity;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.drcare.BaseActivity;
-import com.drcare.utils.Helper;
+import com.ecmo.android.BaseActivity;
+import com.ecmo.android.utils.Helper;
 import com.scanning.drcare.R;
 
 public class HomeActivity extends BaseActivity implements View.OnClickListener {

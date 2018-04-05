@@ -1,4 +1,4 @@
-package com.drcare;
+package com.ecmo.android;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
@@ -24,10 +24,10 @@ import android.view.Window;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.drcare.activity.HelpActivity;
-import com.scanning.drcare.R;
-import com.drcare.utils.Helper;
-import com.drcare.utils.UserPreferences;
+import com.ecmo.android.activity.HelpActivity;
+import com.ecmo.android.utils.Helper;
+import com.ecmo.android.utils.UserPreferences;
+
 
 @SuppressLint("Registered")
 public class BaseActivity extends AppCompatActivity

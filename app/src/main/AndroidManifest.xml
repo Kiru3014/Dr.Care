@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.scanning.drcare">
+    package="com.ecmo.android">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name="com.drcare.DrApplication"
+        android:name="DrApplication"
         android:allowBackup="true"
         android:fullBackupContent="false"
         android:icon="@drawable/icon"
@@ -18,7 +18,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name="com.drcare.activity.SplashScreen"
+            android:name="com.ecmo.android.activity.SplashScreen"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,22 +27,22 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.drcare.activity.LoginActivity"
+            android:name="com.ecmo.android.activity.LoginActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.drcare.activity.RegisterActivity"
+            android:name="com.ecmo.android.activity.RegisterActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.drcare.activity.ForgotPasswordActivity"
+            android:name="ForgotPasswordActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.drcare.activity.HomeActivity"
+            android:name="com.ecmo.android.activity.HomeActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.drcare.activity.HelpActivity"
+            android:name="com.ecmo.android.activity.HelpActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.drcare.activity.GalleryActivity"
+            android:name="com.ecmo.android.activity.GalleryActivity"
             android:screenOrientation="portrait" />
     </application>
 

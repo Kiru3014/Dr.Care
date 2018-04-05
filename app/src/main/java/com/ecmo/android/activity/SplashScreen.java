@@ -1,11 +1,14 @@
-package com.drcare.activity;
+package com.ecmo.android.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.drcare.BaseActivity;
-import com.drcare.utils.Helper;
-import com.drcare.utils.UserPreferences;
+
+import com.ecmo.android.BaseActivity;
+import com.ecmo.android.activity.HomeActivity;
+import com.ecmo.android.activity.LoginActivity;
+import com.ecmo.android.utils.Helper;
+import com.ecmo.android.utils.UserPreferences;
 import com.scanning.drcare.R;
 
 public class SplashScreen extends BaseActivity

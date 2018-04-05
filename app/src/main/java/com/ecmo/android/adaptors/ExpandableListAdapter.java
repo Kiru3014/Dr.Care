@@ -1,14 +1,13 @@
-package com.drcare.adaptors;
+package com.ecmo.android.adaptors;
 
 import android.content.Context;
-import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 
-import com.drcare.utils.Helper;
+import com.ecmo.android.utils.Helper;
 import com.scanning.drcare.R;
 
 import java.util.HashMap;

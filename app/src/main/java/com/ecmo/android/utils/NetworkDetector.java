@@ -1,4 +1,4 @@
-package com.drcare.utils;
+package com.ecmo.android.utils;
 
 import android.content.Context;
 import android.net.ConnectivityManager;

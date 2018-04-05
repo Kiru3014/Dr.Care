@@ -1,22 +1,19 @@
-package com.drcare.activity;
-
+package com.ecmo.android.activity;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.RequiresApi;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.MultiAutoCompleteTextView;
 
-import com.drcare.BaseActivity;
-import com.drcare.utils.Constants;
-import com.drcare.utils.Helper;
-import com.drcare.utils.UserPreferences;
+import com.ecmo.android.BaseActivity;
+import com.ecmo.android.utils.Constants;
+import com.ecmo.android.utils.Helper;
+import com.ecmo.android.utils.UserPreferences;
 import com.scanning.drcare.R;
 
 import java.util.ArrayList;

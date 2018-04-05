@@ -1,4 +1,4 @@
-package com.drcare.utils;
+package com.ecmo.android.utils;
 
 import android.app.Activity;
 import android.graphics.Typeface;

@@ -1,12 +1,13 @@
-package com.drcare.activity;
+package com.ecmo.android.activity;
 
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.drcare.BaseActivity;
-import com.drcare.adaptors.GalleryAdapter;
-import com.drcare.utils.Constants;
+
+import com.ecmo.android.BaseActivity;
+import com.ecmo.android.adaptors.GalleryAdapter;
+import com.ecmo.android.utils.Constants;
 import com.scanning.drcare.R;
 
 public class GalleryActivity extends BaseActivity {
