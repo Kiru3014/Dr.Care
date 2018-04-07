@@ -12,10 +12,10 @@ public class UserPreferences
 {
     private static final String PREF_NAME = "UserPreferences";
     private static final String KEY_FIRST_NAME = "name";
-    private static final String KEY_USER_ID = "userId";
+    private static final String KEY_DR_ID = "docId";
     private static final String KEY_USER_EMAIL_ID = "email";
     private static final String KEY_IS_LOGGED_IN = "isLogin";
-    private static final String KEY_PASSWORD = "password";
+    private static final String KEY_SESSION_ID = "session";
     private static final String PUSHWOSH_TOKEN = "pushwosh_token";
     private SharedPreferences pref;
     private SharedPreferences.Editor editor;
@@ -52,11 +52,11 @@ public class UserPreferences
     }
 
     public String getUserId() {
-        return pref.getString(KEY_USER_ID, "");
+        return pref.getString(KEY_DR_ID, "");
     }
 
     public void setUserId(String userId) {
-        editor.putString(KEY_USER_ID, userId);
+        editor.putString(KEY_DR_ID, userId);
         editor.commit();
     }
 
@@ -70,16 +70,16 @@ public class UserPreferences
     }
 
 
-    public void setPassword(String isArMode)
+    public void setSession(String isArMode)
     {
-        editor.putString(KEY_PASSWORD, isArMode);
+        editor.putString(KEY_SESSION_ID, isArMode);
         editor.commit();
     }
 
 
-    public String getPassword()
+    public String getSession()
     {
-        return pref.getString(KEY_PASSWORD, "");
+        return pref.getString(KEY_SESSION_ID, "");
     }
 
 

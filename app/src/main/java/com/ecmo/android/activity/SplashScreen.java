@@ -50,8 +50,6 @@ public class SplashScreen extends BaseActivity
 
                 } catch (InterruptedException e) {
                     e.printStackTrace();
-                } finally {
-                    finish();
                 }
 
             }
