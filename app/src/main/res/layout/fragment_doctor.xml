@@ -1,0 +1,743 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="@color/colorWhite">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:padding="15dp"
+                android:text="Hospital Information"
+                android:textColor="@color/darkblue"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="match_parent"
+                android:layout_height="0.4dp"
+                android:background="@color/colorblack" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/refhospital_title"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:padding="15dp"
+                    android:text="Ref Hospital * "
+                    android:textColor="@color/colorblack"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="0.1dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:background="@color/colorblack" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/hospital"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:background="@drawable/form_cell_bg"
+                        android:hint="  Select Hospital "
+                        android:padding="15dp"
+                        android:textColor="@color/darkblue"
+                        android:textColorHint="@color/divider"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <Spinner
+                        android:id="@+id/simpleSpinner_hospital"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:padding="15dp" />
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.4dp"
+                android:layout_below="@+id/rr_heading"
+                android:background="@color/colorblack" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/refspecialty_title"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:padding="15dp"
+                    android:text="Ref Specialty * "
+                    android:textColor="@color/colorblack"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="0.1dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:background="@color/colorblack" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/specialty"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:background="@drawable/form_cell_bg"
+                        android:hint="  Select Specialty "
+                        android:padding="15dp"
+                        android:textColor="@color/darkblue"
+                        android:textColorHint="@color/divider"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <Spinner
+                        android:id="@+id/simpleSpinner_speciality"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:padding="15dp"
+                        android:prompt="@string/enter"
+                        android:tooltipText="@string/enter" />
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.4dp"
+                android:layout_below="@+id/rr_heading"
+                android:background="@color/colorblack" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/refconsultant_title"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:padding="15dp"
+                    android:text="Ref Consultant * "
+                    android:textColor="@color/colorblack"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="0.1dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:background="@color/colorblack" />
+
+                <TextView
+                    android:id="@+id/tv_consultant"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:background="@drawable/form_cell_bg"
+                    android:hint="Enter Referning Consultant"
+                    android:padding="15dp"
+                    android:textColor="@color/darkblue"
+                    android:textColorHint="@color/divider"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.4dp"
+                android:layout_below="@+id/rr_heading"
+                android:background="@color/colorblack" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/refdate_title"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:padding="15dp"
+                    android:text="Ref Date * "
+                    android:textColor="@color/colorblack"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="0.1dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:background="@color/colorblack" />
+
+                <TextView
+                    android:id="@+id/tv_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:background="@drawable/form_cell_bg"
+                    android:hint="  Select Date "
+                    android:padding="15dp"
+                    android:textColor="@color/darkblue"
+                    android:textColorHint="@color/divider"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.4dp"
+                android:layout_below="@+id/rr_heading"
+                android:background="@color/colorblack" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/refadmisson_title"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:padding="15dp"
+                    android:singleLine="true"
+                    android:text="Admisson diagnosis"
+                    android:textColor="@color/colorblack"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="0.1dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:background="@color/colorblack" />ss
+
+                <EditText
+                    android:id="@+id/et_diagnosis"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:background="@drawable/form_cell_bg"
+                    android:hint=" Select Admisson diagnosis "
+                    android:imeOptions="actionNext"
+                    android:padding="15dp"
+                    android:singleLine="true"
+                    android:textColor="@color/darkblue"
+                    android:textColorHint="@color/divider"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="0.1dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:background="@color/colorblack" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.4dp"
+                android:layout_below="@+id/rr_heading"
+                android:background="@color/colorblack" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:padding="15dp"
+                android:text="Patient Information"
+                android:textColor="@color/darkblue"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.4dp"
+                android:layout_below="@+id/rr_heading"
+                android:background="@color/colorblack" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvfname"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:padding="15dp"
+                    android:text="File Number * "
+                    android:textColor="@color/colorblack"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="0.1dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:background="@color/colorblack" />
+
+                <EditText
+                    android:id="@+id/et_patientfilenumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/form_cell_bg"
+                    android:hint="Enter Patient File Number "
+                    android:imeOptions="actionNext"
+                    android:padding="15dp"
+                    android:singleLine="true"
+                    android:textColor="@color/darkblue"
+                    android:textColorHint="@color/divider"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.4dp"
+                android:layout_below="@+id/rr_heading"
+                android:background="@color/colorblack" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvpname"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:padding="15dp"
+                    android:text="Patient Name"
+                    android:textColor="@color/colorblack"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="0.1dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:background="@color/colorblack" />
+
+                <EditText
+                    android:id="@+id/et_patientname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/form_cell_bg"
+                    android:hint="Enter Patient Name"
+                    android:imeOptions="actionNext"
+                    android:padding="15dp"
+                    android:singleLine="true"
+                    android:textColor="@color/darkblue"
+                    android:textColorHint="@color/divider"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.4dp"
+                android:layout_below="@+id/rr_heading"
+                android:background="@color/colorblack" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvcid"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:padding="15dp"
+                    android:text="Civil ID Number *"
+                    android:textColor="@color/colorblack"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="0.1dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:background="@color/colorblack" />
+
+                <EditText
+                    android:id="@+id/et_patientcivilid"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/form_cell_bg"
+                    android:hint="Enter  Civil ID Number"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:padding="15dp"
+                    android:singleLine="true"
+                    android:textColor="@color/darkblue"
+                    android:textColorHint="@color/divider"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.4dp"
+                android:layout_below="@+id/rr_heading"
+                android:background="@color/colorblack" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvgrnder"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:padding="15dp"
+                    android:text="Gender * "
+                    android:textColor="@color/colorblack"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="0.1dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:background="@color/colorblack" />
+
+                <RadioGroup
+                    android:id="@+id/radioSex"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center|left"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/male"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="MALE" />
+
+                    <RadioButton
+                        android:id="@+id/female"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:text="FEMALE" />
+
+                </RadioGroup>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.4dp"
+                android:layout_below="@+id/rr_heading"
+                android:background="@color/colorblack" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvagetite"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:padding="15dp"
+                    android:text="Age * "
+                    android:textColor="@color/colorblack"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="0.1dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:background="@color/colorblack" />
+
+                <EditText
+                    android:id="@+id/et_age"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/form_cell_bg"
+                    android:hint="Enter  Age"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:maxLength="2"
+                    android:padding="15dp"
+                    android:singleLine="true"
+                    android:textColor="@color/darkblue"
+                    android:textColorHint="@color/divider"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.4dp"
+                android:layout_below="@+id/rr_heading"
+                android:background="@color/colorblack" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvfunit"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:padding="15dp"
+                    android:text="Unit"
+                    android:textColor="@color/colorblack"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="0.1dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:background="@color/colorblack" />
+
+                <EditText
+                    android:id="@+id/et_unit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/form_cell_bg"
+                    android:hint="Enter  Unit"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:padding="15dp"
+                    android:singleLine="true"
+                    android:textColor="@color/darkblue"
+                    android:textColorHint="@color/divider"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.4dp"
+                android:layout_below="@+id/rr_heading"
+                android:background="@color/colorblack" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvfward"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:padding="15dp"
+                    android:text="Ward"
+                    android:textColor="@color/colorblack"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="0.1dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:background="@color/colorblack" />
+
+                <EditText
+                    android:id="@+id/et_ward"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/form_cell_bg"
+                    android:hint="Enter  Ward"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:padding="15dp"
+                    android:singleLine="true"
+                    android:textColor="@color/darkblue"
+                    android:textColorHint="@color/divider"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.4dp"
+                android:layout_below="@+id/rr_heading"
+                android:background="@color/colorblack" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvfbed"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:padding="15dp"
+                    android:text="Bed"
+                    android:textColor="@color/colorblack"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="0.1dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:background="@color/colorblack" />
+
+                <EditText
+                    android:id="@+id/et_bed"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/form_cell_bg"
+                    android:hint="Enter  Bed"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:padding="15dp"
+                    android:singleLine="true"
+                    android:textColor="@color/darkblue"
+                    android:textColorHint="@color/divider"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.4dp"
+                android:layout_below="@+id/rr_heading"
+                android:background="@color/colorblack" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvfhistory"
+                    android:layout_width="140dp"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:padding="15dp"
+                    android:lineSpacingExtra="2dp"
+                    android:text="History (including  Comorbidities)"
+                    android:textColor="@color/colorblack"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="0.1dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    android:background="@color/colorblack" />
+
+                <EditText
+                    android:id="@+id/et_extra_infor"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/form_cell_bg"
+                    android:gravity="center|top|left"
+                    android:hint="Enter  History (including  Comorbidities)"
+                    android:imeOptions="actionDone"
+                    android:inputType="textMultiLine"
+                    android:padding="15dp"
+                    android:textColor="@color/darkblue"
+                    android:textColorHint="@color/divider"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.4dp"
+                android:layout_below="@+id/rr_heading"
+                android:background="@color/colorblack" />
+
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fag_screenone_next"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:layout_margin="20dp"
+                android:src="@drawable/ic_next"
+                app:fabSize="normal" />
+
+        </LinearLayout>
+
+    </ScrollView>
+</RelativeLayout>

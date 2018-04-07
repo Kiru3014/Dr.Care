@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/form_cell_bg"
+    android:orientation="vertical"
+    android:padding="0dp"
+    tools:context=".activity.PatientForm">
+
+
+    <LinearLayout
+        android:id="@+id/section_hospital_patient"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/fragment_doctor" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/section_patient_parameters"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <include layout="@layout/fragment_patientparam" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

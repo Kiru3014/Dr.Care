@@ -12,7 +12,48 @@
     <string name="first_name">First Name</string>
     <string name="forgot_pwd">Forgot Password</string>
     <string name="enter">Submit</string>
-
     <string name="fcm_sender_id">562387292074</string>
+
+
+    <string-array name="hospital_arrays">
+        <item>Select Hospital</item>
+        <item>Hospital 1</item>
+        <item>Hospital 2</item>
+        <item>Hospital 3</item>
+        <item>Hospital 4</item>
+        <item>Hospital 5</item>
+        <item>Hospital 6</item>
+
+    </string-array>
+
+    <string-array name="gus_E_arrays">
+        <item>Select GCS E</item>
+        <item>1/4</item>
+        <item>2/4</item>
+        <item>3/4</item>
+        <item>4/4</item>
+
+    </string-array>
+    <string-array name="gus_V_arrays">
+        <item>Select GCS V</item>
+        <item>1/5</item>
+        <item>2/5</item>
+        <item>3/5</item>
+        <item>4/5</item>
+        <item>5/5</item>
+
+    </string-array>
+    <string-array name="gus_M_arrays">
+        <item>Select GCS M</item>
+        <item>1/6</item>
+        <item>2/6</item>
+        <item>3/6</item>
+        <item>4/6</item>
+        <item>5/6</item>
+        <item>6/6</item>
+
+
+    </string-array>
+
 
 </resources>
