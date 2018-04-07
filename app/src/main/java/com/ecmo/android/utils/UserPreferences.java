@@ -14,6 +14,9 @@ public class UserPreferences
     private static final String KEY_FIRST_NAME = "name";
     private static final String KEY_DR_ID = "docId";
     private static final String KEY_USER_EMAIL_ID = "email";
+    private static final String KEY_USER_MOB = "mobileno";
+    private static final String KEY_USER_HOSPITAL = "hospital";
+
     private static final String KEY_IS_LOGGED_IN = "isLogin";
     private static final String KEY_SESSION_ID = "session";
     private static final String PUSHWOSH_TOKEN = "pushwosh_token";
@@ -21,7 +24,6 @@ public class UserPreferences
     private SharedPreferences.Editor editor;
     private Context context;
     private int PRIVATE_MODE = 0;
-
 
 
     // Constructor
@@ -100,5 +102,22 @@ public class UserPreferences
         return pref.getString(PUSHWOSH_TOKEN, "");
     }
 
+    public  String getKeyUserMob() {
+        return pref.getString(KEY_USER_MOB, "");
+    }
 
+    public  String getKeyUserHospital() {
+        return pref.getString(KEY_USER_HOSPITAL, "");
+    }
+
+    public void setUserMob( String mobileno) {
+        editor.putString(KEY_USER_MOB, mobileno);
+        editor.commit();
+    }
+
+    public void setUserHospital( String hospitalnmae) {
+        editor.putString(KEY_USER_HOSPITAL, hospitalnmae);
+        editor.commit();
+
+    }
 }

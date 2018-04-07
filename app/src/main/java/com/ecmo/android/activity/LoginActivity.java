@@ -160,13 +160,15 @@ public class LoginActivity extends FragmentActivity implements View.OnClickListe
             {
                 commonLoaderstop();
                 LoginResponse loginResponse= response.body();
-                if(loginResponse!=null&&loginResponse.getResult().equalsIgnoreCase("SUCCESS"))
+                if(loginResponse!=null&&loginResponse.getResult().equals("SUCCESS") && loginResponse.getData()!=null)
                 {
                     userPreferences.setUserLoggedIn(true);
                     userPreferences.setUserId(loginResponse.getData().getDocid().toString());
                     userPreferences.setEmailId(loginResponse.getData().getEmail());
                     userPreferences.setSession(loginResponse.getData().getSessid());
                     userPreferences.setFirstName(loginResponse.getData().getName());
+                    userPreferences.setUserMob(loginResponse.getData().getPhone());
+                    userPreferences.setUserHospital(loginResponse.getData().getHospitalname());
                     zEmail.setText("");
                     zPassword.setText("");
                     Intent intent = new Intent(getApplicationContext(), HomeActivity.class);

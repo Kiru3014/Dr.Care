@@ -9,4 +9,41 @@
         <item name="android:statusBarColor" tools:targetApi="lollipop">@android:color/black</item>
     </style>
 
+
+    <style name="Header">
+        <item name="android:layout_height">@dimen/margin50</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:paddingLeft">@dimen/margin10</item>
+        <item name="android:paddingRight">@dimen/margin10</item>
+    </style>
+
+    <style name="hintText" parent="PrimaryText">
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:textColorHint">@color/colorSecondaryText</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <style name="PrimaryText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/colorblack</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="NewAddressEditText" parent="hintText">
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:layout_height">35dp</item>
+    </style>
+
+
+    <style name="Divider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">2dp</item>
+        <item name="android:background">@color/colorBorder</item>
+    </style>
+
+    <style name="DividerThin" parent="Divider">
+        <item name="android:layout_height">1dp</item>
+    </style>
+
 </resources>

@@ -1,10 +1,12 @@
 package com.ecmo.android;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -25,6 +27,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ecmo.android.activity.HelpActivity;
+import com.ecmo.android.activity.LoginActivity;
 import com.ecmo.android.utils.Helper;
 import com.ecmo.android.utils.UserPreferences;
 
@@ -60,7 +63,7 @@ public class BaseActivity extends AppCompatActivity
         textView.setTypeface(Helper.getSharedHelper().getLightFont());
         textView.setText(msg);
         final Toast toast = new Toast(getApplicationContext());
-        toast.setDuration((int) 1);
+        toast.setDuration(Toast.LENGTH_LONG);
         toast.setGravity(Gravity.BOTTOM, 0, 170);
         toast.setView(layout);
         toast.show();
@@ -71,7 +74,7 @@ public class BaseActivity extends AppCompatActivity
             public void run() {
                 toast.cancel();
             }
-        }, 1000);
+        }, 2000);
     }
 
     @Override
@@ -123,6 +126,40 @@ public class BaseActivity extends AppCompatActivity
         NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         manager.notify(0, builder.build());
 
+    }
+
+
+    public void showConfirmDialog(Context c) {
+        final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(c);
+
+        alertDialogBuilder.setTitle("YOU WANT TO LOGOUT");
+
+        alertDialogBuilder.setPositiveButton("NO",
+                new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        arg0.dismiss();
+                    }
+                });
+
+        alertDialogBuilder.setNegativeButton("YES",
+                new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        userPreferences.clearSession();
+                        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(intent);
+                        finish();
+
+                    }
+                });
+
+        final AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.setCanceledOnTouchOutside(false);
+        alertDialog.show();
     }
 
 
