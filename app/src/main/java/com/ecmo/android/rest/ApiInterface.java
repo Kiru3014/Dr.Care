@@ -1,5 +1,6 @@
 package com.ecmo.android.rest;
 
+import com.ecmo.android.model.request.ForgotPasswordRequest;
 import com.ecmo.android.model.request.LoginRequest;
 import com.ecmo.android.model.request.RegisterRequest;
 import com.ecmo.android.model.response.LoginResponse;
@@ -25,6 +26,13 @@ public interface ApiInterface
             "Content-Type: application/json"
     })
     Call<LoginResponse> getLoginRequest(@Body LoginRequest loginRequest);
+
+    @POST("ForgotPassword")
+    @Headers({
+            "Accept: application/json",
+            "Content-Type: application/json"
+    })
+    Call<RegisterResponse> getForgotpasswordRequest(@Body ForgotPasswordRequest forgotPasswordRequest);
 }
 
 

@@ -70,9 +70,9 @@ public class UserPreferences
     }
 
 
-    public void setSession(String isArMode)
+    public void setSession(String sessionid)
     {
-        editor.putString(KEY_SESSION_ID, isArMode);
+        editor.putString(KEY_SESSION_ID, sessionid);
         editor.commit();
     }
 

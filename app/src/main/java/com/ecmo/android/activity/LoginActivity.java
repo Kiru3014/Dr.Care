@@ -160,7 +160,7 @@ public class LoginActivity extends FragmentActivity implements View.OnClickListe
             {
                 commonLoaderstop();
                 LoginResponse loginResponse= response.body();
-                if(loginResponse!=null&&loginResponse.getResult().equals("SUCCESS"))
+                if(loginResponse!=null&&loginResponse.getResult().equalsIgnoreCase("SUCCESS"))
                 {
                     userPreferences.setUserLoggedIn(true);
                     userPreferences.setUserId(loginResponse.getData().getDocid().toString());

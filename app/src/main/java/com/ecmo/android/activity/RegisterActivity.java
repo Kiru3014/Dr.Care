@@ -146,7 +146,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
                 commonLoaderstop();
                 RegisterResponse registerResponse = response.body();
                 if (registerResponse != null) {
-                    if (registerResponse.getResult().equals("Success")) {
+                    if (registerResponse.getResult().equalsIgnoreCase("Success")) {
                         zFirstName.setText("");
                         zHospital.setText("");
                         zEmail.setText("");
