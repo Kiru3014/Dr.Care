@@ -15,7 +15,7 @@ import com.ecmo.android.utils.Helper;
 public class HomeActivity extends BaseActivity implements View.OnClickListener {
     TextView mtxtgallery, mtxthelp, mtxtreferpatient, mtxtreferstatus;
     LinearLayout mllgallery, mllhelp, mllreferpatient, mllreferstatus;
-    Button mcall;
+    Button mcall,logout_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +32,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         mtxtreferpatient = (TextView) findViewById(R.id.tv_referpatient);
         mtxtreferstatus = (TextView) findViewById(R.id.tv_patientstatus);
         mcall = (Button) findViewById(R.id.btn_phonecall);
-
+        logout_btn=findViewById(R.id.logout_btn);
         mllgallery = (LinearLayout) findViewById(R.id.rv_gallery);
         mllhelp = (LinearLayout) findViewById(R.id.rv_help);
         mllreferpatient = (LinearLayout) findViewById(R.id.rv_referpatient);
@@ -43,6 +43,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         mllreferpatient.setOnClickListener(this);
         mllreferstatus.setOnClickListener(this);
         mcall.setOnClickListener(this);
+        logout_btn.setOnClickListener(this);
 
     }
 
@@ -58,7 +59,8 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.rv_gallery:
-                startActivity(new Intent(getApplicationContext(), GalleryActivity.class));
+//                startActivity(new Intent(getApplicationContext(), GalleryActivity.class));
+                startActivity(new Intent(getApplicationContext(), ProfileInfoActivity.class));
                 break;
             case R.id.rv_help:
                 startActivity(new Intent(getApplicationContext(), HelpActivity.class));
@@ -71,6 +73,10 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 break;
             case R.id.btn_phonecall:
                 commonToast("Call");
+                break;
+
+            case R.id.logout_btn:
+                showConfirmDialog(HomeActivity.this);
                 break;
         }
 

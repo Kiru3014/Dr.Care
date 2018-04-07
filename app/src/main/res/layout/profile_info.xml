@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/doctor_bgnew"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorWhite">
+
+        <TextView
+            style="@style/Header"
+            android:gravity="center"
+            android:text="Profile Information" 
+            android:textSize="16dp"
+            android:textColor="@color/colorblack"/>
+
+        <TextView
+            android:id="@+id/id_close"
+            style="@style/PrimaryText"
+            android:layout_width="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:text="Close"
+            android:layout_alignParentRight="true" />
+
+    </RelativeLayout>
+
+    <View style="@style/DividerThin" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin30"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/margin20"
+                android:weightSum="10">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:enabled="false"
+                    android:gravity="center_vertical"
+                    android:layout_height="@dimen/margin30"
+                    android:text="Full Name"
+                    android:textColor="@color/colorHint" />
+
+                <TextView
+                    android:id="@+id/fullname"
+                    style="@style/hintText"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin30"
+                    android:gravity="center_vertical"
+                    android:paddingStart="@dimen/margin20"
+                    android:textAlignment="viewStart" />
+
+            </LinearLayout>
+
+            <View style="@style/DividerThin" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin30"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/margin20"
+                android:weightSum="10">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/margin30"
+                    android:gravity="center_vertical"
+                    android:text="Hospital "
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/colorHint" />
+
+                <TextView
+                    android:id="@+id/hospitalname"
+                    style="@style/hintText"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin30"
+                    android:enabled="false"
+                    android:gravity="center_vertical"
+                    android:paddingStart="@dimen/margin20" />
+
+            </LinearLayout>
+
+            <View style="@style/DividerThin" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin30"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/margin20"
+                android:weightSum="10">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/margin30"
+                    android:gravity="center_vertical"
+                    android:text="Mobile No"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/colorHint" />
+
+                <TextView
+                    android:id="@+id/mobile_no_value"
+                    style="@style/hintText"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin30"
+                    android:enabled="false"
+                    android:gravity="center_vertical"
+                    android:paddingStart="@dimen/margin20"
+                    android:textAlignment="viewStart" />
+
+            </LinearLayout>
+
+            <View style="@style/DividerThin" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin30"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/margin20"
+                android:weightSum="10">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/margin30"
+                    android:gravity="center_vertical"
+                    android:text="Email Id"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/colorHint" />
+
+                <TextView
+                    android:id="@+id/email_ID_value"
+                    style="@style/hintText"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin30"
+                    android:enabled="false"
+                    android:gravity="center_vertical"
+                    android:paddingStart="@dimen/margin20"
+                    />
+
+            </LinearLayout>
+
+            <View
+                style="@style/DividerThin"
+                android:layout_marginBottom="@dimen/margin5" />
+
+
+            <Button
+                android:id="@+id/btn_edit_profile"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:layout_gravity="center"
+                android:layout_marginEnd="@dimen/margin5"
+                android:layout_marginStart="@dimen/margin5"
+                android:layout_marginTop="@dimen/margin10"
+                android:background="@drawable/apply_btn_background"
+                android:text="Edit Profile"
+                android:textColor="@color/colorWhite"
+                android:textSize="14sp" />
+
+
+            <Button
+                android:id="@+id/btn_change_pwd"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin50"
+                android:textColor="@color/colorWhite"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/margin5"
+                android:layout_marginRight="@dimen/margin5"
+                android:layout_marginTop="@dimen/margin10"
+                android:background="@drawable/apply_btn_background"
+                android:textSize="14sp"
+                android:text="Change Password" />
+        </LinearLayout>
+
+
+
+</LinearLayout>
