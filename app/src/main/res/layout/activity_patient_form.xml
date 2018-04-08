@@ -13,7 +13,8 @@
         android:id="@+id/section_hospital_patient"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:visibility="visible">
 
         <include layout="@layout/fragment_doctor" />
 
@@ -32,4 +33,48 @@
     </LinearLayout>
 
 
+    <LinearLayout
+        android:id="@+id/section_ventilation_parameters"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <include layout="@layout/fragment_ventilation" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/section_cardiovascular"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <include layout="@layout/fragment_cardiovascularparams" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/section_agents"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <include layout="@layout/fragment_agent_dose" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/section_investigation"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <include layout="@layout/fragment_investigation" />
+
+    </LinearLayout>
 </LinearLayout>
