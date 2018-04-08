@@ -7,7 +7,7 @@ public class RegisterRequest
 {
     @SerializedName("civilid")
     @Expose
-    private Integer civilid;
+    private String civilid;
     @SerializedName("name")
     @Expose
     private String name;
@@ -46,7 +46,7 @@ public class RegisterRequest
     private String sessid;
 
     public RegisterRequest(String civilid, String name, String email, String phone, String password, Integer hospitalId, Integer specialistId, Integer userType, String deviceToken, String deviceId, Integer createdBy, String transactiontype, String sessid) {
-        this.civilid = Integer.parseInt(civilid);
+        this.civilid = civilid;
         this.name = name;
         this.email = email;
         this.phone = phone;
@@ -56,16 +56,16 @@ public class RegisterRequest
         this.userType = userType;
         this.deviceToken = deviceToken;
         this.deviceId = deviceId;
-        this.createdBy = createdBy;
+        this.createdBy = 0;
         this.transactiontype = transactiontype;
         this.sessid = sessid;
     }
 
-    public Integer getCivilid() {
+    public String getCivilid() {
         return civilid;
     }
 
-    public void setCivilid(Integer civilid) {
+    public void setCivilid(String civilid) {
         this.civilid = civilid;
     }
 

@@ -50,20 +50,22 @@
             android:textCursorDrawable="@drawable/color_cursor"
             android:textSize="@dimen/normalText" />
 
-        <AutoCompleteTextView
+        <Spinner
             android:id="@+id/et_hospitalname"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/margin40"
+            android:layout_height="40dp"
             android:layout_marginTop="@dimen/margin5"
             android:background="@drawable/form_cell_bg"
-            android:cursorVisible="true"
-            android:hint="@string/hospital_name"
-            android:inputType="textCapWords"
-            android:singleLine="true"
-            android:nextFocusDown="@+id/et_civilid"            android:textColor="@color/colorPrimaryDark"
-            android:textColorHint="@color/divider"
-            android:textCursorDrawable="@drawable/color_cursor"
-            android:textSize="@dimen/normalText" />
+            />
+
+        <Spinner
+            android:id="@+id/dr_speacility"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="@dimen/margin5"
+            android:background="@drawable/form_cell_bg"
+            />
+
 
         <EditText
             android:id="@+id/et_civilid"

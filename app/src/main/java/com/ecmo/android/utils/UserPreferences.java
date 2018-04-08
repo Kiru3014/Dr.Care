@@ -16,6 +16,7 @@ public class UserPreferences
     private static final String KEY_USER_EMAIL_ID = "email";
     private static final String KEY_USER_MOB = "mobileno";
     private static final String KEY_USER_HOSPITAL = "hospital";
+    private static final String KEY_USER_SPECIALITY = "speciality";
 
     private static final String KEY_IS_LOGGED_IN = "isLogin";
     private static final String KEY_SESSION_ID = "session";
@@ -119,5 +120,15 @@ public class UserPreferences
         editor.putString(KEY_USER_HOSPITAL, hospitalnmae);
         editor.commit();
 
+    }
+
+    public void setUserSpeciality( String speciality) {
+        editor.putString(KEY_USER_SPECIALITY, speciality);
+        editor.commit();
+
+    }
+
+    public  String getKeyUserSpeciality() {
+        return pref.getString(KEY_USER_SPECIALITY, "");
     }
 }

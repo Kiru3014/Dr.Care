@@ -15,7 +15,7 @@ import com.ecmo.android.utils.UserPreferences;
 public class ProfileInfoActivity extends BaseActivity {
     private TextView name, contactNO, emailID;
     private Button edit_profile,chnagepwd;
-    private TextView id_close, hospitalname;
+    private TextView id_close, hospitalname,specility;
     private UserPreferences userSharedPreferences;
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
@@ -37,6 +37,7 @@ public class ProfileInfoActivity extends BaseActivity {
         contactNO.setText(userSharedPreferences.getKeyUserMob());
         hospitalname.setText(userSharedPreferences.getKeyUserHospital());
         emailID.setText(userSharedPreferences.getEmailId());
+        specility.setText(userSharedPreferences.getKeyUserSpeciality());
     }
 
     /**
@@ -50,7 +51,7 @@ public class ProfileInfoActivity extends BaseActivity {
         id_close = findViewById(R.id.id_close);
         edit_profile=findViewById(R.id.btn_edit_profile);
         chnagepwd=findViewById(R.id.btn_change_pwd);
-
+        specility=findViewById(R.id.specility);
 
         id_close.setOnClickListener(mClicked);
         edit_profile.setOnClickListener(mClicked);

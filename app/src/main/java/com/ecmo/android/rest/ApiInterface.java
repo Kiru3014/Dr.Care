@@ -1,10 +1,12 @@
 package com.ecmo.android.rest;
+
 import com.ecmo.android.model.request.ChangepasswordRequest;
 import com.ecmo.android.model.request.EditProfileRequest;
-
 import com.ecmo.android.model.request.ForgotPasswordRequest;
+import com.ecmo.android.model.request.HospitalReq;
 import com.ecmo.android.model.request.LoginRequest;
 import com.ecmo.android.model.request.RegisterRequest;
+import com.ecmo.android.model.response.HospitalList;
 import com.ecmo.android.model.response.LoginResponse;
 import com.ecmo.android.model.response.RegisterResponse;
 
@@ -15,6 +17,24 @@ import retrofit2.http.POST;
 
 public interface ApiInterface
 {
+
+    @POST("GetHospitalLIst")
+    @Headers({
+            "Accept: application/json",
+            "Content-Type: application/json"
+    })
+    Call<HospitalList> getallhospitals(@Body HospitalReq hospreq);
+
+
+
+    @POST("GetSpecialistLIst")
+    @Headers({
+            "Accept: application/json",
+            "Content-Type: application/json"
+    })
+    Call<HospitalList> getallSpeciality(@Body HospitalReq hospreq);
+
+
     @POST("AddUpdateDoctor")
     @Headers({
             "Accept: application/json",

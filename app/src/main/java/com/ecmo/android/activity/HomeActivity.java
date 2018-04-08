@@ -9,7 +9,15 @@ import android.widget.TextView;
 
 import com.ecmo.android.BaseActivity;
 import com.ecmo.android.R;
+import com.ecmo.android.model.request.HospitalReq;
+import com.ecmo.android.model.response.HospitalList;
+import com.ecmo.android.rest.ApiClient;
+import com.ecmo.android.rest.ApiInterface;
 import com.ecmo.android.utils.Helper;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class HomeActivity extends BaseActivity implements View.OnClickListener {
@@ -24,6 +32,8 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
 
         initviews();
         initfonts();
+        getHospitallistfromapi();
+        getSpecialitylistfromapi();
     }
 
     private void initviews() {
@@ -45,6 +55,48 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         mcall.setOnClickListener(this);
         logout_btn.setOnClickListener(this);
 
+    }
+
+    private void getHospitallistfromapi() {
+        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+        Call<HospitalList> call = apiService.getallhospitals(new HospitalReq("getgospital"));
+        call.enqueue(new Callback<HospitalList>() {
+            @Override
+            public void onResponse(Call<HospitalList> call, Response<HospitalList> response)
+            {
+                HospitalList hosplist= response.body();
+                if(hosplist!=null&&hosplist.getResult().equals("SUCCESS") && hosplist.getData()!=null)
+                {
+                    setHospitallist(hosplist.getData());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<HospitalList> call, Throwable t) {
+
+            }
+        });
+    }
+
+    private void getSpecialitylistfromapi() {
+        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+        Call<HospitalList> call = apiService.getallSpeciality(new HospitalReq("getspesialist"));
+        call.enqueue(new Callback<HospitalList>() {
+            @Override
+            public void onResponse(Call<HospitalList> call, Response<HospitalList> response)
+            {
+                HospitalList hosplist= response.body();
+                if(hosplist!=null&&hosplist.getResult().equals("SUCCESS") && hosplist.getData()!=null)
+                {
+                    setSpecialitylist(hosplist.getData());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<HospitalList> call, Throwable t) {
+
+            }
+        });
     }
 
     private void initfonts() {
@@ -69,7 +121,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 commonToast("Refer Patient");
                 break;
             case R.id.rv_patientstatus:
-                commonToast("Patient Status");
+                startActivity(new Intent(getApplicationContext(), RefPatientlistActivity.class));
                 break;
             case R.id.btn_phonecall:
                 commonToast("Call");

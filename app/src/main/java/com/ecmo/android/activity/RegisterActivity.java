@@ -1,31 +1,30 @@
 package com.ecmo.android.activity;
 
-import android.Manifest;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.content.Context;
-import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.telephony.TelephonyManager;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 
 import com.ecmo.android.BaseActivity;
+import com.ecmo.android.R;
+import com.ecmo.android.model.request.HospitalReq;
 import com.ecmo.android.model.request.RegisterRequest;
+import com.ecmo.android.model.response.HospitalList;
+import com.ecmo.android.model.response.Hospitalitem;
 import com.ecmo.android.model.response.RegisterResponse;
 import com.ecmo.android.rest.ApiClient;
 import com.ecmo.android.rest.ApiInterface;
 import com.ecmo.android.utils.Constants;
 import com.ecmo.android.utils.Helper;
 import com.ecmo.android.utils.UserPreferences;
-import com.ecmo.android.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,9 +37,9 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
 
     EditText zFirstName, zEmail, zPassword, zMobile, ztvcivilId;
     Button zRegister;
-    AutoCompleteTextView zHospital;
+    Spinner zHospital,dr_speciality;
     ImageView zBack;
-    String sFirstName, sHospital, sEmail, sPassword, sMobile, scivilid, deviceid;
+    String sFirstName, sHospital, sEmail, sPassword, sMobile, scivilid, specilaity;
     UserPreferences userPreferences;
     private static final int MY_PERMISSIONS_REQUEST_READ_PHONE_STATE = 0;
 
@@ -50,35 +49,78 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         userPreferences = new UserPreferences(this);
-
-        //initilizise views
         initViews();
+        getHospitallistfromapi();
+        getSpecialitylistfromapi();
+
         //initilizise Fonts
         initfonts();
 
 
     }
 
+    private void getHospitallistfromapi() {
+        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+        Call<HospitalList> call = apiService.getallhospitals(new HospitalReq("getgospital"));
+        call.enqueue(new Callback<HospitalList>() {
+            @Override
+            public void onResponse(Call<HospitalList> call, Response<HospitalList> response)
+            {
+                HospitalList hosplist= response.body();
+                if(hosplist!=null&&hosplist.getResult().equals("SUCCESS") && hosplist.getData()!=null)
+                {
+                    setHospitallist(hosplist.getData());
+                    zHospital.setAdapter(getAutosuggestion(getApplicationContext()));
+                }
+            }
+
+            @Override
+            public void onFailure(Call<HospitalList> call, Throwable t) {
+                zHospital.setAdapter(getAutosuggestion(getApplicationContext()));
+            }
+        });
+    }
+
+    private void getSpecialitylistfromapi() {
+        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+        Call<HospitalList> call = apiService.getallSpeciality(new HospitalReq("getspesialist"));
+        call.enqueue(new Callback<HospitalList>() {
+            @Override
+            public void onResponse(Call<HospitalList> call, Response<HospitalList> response)
+            {
+                HospitalList hosplist= response.body();
+                if(hosplist!=null&&hosplist.getResult().equals("SUCCESS") && hosplist.getData()!=null)
+                {
+                    setSpecialitylist(hosplist.getData());
+                    dr_speciality.setAdapter(getSpeciality(getApplicationContext()));
+                }
+            }
+
+            @Override
+            public void onFailure(Call<HospitalList> call, Throwable t) {
+                dr_speciality.setAdapter(getSpeciality(getApplicationContext()));
+            }
+        });
+    }
+
     private void initViews() {
         zFirstName = (EditText) findViewById(R.id.et_first_name);
-        zHospital = (AutoCompleteTextView) findViewById(R.id.et_hospitalname);
+        zHospital = (Spinner) findViewById(R.id.et_hospitalname);
+        dr_speciality= (Spinner) findViewById(R.id.dr_speacility);
         zEmail = (EditText) findViewById(R.id.et_email);
         zPassword = (EditText) findViewById(R.id.et_password);
         zMobile = (EditText) findViewById(R.id.et_mobile);
         zRegister = (Button) findViewById(R.id.btn_register);
         zBack = (ImageView) findViewById(R.id.img_back);
         ztvcivilId = (EditText) findViewById(R.id.et_civilid);
+
         zRegister.setOnClickListener(this);
         zBack.setOnClickListener(this);
-        zHospital.setThreshold(1);
-        zHospital.setAdapter(getAutosuggestion(this));
-
-
     }
 
     private void initfonts() {
         zFirstName.setTypeface(Helper.getSharedHelper().getNormalFont());
-        zHospital.setTypeface(Helper.getSharedHelper().getNormalFont());
+//        zHospital.setTypeface(Helper.getSharedHelper().getNormalFont());
         zEmail.setTypeface(Helper.getSharedHelper().getNormalFont());
         zPassword.setTypeface(Helper.getSharedHelper().getNormalFont());
         zMobile.setTypeface(Helper.getSharedHelper().getNormalFont());
@@ -105,16 +147,20 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     private void valiData() {
         sFirstName = zFirstName.getText().toString().trim();
-        sHospital = zHospital.getText().toString().trim();
+        sHospital = gethospitalvalue(zHospital.getSelectedItem().toString());
+        specilaity=getSpecilityvalue(dr_speciality.getSelectedItem().toString());
         sEmail = zEmail.getText().toString().trim();
         sPassword = zPassword.getText().toString().trim();
         sMobile = zMobile.getText().toString().trim();
         scivilid = ztvcivilId.getText().toString().trim();
         if (sFirstName == null || sFirstName.isEmpty()) {
             commonToast(Constants.REG_FIRST_NAME);
-        } else if (sHospital == null || sHospital.isEmpty()) {
+        } else if (sHospital == null || sHospital.isEmpty() || sHospital.equals("0")) {
             commonToast(Constants.REG_HOSPITAL_NAME);
-        } else if (!Helper.isValidEmail(sEmail) || sEmail.isEmpty()) {
+        }else if (specilaity == null || specilaity.isEmpty() || specilaity.equals("0")) {
+            commonToast(Constants.REG_SPECIALITY);
+        }
+        else if (!Helper.isValidEmail(sEmail) || sEmail.isEmpty()) {
             commonToast(Constants.REG_VALID_EMAIL);
         } else if (sPassword == null || sPassword.isEmpty()) {
             commonToast(Constants.REG_PASSOWRD);
@@ -123,13 +169,13 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
         } else if (scivilid == null || scivilid.isEmpty()) {
             commonToast(Constants.REG_CIVILID);
         } else {
-            initRegister(sFirstName, sHospital, sEmail, sPassword, sMobile, scivilid);
+            initRegister(sFirstName, sHospital,specilaity, sEmail, sPassword, sMobile, scivilid);
         }
     }
 
     @SuppressLint("HardwareIds")
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
-    private void initRegister(String FirstName, String Hospitalname, String Email, String Password, String Mobile, String civilid) {
+    private void initRegister(String FirstName, String Hospitalname,String speciality, String Email, String Password, String Mobile, String civilid) {
         commonLoaderstart();
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         final RegisterRequest registerRequest = new RegisterRequest(
@@ -137,7 +183,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
                 FirstName,
                 Email,
                 Mobile,
-                Password, 6, 7, 1, userPreferences.getPushwooshToken(),
+                Password,Integer.parseInt(Hospitalname),Integer.parseInt(speciality), 1, userPreferences.getPushwooshToken(),
                 "android", 1, "insert", Constants.SESSIONID);
         Call<RegisterResponse> call = apiService.getRegisterRequest(registerRequest);
         call.enqueue(new Callback<RegisterResponse>() {
@@ -148,7 +194,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
                 if (registerResponse != null) {
                     if (registerResponse.getResult().equalsIgnoreCase("Success")) {
                         zFirstName.setText("");
-                        zHospital.setText("");
+//                        zHospital.setText("");
                         zEmail.setText("");
                         zPassword.setText("");
                         zMobile.setText("");
@@ -156,7 +202,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
                         zFirstName.requestFocus();
                         commonToast(Constants.REFERAL_MSG);
                     } else {
-                        commonToast("Please Enter All the Details Correctly");
+                        commonToast("Please check email id , it might have registered already.");
                     }
                 }
 
@@ -169,18 +215,8 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
 
             }
         });
-
-
     }
 
 
-    private ArrayAdapter<String> getAutosuggestion(Context context) {
-        List<String> list = new ArrayList<String>();
-        for (int i = 0; i < 7; i++) {
-            list.add("Hospital " + i);
-        }
 
-
-        return new ArrayAdapter<String>(context, android.R.layout.simple_dropdown_item_1line, list);
-    }
 }

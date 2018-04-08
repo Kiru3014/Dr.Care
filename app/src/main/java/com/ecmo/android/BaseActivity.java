@@ -23,13 +23,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.ArrayAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ecmo.android.activity.HelpActivity;
 import com.ecmo.android.activity.LoginActivity;
+import com.ecmo.android.model.response.Hospitalitem;
 import com.ecmo.android.utils.Helper;
 import com.ecmo.android.utils.UserPreferences;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 @SuppressLint("Registered")
@@ -37,6 +42,62 @@ public class BaseActivity extends AppCompatActivity
 {
     public Dialog mAlertDialog;
     UserPreferences userPreferences;
+    static List<Hospitalitem> hospitallist;
+    static List<Hospitalitem> specialitylist;
+
+    public static List<Hospitalitem> getHospitallist() {
+        return hospitallist;
+    }
+
+    public static void setHospitallist(List<Hospitalitem> hospitallist) {
+        BaseActivity.hospitallist = hospitallist;
+    }
+
+    public static List<Hospitalitem> getSpecialitylist() {
+        return specialitylist;
+    }
+
+    public static void setSpecialitylist(List<Hospitalitem> specialitylist) {
+        BaseActivity.specialitylist = specialitylist;
+    }
+
+    public String gethospitalvalue(String hospital){
+        List<Hospitalitem> hosplist= getHospitallist();
+        for (int i = 0; i < hosplist.size(); i++) {
+            if(hospital.equals(hosplist.get(i).getText()))
+                return hosplist.get(i).getValue();
+        }
+        return "0";
+    }
+
+    public String gethospitalname(String hospitalvalue){
+        List<Hospitalitem> hosplist= getHospitallist();
+        for (int i = 0; i < hosplist.size(); i++) {
+            if(hospitalvalue.equals(hosplist.get(i).getValue()))
+                return hosplist.get(i).getValue();
+        }
+        return "Select";
+    }
+
+    public String getSpecilityvalue(String speciality){
+        List<Hospitalitem> hosplist= getSpecialitylist();
+        for (int i = 0; i < hosplist.size(); i++) {
+            if(speciality.equals(hosplist.get(i).getText()))
+                return hosplist.get(i).getValue();
+        }
+        return "0";
+    }
+
+
+    public String getSpecility(String specialityvalue){
+        List<Hospitalitem> hosplist= getSpecialitylist();
+        for (int i = 0; i < hosplist.size(); i++) {
+            if(specialityvalue.equals(hosplist.get(i).getValue()))
+                return hosplist.get(i).getValue();
+        }
+        return "Select";
+    }
+
 
     @Override
     protected void onResume() {
@@ -44,6 +105,8 @@ public class BaseActivity extends AppCompatActivity
 
 
     }
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,7 +159,7 @@ public class BaseActivity extends AppCompatActivity
     }
 
     public void commonLoaderstop() {
-
+        if(mAlertDialog!=null)
         mAlertDialog.cancel();
     }
 
@@ -162,5 +225,31 @@ public class BaseActivity extends AppCompatActivity
         alertDialog.show();
     }
 
+    public ArrayAdapter<String> getSpeciality(Context context) {
+        List<String> list = new ArrayList<String>();
+        List<Hospitalitem> hosplist= getSpecialitylist();
+        if(hosplist!=null) {
+            for (int i = 0; i < hosplist.size(); i++) {
+                list.add(hosplist.get(i).getText());
+            }
+        }
+
+
+        return new ArrayAdapter<String>(context, android.R.layout.simple_dropdown_item_1line, list);
+    }
+
+
+    public ArrayAdapter<String> getAutosuggestion(Context context) {
+        List<String> list = new ArrayList<String>();
+        List<Hospitalitem> hosplist= getHospitallist();
+        if(hosplist!=null) {
+            for (int i = 0; i < hosplist.size(); i++) {
+                list.add(hosplist.get(i).getText());
+            }
+
+        }
+
+        return new ArrayAdapter<String>(context, android.R.layout.simple_dropdown_item_1line, list);
+    }
 
 }

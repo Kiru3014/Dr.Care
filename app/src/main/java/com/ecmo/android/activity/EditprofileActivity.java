@@ -6,6 +6,7 @@ import android.support.annotation.RequiresApi;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.ecmo.android.BaseActivity;
@@ -24,7 +25,8 @@ import retrofit2.Response;
  */
 
 public class EditprofileActivity extends BaseActivity {
-    private EditText name, contactNO,hospitalname;
+    private EditText name, contactNO;
+    Spinner hospitalname,speciality;
     private Button save_profile;
     private TextView id_close, emailID;
     private UserPreferences userSharedPreferences;
@@ -39,6 +41,16 @@ public class EditprofileActivity extends BaseActivity {
     }
 
 
+    private int getIndex(Spinner spinner, String myString){
+        for (int i=0;i<spinner.getCount();i++){
+            if (spinner.getItemAtPosition(i).toString().equalsIgnoreCase(myString)){
+                return i;
+            }
+        }
+
+        return 0;
+    }
+
     /**
      *  get user details from shared preference.
      */
@@ -47,13 +59,17 @@ public class EditprofileActivity extends BaseActivity {
         contactNO = findViewById(R.id.mobile_no_value);
         emailID = findViewById(R.id.email_ID_value);
         hospitalname=findViewById(R.id.hospitalname);
+        speciality=findViewById(R.id.speacility);
         id_close = findViewById(R.id.id_close);
         save_profile=findViewById(R.id.saveprofile);
 
+        hospitalname.setAdapter(getAutosuggestion(getApplicationContext()));
+        speciality.setAdapter(getSpeciality(getApplicationContext()));
 
         name.setText(userSharedPreferences.getFirstName());
         contactNO.setText(userSharedPreferences.getKeyUserMob());
-        hospitalname.setText(userSharedPreferences.getKeyUserHospital());
+        hospitalname.setSelection(getIndex(hospitalname, userSharedPreferences.getKeyUserHospital()));
+        speciality.setSelection(getIndex(speciality, userSharedPreferences.getKeyUserSpeciality()));
         emailID.setText(userSharedPreferences.getEmailId());
 
         id_close.setOnClickListener(mClicked);
@@ -73,20 +89,18 @@ public class EditprofileActivity extends BaseActivity {
                     break;
 
                 case R.id.saveprofile:
-                   save_profile();
+                   save_profile(gethospitalvalue(hospitalname.getSelectedItem().toString()),getSpecilityvalue(speciality.getSelectedItem().toString()));
                     break;
 
             }
         }
     };
 
-    private void save_profile() {
-
-
+    private void save_profile(String hospid,String specilatyid) {
         commonLoaderstart();
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         final EditProfileRequest editProfileRequest = new EditProfileRequest(name.getText().toString(),emailID.getText().toString(),contactNO.getText().toString(),
-                "1","2",userSharedPreferences.getUserId(),"updateuser", userSharedPreferences.getSession());
+                hospid,specilatyid,userSharedPreferences.getUserId(),"updateuser", userSharedPreferences.getSession());
         Call<EditProfileRequest> call = apiService.editProfile(editProfileRequest);
 
         call.enqueue(new Callback<EditProfileRequest>() {
@@ -99,7 +113,8 @@ public class EditprofileActivity extends BaseActivity {
                     userSharedPreferences.setUserLoggedIn(true);
                     userSharedPreferences.setFirstName(name.getText().toString());
                     userSharedPreferences.setUserMob(contactNO.getText().toString());
-                    userSharedPreferences.setUserHospital(hospitalname.getText().toString());
+                    userSharedPreferences.setUserHospital(hospitalname.getSelectedItem().toString());
+                    userSharedPreferences.setUserSpeciality(speciality.getSelectedItem().toString());
                     finish();
                 }
                 else

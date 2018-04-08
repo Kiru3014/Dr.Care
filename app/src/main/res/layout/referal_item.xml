@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorFilterBackground"
+    android:orientation="vertical"
+    android:padding="5dp">
+
+
+
+    <RelativeLayout
+        android:id="@+id/mainlayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin10"
+        android:layout_marginBottom="@dimen/margin10"
+        android:background="@color/colorWhite">
+
+        <View
+            android:id="@+id/divview"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/colorClearfilter" />
+
+
+        <TextView
+            android:id="@+id/viewdetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:paddingTop="@dimen/margin10"
+            android:text="View Details"
+            android:textSize="16sp"
+            android:textColor="@color/colorblack"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            />
+        <LinearLayout
+            android:id="@+id/status_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/divview"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txt_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/margin10"
+                android:paddingTop="@dimen/margin10"
+                android:text="Ref Status : "
+                android:textColor="@color/colorButton"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/ref_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/divview"
+                android:paddingStart="10dp"
+                android:paddingTop="5dp"
+                android:text="Pending"
+                android:textAllCaps="true"
+                android:textColor="@color/colorButton"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/status_layout"
+            android:orientation="horizontal"
+            android:id="@+id/first_inner_R_layout">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/margin10"
+                android:paddingTop="@dimen/margin10"
+                android:text="Pat Name"
+                android:textColor="@color/textcolor"
+                android:textSize="20sp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textcolor"
+                android:text=" : "
+                android:textSize="20sp"
+                />
+            <TextView
+                android:id="@+id/patname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/margin5"
+                android:paddingTop="@dimen/margin10"
+                android:textColor="@color/textcolor"
+                android:text="vdjhcgfhvghk ehk"
+                android:textSize="20sp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" , Age : "/>
+
+            <TextView
+                android:id="@+id/patage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/second_inner_R_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@+id/first_inner_R_layout">
+
+            <TextView
+                android:id="@+id/hospital_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="@dimen/margin10"
+                android:paddingLeft="@dimen/margin10"
+                android:paddingTop="@dimen/margin10"
+                android:text="Hospital Name"
+                android:textColor="@color/colorSecondaryText"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/ref_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_status"
+                android:layout_toEndOf="@+id/lbl_placed_Date"
+                android:paddingEnd="@dimen/margin10"
+                android:paddingTop="@dimen/margin10"
+                android:textColor="@color/colorSecondaryText"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <View
+
+            android:id="@+id/view1"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/colorClearfilter"
+            android:layout_below="@+id/second_inner_R_layout"/>
+
+        <LinearLayout
+            android:id="@+id/forth_inner_R_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@+id/view1">
+
+
+            <TextView
+                android:id="@+id/txt_diag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/margin10"
+                android:paddingBottom="@dimen/margin10"
+                android:paddingTop="@dimen/margin10"
+                android:textColor="@color/colorText"
+                android:text="Diagnosis"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" : "
+                android:textColor="@color/colorText"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/diagnosis"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:maxLines="2"
+                android:padding="@dimen/margin10"
+                android:textColor="@color/colorText"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_below="@+id/forth_inner_R_layout"
+            android:layout_width="fill_parent"
+            android:layout_marginTop="@dimen/margin10"
+            android:layout_height="0.5dp"
+            android:background="@color/colorClearfilter" />
+    </RelativeLayout>
+
+
+
+</LinearLayout>

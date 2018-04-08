@@ -9,12 +9,13 @@ import com.google.gson.annotations.SerializedName;
 
 public class ChangepasswordRequest {
 
+
     @SerializedName("oldpassword")
     @Expose
     String oldpassword;
-    @SerializedName("newpassword")
+    @SerializedName("password")
     @Expose
-    String newpassword;
+    String password;
     @SerializedName("docid")
     @Expose
     String docid;
@@ -29,9 +30,11 @@ public class ChangepasswordRequest {
 
 
 
+
+
     public ChangepasswordRequest(String oldpassword, String newpassword,String docid, String transactiontype, String sessid) {
         this.oldpassword = oldpassword;
-        this.newpassword = newpassword;
+        this.password = newpassword;
         this.docid=docid;
         this.transactiontype = transactiontype;
         this.sessid = sessid;
@@ -50,11 +53,11 @@ public class ChangepasswordRequest {
     }
 
     public String getNewpassword() {
-        return newpassword;
+        return password;
     }
 
     public void setNewpassword(String newpassword) {
-        this.newpassword = newpassword;
+        this.password = newpassword;
     }
 
     public String getDocid() {

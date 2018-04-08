@@ -82,7 +82,7 @@
                 android:textAlignment="viewStart"
                 android:textColor="@color/colorHint" />
 
-            <EditText
+            <Spinner
                 android:id="@+id/hospitalname"
                 style="@style/hintText"
                 android:layout_width="match_parent"
@@ -111,7 +111,7 @@
                 android:textAlignment="viewStart"
                 android:textColor="@color/colorHint" />
 
-            <EditText
+            <Spinner
                 android:id="@+id/speacility"
                 style="@style/hintText"
                 android:layout_width="match_parent"
