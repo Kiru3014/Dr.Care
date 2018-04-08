@@ -41,7 +41,6 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
     ImageView zBack;
     String sFirstName, sHospital, sEmail, sPassword, sMobile, scivilid, specilaity;
     UserPreferences userPreferences;
-    private static final int MY_PERMISSIONS_REQUEST_READ_PHONE_STATE = 0;
 
     @SuppressLint("HardwareIds")
     @Override

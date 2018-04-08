@@ -118,7 +118,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 startActivity(new Intent(getApplicationContext(), HelpActivity.class));
                 break;
             case R.id.rv_referpatient:
-                commonToast("Refer Patient");
+                startActivity(new Intent(getApplicationContext(), PatientForm.class));
                 break;
             case R.id.rv_patientstatus:
                 startActivity(new Intent(getApplicationContext(), RefPatientlistActivity.class));

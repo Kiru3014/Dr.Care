@@ -12,7 +12,151 @@
     <string name="first_name">First Name</string>
     <string name="forgot_pwd">Forgot Password</string>
     <string name="enter">Submit</string>
-
     <string name="fcm_sender_id">562387292074</string>
+
+
+    <string-array name="hospital_arrays">
+        <item>Select Hospital</item>
+        <item>Hospital 1</item>
+        <item>Hospital 2</item>
+        <item>Hospital 3</item>
+        <item>Hospital 4</item>
+        <item>Hospital 5</item>
+        <item>Hospital 6</item>
+
+    </string-array>
+
+    <string-array name="gus_E_arrays">
+        <item>Select GCS E</item>
+        <item>1/4</item>
+        <item>2/4</item>
+        <item>3/4</item>
+        <item>4/4</item>
+    </string-array>
+
+    <string-array name="gus_V_arrays">
+        <item>Select GCS V</item>
+        <item>1/5</item>
+        <item>2/5</item>
+        <item>3/5</item>
+        <item>4/5</item>
+        <item>5/5</item>
+    </string-array>
+
+    <string-array name="gus_M_arrays">
+        <item>Select GCS M</item>
+        <item>1/6</item>
+        <item>2/6</item>
+        <item>3/6</item>
+        <item>4/6</item>
+        <item>5/6</item>
+        <item>6/6</item>
+    </string-array>
+
+
+    <string-array name="ratio">
+        <item>Select PaO2/FiO2</item>
+        <item>&gt;200</item>
+        <item>100–200</item>
+        <item>&lt;100</item>
+    </string-array>
+
+    <string-array name="pipvalue">
+        <item>Select PEEP</item>
+        <item>&lt;10</item>
+        <item>10–15</item>
+        <item>15–20</item>
+        <item>&gt;20</item>
+    </string-array>
+
+
+    <string-array name="rr">
+        <item>Select RR</item>
+        <item>&lt;20</item>
+        <item>20–40</item>
+        <item>&gt;40</item>
+    </string-array>
+
+
+    <string-array name="LungCompliance">
+        <item>Select Lung Compliance</item>
+        <item>&gt;30</item>
+        <item>30–20</item>
+        <item>20–15</item>
+        <item>15–10</item>
+        <item>10–5</item>
+        <item>&lt;5</item>
+    </string-array>
+
+
+    <string-array name="crx">
+        <item>Select CXR quadrants</item>
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
+
+    <string-array name="HR">
+        <item>Select HR </item>
+        <item>&gt;120</item>
+        <item>120–80</item>
+        <item>&lt;80</item>
+    </string-array>
+
+
+    <string-array name="BP">
+        <item>Select BP </item>
+        <item>&gt;150</item>
+        <item>150–120</item>
+        <item>120–100</item>
+        <item>100–80</item>
+        <item>&lt;80</item>
+    </string-array>
+
+    <string-array name="cvp">
+        <item>Select cvp</item>
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
+
+    <string-array name="temp">
+        <item>Select Temp</item>
+        <item>&lt;35</item>
+        <item>35–37</item>
+        <item>37–39</item>
+        <item>39–41</item>
+    </string-array>
+
+    <string-array name="CardiacIndex">
+        <item>Select Cardiac Index</item>
+        <item>1</item>
+        <item>1.5</item>
+        <item>2</item>
+        <item>2.5</item>
+        <item>3</item>
+        <item>3.5</item>
+        <item>4</item>
+        <item>4.5</item>
+        <item>5</item>
+
+    </string-array>
+
+
+    <string-array name="Leftventricularejectionfraction">
+        <item>Select Left ventricular ejection fraction</item>
+        <item>5</item>
+        <item>15</item>
+        <item>15–50</item>
+        <item>&gt;50</item>
+
+    </string-array>
+
 
 </resources>

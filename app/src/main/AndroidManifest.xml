@@ -6,31 +6,24 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-
-    <uses-permission android:name="android.permission.INTERNET"/>
-
-    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
-
-    <uses-permission android:name="android.permission.WAKE_LOCK"/>
-
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.VIBRATE" />
 
     <permission
         android:name="com.ecmo.android.permission.C2D_MESSAGE"
-        android:protectionLevel="signature"/>
-    <uses-permission
-        android:name="com.ecmo.android.permission.C2D_MESSAGE"/>
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.ecmo.android.permission.C2D_MESSAGE" />
 
     <!-- This app has permission to register and receive data message. -->
-    <uses-permission
-        android:name="com.google.android.c2dm.permission.RECEIVE"/>
-
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 
     <application
-        android:name="DrApplication"
+        android:name=".DrApplication"
         android:allowBackup="true"
         android:fullBackupContent="false"
         android:icon="@drawable/icon"
@@ -39,20 +32,24 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-
-
-        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
-
-        <meta-data android:name="PW_APPID" android:value="E8803-68B8E"/>
-
-        <meta-data android:name="PW_PROJECT_ID" android:value="A562387292074"/>
-
-        <meta-data android:name="com.pushwoosh.appid" android:value="E8803-68B8E" />
-        <meta-data android:name="com.pushwoosh.senderid" android:value="@string/fcm_sender_id" />
-
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="PW_APPID"
+            android:value="E8803-68B8E" />
+        <meta-data
+            android:name="PW_PROJECT_ID"
+            android:value="A562387292074" />
+        <meta-data
+            android:name="com.pushwoosh.appid"
+            android:value="E8803-68B8E" />
+        <meta-data
+            android:name="com.pushwoosh.senderid"
+            android:value="@string/fcm_sender_id" />
 
         <activity
-            android:name="com.ecmo.android.activity.SplashScreen"
+            android:name=".activity.SplashScreen"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -61,24 +58,23 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.ecmo.android.activity.LoginActivity"
+            android:name=".activity.LoginActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.ecmo.android.activity.RegisterActivity"
+            android:name=".activity.RegisterActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.ecmo.android.activity.ForgotPasswordActivity"
+            android:name=".activity.ForgotPasswordActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.ecmo.android.activity.HomeActivity"
+            android:name=".activity.HomeActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.ecmo.android.activity.HelpActivity"
+            android:name=".activity.HelpActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.ecmo.android.activity.GalleryActivity"
+            android:name=".activity.GalleryActivity"
             android:screenOrientation="portrait" />
-
         <activity
             android:name="com.ecmo.android.activity.ProfileInfoActivity"
             android:screenOrientation="portrait" />
@@ -89,10 +85,12 @@
             android:name="com.ecmo.android.activity.Changepassword"
             android:screenOrientation="portrait" />
 
-        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
 
         <service
-            android:name="com.ecmo.android.utils.NotificationService"
+            android:name=".utils.NotificationService"
             android:enabled="true"
             android:exported="false">
             <intent-filter android:priority="100">
@@ -100,7 +98,10 @@
             </intent-filter>
         </service>
 
-
+        <activity
+            android:name=".activity.PatientForm"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
     </application>
 
 </manifest>
