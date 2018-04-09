@@ -137,6 +137,18 @@
             android:layout_below="@+id/second_inner_R_layout"
             android:background="@color/sample_dark_red"
             android:text="REJECT" />
+
+        <TextView
+            android:id="@+id/approveddoc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_alignParentEnd="true"
+            android:padding="5dp"
+            android:textColor="@color/black_color"
+            android:visibility="gone"
+            android:textSize="14dp"
+            android:text="APPROVED"/>
     </RelativeLayout>
 
 
