@@ -112,13 +112,13 @@ public class DocListActivity  extends BaseActivity {
     };
 
     private void rejectDoc(String docid) {
-        showRejectConfirm(docid,getApplicationContext());
+        showRejectConfirm(docid,DocListActivity.this);
 
     }
 
 
     private void approveDoc(String docid) {
-        showApproveConfirm(docid,getApplicationContext());
+        showApproveConfirm(docid,DocListActivity.this);
     }
 
     public void showRejectConfirm(final String docid, Context c) {
