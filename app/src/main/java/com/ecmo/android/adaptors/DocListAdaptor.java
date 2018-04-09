@@ -43,6 +43,18 @@ public class DocListAdaptor extends RecyclerView.Adapter<DocListAdaptor.ItemRowH
         itemRowHolder.docmob.setText(docdata.getPhone());
         itemRowHolder.docemail.setText(docdata.getEmail());
 
+        if(docdata.getStatus().equalsIgnoreCase("1")){
+            itemRowHolder.approve.setVisibility(View.GONE);
+            itemRowHolder.reject.setVisibility(View.GONE);
+            itemRowHolder.approveddoc.setVisibility(View.VISIBLE);
+        }
+        else{
+            itemRowHolder.approve.setVisibility(View.VISIBLE);
+            itemRowHolder.reject.setVisibility(View.VISIBLE);
+            itemRowHolder.approveddoc.setVisibility(View.GONE);
+        }
+
+
         itemRowHolder.approve.setOnClickListener(new View.OnClickListener() {
         @Override
             public void onClick(View view) {
@@ -79,7 +91,7 @@ public class DocListAdaptor extends RecyclerView.Adapter<DocListAdaptor.ItemRowH
     protected TextView docStatus;
     protected TextView docname;
     protected TextView dochospital;
-    protected TextView docregdate;
+    protected TextView approveddoc;
     protected TextView docSpeclity;
     protected TextView docmob;
     protected TextView docemail;
@@ -95,6 +107,7 @@ public class DocListAdaptor extends RecyclerView.Adapter<DocListAdaptor.ItemRowH
         this.docemail = view.findViewById(R.id.doc_email);
         this.approve=view.findViewById(R.id.approve);
         this.reject=view.findViewById(R.id.reject);
+        this.approveddoc=view.findViewById(R.id.approveddoc);
     }
 
 }

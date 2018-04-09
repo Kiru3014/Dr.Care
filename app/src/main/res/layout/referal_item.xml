@@ -20,6 +20,18 @@
             android:layout_height="0.5dp"
             android:background="@color/colorClearfilter" />
 
+        <Button
+            android:id="@+id/viewdetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:paddingTop="@dimen/margin10"
+            android:text="VIEW"
+            android:textSize="16sp"
+            android:textColor="@color/colorblack"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"/>
+
 
         <RelativeLayout
             android:id="@+id/status_layout"
@@ -49,18 +61,7 @@
                 android:textColor="@color/colorButton"
                 android:textSize="20sp" />
 
-            <Button
-                android:id="@+id/viewdetails"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:paddingTop="@dimen/margin10"
-                android:text="VIEW"
-                android:textSize="20sp"
-                android:textColor="@color/colorblack"
-                android:layout_alignParentEnd="true"
-
-                />
+               />
         </RelativeLayout>
 
         <LinearLayout

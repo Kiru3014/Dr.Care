@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -55,6 +56,13 @@ public class RefpatentAdaptor extends RecyclerView.Adapter<RefpatentAdaptor.Item
             }
         });
 
+        itemRowHolder.view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                viewlistner.onviewClick( patdata.getReferalformid());
+            }
+        });
+
     }
 
     public void setviewclickListner(OnViewItemClickListener listner) {
@@ -82,6 +90,7 @@ public class RefpatentAdaptor extends RecyclerView.Adapter<RefpatentAdaptor.Item
         protected TextView patage;
         protected TextView patdiag;
         protected RelativeLayout mainlayout;
+        protected Button view;
 
         public ItemRowHolder(View view) {
             super(view);
@@ -95,6 +104,7 @@ public class RefpatentAdaptor extends RecyclerView.Adapter<RefpatentAdaptor.Item
 
             this.patage = view.findViewById(R.id.patage);
             this.patdiag = view.findViewById(R.id.diagnosis);
+            this.view=view.findViewById(R.id.viewdetails);
         }
 
     }

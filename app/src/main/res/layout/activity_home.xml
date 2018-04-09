@@ -85,7 +85,7 @@
             <LinearLayout
                 android:id="@+id/rv_help"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="94dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_weight="1"
                 android:gravity="center"
@@ -94,9 +94,10 @@
 
                 <ImageView
                     android:id="@+id/img_help"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
                     android:padding="5dp"
+                    android:scaleType="fitXY"
                     android:src="@drawable/ic_live_help" />
 
                 <TextView
@@ -204,7 +205,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:padding="@dimen/margin5"
-                    android:text="Patient Status"
+                    android:text="Referral Status"
                     android:textAllCaps="true"
                     android:textColor="@color/colorWhite"
                     android:textSize="14sp" />

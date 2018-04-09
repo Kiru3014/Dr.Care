@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -24,6 +25,7 @@ import retrofit2.Response;
 public class HomeActivity extends BaseActivity implements View.OnClickListener {
     TextView mtxtgallery, mtxthelp, mtxtreferpatient, mtxtreferstatus;
     LinearLayout mllgallery, mllhelp, mllreferpatient, mllreferstatus;
+    ImageView img_help;
     Button mcall,logout_btn;
     UserPreferences usp;
 
@@ -50,6 +52,12 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         mllhelp = (LinearLayout) findViewById(R.id.rv_help);
         mllreferpatient = (LinearLayout) findViewById(R.id.rv_referpatient);
         mllreferstatus = (LinearLayout) findViewById(R.id.rv_patientstatus);
+        img_help=(ImageView)findViewById(R.id.img_help);
+
+        if(usp.getDocType().equalsIgnoreCase("1")){
+            img_help.setImageDrawable(getApplicationContext().getDrawable(R.drawable.correct));
+            mtxthelp.setText("DOCTOR APPROVAL");
+        }
 
         mllgallery.setOnClickListener(this);
         mllhelp.setOnClickListener(this);

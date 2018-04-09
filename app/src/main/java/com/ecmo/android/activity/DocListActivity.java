@@ -112,19 +112,19 @@ public class DocListActivity  extends BaseActivity {
     };
 
     private void rejectDoc(String docid) {
-        showRejectConfirm(docid,getApplicationContext());
+        showRejectConfirm(docid,DocListActivity.this);
 
     }
 
 
     private void approveDoc(String docid) {
-        showApproveConfirm(docid,getApplicationContext());
+        showApproveConfirm(docid,DocListActivity.this);
     }
 
     public void showRejectConfirm(final String docid, Context c) {
         final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(c);
 
-        alertDialogBuilder.setTitle("REJECT DOCTOR REGISTRATION");
+        alertDialogBuilder.setTitle("REJECT DOCTOR REGISTRATION ?");
 
         alertDialogBuilder.setPositiveButton("NO",
                 new DialogInterface.OnClickListener() {
@@ -152,7 +152,7 @@ public class DocListActivity  extends BaseActivity {
     public void showApproveConfirm(final String docid, Context c) {
         final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(c);
 
-        alertDialogBuilder.setTitle("APPROVE DOCTOR LOGIN");
+        alertDialogBuilder.setTitle("APPROVE DOCTOR LOGIN ?");
 
         alertDialogBuilder.setPositiveButton("NO",
                 new DialogInterface.OnClickListener() {
