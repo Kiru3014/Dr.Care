@@ -1,7 +1,12 @@
 package com.ecmo.android.activity;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.design.widget.FloatingActionButton;
 import android.util.Log;
 import android.view.View;
@@ -25,6 +30,7 @@ import com.ecmo.android.rest.ApiInterface;
 import com.ecmo.android.utils.Helper;
 import com.ecmo.android.utils.UserPreferences;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -86,7 +92,7 @@ public class PatientForm extends BaseActivity {
     FloatingActionButton fabscreensixnext, fabscreensixback;
     RadioGroup radiodialysisGroup;
     String dialysis = "";
-    EditText eturea, etcr, etlactate, etUo, etph, etinpo2, etpco2, ethco3, etbf;
+    EditText eturea, etcr, etlactate, etUo, etph, etinpo2, etpco2, ethco3, etbf, etrefphonenumber, erefddesignation;
 
 
     @Override
@@ -133,19 +139,14 @@ public class PatientForm extends BaseActivity {
 
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View arg1,
-                                       int pos, long arg3)
-            {
+                                       int pos, long arg3) {
 
-                if(pos!=0)
-                {
+                if (pos != 0) {
                     mdatahospital = gethospitalvalue(adapterView.getItemAtPosition(pos).toString());
 
+                } else {
+                    mdatahospital = "";
                 }
-                else
-                {
-                    mdatahospital="";
-                }
-
 
 
             }
@@ -166,12 +167,10 @@ public class PatientForm extends BaseActivity {
             public void onItemSelected(AdapterView<?> adapterView, View arg1,
                                        int pos, long arg3) {
 
-                if(pos!=0) {
+                if (pos != 0) {
                     mdataSpeciallity = getSpecilityvalue(adapterView.getItemAtPosition(pos).toString());
-                }
-                else
-                {
-                    mdataSpeciallity="";
+                } else {
+                    mdataSpeciallity = "";
                 }
 
             }
@@ -285,14 +284,11 @@ public class PatientForm extends BaseActivity {
         } else if (mdataadmdiagnosis.isEmpty()) {
             mtvadmdiagnosis.setError("Enter Details");
 
-        }
-        else if(mdatacivilid.isEmpty()){
+        } else if (mdatacivilid.isEmpty()) {
             etcivilid.setError("Enter Details");
-        }
-        else if(mdataage.isEmpty()){
+        } else if (mdataage.isEmpty()) {
             metage.setError("Enter Details");
-        }
-        else if (mdatafilenumber.isEmpty()) {
+        } else if (mdatafilenumber.isEmpty()) {
             metfilenumber.setError("Enter Details");
         } else if (mdatagender.isEmpty()) {
             commonToast("Please Select Gender");
@@ -939,7 +935,10 @@ public class PatientForm extends BaseActivity {
         etpco2 = findViewById(R.id.et_pco2);
         ethco3 = findViewById(R.id.et_hco3);
         etbf = findViewById(R.id.et_bf);
-
+        etrefphonenumber = findViewById(R.id.et_refdoctelephone);
+        erefddesignation = findViewById(R.id.et_refdocdesignation);
+        etrefphonenumber.setTypeface(Helper.getSharedHelper().getNormalFont());
+        erefddesignation.setTypeface(Helper.getSharedHelper().getNormalFont());
         eturea.setTypeface(Helper.getSharedHelper().getNormalFont());
         etcr.setTypeface(Helper.getSharedHelper().getNormalFont());
         etlactate.setTypeface(Helper.getSharedHelper().getNormalFont());
@@ -967,33 +966,98 @@ public class PatientForm extends BaseActivity {
         fabscreensixnext = (FloatingActionButton) findViewById(R.id.fag_investigation_next);
         fabscreensixnext.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
+            public void onClick(View view) {
                 if (eturea.getText().toString().isEmpty() || etcr.getText().toString().isEmpty() || etUo.getText().toString().isEmpty() || etpco2.getText().toString().isEmpty() || ethco3.getText().toString().isEmpty()) {
                     eturea.setError("Enter Details");
                     etcr.setError("Enter Details");
                     etUo.setError("Enter Details");
                     etpco2.setError("Enter Details");
                     ethco3.setError("Enter Details");
-                }
-                else if(dialysis.isEmpty())
-                {
+                } else if (dialysis.isEmpty()) {
                     commonToast("Please Select Dialysis");
-                }
-                else
-                {
-                    SubmitApplication();
-                    Log.d("Investigation Details","" +
-                    "\n urea - "+eturea.getText().toString()+
-                    "\n Cr - "+etcr.getText().toString()+
-                    "\n Lactate - "+etlactate.getText().toString()+
-                    "\n UO - "+etUo.getText().toString()+
-                    "\n Dialysis - "+dialysis+
-                    "\n ph - "+etph.getText().toString()+
-                    "\n po2 - "+etinpo2.getText().toString()+
-                    "\n pco2 - "+etpco2.getText().toString()+
-                    "\n hco3 - "+ethco3.getText().toString()+
-                    "\n bf - "+etbf.getText().toString());
+                } else {
+
+                    final PatientFormRequest patientFormRequest = new PatientFormRequest(
+                            mdatahospital,
+                            mdataSpeciallity,
+                            userPreferences.getUserId(),
+                            mdataconcultant,
+                            mdataadmdiagnosis,
+                            metpacitentname.getText().toString().trim(),
+                            etcivilid.getText().toString().trim(),
+                            mdatagender,
+                            metunit.getText().toString().trim(),
+                            metward.getText().toString().trim(),
+                            metbed.getText().toString().trim(),
+                            metfilenumber.getText().toString().trim(),
+                            functionstatus,
+                            conscioussstatus,
+                            mdatagcsE,
+                            mdatagcsv,
+                            mdatagcsM,
+                            mtvtotoalgcs.getText().toString(),
+                            etventdays.getText().toString(),
+                            etspo2.getText().toString(),
+                            etpo2.getText().toString(),
+                            etfio2.getText().toString(),
+                            spac02fio2,
+                            etpipvalues.getText().toString(),
+                            speee,
+                            ettv.getText().toString(),
+                            srr,
+                            slung,
+                            scrx,
+                            shr,
+                            sbp,
+                            etcvp.getText().toString(),
+                            stemp,
+                            etco.getText().toString(),
+                            scardiac,
+                            slvef,
+                            etagentone.getText().toString(),
+                            etdoseone.getText().toString(),
+                            etagettwo.getText().toString(),
+                            etdosetwo.getText().toString(),
+                            wtagentthree.getText().toString(),
+                            etdosethree.getText().toString(),
+                            etsedagentone.getText().toString(),
+                            etseddoseone.getText().toString(),
+                            etsedagettwo.getText().toString(),
+                            etseddosetwo.getText().toString(),
+                            wtsedagentthree.getText().toString(),
+                            etseddosethree.getText().toString(),
+                            etmuscelagent.getText().toString(),
+                            etmuscledose.getText().toString(),
+                            eturea.getText().toString(),
+                            etcr.getText().toString(),
+                            etlactate.getText().toString(),
+                            etUo.getText().toString(),
+                            dialysis,
+                            etph.getText().toString(),
+                            etinpo2.getText().toString(),
+                            etpco2.getText().toString(),
+                            ethco3.getText().toString(),
+                            etbf.getText().toString(),
+                            erefddesignation.getText().toString(),
+                            etrefphonenumber.getText().toString(),
+                            metextrainfo.getText().toString(),
+                            "insert",
+                            userPreferences.getSession()
+                    );
+
+                    Submitalert(patientFormRequest);
+
+                    Log.d("Investigation Details", "" +
+                            "\n urea - " + eturea.getText().toString() +
+                            "\n Cr - " + etcr.getText().toString() +
+                            "\n Lactate - " + etlactate.getText().toString() +
+                            "\n UO - " + etUo.getText().toString() +
+                            "\n Dialysis - " + dialysis +
+                            "\n ph - " + etph.getText().toString() +
+                            "\n po2 - " + etinpo2.getText().toString() +
+                            "\n pco2 - " + etpco2.getText().toString() +
+                            "\n hco3 - " + ethco3.getText().toString() +
+                            "\n bf - " + etbf.getText().toString());
                 }
 
             }
@@ -1008,16 +1072,44 @@ public class PatientForm extends BaseActivity {
                 llagents.setVisibility(View.VISIBLE);
             }
         });
+
     }
 
     /* Investigation  Paramentes Form End*/
 
 
-    private void SubmitApplication()
+    private void Submitalert(final PatientFormRequest patientFormRequest)
     {
+
+        AlertDialog alertDialog = new AlertDialog.Builder(PatientForm.this).create();
+        alertDialog.setTitle("YOU Want to Preview Application Or Submit Application");
+        alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "SUBMIT",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                        SubmitApplication(patientFormRequest);
+                    }
+                });
+
+
+        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Preview",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                        Intent intent = new Intent(getApplicationContext(), FormPreviewActivity.class);
+                        intent.putExtra("MyClass", (Serializable) patientFormRequest);
+                        startActivity(intent);
+                    }
+                });
+        alertDialog.show();
+
+    }
+
+
+    private void SubmitApplication(PatientFormRequest patientFormRequest) {
         commonLoaderstart();
-        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        final PatientFormRequest patientFormRequest = new PatientFormRequest(
+        ApiInterface apiService = ApiClient.getClientrefpatient().create(ApiInterface.class);
+    /*    final PatientFormRequest patientFormRequest = new PatientFormRequest(
                 mdatahospital,
                 mdataSpeciallity,
                 userPreferences.getUserId(),
@@ -1078,12 +1170,12 @@ public class PatientForm extends BaseActivity {
                 etpco2.getText().toString(),
                 ethco3.getText().toString(),
                 etbf.getText().toString(),
-                "designation",
-                "doctelephone",
+                erefddesignation.getText().toString(),
+                etrefphonenumber.getText().toString(),
                 metextrainfo.getText().toString(),
                 "insert",
                 userPreferences.getSession()
-                );
+        );*/
 
         Call<RegisterResponse> call = apiService.getFormRequest(patientFormRequest);
         call.enqueue(new Callback<RegisterResponse>() {
@@ -1091,10 +1183,8 @@ public class PatientForm extends BaseActivity {
             public void onResponse(Call<RegisterResponse> call, Response<RegisterResponse> response) {
                 commonLoaderstop();
                 RegisterResponse registerResponse = response.body();
-                if (registerResponse != null)
-                {
-                    if (registerResponse.getResult().equalsIgnoreCase("Success"))
-                    {
+                if (registerResponse != null) {
+                    if (registerResponse.getResult().equalsIgnoreCase("Success")) {
                         commonToast("Sucsess");
                     } else {
                         commonToast("Fail");
@@ -1103,9 +1193,9 @@ public class PatientForm extends BaseActivity {
 
                 }
             }
+
             @Override
-            public void onFailure(Call<RegisterResponse> call, Throwable t)
-            {
+            public void onFailure(Call<RegisterResponse> call, Throwable t) {
                 commonLoaderstop();
                 commonToast("Network Issue Please Try Again");
             }

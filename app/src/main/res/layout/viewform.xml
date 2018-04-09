@@ -1,0 +1,2803 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/WhiteOpacity"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:padding="10dp"
+        android:text="Patient ECMO"
+        android:textColor="@color/colorblack"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.4dp"
+        android:background="@color/colorblack" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/WhiteOpacity">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/view_hospital_section"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:padding="15dp"
+                    android:text="Hospital Information"
+                    android:textColor="@color/darkblue"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:background="@color/colorblack" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/refhospital_title"
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="top"
+                        android:padding="15dp"
+                        android:text="Ref Hospital * "
+                        android:textColor="@color/colorblack"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="0.1dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:background="@color/colorblack" />
+
+
+                    <TextView
+                        android:id="@+id/tv__hospital"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:background="@drawable/form_cell_bg"
+                        android:hint="Enter Referning Hospital"
+                        android:padding="15dp"
+                        android:textColor="@color/darkblue"
+                        android:textColorHint="@color/divider"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:background="@color/colorblack" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/refspecialty_title"
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="top"
+                        android:padding="15dp"
+                        android:text="Ref Specialty * "
+                        android:textColor="@color/colorblack"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="0.1dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:background="@color/colorblack" />
+
+
+                    <TextView
+                        android:id="@+id/tv__speciality"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:background="@drawable/form_cell_bg"
+                        android:hint="Enter Referning Specialty"
+                        android:padding="15dp"
+                        android:textColor="@color/darkblue"
+                        android:textColorHint="@color/divider"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:layout_below="@+id/rr_heading"
+                    android:background="@color/colorblack" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:id="@+id/refconsultant_title"
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:padding="15dp"
+                        android:text="Ref Consultant * "
+                        android:textColor="@color/colorblack"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="0.1dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:background="@color/colorblack" />
+
+                    <TextView
+                        android:id="@+id/tv_consultant"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:background="@drawable/form_cell_bg"
+                        android:hint="Enter Referning Consultant"
+                        android:padding="15dp"
+                        android:textColor="@color/darkblue"
+                        android:textColorHint="@color/divider"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:layout_below="@+id/rr_heading"
+                    android:background="@color/colorblack" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:id="@+id/refdate_title"
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:padding="15dp"
+                        android:text="Ref Date * "
+                        android:textColor="@color/colorblack"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="0.1dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:background="@color/colorblack" />
+
+                    <TextView
+                        android:id="@+id/tv_date"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:background="@drawable/form_cell_bg"
+                        android:hint="  Select Date "
+                        android:padding="15dp"
+                        android:textColor="@color/darkblue"
+                        android:textColorHint="@color/divider"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:layout_below="@+id/rr_heading"
+                    android:background="@color/colorblack" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:id="@+id/refadmisson_title"
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:padding="15dp"
+                        android:singleLine="true"
+                        android:text="Admisson diagnosis"
+                        android:textColor="@color/colorblack"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="0.1dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:background="@color/colorblack" />
+
+                    <TextView
+                        android:id="@+id/tv_diagnosis"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:background="@drawable/form_cell_bg"
+                        android:hint=" Select Admisson diagnosis "
+                        android:imeOptions="actionNext"
+                        android:padding="15dp"
+                        android:singleLine="true"
+                        android:textColor="@color/darkblue"
+                        android:textColorHint="@color/divider"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="0.1dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:background="@color/colorblack" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:layout_below="@+id/rr_heading"
+                    android:background="@color/colorblack" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:padding="15dp"
+                    android:text="Patient Information"
+                    android:textColor="@color/darkblue"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:layout_below="@+id/rr_heading"
+                    android:background="@color/colorblack" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvfname"
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:padding="15dp"
+                        android:text="File Number * "
+                        android:textColor="@color/colorblack"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="0.1dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:background="@color/colorblack" />
+
+                    <TextView
+                        android:id="@+id/tv_patientfilenumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/form_cell_bg"
+                        android:hint="Enter Patient File Number "
+                        android:imeOptions="actionNext"
+                        android:padding="15dp"
+                        android:singleLine="true"
+                        android:textColor="@color/darkblue"
+                        android:textColorHint="@color/divider"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:layout_below="@+id/rr_heading"
+                    android:background="@color/colorblack" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvpname"
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:padding="15dp"
+                        android:text="Patient Name"
+                        android:textColor="@color/colorblack"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="0.1dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:background="@color/colorblack" />
+
+                    <TextView
+                        android:id="@+id/tv_patientname"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/form_cell_bg"
+                        android:hint="Enter Patient Name"
+                        android:imeOptions="actionNext"
+                        android:padding="15dp"
+                        android:singleLine="true"
+                        android:textColor="@color/darkblue"
+                        android:textColorHint="@color/divider"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:layout_below="@+id/rr_heading"
+                    android:background="@color/colorblack" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvcid"
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:padding="15dp"
+                        android:text="Civil ID Number *"
+                        android:textColor="@color/colorblack"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="0.1dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:background="@color/colorblack" />
+
+                    <TextView
+                        android:id="@+id/tv_patientcivilid"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/form_cell_bg"
+                        android:hint="Enter  Civil ID Number"
+                        android:imeOptions="actionNext"
+                        android:inputType="number"
+                        android:padding="15dp"
+                        android:singleLine="true"
+                        android:textColor="@color/darkblue"
+                        android:textColorHint="@color/divider"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:layout_below="@+id/rr_heading"
+                    android:background="@color/colorblack" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvgrnder"
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:padding="15dp"
+                        android:text="Gender * "
+                        android:textColor="@color/colorblack"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="0.1dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:background="@color/colorblack" />
+
+                    <TextView
+                        android:id="@+id/gender"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/form_cell_bg"
+                        android:hint="Enter Gender"
+                        android:imeOptions="actionNext"
+                        android:inputType="number"
+                        android:maxLength="2"
+                        android:padding="15dp"
+                        android:singleLine="true"
+                        android:textColor="@color/darkblue"
+                        android:textColorHint="@color/divider"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:layout_below="@+id/rr_heading"
+                    android:background="@color/colorblack" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvagtvite"
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:padding="15dp"
+                        android:text="Age * "
+                        android:textColor="@color/colorblack"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="0.1dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:background="@color/colorblack" />
+
+                    <TextView
+                        android:id="@+id/tv_age"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/form_cell_bg"
+                        android:hint="Enter  Age"
+                        android:imeOptions="actionNext"
+                        android:inputType="number"
+                        android:padding="15dp"
+                        android:singleLine="true"
+                        android:textColor="@color/darkblue"
+                        android:textColorHint="@color/divider"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:layout_below="@+id/rr_heading"
+                    android:background="@color/colorblack" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvfunit"
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:padding="15dp"
+                        android:text="Unit"
+                        android:textColor="@color/colorblack"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="0.1dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:background="@color/colorblack" />
+
+                    <TextView
+                        android:id="@+id/tv_unit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/form_cell_bg"
+                        android:hint="Enter  Unit"
+                        android:imeOptions="actionNext"
+                        android:inputType="number"
+                        android:padding="15dp"
+                        android:singleLine="true"
+                        android:textColor="@color/darkblue"
+                        android:textColorHint="@color/divider"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:layout_below="@+id/rr_heading"
+                    android:background="@color/colorblack" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvfward"
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:padding="15dp"
+                        android:text="Ward"
+                        android:textColor="@color/colorblack"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="0.1dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:background="@color/colorblack" />
+
+                    <TextView
+                        android:id="@+id/tv_ward"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/form_cell_bg"
+                        android:hint="Enter  Ward"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:padding="15dp"
+                        android:singleLine="true"
+                        android:textColor="@color/darkblue"
+                        android:textColorHint="@color/divider"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:layout_below="@+id/rr_heading"
+                    android:background="@color/colorblack" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvfbed"
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:padding="15dp"
+                        android:text="Bed"
+                        android:textColor="@color/colorblack"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="0.1dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:background="@color/colorblack" />
+
+                    <TextView
+                        android:id="@+id/tv_bed"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/form_cell_bg"
+                        android:hint="Enter  Bed"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:padding="15dp"
+                        android:singleLine="true"
+                        android:textColor="@color/darkblue"
+                        android:textColorHint="@color/divider"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:layout_below="@+id/rr_heading"
+                    android:background="@color/colorblack" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvfhistory"
+                        android:layout_width="140dp"
+                        android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
+                        android:lineSpacingExtra="2dp"
+                        android:padding="15dp"
+                        android:text="History (including  Comorbidities)"
+                        android:textColor="@color/colorblack"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="0.1dp"
+                        android:layout_height="80dp"
+                        android:layout_gravity="center"
+                        android:background="@color/colorblack" />
+
+                    <TextView
+                        android:id="@+id/tv_extra_infor"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/form_cell_bg"
+                        android:gravity="center|top|left"
+                        android:hint="Enter  History (including  Comorbidities)"
+                        android:imeOptions="actionDone"
+                        android:inputType="textMultiLine"
+                        android:padding="15dp"
+                        android:textColor="@color/darkblue"
+                        android:textColorHint="@color/divider"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:layout_below="@+id/rr_heading"
+                    android:background="@color/colorblack" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/view_patientparamtvers_section"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:paddingTop="10dp"
+                    android:text="Paient Information"
+                    android:textColor="@color/darkblue"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:padding="5dp"
+                    android:text="(*has to compltved , otherwise the consultantion will be rejected)"
+                    android:textColor="@color/divider"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:background="@color/colorblack" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/rb_pre_morbid_fun"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center|left"
+                        android:padding="10dp"
+                        android:text="*Pre-morbid function status"
+                        android:textColor="@color/colorblack"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv__fun_status"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@drawable/form_cell_bg"
+                        android:hint="Enter Function Status"
+                        android:textColor="@color/darkblue"
+                        android:textColorHint="@color/divider"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/colorblack" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/rb_pre_morbid_consc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center|left"
+                        android:padding="10dp"
+                        android:text="*Pre-morbid conscious status"
+                        android:textColor="@color/colorblack"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv__conscious_status"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@drawable/form_cell_bg"
+                        android:hint="Enter Concious Status"
+                        android:textColor="@color/darkblue"
+                        android:textColorHint="@color/divider"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/colorblack" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center|left"
+                        android:padding="10dp"
+                        android:text="*Currect GCS"
+                        android:textColor="@color/colorblack"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.4dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@color/colorblack" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="140dp"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:padding="15dp"
+                            android:text="E"
+                            android:textColor="@color/colorblack"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="0.1dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:background="@color/colorblack" />
+
+                        <TextView
+                            android:id="@+id/tv__gcse"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@drawable/form_cell_bg"
+                            android:hint="Enter GCS E"
+                            android:textColor="@color/darkblue"
+                            android:textColorHint="@color/divider"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.4dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@color/colorblack" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="140dp"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:padding="15dp"
+                            android:text="V"
+                            android:textColor="@color/colorblack"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="0.1dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:background="@color/colorblack" />
+
+                        <TextView
+                            android:id="@+id/tv__gcsv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@drawable/form_cell_bg"
+                            android:hint="Enter GCS V"
+                            android:textColor="@color/darkblue"
+                            android:textColorHint="@color/divider"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.4dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@color/colorblack" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="140dp"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:padding="15dp"
+                            android:text="M"
+                            android:textColor="@color/colorblack"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="0.1dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:background="@color/colorblack" />
+
+                        <TextView
+                            android:id="@+id/tv__gcsm"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@drawable/form_cell_bg"
+                            android:hint="Enter GCS M"
+                            android:textColor="@color/darkblue"
+                            android:textColorHint="@color/divider"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.4dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@color/colorblack" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="140dp"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:padding="15dp"
+                            android:text="TOTAL"
+                            android:textColor="@color/colorblack"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="0.1dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:background="@color/colorblack" />
+
+                        <TextView
+                            android:id="@+id/tv_gcs_totola"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/form_cell_bg"
+                            android:hint="------"
+                            android:imeOptions="actionNext"
+                            android:padding="15dp"
+                            android:singleLine="true"
+                            android:textColor="@color/colorblack"
+                            android:textColorHint="@color/divider"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/colorblack" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:padding="10dp"
+                    android:text="Ventilation"
+                    android:textColor="@color/colorblack"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:background="@color/colorblack" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center|left"
+                        android:padding="10dp"
+                        android:text="*Duration on conventional mechanical ventilation"
+                        android:textColor="@color/colorblack"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tv_number_ofdays"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/form_cell_bg"
+                            android:hint="No of Day's"
+                            android:imeOptions="actionNext"
+                            android:inputType="number"
+                            android:singleLine="true"
+                            android:textColor="@color/colorblack"
+                            android:textColorHint="@color/colorSecondaryText"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="Days"
+                            android:textColor="@color/colorblack"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/colorblack" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:padding="10dp"
+                        android:text="SpO2*"
+                        android:textColor="@color/colorblack"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                    <View
+                        android:layout_width="0.1dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:background="@color/colorblack" />
+
+                    <TextView
+                        android:id="@+id/tv_spo2"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/form_cell_bg"
+                        android:gravity="center"
+                        android:hint="Enter SpO2"
+                        android:imeOptions="actionNext"
+                        android:inputType="number"
+                        android:padding="10dp"
+                        android:singleLine="true"
+                        android:textColor="@color/colorblack"
+                        android:textColorHint="@color/colorSecondaryText"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:padding="10dp"
+                        android:text="%"
+                        android:textColor="@color/colorblack"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/colorblack" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:padding="10dp"
+                        android:text="PO2*"
+                        android:textColor="@color/colorblack"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                    <View
+                        android:layout_width="0.1dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:background="@color/colorblack" />
+
+                    <TextView
+                        android:id="@+id/tv_po2"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/form_cell_bg"
+                        android:gravity="center"
+                        android:hint="Enter PO2"
+                        android:imeOptions="actionNext"
+                        android:inputType="number"
+                        android:padding="10dp"
+                        android:singleLine="true"
+                        android:textColor="@color/colorblack"
+                        android:textColorHint="@color/colorSecondaryText"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:padding="10dp"
+                        android:text="mmHg"
+                        android:textColor="@color/colorblack"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/colorblack" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:padding="10dp"
+                        android:text="FiO2*"
+                        android:textColor="@color/colorblack"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                    <View
+                        android:layout_width="0.1dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:background="@color/colorblack" />
+
+                    <TextView
+                        android:id="@+id/tv_fio2"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/form_cell_bg"
+                        android:gravity="center"
+                        android:hint="Enter FiO2"
+                        android:imeOptions="actionNext"
+                        android:inputType="number"
+                        android:padding="10dp"
+                        android:singleLine="true"
+                        android:textColor="@color/colorblack"
+                        android:textColorHint="@color/colorSecondaryText"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/colorblack" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="2"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="0.5"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:padding="10dp"
+                        android:text="*PaO2/FiO2 Ratio"
+                        android:textColor="@color/colorblack"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                    <View
+                        android:layout_width="0.1dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:background="@color/colorblack" />
+
+                    <TextView
+                        android:id="@+id/tv_fio2_paO2"
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/form_cell_bg"
+                        android:gravity="center"
+                        android:hint="Enter fio2 paO2"
+                        android:imeOptions="actionNext"
+                        android:inputType="number"
+                        android:padding="10dp"
+                        android:singleLine="true"
+                        android:textColor="@color/colorblack"
+                        android:textColorHint="@color/colorSecondaryText"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                    
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:padding="10dp"
+                        android:text="mmHg"
+                        android:textColor="@color/colorblack"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/colorblack" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:padding="10dp"
+                        android:text="*PIP (peak insp Pressure/PAW)"
+                        android:textColor="@color/colorblack"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/tv_pip"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@drawable/form_cell_bg"
+                            android:gravity="center"
+                            android:hint="Enter pipvalue"
+                            android:imeOptions="actionNext"
+                            android:inputType="number"
+                            android:padding="10dp"
+                            android:singleLine="true"
+                            android:textColor="@color/colorblack"
+                            android:textColorHint="@color/colorSecondaryText"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:padding="10dp"
+                            android:text="cmH2O"
+                            android:textColor="@color/colorblack"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/colorblack" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:padding="10dp"
+                        android:text="*PEEP"
+                        android:textColor="@color/colorblack"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                    <View
+                        android:layout_width="0.1dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:background="@color/colorblack" />
+
+                    <TextView
+                        android:id="@+id/tv_peep"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/form_cell_bg"
+                        android:gravity="center"
+                        android:hint="Enter PEEP"
+                        android:imeOptions="actionNext"
+                        android:inputType="number"
+                        android:padding="10dp"
+                        android:singleLine="true"
+                        android:textColor="@color/colorblack"
+                        android:textColorHint="@color/colorSecondaryText"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/colorblack" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:padding="10dp"
+                        android:text="*TV"
+                        android:textColor="@color/colorblack"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                    <View
+                        android:layout_width="0.1dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:background="@color/colorblack" />
+
+                    <TextView
+                        android:id="@+id/tv_tv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/form_cell_bg"
+                        android:gravity="center"
+                        android:hint="Enter TV"
+                        android:imeOptions="actionNext"
+                        android:inputType="number"
+                        android:padding="10dp"
+                        android:singleLine="true"
+                        android:textColor="@color/colorblack"
+                        android:textColorHint="@color/colorSecondaryText"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/colorblack" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:padding="10dp"
+                        android:text="*RR"
+                        android:textColor="@color/colorblack"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                    <View
+                        android:layout_width="0.1dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:background="@color/colorblack" />
+
+                    <TextView
+                        android:id="@+id/tv_rr"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/form_cell_bg"
+                        android:gravity="center"
+                        android:hint="Enter RR"
+                        android:imeOptions="actionNext"
+                        android:inputType="number"
+                        android:padding="10dp"
+                        android:singleLine="true"
+                        android:textColor="@color/colorblack"
+                        android:textColorHint="@color/colorSecondaryText"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/colorblack" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:padding="10dp"
+                        android:text="*Lung Compliance (mls/cmH20)"
+                        android:textColor="@color/colorblack"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:orientation="vertical"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:padding="10dp"
+                            android:visibility="gone"
+                            android:text="(calculated on TV/(PIP-PEEP)"
+                            android:textColor="@color/colorblack"
+                            android:textSize="10sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tv_lungcomplice"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@drawable/form_cell_bg"
+                            android:gravity="center"
+                            android:hint="Enter lung Compliance"
+                            android:imeOptions="actionNext"
+                            android:inputType="number"
+                            android:padding="10dp"
+                            android:singleLine="true"
+                            android:textColor="@color/colorblack"
+                            android:textColorHint="@color/colorSecondaryText"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/colorblack" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:padding="10dp"
+                        android:text="*CXR quadrants (number of quadrats with infiltration seen on CXR : alveolar consolidation ) 1point per quadrant , minmum 0 ,maximum 4)"
+                        android:textColor="@color/colorblack"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/tv_cxr"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@drawable/form_cell_bg"
+                            android:gravity="center"
+                            android:hint="Enter CXR"
+                            android:imeOptions="actionNext"
+                            android:inputType="number"
+                            android:padding="10dp"
+                            android:singleLine="true"
+                            android:textColor="@color/colorblack"
+                            android:textColorHint="@color/colorSecondaryText"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/colorblack" />
+
+                
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:visibility="gone"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:padding="15dp"
+                    android:text="Cardiovascular"
+                    android:textColor="@color/colorblack"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:background="@color/colorblack" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:padding="15dp"
+                        android:text="HR * "
+                        android:textColor="@color/colorblack"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="0.1dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:background="@color/colorblack" />
+
+
+                    <TextView
+                        android:id="@+id/tv_hr"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:background="@drawable/form_cell_bg"
+                        android:hint=" Enter HR "
+                        android:imeOptions="actionNext"
+                        android:padding="15dp"
+                        android:singleLine="true"
+                        android:textColor="@color/darkblue"
+                        android:textColorHint="@color/divider"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:background="@color/colorblack" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:padding="15dp"
+                        android:text="BP * "
+                        android:textColor="@color/colorblack"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="0.1dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:background="@color/colorblack" />
+
+
+                    <TextView
+                        android:id="@+id/tv_Bp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:background="@drawable/form_cell_bg"
+                        android:hint=" Enter BP "
+                        android:imeOptions="actionNext"
+                        android:padding="15dp"
+                        android:singleLine="true"
+                        android:textColor="@color/darkblue"
+                        android:textColorHint="@color/divider"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:background="@color/colorblack" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:padding="15dp"
+                        android:text="CVP * "
+                        android:textColor="@color/colorblack"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="0.1dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:background="@color/colorblack" />
+
+
+                    <TextView
+                        android:id="@+id/tv_cvp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:background="@drawable/form_cell_bg"
+                        android:hint=" Enter CVP "
+                        android:imeOptions="actionNext"
+                        android:padding="15dp"
+                        android:singleLine="true"
+                        android:textColor="@color/darkblue"
+                        android:textColorHint="@color/divider"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:background="@color/colorblack" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:padding="15dp"
+                        android:text="TEMP * "
+                        android:textColor="@color/colorblack"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="0.1dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:background="@color/colorblack" />
+
+
+                    <TextView
+                        android:id="@+id/tv_temp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:background="@drawable/form_cell_bg"
+                        android:hint=" Enter Temp "
+                        android:imeOptions="actionNext"
+                        android:padding="15dp"
+                        android:singleLine="true"
+                        android:textColor="@color/darkblue"
+                        android:textColorHint="@color/divider"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:background="@color/colorblack" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:padding="15dp"
+                        android:text="CO * "
+                        android:textColor="@color/colorblack"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="0.1dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:background="@color/colorblack" />
+
+
+                    <TextView
+                        android:id="@+id/tv_co"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:background="@drawable/form_cell_bg"
+                        android:hint=" Select CO "
+                        android:imeOptions="actionNext"
+                        android:padding="15dp"
+                        android:singleLine="true"
+                        android:textColor="@color/darkblue"
+                        android:textColorHint="@color/divider"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:background="@color/colorblack" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:padding="15dp"
+                        android:text="Cardiac Index * "
+                        android:textColor="@color/colorblack"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="0.1dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:background="@color/colorblack" />
+
+
+                    <TextView
+                        android:id="@+id/tv_cardiacindex"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:background="@drawable/form_cell_bg"
+                        android:hint=" Enter Cardiac "
+                        android:imeOptions="actionNext"
+                        android:padding="15dp"
+                        android:singleLine="true"
+                        android:textColor="@color/darkblue"
+                        android:textColorHint="@color/divider"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/margin10"
+                        android:text="L/min/m2"
+                        android:textColor="@color/black_color"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:background="@color/colorblack" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:padding="15dp"
+                        android:text="Left ventricular ejection fraction * "
+                        android:textColor="@color/colorblack"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="0.1dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:background="@color/colorblack" />
+
+
+                    <TextView
+                        android:id="@+id/tv_lvef"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:background="@drawable/form_cell_bg"
+                        android:hint=" Enter Left Ventricular "
+                        android:imeOptions="actionNext"
+                        android:padding="15dp"
+                        android:singleLine="true"
+                        android:textColor="@color/darkblue"
+                        android:textColorHint="@color/divider"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:padding="@dimen/margin10"
+                        android:text="%"
+                        android:textColor="@color/black_color"
+                        android:textSize="@dimen/Largetext"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:background="@color/colorblack" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:padding="15dp"
+                    android:text="Inotropes/vasoconstrictors"
+                    android:textColor="@color/colorblack"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:background="@color/colorblack" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:padding="15dp"
+                            android:text="Agent"
+                            android:textColor="@color/colorblack"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="0.1dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:background="@color/colorblack" />
+
+
+                        <TextView
+                            android:id="@+id/agentone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center"
+                            android:background="@drawable/form_cell_bg"
+                            android:hint=" Enter Agent"
+                            android:imeOptions="actionNext"
+                            android:padding="15dp"
+                            android:singleLine="true"
+                            android:textColor="@color/darkblue"
+                            android:textColorHint="@color/divider"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:padding="15dp"
+                            android:text="Dose"
+                            android:textColor="@color/colorblack"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="0.1dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:background="@color/colorblack" />
+
+
+                        <TextView
+                            android:id="@+id/doseone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:background="@drawable/form_cell_bg"
+                            android:hint=" Enter Dose"
+                            android:imeOptions="actionNext"
+                            android:padding="15dp"
+                            android:singleLine="true"
+                            android:textColor="@color/darkblue"
+                            android:textColorHint="@color/divider"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:padding="15dp"
+                            android:text="mcg/kg/mm"
+                            android:textColor="@color/colorblack"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.4dp"
+                        android:background="@color/colorblack" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:padding="15dp"
+                            android:text="Agent"
+                            android:textColor="@color/colorblack"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="0.1dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:background="@color/colorblack" />
+
+
+                        <TextView
+                            android:id="@+id/agenttwo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center"
+                            android:background="@drawable/form_cell_bg"
+                            android:hint=" Enter Agent"
+                            android:imeOptions="actionNext"
+                            android:padding="15dp"
+                            android:singleLine="true"
+                            android:textColor="@color/darkblue"
+                            android:textColorHint="@color/divider"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:padding="15dp"
+                            android:text="Dose"
+                            android:textColor="@color/colorblack"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="0.1dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:background="@color/colorblack" />
+
+
+                        <TextView
+                            android:id="@+id/dosetwo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:background="@drawable/form_cell_bg"
+                            android:hint=" Enter Dose"
+                            android:imeOptions="actionNext"
+                            android:padding="15dp"
+                            android:singleLine="true"
+                            android:textColor="@color/darkblue"
+                            android:textColorHint="@color/divider"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:padding="15dp"
+                            android:text="mcg/kg/mm"
+                            android:textColor="@color/colorblack"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.4dp"
+                        android:background="@color/colorblack" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:padding="15dp"
+                            android:text="Agent"
+                            android:textColor="@color/colorblack"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="0.1dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:background="@color/colorblack" />
+
+
+                        <TextView
+                            android:id="@+id/agentthree"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center"
+                            android:background="@drawable/form_cell_bg"
+                            android:hint=" Enter Agent"
+                            android:imeOptions="actionNext"
+                            android:padding="15dp"
+                            android:singleLine="true"
+                            android:textColor="@color/darkblue"
+                            android:textColorHint="@color/divider"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:padding="15dp"
+                            android:text="Dose"
+                            android:textColor="@color/colorblack"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="0.1dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:background="@color/colorblack" />
+
+
+                        <TextView
+                            android:id="@+id/dosethree"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:background="@drawable/form_cell_bg"
+                            android:hint=" Enter Dose"
+                            android:imeOptions="actionNext"
+                            android:padding="15dp"
+                            android:singleLine="true"
+                            android:textColor="@color/darkblue"
+                            android:textColorHint="@color/divider"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:padding="15dp"
+                            android:text="mcg/kg/mm"
+                            android:textColor="@color/colorblack"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.4dp"
+                        android:background="@color/colorblack" />
+
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:padding="15dp"
+                    android:text="Sedation"
+                    android:textColor="@color/colorblack"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:background="@color/colorblack" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:padding="15dp"
+                            android:text="Agent"
+                            android:textColor="@color/colorblack"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="0.1dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:background="@color/colorblack" />
+
+
+                        <TextView
+                            android:id="@+id/sedationagentone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center"
+                            android:background="@drawable/form_cell_bg"
+                            android:hint=" Enter Agent"
+                            android:imeOptions="actionNext"
+                            android:padding="15dp"
+                            android:singleLine="true"
+                            android:textColor="@color/darkblue"
+                            android:textColorHint="@color/divider"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:padding="15dp"
+                            android:text="Dose"
+                            android:textColor="@color/colorblack"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="0.1dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:background="@color/colorblack" />
+
+
+                        <TextView
+                            android:id="@+id/sedationdoseone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center"
+                            android:background="@drawable/form_cell_bg"
+                            android:hint=" Enter Dose"
+                            android:imeOptions="actionNext"
+                            android:padding="15dp"
+                            android:singleLine="true"
+                            android:textColor="@color/darkblue"
+                            android:textColorHint="@color/divider"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.4dp"
+                        android:background="@color/colorblack" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:padding="15dp"
+                            android:text="Agent"
+                            android:textColor="@color/colorblack"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="0.1dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:background="@color/colorblack" />
+
+
+                        <TextView
+                            android:id="@+id/sedationagenttwo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center"
+                            android:background="@drawable/form_cell_bg"
+                            android:hint=" Enter Agent"
+                            android:imeOptions="actionNext"
+                            android:padding="15dp"
+                            android:singleLine="true"
+                            android:textColor="@color/darkblue"
+                            android:textColorHint="@color/divider"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:padding="15dp"
+                            android:text="Dose"
+                            android:textColor="@color/colorblack"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="0.1dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:background="@color/colorblack" />
+
+
+                        <TextView
+                            android:id="@+id/sedationdosetwo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center"
+                            android:background="@drawable/form_cell_bg"
+                            android:hint=" Enter Dose"
+                            android:imeOptions="actionNext"
+                            android:padding="15dp"
+                            android:singleLine="true"
+                            android:textColor="@color/darkblue"
+                            android:textColorHint="@color/divider"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.4dp"
+                        android:background="@color/colorblack" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:padding="15dp"
+                            android:text="Agent"
+                            android:textColor="@color/colorblack"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="0.1dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:background="@color/colorblack" />
+
+
+                        <TextView
+                            android:id="@+id/sedationagentthree"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center"
+                            android:background="@drawable/form_cell_bg"
+                            android:hint=" Enter Agent"
+                            android:imeOptions="actionNext"
+                            android:padding="15dp"
+                            android:singleLine="true"
+                            android:textColor="@color/darkblue"
+                            android:textColorHint="@color/divider"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:padding="15dp"
+                            android:text="Dose"
+                            android:textColor="@color/colorblack"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="0.1dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:background="@color/colorblack" />
+
+
+                        <TextView
+                            android:id="@+id/sedationdosethree"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center"
+                            android:background="@drawable/form_cell_bg"
+                            android:hint=" Enter Dose"
+                            android:imeOptions="actionNext"
+                            android:padding="15dp"
+                            android:singleLine="true"
+                            android:textColor="@color/darkblue"
+                            android:textColorHint="@color/divider"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.4dp"
+                        android:background="@color/colorblack" />
+
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:padding="15dp"
+                    android:text="Muscle relaxants"
+                    android:textColor="@color/colorblack"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:background="@color/colorblack" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:padding="15dp"
+                            android:text="Agent"
+                            android:textColor="@color/colorblack"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="0.1dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:background="@color/colorblack" />
+
+
+                        <TextView
+                            android:id="@+id/relaxantsagentone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center"
+                            android:background="@drawable/form_cell_bg"
+                            android:hint=" Enter Agent"
+                            android:imeOptions="actionNext"
+                            android:padding="15dp"
+                            android:singleLine="true"
+                            android:textColor="@color/darkblue"
+                            android:textColorHint="@color/divider"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:padding="15dp"
+                            android:text="Dose"
+                            android:textColor="@color/colorblack"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="0.1dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:background="@color/colorblack" />
+
+
+                        <TextView
+                            android:id="@+id/relaxantsdoseone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:background="@drawable/form_cell_bg"
+                            android:hint=" Enter Dose"
+                            android:imeOptions="actionNext"
+                            android:padding="15dp"
+                            android:singleLine="true"
+                            android:textColor="@color/darkblue"
+                            android:textColorHint="@color/divider"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:padding="15dp"
+                            android:text="(bolus/infusion)"
+                            android:textColor="@color/colorblack"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.4dp"
+                        android:background="@color/colorblack" />
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <android.support.design.widget.FloatingActionButton
+                        android:id="@+id/fag_agent_previous"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|end"
+                        android:layout_margin="15dp"
+                        android:rotation="180"
+                        android:src="@drawable/ic_next"
+                        app:fabSize="normal" />
+
+                    <android.support.design.widget.FloatingActionButton
+                        android:id="@+id/fag_agent_next"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|end"
+                        android:layout_margin="15dp"
+                        android:src="@drawable/ic_next"
+                        app:fabSize="normal" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+            
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>
