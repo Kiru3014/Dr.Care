@@ -176,8 +176,8 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
                 FirstName,
                 Email,
                 Mobile,
-                Password,Integer.parseInt(Hospitalname),Integer.parseInt(speciality), 1, userPreferences.getPushwooshToken(),
-                "android", 1, "insert", Constants.SESSIONID);
+                Password,Integer.parseInt(Hospitalname),Integer.parseInt(speciality), 3, userPreferences.getPushwooshToken(),
+                "android", null, "insert", Constants.SESSIONID);
         Call<RegisterResponse> call = apiService.getRegisterRequest(registerRequest);
         call.enqueue(new Callback<RegisterResponse>() {
             @Override

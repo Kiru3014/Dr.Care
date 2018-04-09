@@ -10,14 +10,12 @@ import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-import se.akerfeldt.okhttp.signpost.OkHttpOAuthConsumer;
-import se.akerfeldt.okhttp.signpost.SigningInterceptor;
 
 
 public class ApiClient {
 
     private static Retrofit retrofit_v2New = null;
-    private static Retrofit retrofit_v2_create_order = null;
+    private static Retrofit retrofit_patreferal = null;
 
     public static Retrofit getClient()
     {
@@ -40,6 +38,30 @@ public class ApiClient {
                     .build();
         }
         return retrofit_v2New;
+    }
+
+
+    public static Retrofit getClientrefpatient()
+    {
+        if (retrofit_patreferal==null)
+        {
+
+            HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
+            interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+
+            OkHttpClient client = new OkHttpClient.Builder()
+                    .addInterceptor(interceptor)
+                    .readTimeout(15, TimeUnit.SECONDS)
+                    .connectTimeout(15, TimeUnit.SECONDS).build();
+
+
+            retrofit_patreferal = new Retrofit.Builder()
+                    .baseUrl(Constants.Config.BASE_URL_REFPATIENT)
+                    .client(client)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+        }
+        return retrofit_patreferal;
     }
 
 }

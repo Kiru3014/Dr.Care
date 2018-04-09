@@ -13,6 +13,7 @@ public class UserPreferences
     private static final String PREF_NAME = "UserPreferences";
     private static final String KEY_FIRST_NAME = "name";
     private static final String KEY_DR_ID = "docId";
+    private static final String KEY_DOC_TYPE = "doc_type";
     private static final String KEY_USER_EMAIL_ID = "email";
     private static final String KEY_USER_MOB = "mobileno";
     private static final String KEY_USER_HOSPITAL = "hospital";
@@ -130,5 +131,16 @@ public class UserPreferences
 
     public  String getKeyUserSpeciality() {
         return pref.getString(KEY_USER_SPECIALITY, "");
+    }
+
+
+    public void setDocType( String doctype) {
+        editor.putString(KEY_DOC_TYPE, doctype);
+        editor.commit();
+
+    }
+
+    public  String getDocType() {
+        return pref.getString(KEY_DOC_TYPE, "");
     }
 }

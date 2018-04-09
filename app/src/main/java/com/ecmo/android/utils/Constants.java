@@ -18,6 +18,7 @@ public class Constants {
 
     public static class Config {
         public static final String BASE_URL_NEW = "http://13.127.190.221/hms/api/Common/";
+        public static final String BASE_URL_REFPATIENT = "http://13.127.190.221/hms/api/RefPatient/";
     }
 
 

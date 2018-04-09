@@ -138,18 +138,6 @@ public class LoginActivity extends FragmentActivity implements View.OnClickListe
 
     private void initLogin(final String bEmail, String bPassword)
     {
-
-      /*  userPreferences.setUserLoggedIn(true);
-        userPreferences.setUserId("1");
-        userPreferences.setEmailId(bEmail);
-        userPreferences.setSession(bPassword);
-        zEmail.setText("");
-        zPassword.setText("");
-        Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
-        startActivity(intent);
-        finish();*/
-
-
         commonLoaderstart();
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         final LoginRequest loginRequest = new LoginRequest(bEmail,bPassword,"login", Constants.SESSIONID);
@@ -171,6 +159,7 @@ public class LoginActivity extends FragmentActivity implements View.OnClickListe
                         userPreferences.setUserMob(loginResponse.getData().getPhone());
                         userPreferences.setUserHospital(loginResponse.getData().getHospitalname());
                         userPreferences.setUserSpeciality(loginResponse.getData().getSpecialist());
+                        userPreferences.setDocType(loginResponse.getData().getUserType());
                         zEmail.setText("");
                         zPassword.setText("");
                         Intent intent = new Intent(getApplicationContext(), HomeActivity.class);

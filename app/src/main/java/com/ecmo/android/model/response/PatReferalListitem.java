@@ -7,9 +7,9 @@ import com.google.gson.annotations.SerializedName;
  * Created by fairoze khazi on 08/04/2018.
  */
 
-public class PatReferalListdata {
+public class PatReferalListitem {
 
-    @SerializedName("referalformid")
+    @SerializedName("refralFromid")
     @Expose
     private String referalformid;
 
@@ -17,24 +17,24 @@ public class PatReferalListdata {
     @Expose
     private String status;
 
-    @SerializedName("Pat_name")
+    @SerializedName("patientName")
     @Expose
     private String Pat_name;
 
-    @SerializedName("Pat_Hospital")
+    @SerializedName("name")
     @Expose
     private String Pat_Hospital;
 
-    @SerializedName("refdate")
+    @SerializedName("referringDate")
     @Expose
     private String refdate;
 
-    @SerializedName("diagnosis")
+    @SerializedName("admissionDiagnosis")
     @Expose
     private String diagnosis;
 
 
-    @SerializedName("pat_age")
+    @SerializedName("age")
     @Expose
     private String pat_age;
 
