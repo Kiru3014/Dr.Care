@@ -3,7 +3,7 @@ package com.ecmo.android.model.response;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class RegisterResponse
+public class CommonResponse
 {
     @SerializedName("Result")
     @Expose

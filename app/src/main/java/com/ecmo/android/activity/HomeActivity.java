@@ -14,6 +14,7 @@ import com.ecmo.android.model.response.HospitalList;
 import com.ecmo.android.rest.ApiClient;
 import com.ecmo.android.rest.ApiInterface;
 import com.ecmo.android.utils.Helper;
+import com.ecmo.android.utils.UserPreferences;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -24,11 +25,13 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     TextView mtxtgallery, mtxthelp, mtxtreferpatient, mtxtreferstatus;
     LinearLayout mllgallery, mllhelp, mllreferpatient, mllreferstatus;
     Button mcall,logout_btn;
+    UserPreferences usp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        usp=new UserPreferences(getApplicationContext());
 
         initviews();
         initfonts();
@@ -115,7 +118,10 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 startActivity(new Intent(getApplicationContext(), ProfileInfoActivity.class));
                 break;
             case R.id.rv_help:
-                startActivity(new Intent(getApplicationContext(), HelpActivity.class));
+                if(usp.getDocType().equalsIgnoreCase("1"))
+                        startActivity(new Intent(getApplicationContext(), DocListActivity.class));
+                else
+                   startActivity(new Intent(getApplicationContext(), HelpActivity.class));
                 break;
             case R.id.rv_referpatient:
                 startActivity(new Intent(getApplicationContext(), PatientForm.class));

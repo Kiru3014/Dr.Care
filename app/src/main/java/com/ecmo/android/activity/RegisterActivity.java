@@ -16,7 +16,7 @@ import com.ecmo.android.R;
 import com.ecmo.android.model.request.HospitalReq;
 import com.ecmo.android.model.request.RegisterRequest;
 import com.ecmo.android.model.response.HospitalList;
-import com.ecmo.android.model.response.RegisterResponse;
+import com.ecmo.android.model.response.CommonResponse;
 import com.ecmo.android.rest.ApiClient;
 import com.ecmo.android.rest.ApiInterface;
 import com.ecmo.android.utils.Constants;
@@ -178,14 +178,14 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
                 Mobile,
                 Password,Integer.parseInt(Hospitalname),Integer.parseInt(speciality), 3, userPreferences.getPushwooshToken(),
                 "android", null, "insert", Constants.SESSIONID);
-        Call<RegisterResponse> call = apiService.getRegisterRequest(registerRequest);
-        call.enqueue(new Callback<RegisterResponse>() {
+        Call<CommonResponse> call = apiService.getRegisterRequest(registerRequest);
+        call.enqueue(new Callback<CommonResponse>() {
             @Override
-            public void onResponse(@NonNull Call<RegisterResponse> call, @NonNull Response<RegisterResponse> response) {
+            public void onResponse(@NonNull Call<CommonResponse> call, @NonNull Response<CommonResponse> response) {
                 commonLoaderstop();
-                RegisterResponse registerResponse = response.body();
-                if (registerResponse != null) {
-                    if (registerResponse.getResult().equalsIgnoreCase("Success")) {
+                CommonResponse commonResponse = response.body();
+                if (commonResponse != null) {
+                    if (commonResponse.getResult().equalsIgnoreCase("Success")) {
                         zFirstName.setText("");
 //                        zHospital.setText("");
                         zEmail.setText("");
@@ -202,7 +202,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
             }
 
             @Override
-            public void onFailure(Call<RegisterResponse> call, Throwable t) {
+            public void onFailure(Call<CommonResponse> call, Throwable t) {
                 commonLoaderstop();
                 commonToast("Network Issue Please Try Again");
 

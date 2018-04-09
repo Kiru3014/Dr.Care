@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.ecmo.android.BaseActivity;
 import com.ecmo.android.R;
 import com.ecmo.android.model.request.ChangepasswordRequest;
+import com.ecmo.android.model.response.CommonResponse;
 import com.ecmo.android.rest.ApiClient;
 import com.ecmo.android.rest.ApiInterface;
 import com.ecmo.android.utils.UserPreferences;
@@ -95,16 +96,20 @@ public class Changepassword extends BaseActivity{
         commonLoaderstart();
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         final ChangepasswordRequest chngpwdrequest = new ChangepasswordRequest(curPwd.getText().toString(),newPwd.getText().toString(),userSharedPreferences.getUserId(),"updateuser", userSharedPreferences.getSession());
-        Call<ChangepasswordRequest> call = apiService.chnagepassword(chngpwdrequest);
+        Call<CommonResponse> call = apiService.chnagepassword(chngpwdrequest);
 
-        call.enqueue(new Callback<ChangepasswordRequest>() {
+        call.enqueue(new Callback<CommonResponse>() {
             @Override
-            public void onResponse(Call<ChangepasswordRequest> call, Response<ChangepasswordRequest> response)
+            public void onResponse(Call<CommonResponse> call, Response<CommonResponse> response)
             {
                 commonLoaderstop();
-                if(response!=null&&response.message().equalsIgnoreCase("ok"))
+                if(response!=null&&response.body().getResult().equalsIgnoreCase("success"))
                 {
                     commonToast("Password changed successfully.");
+                }
+                else if(response!=null&&response.body().getResult().contains("incorrect"))
+                {
+                    commonToast("Wrong Password entered.");
                 }
                 else
                 {
@@ -115,7 +120,7 @@ public class Changepassword extends BaseActivity{
             }
 
             @Override
-            public void onFailure(Call<ChangepasswordRequest> call, Throwable t) {
+            public void onFailure(Call<CommonResponse> call, Throwable t) {
                 commonLoaderstop();
                 commonToast("Network Issue Please Try Again");
 

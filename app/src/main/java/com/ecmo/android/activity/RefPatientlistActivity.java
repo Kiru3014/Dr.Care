@@ -4,7 +4,6 @@ package com.ecmo.android.activity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.widget.Toast;
 
 import com.ecmo.android.BaseActivity;
 import com.ecmo.android.R;
@@ -35,7 +34,6 @@ public class RefPatientlistActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.doc_list);
         userSharedPreferences = new UserPreferences(this);
-
         getDAta();
     }
     private void getDAta() {
@@ -54,7 +52,6 @@ public class RefPatientlistActivity extends BaseActivity {
                 {
                     refpatlist=Response.getData();
                     if(refpatlist != null) {
-
                         setData();
                     }
                     else {
@@ -84,22 +81,6 @@ public class RefPatientlistActivity extends BaseActivity {
             }
         });
 
-
-
-
-
-
-// get data from api
-        if(refpatlist != null) {
-
-            setData();
-        }
-        else
-        {
-            Toast.makeText(getApplicationContext(), "OrderHistory Not Available ", Toast.LENGTH_SHORT).show();
-            finish();
-
-        }
     }
 
     private void setData() {
@@ -108,22 +89,16 @@ public class RefPatientlistActivity extends BaseActivity {
         my_recycler_view.setItemViewCacheSize(20);
         my_recycler_view.setDrawingCacheEnabled(true);
         RefpatentAdaptor adapter = new RefpatentAdaptor(this, refpatlist);
+        adapter.setviewclickListner(listner);
         my_recycler_view.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         my_recycler_view.setAdapter(adapter);
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
+    RefpatentAdaptor.OnViewItemClickListener listner=new RefpatentAdaptor.OnViewItemClickListener() {
+        @Override
+        public void onviewClick(String formid) {
 
-    @Override
-    protected void onStop() {
-        super.onStop();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-    }
+            commonToast("formid id " + formid);
+        }
+    };
 }

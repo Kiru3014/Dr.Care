@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.ecmo.android.BaseActivity;
 import com.ecmo.android.R;
 import com.ecmo.android.model.request.EditProfileRequest;
+import com.ecmo.android.model.response.CommonResponse;
 import com.ecmo.android.rest.ApiClient;
 import com.ecmo.android.rest.ApiInterface;
 import com.ecmo.android.utils.UserPreferences;
@@ -101,20 +102,21 @@ public class EditprofileActivity extends BaseActivity {
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         final EditProfileRequest editProfileRequest = new EditProfileRequest(name.getText().toString(),emailID.getText().toString(),contactNO.getText().toString(),
                 hospid,specilatyid,userSharedPreferences.getUserId(),"updateuser", userSharedPreferences.getSession());
-        Call<EditProfileRequest> call = apiService.editProfile(editProfileRequest);
+        Call<CommonResponse> call = apiService.editProfile(editProfileRequest);
 
-        call.enqueue(new Callback<EditProfileRequest>() {
+        call.enqueue(new Callback<CommonResponse>() {
             @Override
-            public void onResponse(Call<EditProfileRequest> call, Response<EditProfileRequest> response)
+            public void onResponse(Call<CommonResponse> call, Response<CommonResponse> response)
             {
                 commonLoaderstop();
-                if(response!=null&&response.message().equalsIgnoreCase("ok"))
+                if(response!=null&&response.body().getResult().equalsIgnoreCase("success"))
                 {
                     userSharedPreferences.setUserLoggedIn(true);
                     userSharedPreferences.setFirstName(name.getText().toString());
                     userSharedPreferences.setUserMob(contactNO.getText().toString());
                     userSharedPreferences.setUserHospital(hospitalname.getSelectedItem().toString());
                     userSharedPreferences.setUserSpeciality(speciality.getSelectedItem().toString());
+                    commonToast("Profile Saved Successfully");
                     finish();
                 }
                 else
@@ -126,7 +128,7 @@ public class EditprofileActivity extends BaseActivity {
             }
 
             @Override
-            public void onFailure(Call<EditProfileRequest> call, Throwable t) {
+            public void onFailure(Call<CommonResponse> call, Throwable t) {
                 commonLoaderstop();
                 commonToast("Network Issue Please Try Again");
 
