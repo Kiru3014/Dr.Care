@@ -284,10 +284,15 @@ public class PatientForm extends BaseActivity {
         } else if (mdataadmdiagnosis.isEmpty()) {
             mtvadmdiagnosis.setError("Enter Details");
 
-        } else if (mdatafilenumber.isEmpty() || mdatacivilid.isEmpty() || mdataage.isEmpty()) {
-            metfilenumber.setError("Enter Details");
+        }
+        else if(mdatacivilid.isEmpty()){
             etcivilid.setError("Enter Details");
+        }
+        else if(mdataage.isEmpty()){
             metage.setError("Enter Details");
+        }
+        else if (mdatafilenumber.isEmpty()) {
+            metfilenumber.setError("Enter Details");
         } else if (mdatagender.isEmpty()) {
             commonToast("Please Select Gender");
         } else {

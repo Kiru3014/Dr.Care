@@ -2,12 +2,10 @@ package com.ecmo.android.activity;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
-import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -18,16 +16,12 @@ import com.ecmo.android.R;
 import com.ecmo.android.model.request.HospitalReq;
 import com.ecmo.android.model.request.RegisterRequest;
 import com.ecmo.android.model.response.HospitalList;
-import com.ecmo.android.model.response.Hospitalitem;
 import com.ecmo.android.model.response.RegisterResponse;
 import com.ecmo.android.rest.ApiClient;
 import com.ecmo.android.rest.ApiInterface;
 import com.ecmo.android.utils.Constants;
 import com.ecmo.android.utils.Helper;
 import com.ecmo.android.utils.UserPreferences;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;

@@ -178,7 +178,7 @@ public class LoginActivity extends FragmentActivity implements View.OnClickListe
                         finish();
                     }
                     else
-                        commonToast("Doctor Registration not approved.");
+                        commonToast("Invalid Credentials. try again");
                 }
                 else
                 {
