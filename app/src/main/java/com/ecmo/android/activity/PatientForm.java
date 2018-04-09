@@ -16,10 +16,12 @@ import android.widget.TextView;
 
 import com.ecmo.android.BaseActivity;
 import com.ecmo.android.R;
-import com.ecmo.android.adaptors.SpinnerHospitaladapter;
-import com.ecmo.android.adaptors.SpinnerSpecialtyadapter;
 import com.ecmo.android.model.HospitalList;
 import com.ecmo.android.model.SpecialityList;
+import com.ecmo.android.model.request.PatientFormRequest;
+import com.ecmo.android.model.response.RegisterResponse;
+import com.ecmo.android.rest.ApiClient;
+import com.ecmo.android.rest.ApiInterface;
 import com.ecmo.android.utils.Helper;
 import com.ecmo.android.utils.UserPreferences;
 
@@ -27,6 +29,10 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class PatientForm extends BaseActivity {
     //Sectionvisiablity
@@ -37,17 +43,13 @@ public class PatientForm extends BaseActivity {
     //Doctor and Patient Section
     FloatingActionButton fabscreenonenext;
     Spinner mspinnerhospital, mspinnerSpeciallity;
-    TextView mtvdate, mhospital, mspecialty;
+    TextView mtvdate;
     EditText mtvadmdiagnosis;
     TextView mspinnerconcultant, mtvhospitaltitle, mtvSpeciallitytitle, mtvconcultanttitle, mtvadmdiagnosistitle, mtvdatetitle;
     String mdataSpeciallity = "", mdataconcultant, mdataadmdiagnosis, mdatahospital = "", mdatagender = "";
     RadioGroup radioSexGroup;
     EditText metfilenumber, metpacitentname, metunit, metward, metage, etcivilid, metbed, metextrainfo;
     String mdatafilenumber, mdatapacitentname, mdataunit, mdataward, mdataage, mdatacivilid, mdatabed;
-    ArrayList<HospitalList> hospital;
-    ArrayList<SpecialityList> specialityLists;
-    SpinnerHospitaladapter spinnerHospitaladapter;
-    SpinnerSpecialtyadapter spinnerSpecialtyadapter;
     String formattedDate;
     TextView mtvfilename, mtvpatientname, mtvcivilid, mtvgender, mtvage, mtvunit, mtvward, mtvbed, mtvhistory;
 
@@ -93,8 +95,6 @@ public class PatientForm extends BaseActivity {
         setContentView(R.layout.activity_patient_form);
         userPreferences = new UserPreferences(getApplicationContext());
         getTodayDate();
-        hospital = new ArrayList<HospitalList>();
-        specialityLists = new ArrayList<SpecialityList>();
         llhospitalPatient = (LinearLayout) findViewById(R.id.section_hospital_patient);
         llpatientparameters = (LinearLayout) findViewById(R.id.section_patient_parameters);
         llventilationparameters = (LinearLayout) findViewById(R.id.section_ventilation_parameters);
@@ -126,27 +126,27 @@ public class PatientForm extends BaseActivity {
         //Doctor
         mspinnerhospital = (Spinner) findViewById(R.id.simpleSpinner_hospital);
         mspinnerSpeciallity = (Spinner) findViewById(R.id.simpleSpinner_speciality);
-        mhospital = (TextView) findViewById(R.id.hospital);
-        mspecialty = (TextView) findViewById(R.id.specialty);
-        mhospital.setTypeface(Helper.getSharedHelper().getNormalFont());
-        mspecialty.setTypeface(Helper.getSharedHelper().getNormalFont());
 
 
-        //Hospital
-        for (int i = 1; i < 8; i++) {
-            hospital.add(new HospitalList("Hospital Name" + i, i));
-
-        }
-        spinnerHospitaladapter = new SpinnerHospitaladapter(getApplicationContext(), hospital);
-        mspinnerhospital.setAdapter(spinnerHospitaladapter);
+        mspinnerhospital.setAdapter(getAutosuggestion(getApplicationContext()));
         mspinnerhospital.setOnItemSelectedListener(new OnItemSelectedListener() {
 
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View arg1,
-                                       int pos, long arg3) {
+                                       int pos, long arg3)
+            {
 
-                mdatahospital = hospital.get(pos).getHospitalName();
-                mhospital.setText(mdatahospital);
+                if(pos!=0)
+                {
+                    mdatahospital = gethospitalvalue(adapterView.getItemAtPosition(pos).toString());
+
+                }
+                else
+                {
+                    mdatahospital="";
+                }
+
+
 
             }
 
@@ -157,12 +157,8 @@ public class PatientForm extends BaseActivity {
             }
         });
 
-        for (int i = 1; i < 8; i++) {
-            specialityLists.add(new SpecialityList("Specialty Name" + i, i));
 
-        }
-        spinnerSpecialtyadapter = new SpinnerSpecialtyadapter(getApplicationContext(), specialityLists);
-        mspinnerSpeciallity.setAdapter(spinnerSpecialtyadapter);
+        mspinnerSpeciallity.setAdapter(getSpeciality(getApplicationContext()));
 
         mspinnerSpeciallity.setOnItemSelectedListener(new OnItemSelectedListener() {
 
@@ -170,8 +166,13 @@ public class PatientForm extends BaseActivity {
             public void onItemSelected(AdapterView<?> adapterView, View arg1,
                                        int pos, long arg3) {
 
-                mdataSpeciallity = specialityLists.get(pos).getSpecialtyName();
-                mspecialty.setText(mdataSpeciallity);
+                if(pos!=0) {
+                    mdataSpeciallity = getSpecilityvalue(adapterView.getItemAtPosition(pos).toString());
+                }
+                else
+                {
+                    mdataSpeciallity="";
+                }
 
             }
 
@@ -981,7 +982,7 @@ public class PatientForm extends BaseActivity {
                 }
                 else
                 {
-                    commonToast("Final API");
+                    SubmitApplication();
                     Log.d("Investigation Details","" +
                     "\n urea - "+eturea.getText().toString()+
                     "\n Cr - "+etcr.getText().toString()+
@@ -1010,6 +1011,107 @@ public class PatientForm extends BaseActivity {
     }
 
     /* Investigation  Paramentes Form End*/
+
+
+    private void SubmitApplication()
+    {
+        commonLoaderstart();
+        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+        final PatientFormRequest patientFormRequest = new PatientFormRequest(
+                mdatahospital,
+                mdataSpeciallity,
+                userPreferences.getUserId(),
+                mdataconcultant,
+                mdataadmdiagnosis,
+                metpacitentname.getText().toString().trim(),
+                etcivilid.getText().toString().trim(),
+                mdatagender,
+                metunit.getText().toString().trim(),
+                metward.getText().toString().trim(),
+                metbed.getText().toString().trim(),
+                metfilenumber.getText().toString().trim(),
+                functionstatus,
+                conscioussstatus,
+                mdatagcsE,
+                mdatagcsv,
+                mdatagcsM,
+                mtvtotoalgcs.getText().toString(),
+                etventdays.getText().toString(),
+                etspo2.getText().toString(),
+                etpo2.getText().toString(),
+                etfio2.getText().toString(),
+                spac02fio2,
+                etpipvalues.getText().toString(),
+                speee,
+                ettv.getText().toString(),
+                srr,
+                slung,
+                scrx,
+                shr,
+                sbp,
+                etcvp.getText().toString(),
+                stemp,
+                etco.getText().toString(),
+                scardiac,
+                slvef,
+                etagentone.getText().toString(),
+                etdoseone.getText().toString(),
+                etagettwo.getText().toString(),
+                etdosetwo.getText().toString(),
+                wtagentthree.getText().toString(),
+                etdosethree.getText().toString(),
+                etsedagentone.getText().toString(),
+                etseddoseone.getText().toString(),
+                etsedagettwo.getText().toString(),
+                etseddosetwo.getText().toString(),
+                wtsedagentthree.getText().toString(),
+                etseddosethree.getText().toString(),
+                etmuscelagent.getText().toString(),
+                etmuscledose.getText().toString(),
+                eturea.getText().toString(),
+                etcr.getText().toString(),
+                etlactate.getText().toString(),
+                etUo.getText().toString(),
+                dialysis,
+                etph.getText().toString(),
+                etinpo2.getText().toString(),
+                etpco2.getText().toString(),
+                ethco3.getText().toString(),
+                etbf.getText().toString(),
+                "designation",
+                "doctelephone",
+                metextrainfo.getText().toString(),
+                "insert",
+                userPreferences.getSession()
+                );
+
+        Call<RegisterResponse> call = apiService.getFormRequest(patientFormRequest);
+        call.enqueue(new Callback<RegisterResponse>() {
+            @Override
+            public void onResponse(Call<RegisterResponse> call, Response<RegisterResponse> response) {
+                commonLoaderstop();
+                RegisterResponse registerResponse = response.body();
+                if (registerResponse != null)
+                {
+                    if (registerResponse.getResult().equalsIgnoreCase("Success"))
+                    {
+                        commonToast("Sucsess");
+                    } else {
+                        commonToast("Fail");
+
+                    }
+
+                }
+            }
+            @Override
+            public void onFailure(Call<RegisterResponse> call, Throwable t)
+            {
+                commonLoaderstop();
+                commonToast("Network Issue Please Try Again");
+            }
+        });
+
+    }
 
 
 }

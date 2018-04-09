@@ -45,8 +45,8 @@
                     android:id="@+id/refhospital_title"
                     android:layout_width="140dp"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
                     android:padding="15dp"
+                    android:gravity="top"
                     android:text="Ref Hospital * "
                     android:textColor="@color/colorblack"
                     android:textSize="14sp"
@@ -58,39 +58,18 @@
                     android:layout_gravity="center"
                     android:background="@color/colorblack" />
 
-                <RelativeLayout
+
+                <Spinner
+                    android:id="@+id/simpleSpinner_hospital"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:padding="15dp" />
 
-                    <TextView
-                        android:id="@+id/hospital"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_gravity="center"
-                        android:background="@drawable/form_cell_bg"
-                        android:hint="  Select Hospital "
-                        android:padding="15dp"
-                        android:textColor="@color/darkblue"
-                        android:textColorHint="@color/divider"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
-
-                    <Spinner
-                        android:id="@+id/simpleSpinner_hospital"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_centerHorizontal="true"
-                        android:layout_centerVertical="true"
-                        android:padding="15dp" />
-
-                </RelativeLayout>
             </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0.4dp"
-                android:layout_below="@+id/rr_heading"
                 android:background="@color/colorblack" />
 
             <LinearLayout
@@ -102,7 +81,7 @@
                     android:id="@+id/refspecialty_title"
                     android:layout_width="140dp"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
+                    android:gravity="top"
                     android:padding="15dp"
                     android:text="Ref Specialty * "
                     android:textColor="@color/colorblack"
@@ -115,35 +94,15 @@
                     android:layout_gravity="center"
                     android:background="@color/colorblack" />
 
-                <RelativeLayout
+
+                <Spinner
+                    android:id="@+id/simpleSpinner_speciality"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:padding="15dp"
+                    android:prompt="@string/enter"
+                    android:tooltipText="@string/enter" />
 
-                    <TextView
-                        android:id="@+id/specialty"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_gravity="center"
-                        android:background="@drawable/form_cell_bg"
-                        android:hint="  Select Specialty "
-                        android:padding="15dp"
-                        android:textColor="@color/darkblue"
-                        android:textColorHint="@color/divider"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
-
-                    <Spinner
-                        android:id="@+id/simpleSpinner_speciality"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_centerHorizontal="true"
-                        android:layout_centerVertical="true"
-                        android:padding="15dp"
-                        android:prompt="@string/enter"
-                        android:tooltipText="@string/enter" />
-
-                </RelativeLayout>
             </LinearLayout>
 
             <View
@@ -691,8 +650,8 @@
                     android:layout_width="140dp"
                     android:layout_height="match_parent"
                     android:layout_centerVertical="true"
-                    android:padding="15dp"
                     android:lineSpacingExtra="2dp"
+                    android:padding="15dp"
                     android:text="History (including  Comorbidities)"
                     android:textColor="@color/colorblack"
                     android:textSize="14sp"

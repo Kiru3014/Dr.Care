@@ -7,13 +7,13 @@ public class PatientFormRequest
 {
     @SerializedName("referHospitalId")
     @Expose
-    private Integer referHospitalId;
+    private String referHospitalId;
     @SerializedName("speciallistId")
     @Expose
-    private Integer speciallistId;
+    private String speciallistId;
     @SerializedName("docId")
     @Expose
-    private Integer docId;
+    private String docId;
     @SerializedName("referConsulutantName")
     @Expose
     private String referConsulutantName;
@@ -25,7 +25,7 @@ public class PatientFormRequest
     private String patientName;
     @SerializedName("civilId")
     @Expose
-    private Integer civilId;
+    private String civilId;
     @SerializedName("gender")
     @Expose
     private String gender;
@@ -49,19 +49,19 @@ public class PatientFormRequest
     private String preMorbFunctionalConsciousStatus;
     @SerializedName("e")
     @Expose
-    private Integer e;
+    private String e;
     @SerializedName("v")
     @Expose
-    private Integer v;
+    private String v;
     @SerializedName("m")
     @Expose
-    private Integer m;
+    private String m;
     @SerializedName("totalscore")
     @Expose
-    private Integer totalscore;
+    private String totalscore;
     @SerializedName("durOfConventianalMechanicalVentination")
     @Expose
-    private Integer durOfConventianalMechanicalVentination;
+    private String durOfConventianalMechanicalVentination;
     @SerializedName("spO2")
     @Expose
     private String spO2;
@@ -201,27 +201,96 @@ public class PatientFormRequest
     @Expose
     private String sessid;
 
-    public Integer getReferHospitalId() {
+    public PatientFormRequest(String referHospitalId, String speciallistId, String docId, String referConsulutantName, String admissionDiagnosis, String patientName, String civilId, String gender, String unit, String ward, String bed, String fileNo, String preMorbFunctionalStatus, String preMorbFunctionalConsciousStatus, String e, String v, String m, String totalscore, String durOfConventianalMechanicalVentination, String spO2, String pO2, String fiO2, String pao2fio2ratio, String pip, String peep, String tv, String rr, String lungCompliance, String cxrquadrants, String hr, String bp, String cvp, String temp, String co, String cardiacindex, String leftventricularejectionfraction, String inotropesagent1, String inotropesdose1, String inotropesagent2, String inotropesdose2, String inotropesagent3, String inotropesdose3, String sedationagent1, String sedationdose1, String sedationagent2, String sedationdose2, String sedationagent3, String sedationdose3, String musclerelaxantsagent1, String musclerelaxantsdose1, String urea, String cr, String lactate, String uo, String dialysis, String bloodgasPH, String bloodgasPO2, String bloodgasPCO2, String bloodgasHCO3, String bloodgasBE, String refdocdesignation, String refdoctelephone, String history, String transactiontype, String sessid)
+    {
+        this.referHospitalId = referHospitalId;
+        this.speciallistId = speciallistId;
+        this.docId = docId;
+        this.referConsulutantName = referConsulutantName;
+        this.admissionDiagnosis = admissionDiagnosis;
+        this.patientName = patientName;
+        this.civilId = civilId;
+        this.gender = gender;
+        this.unit = unit;
+        this.ward = ward;
+        this.bed = bed;
+        this.fileNo = fileNo;
+        this.preMorbFunctionalStatus = preMorbFunctionalStatus;
+        this.preMorbFunctionalConsciousStatus = preMorbFunctionalConsciousStatus;
+        this.e = e;
+        this.v = v;
+        this.m = m;
+        this.totalscore = totalscore;
+        this.durOfConventianalMechanicalVentination = durOfConventianalMechanicalVentination;
+        this.spO2 = spO2;
+        this.pO2 = pO2;
+        this.fiO2 = fiO2;
+        this.pao2fio2ratio = pao2fio2ratio;
+        this.pip = pip;
+        this.peep = peep;
+        this.tv = tv;
+        this.rr = rr;
+        this.lungCompliance = lungCompliance;
+        this.cxrquadrants = cxrquadrants;
+        this.hr = hr;
+        this.bp = bp;
+        this.cvp = cvp;
+        this.temp = temp;
+        this.co = co;
+        this.cardiacindex = cardiacindex;
+        this.leftventricularejectionfraction = leftventricularejectionfraction;
+        this.inotropesagent1 = inotropesagent1;
+        this.inotropesdose1 = inotropesdose1;
+        this.inotropesagent2 = inotropesagent2;
+        this.inotropesdose2 = inotropesdose2;
+        this.inotropesagent3 = inotropesagent3;
+        this.inotropesdose3 = inotropesdose3;
+        this.sedationagent1 = sedationagent1;
+        this.sedationdose1 = sedationdose1;
+        this.sedationagent2 = sedationagent2;
+        this.sedationdose2 = sedationdose2;
+        this.sedationagent3 = sedationagent3;
+        this.sedationdose3 = sedationdose3;
+        this.musclerelaxantsagent1 = musclerelaxantsagent1;
+        this.musclerelaxantsdose1 = musclerelaxantsdose1;
+        this.urea = urea;
+        this.cr = cr;
+        this.lactate = lactate;
+        this.uo = uo;
+        this.dialysis = dialysis;
+        this.bloodgasPH = bloodgasPH;
+        this.bloodgasPO2 = bloodgasPO2;
+        this.bloodgasPCO2 = bloodgasPCO2;
+        this.bloodgasHCO3 = bloodgasHCO3;
+        this.bloodgasBE = bloodgasBE;
+        this.refdocdesignation = refdocdesignation;
+        this.refdoctelephone = refdoctelephone;
+        this.history = history;
+        this.transactiontype = transactiontype;
+        this.sessid = sessid;
+    }
+
+    public String getReferHospitalId() {
         return referHospitalId;
     }
 
-    public void setReferHospitalId(Integer referHospitalId) {
+    public void setReferHospitalId(String referHospitalId) {
         this.referHospitalId = referHospitalId;
     }
 
-    public Integer getSpeciallistId() {
+    public String getSpeciallistId() {
         return speciallistId;
     }
 
-    public void setSpeciallistId(Integer speciallistId) {
+    public void setSpeciallistId(String speciallistId) {
         this.speciallistId = speciallistId;
     }
 
-    public Integer getDocId() {
+    public String getDocId() {
         return docId;
     }
 
-    public void setDocId(Integer docId) {
+    public void setDocId(String docId) {
         this.docId = docId;
     }
 
@@ -249,11 +318,11 @@ public class PatientFormRequest
         this.patientName = patientName;
     }
 
-    public Integer getCivilId() {
+    public String getCivilId() {
         return civilId;
     }
 
-    public void setCivilId(Integer civilId) {
+    public void setCivilId(String civilId) {
         this.civilId = civilId;
     }
 
@@ -313,43 +382,43 @@ public class PatientFormRequest
         this.preMorbFunctionalConsciousStatus = preMorbFunctionalConsciousStatus;
     }
 
-    public Integer getE() {
+    public String getE() {
         return e;
     }
 
-    public void setE(Integer e) {
+    public void setE(String e) {
         this.e = e;
     }
 
-    public Integer getV() {
+    public String getV() {
         return v;
     }
 
-    public void setV(Integer v) {
+    public void setV(String v) {
         this.v = v;
     }
 
-    public Integer getM() {
+    public String getM() {
         return m;
     }
 
-    public void setM(Integer m) {
+    public void setM(String m) {
         this.m = m;
     }
 
-    public Integer getTotalscore() {
+    public String getTotalscore() {
         return totalscore;
     }
 
-    public void setTotalscore(Integer totalscore) {
+    public void setTotalscore(String totalscore) {
         this.totalscore = totalscore;
     }
 
-    public Integer getDurOfConventianalMechanicalVentination() {
+    public String getDurOfConventianalMechanicalVentination() {
         return durOfConventianalMechanicalVentination;
     }
 
-    public void setDurOfConventianalMechanicalVentination(Integer durOfConventianalMechanicalVentination) {
+    public void setDurOfConventianalMechanicalVentination(String durOfConventianalMechanicalVentination) {
         this.durOfConventianalMechanicalVentination = durOfConventianalMechanicalVentination;
     }
 
