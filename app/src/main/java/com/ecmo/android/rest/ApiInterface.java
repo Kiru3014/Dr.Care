@@ -7,6 +7,7 @@ import com.ecmo.android.model.request.EditProfileRequest;
 import com.ecmo.android.model.request.ForgotPasswordRequest;
 import com.ecmo.android.model.request.HospitalReq;
 import com.ecmo.android.model.request.LoginRequest;
+import com.ecmo.android.model.request.PatientFormRequest;
 import com.ecmo.android.model.request.RegisterRequest;
 import com.ecmo.android.model.response.DoctorList;
 import com.ecmo.android.model.response.HospitalList;
@@ -78,11 +79,18 @@ public interface ApiInterface
 
 
     @POST("GetAllDoctorDetails")
-    @Headers({
+     @Headers({
             "Accept: application/json",
             "Content-Type: application/json"
     })
     Call<DoctorList> GetAllDoctorDetails(@Body CommonRequest CommonReq);
+
+    @POST("AddUpdateRefPatient")
+    @Headers({
+            "Accept: application/json",
+            "Content-Type: application/json"
+    })
+    Call<CommonResponse> getFormRequest(@Body PatientFormRequest patientFormRequest);
 
 
     @POST("GetAllRefPatientList")

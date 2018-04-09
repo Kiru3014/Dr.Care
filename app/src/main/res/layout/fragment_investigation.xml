@@ -476,7 +476,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:padding="15dp"
-                        android:text="BF"
+                        android:text="BE"
                         android:textColor="@color/colorblack"
                         android:textSize="14sp"
                         android:textStyle="bold" />
@@ -493,7 +493,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:background="@drawable/form_cell_bg"
-                        android:hint="Enter BF"
+                        android:hint="Enter BE"
                         android:imeOptions="actionDone"
                         android:inputType="number"
                         android:padding="15dp"
