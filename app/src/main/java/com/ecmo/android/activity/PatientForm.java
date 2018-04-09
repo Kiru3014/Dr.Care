@@ -988,7 +988,6 @@ public class PatientForm extends BaseActivity {
                     "\n pco2 - "+etpco2.getText().toString()+
                     "\n hco3 - "+ethco3.getText().toString()+
                     "\n bf - "+etbf.getText().toString());
-
                 }
 
             }

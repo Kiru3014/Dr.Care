@@ -17,7 +17,8 @@ public class Helper
 
 
 
-    public static Helper getSharedHelper() {
+    public static Helper getSharedHelper()
+    {
         if (sharedHelper == null) {
             sharedHelper = new Helper();
             sharedHelper.normalFont = null;
