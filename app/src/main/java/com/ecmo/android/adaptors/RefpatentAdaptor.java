@@ -21,6 +21,7 @@ public class RefpatentAdaptor extends RecyclerView.Adapter<RefpatentAdaptor.Item
 
     private List<PatReferalListitem> patReferalListdata;
     private Context mContext;
+    private OnViewItemClickListener viewlistner;
 
 
     public RefpatentAdaptor(Context mContext, List<PatReferalListitem> patReferalListdata) {
@@ -50,9 +51,19 @@ public class RefpatentAdaptor extends RecyclerView.Adapter<RefpatentAdaptor.Item
         itemRowHolder.mainlayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                patdata.getReferalformid();
+                viewlistner.onviewClick( patdata.getReferalformid());
             }
         });
+
+    }
+
+    public void setviewclickListner(OnViewItemClickListener listner) {
+        viewlistner=listner;
+    }
+
+
+    public interface OnViewItemClickListener {
+        void onviewClick(String formid);
 
     }
 

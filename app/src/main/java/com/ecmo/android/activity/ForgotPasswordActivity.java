@@ -10,8 +10,7 @@ import android.widget.TextView;
 import com.ecmo.android.BaseActivity;
 import com.ecmo.android.R;
 import com.ecmo.android.model.request.ForgotPasswordRequest;
-import com.ecmo.android.model.request.LoginRequest;
-import com.ecmo.android.model.response.RegisterResponse;
+import com.ecmo.android.model.response.CommonResponse;
 import com.ecmo.android.rest.ApiClient;
 import com.ecmo.android.rest.ApiInterface;
 import com.ecmo.android.utils.Constants;
@@ -92,13 +91,13 @@ public class ForgotPasswordActivity extends BaseActivity implements View.OnClick
         commonLoaderstart();
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         final ForgotPasswordRequest forgotPasswordRequest = new ForgotPasswordRequest(zEmail.getText().toString(), "forgotpassword", Constants.SESSIONID);
-        Call<RegisterResponse> call = apiService.getForgotpasswordRequest(forgotPasswordRequest);
-        call.enqueue(new Callback<RegisterResponse>() {
+        Call<CommonResponse> call = apiService.getForgotpasswordRequest(forgotPasswordRequest);
+        call.enqueue(new Callback<CommonResponse>() {
             @Override
-            public void onResponse(Call<RegisterResponse> call, Response<RegisterResponse> response) {
+            public void onResponse(Call<CommonResponse> call, Response<CommonResponse> response) {
                 commonLoaderstop();
-                RegisterResponse registerResponse = response.body();
-                if (registerResponse != null && registerResponse.getResult().equalsIgnoreCase("success")) {
+                CommonResponse commonResponse = response.body();
+                if (commonResponse != null && commonResponse.getResult().equalsIgnoreCase("success")) {
                     commonToast("Please Check Email we have sent a Rest Link!");
                     zEmail.setText("");
                 } else {
@@ -109,7 +108,7 @@ public class ForgotPasswordActivity extends BaseActivity implements View.OnClick
             }
 
             @Override
-            public void onFailure(Call<RegisterResponse> call, Throwable t) {
+            public void onFailure(Call<CommonResponse> call, Throwable t) {
                 commonLoaderstop();
                 commonToast("Network Issue Please Try Again");
 

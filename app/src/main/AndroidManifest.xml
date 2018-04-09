@@ -89,7 +89,9 @@
             android:name="com.ecmo.android.activity.RefPatientlistActivity"
             android:screenOrientation="portrait" />
 
-
+        <activity
+            android:name="com.ecmo.android.activity.DocListActivity"
+            android:screenOrientation="portrait" />
 
         <meta-data
             android:name="com.google.android.gms.version"

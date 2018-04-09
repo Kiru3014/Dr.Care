@@ -2,16 +2,18 @@ package com.ecmo.android.rest;
 
 import com.ecmo.android.model.request.ChangepasswordRequest;
 import com.ecmo.android.model.request.CommonRequest;
+import com.ecmo.android.model.request.DrApproveRejectRequest;
 import com.ecmo.android.model.request.EditProfileRequest;
 import com.ecmo.android.model.request.ForgotPasswordRequest;
 import com.ecmo.android.model.request.HospitalReq;
 import com.ecmo.android.model.request.LoginRequest;
 import com.ecmo.android.model.request.PatientFormRequest;
 import com.ecmo.android.model.request.RegisterRequest;
+import com.ecmo.android.model.response.DoctorList;
 import com.ecmo.android.model.response.HospitalList;
 import com.ecmo.android.model.response.LoginResponse;
 import com.ecmo.android.model.response.PatReferalList;
-import com.ecmo.android.model.response.RegisterResponse;
+import com.ecmo.android.model.response.CommonResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -43,7 +45,7 @@ public interface ApiInterface
             "Accept: application/json",
             "Content-Type: application/json"
     })
-    Call<RegisterResponse> getRegisterRequest(@Body RegisterRequest registerRequest);
+    Call<CommonResponse> getRegisterRequest(@Body RegisterRequest registerRequest);
 
     @POST("DocLogin")
     @Headers({
@@ -58,14 +60,14 @@ public interface ApiInterface
             "Accept: application/json",
             "Content-Type: application/json"
     })
-    Call<EditProfileRequest> editProfile(@Body EditProfileRequest editrequest);
+    Call<CommonResponse> editProfile(@Body EditProfileRequest editrequest);
 
     @POST("AddUpdateDoctor")
     @Headers({
             "Accept: application/json",
             "Content-Type: application/json"
     })
-    Call<ChangepasswordRequest> chnagepassword(@Body ChangepasswordRequest ChangepasswordReq);
+    Call<CommonResponse> chnagepassword(@Body ChangepasswordRequest ChangepasswordReq);
 
 
     @POST("ForgotPassword")
@@ -73,14 +75,23 @@ public interface ApiInterface
             "Accept: application/json",
             "Content-Type: application/json"
     })
-    Call<RegisterResponse> getForgotpasswordRequest(@Body ForgotPasswordRequest forgotPasswordRequest);
+    Call<CommonResponse> getForgotpasswordRequest(@Body ForgotPasswordRequest forgotPasswordRequest);
+
+
+    @POST("GetAllDoctorDetails")
+     @Headers({
+            "Accept: application/json",
+            "Content-Type: application/json"
+    })
+    Call<DoctorList> GetAllDoctorDetails(@Body CommonRequest CommonReq);
 
     @POST("AddUpdateRefPatient")
     @Headers({
             "Accept: application/json",
             "Content-Type: application/json"
     })
-    Call<RegisterResponse> getFormRequest(@Body PatientFormRequest patientFormRequest);
+    Call<CommonResponse> getFormRequest(@Body PatientFormRequest patientFormRequest);
+
 
     @POST("GetAllRefPatientList")
     @Headers({
@@ -89,6 +100,13 @@ public interface ApiInterface
     })
     Call<PatReferalList> GetAllRefPatientList(@Body CommonRequest CommonReq);
 
+
+    @POST("AddUpdateDoctor")
+    @Headers({
+            "Accept: application/json",
+            "Content-Type: application/json"
+    })
+    Call<CommonResponse> docApproveRequest(@Body DrApproveRejectRequest Request);
 }
 
 

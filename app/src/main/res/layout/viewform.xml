@@ -37,7 +37,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:visibility="gone">
+                android:visibility="visible">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -720,8 +720,8 @@
                 android:id="@+id/view_patientparamtvers_section"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="visible">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -1019,8 +1019,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="visible">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -1108,6 +1108,7 @@
                         android:textColor="@color/colorblack"
                         android:textSize="16sp"
                         android:textStyle="bold" />
+
                     <View
                         android:layout_width="0.1dp"
                         android:layout_height="20dp"
@@ -1165,6 +1166,7 @@
                         android:textColor="@color/colorblack"
                         android:textSize="16sp"
                         android:textStyle="bold" />
+
                     <View
                         android:layout_width="0.1dp"
                         android:layout_height="20dp"
@@ -1222,6 +1224,7 @@
                         android:textColor="@color/colorblack"
                         android:textSize="16sp"
                         android:textStyle="bold" />
+
                     <View
                         android:layout_width="0.1dp"
                         android:layout_height="20dp"
@@ -1266,14 +1269,15 @@
 
                     <TextView
                         android:layout_width="0dp"
-                        android:layout_weight="0.5"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
+                        android:layout_weight="0.5"
                         android:padding="10dp"
                         android:text="*PaO2/FiO2 Ratio"
                         android:textColor="@color/colorblack"
                         android:textSize="16sp"
                         android:textStyle="bold" />
+
                     <View
                         android:layout_width="0.1dp"
                         android:layout_height="20dp"
@@ -1298,7 +1302,7 @@
                         android:textColorHint="@color/colorSecondaryText"
                         android:textSize="16sp"
                         android:textStyle="bold" />
-                    
+
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -1390,6 +1394,7 @@
                         android:textColor="@color/colorblack"
                         android:textSize="16sp"
                         android:textStyle="bold" />
+
                     <View
                         android:layout_width="0.1dp"
                         android:layout_height="20dp"
@@ -1417,6 +1422,7 @@
 
 
                 </LinearLayout>
+
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0.4dp"
@@ -1438,6 +1444,7 @@
                         android:textColor="@color/colorblack"
                         android:textSize="16sp"
                         android:textStyle="bold" />
+
                     <View
                         android:layout_width="0.1dp"
                         android:layout_height="20dp"
@@ -1465,6 +1472,7 @@
 
 
                 </LinearLayout>
+
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0.4dp"
@@ -1486,6 +1494,7 @@
                         android:textColor="@color/colorblack"
                         android:textSize="16sp"
                         android:textStyle="bold" />
+
                     <View
                         android:layout_width="0.1dp"
                         android:layout_height="20dp"
@@ -1538,19 +1547,19 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:orientation="vertical"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:padding="10dp"
-                            android:visibility="gone"
                             android:text="(calculated on TV/(PIP-PEEP)"
                             android:textColor="@color/colorblack"
                             android:textSize="10sp"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            android:visibility="visible" />
 
                         <TextView
                             android:id="@+id/tv_lungcomplice"
@@ -1623,22 +1632,20 @@
                 </LinearLayout>
 
 
-
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0.4dp"
                     android:layout_marginTop="5dp"
                     android:background="@color/colorblack" />
 
-                
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:visibility="gone"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="visible">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -1917,9 +1924,9 @@
                         android:id="@+id/tv_cardiacindex"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:layout_centerVertical="true"
                         android:layout_gravity="center"
+                        android:layout_weight="1"
                         android:background="@drawable/form_cell_bg"
                         android:hint=" Enter Cardiac "
                         android:imeOptions="actionNext"
@@ -1992,7 +1999,7 @@
                         android:padding="@dimen/margin10"
                         android:text="%"
                         android:textColor="@color/black_color"
-                        android:textSize="@dimen/Largetext"
+                        android:textSize="14sp"
                         android:textStyle="bold" />
 
                 </LinearLayout>
@@ -2005,12 +2012,11 @@
 
             </LinearLayout>
 
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:visibility="visible"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="visible">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -2032,18 +2038,18 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:weightSum="2">
 
                     <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:orientation="horizontal">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
                             android:padding="15dp"
                             android:text="Agent"
                             android:textColor="@color/colorblack"
@@ -2076,9 +2082,9 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:orientation="horizontal">
 
                         <TextView
@@ -2099,7 +2105,7 @@
 
 
                         <TextView
-                            android:id="@+id/doseone"
+                            android:id="@+id/view_doseone"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
@@ -2116,21 +2122,16 @@
                             android:textStyle="bold" />
 
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:padding="15dp"
+                            android:layout_width="40dp"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:maxLines="3"
                             android:text="mcg/kg/mm"
                             android:textColor="@color/colorblack"
-                            android:textSize="14sp"
+                            android:textSize="10sp"
                             android:textStyle="bold" />
 
                     </LinearLayout>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="0.4dp"
-                        android:background="@color/colorblack" />
 
 
                 </LinearLayout>
@@ -2138,11 +2139,13 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="horizontal"
+                    android:weightSum="2">
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:orientation="horizontal">
 
                         <TextView
@@ -2181,8 +2184,10 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:orientation="horizontal">
 
                         <TextView
@@ -2203,7 +2208,7 @@
 
 
                         <TextView
-                            android:id="@+id/dosetwo"
+                            android:id="@+id/view_dostvwo"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
@@ -2220,21 +2225,16 @@
                             android:textStyle="bold" />
 
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="40dp"
+                            android:layout_height="match_parent"
                             android:layout_centerVertical="true"
-                            android:padding="15dp"
+                            android:gravity="center"
                             android:text="mcg/kg/mm"
                             android:textColor="@color/colorblack"
-                            android:textSize="14sp"
+                            android:textSize="10sp"
                             android:textStyle="bold" />
 
                     </LinearLayout>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="0.4dp"
-                        android:background="@color/colorblack" />
 
 
                 </LinearLayout>
@@ -2242,11 +2242,13 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="horizontal"
+                    android:weightSum="2">
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:orientation="horizontal">
 
                         <TextView
@@ -2285,8 +2287,9 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:orientation="horizontal">
 
                         <TextView
@@ -2307,7 +2310,7 @@
 
 
                         <TextView
-                            android:id="@+id/dosethree"
+                            android:id="@+id/view_dostvhree"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
@@ -2324,21 +2327,16 @@
                             android:textStyle="bold" />
 
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="40dp"
+                            android:layout_height="match_parent"
                             android:layout_centerVertical="true"
-                            android:padding="15dp"
+                            android:gravity="center"
                             android:text="mcg/kg/mm"
                             android:textColor="@color/colorblack"
-                            android:textSize="14sp"
+                            android:textSize="10sp"
                             android:textStyle="bold" />
 
                     </LinearLayout>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="0.4dp"
-                        android:background="@color/colorblack" />
 
 
                 </LinearLayout>
@@ -2364,11 +2362,13 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="horizontal"
+                    android:weightSum="2">
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:orientation="horizontal">
 
                         <TextView
@@ -2407,8 +2407,9 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:orientation="horizontal">
 
                         <TextView
@@ -2429,7 +2430,7 @@
 
 
                         <TextView
-                            android:id="@+id/sedationdoseone"
+                            android:id="@+id/view_sedationdoseone"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
@@ -2447,22 +2448,19 @@
 
                     </LinearLayout>
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="0.4dp"
-                        android:background="@color/colorblack" />
-
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="horizontal"
+                    android:weightSum="2">
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:orientation="horizontal">
 
                         <TextView
@@ -2501,8 +2499,9 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:orientation="horizontal">
 
                         <TextView
@@ -2523,7 +2522,7 @@
 
 
                         <TextView
-                            android:id="@+id/sedationdosetwo"
+                            android:id="@+id/view_sedationdostvwo"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
@@ -2541,22 +2540,19 @@
 
                     </LinearLayout>
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="0.4dp"
-                        android:background="@color/colorblack" />
-
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="horizontal"
+                    android:weightSum="2">
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:orientation="horizontal">
 
                         <TextView
@@ -2577,7 +2573,7 @@
 
 
                         <TextView
-                            android:id="@+id/sedationagentthree"
+                            android:id="@+id/view_sedationagentthree"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
@@ -2595,8 +2591,9 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:orientation="horizontal">
 
                         <TextView
@@ -2617,7 +2614,7 @@
 
 
                         <TextView
-                            android:id="@+id/sedationdosethree"
+                            android:id="@+id/view_sedationdostvhree"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
@@ -2633,11 +2630,6 @@
                             android:textStyle="bold" />
 
                     </LinearLayout>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="0.4dp"
-                        android:background="@color/colorblack" />
 
 
                 </LinearLayout>
@@ -2752,7 +2744,7 @@
                             android:padding="15dp"
                             android:text="(bolus/infusion)"
                             android:textColor="@color/colorblack"
-                            android:textSize="14sp"
+                            android:textSize="10sp"
                             android:textStyle="bold" />
 
                     </LinearLayout>
@@ -2765,36 +2757,523 @@
 
                 </LinearLayout>
 
+)
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:paddingTop="20dp"
+                    android:text="Investigation Result"
+                    android:textColor="@color/colorblack"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:background="@color/colorblack" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:padding="15dp"
+                        android:text="*urea"
+                        android:textColor="@color/colorblack"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="0.1dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:background="@color/colorblack" />
+
+                    <TextView
+                        android:id="@+id/tv_urea"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/form_cell_bg"
+                        android:hint="Enter urea"
+                        android:imeOptions="actionNext"
+                        android:inputType="number"
+                        android:padding="15dp"
+                        android:singleLine="true"
+                        android:textColor="@color/darkblue"
+                        android:textColorHint="@color/colorSecondaryText"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:background="@color/colorblack" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:padding="15dp"
+                        android:text="*Cr"
+                        android:textColor="@color/colorblack"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="0.1dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:background="@color/colorblack" />
+
+                    <TextView
+                        android:id="@+id/tv_cr"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/form_cell_bg"
+                        android:hint="Enter Cr"
+                        android:imeOptions="actionNext"
+                        android:inputType="number"
+                        android:padding="15dp"
+                        android:singleLine="true"
+                        android:textColor="@color/darkblue"
+                        android:textColorHint="@color/colorSecondaryText"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:background="@color/colorblack" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:padding="15dp"
+                        android:text="Lactate"
+                        android:textColor="@color/colorblack"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="0.1dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:background="@color/colorblack" />
+
+                    <TextView
+                        android:id="@+id/tv_lactate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/form_cell_bg"
+                        android:hint="Enter Lactate"
+                        android:imeOptions="actionNext"
+                        android:inputType="number"
+                        android:padding="15dp"
+                        android:singleLine="true"
+                        android:textColor="@color/darkblue"
+                        android:textColorHint="@color/colorSecondaryText"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/colorblack" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:padding="10dp"
+                        android:text="*UO"
+                        android:textColor="@color/colorblack"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="0.1dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:background="@color/colorblack" />
+
+                    <TextView
+                        android:id="@+id/tv_uo"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/form_cell_bg"
+                        android:gravity="center"
+                        android:hint="Enter UO"
+                        android:imeOptions="actionNext"
+                        android:inputType="number"
+                        android:padding="10dp"
+                        android:singleLine="true"
+                        android:textColor="@color/darkblue"
+                        android:textColorHint="@color/colorSecondaryText"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:padding="10dp"
+                        android:text="mls/hr"
+                        android:textColor="@color/colorblack"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:background="@color/colorblack" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center|left"
+                        android:padding="10dp"
+                        android:text="*Dialysis"
+                        android:textColor="@color/darkblue"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_dialysis"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/form_cell_bg"
+                        android:hint="Enter Dialyis"
+                        android:imeOptions="actionNext"
+                        android:inputType="number"
+                        android:padding="15dp"
+                        android:singleLine="true"
+                        android:textColor="@color/darkblue"
+                        android:textColorHint="@color/colorSecondaryText"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:background="@color/colorblack" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center|left"
+                        android:padding="10dp"
+                        android:text="*Blood Gas"
+                        android:textColor="@color/darkblue"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.4dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@color/colorblack" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="140dp"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:padding="15dp"
+                            android:text="PH"
+                            android:textColor="@color/colorblack"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="0.1dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:background="@color/colorblack" />
+
+                        <TextView
+                            android:id="@+id/tv_ph"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/form_cell_bg"
+                            android:hint="Enter PH"
+                            android:imeOptions="actionNext"
+                            android:inputType="number"
+                            android:padding="15dp"
+                            android:singleLine="true"
+                            android:textColor="@color/darkblue"
+                            android:textColorHint="@color/colorSecondaryText"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.4dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@color/colorblack" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="140dp"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:padding="15dp"
+                            android:text="PO2"
+                            android:textColor="@color/colorblack"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="0.1dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:background="@color/colorblack" />
+
+                        <TextView
+                            android:id="@+id/tv_ingpo2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/form_cell_bg"
+                            android:hint="Enter PO2"
+                            android:imeOptions="actionNext"
+                            android:inputType="number"
+                            android:padding="15dp"
+                            android:singleLine="true"
+                            android:textColor="@color/darkblue"
+                            android:textColorHint="@color/colorSecondaryText"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.4dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@color/colorblack" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="140dp"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:padding="15dp"
+                            android:text="*PCO2"
+                            android:textColor="@color/colorblack"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="0.1dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:background="@color/colorblack" />
+
+                        <TextView
+                            android:id="@+id/tv_pco2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/form_cell_bg"
+                            android:hint="Enter PCO2"
+                            android:imeOptions="actionDone"
+                            android:inputType="number"
+                            android:padding="15dp"
+                            android:singleLine="true"
+                            android:textColor="@color/darkblue"
+                            android:textColorHint="@color/colorSecondaryText"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.4dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@color/colorblack" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="140dp"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:padding="15dp"
+                            android:text="*HCO3"
+                            android:textColor="@color/colorblack"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="0.1dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:background="@color/colorblack" />
+
+                        <TextView
+                            android:id="@+id/tv_hco3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/form_cell_bg"
+                            android:hint="Enter HCO3"
+                            android:imeOptions="actionDone"
+                            android:inputType="number"
+                            android:padding="15dp"
+                            android:singleLine="true"
+                            android:textColor="@color/darkblue"
+                            android:textColorHint="@color/colorSecondaryText"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.4dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@color/colorblack" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="140dp"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:padding="15dp"
+                            android:text="BE"
+                            android:textColor="@color/colorblack"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="0.1dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:background="@color/colorblack" />
+
+                        <TextView
+                            android:id="@+id/tv_bf"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/form_cell_bg"
+                            android:hint="Enter BE"
+                            android:imeOptions="actionDone"
+                            android:inputType="number"
+                            android:padding="15dp"
+                            android:singleLine="true"
+                            android:textColor="@color/darkblue"
+                            android:textColorHint="@color/colorSecondaryText"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.4dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@color/colorblack" />
+
+                </LinearLayout>
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
+                    android:layout_marginTop="20dp"
                     android:orientation="horizontal">
 
-                    <android.support.design.widget.FloatingActionButton
-                        android:id="@+id/fag_agent_previous"
+                    <Button
+                        android:id="@+id/fag_submit"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="bottom|end"
                         android:layout_margin="15dp"
-                        android:rotation="180"
-                        android:src="@drawable/ic_next"
-                        app:fabSize="normal" />
+                        android:text="Submit"
+                        android:src="@drawable/ic_next" />
 
-                    <android.support.design.widget.FloatingActionButton
-                        android:id="@+id/fag_agent_next"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="bottom|end"
-                        android:layout_margin="15dp"
-                        android:src="@drawable/ic_next"
-                        app:fabSize="normal" />
+
                 </LinearLayout>
 
-
             </LinearLayout>
-            
+
         </LinearLayout>
 
     </ScrollView>

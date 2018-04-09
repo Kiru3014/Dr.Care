@@ -6,17 +6,26 @@ import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.ecmo.android.BaseActivity;
 import com.ecmo.android.R;
 import com.ecmo.android.adaptors.GalleryAdapter;
 import com.ecmo.android.model.request.PatientFormRequest;
+import com.ecmo.android.model.response.CommonResponse;
+import com.ecmo.android.rest.ApiClient;
+import com.ecmo.android.rest.ApiInterface;
 import com.ecmo.android.utils.Constants;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class FormPreviewActivity extends BaseActivity {
@@ -35,7 +44,15 @@ public class FormPreviewActivity extends BaseActivity {
     TextView mtvnumberdayvent, mtvspo2, mtvpo2, mtvfio2, mtvpafi, mtvpip, mtvpeep, mtvtv, mtvrr, tvlung, mtvcxr;
 
     //Cardiovascular
-    TextView mtvHr,mtvBp,mtvCVp,mtvTemp,mtvCo,mtvCardindex,mtvleftventri;
+    TextView mtvHr, mtvBp, mtvCVp, mtvTemp, mtvCo, mtvCardindex, mtvleftventri;
+
+    //Inotropes
+    TextView magentone, magenttwo, magentthree, msagentone, msagentwo, msagentthree, mmagent;
+    TextView mdoseone, mdosetwo, mdosethree, msdoseone, msdosewo, msdosethree, mmdose;
+
+    //Invegation
+    TextView mtvurea, mtvcr, mtvlactate, mtvUo, mtvDialysis, mtvph, mtvinvpo2, mtvpco2, mtvHco3, mtvbe;
+    Button button;
 
 
     @Override
@@ -54,7 +71,6 @@ public class FormPreviewActivity extends BaseActivity {
 
 
     }
-
 
 
     private void getTodayDate() {
@@ -143,16 +159,15 @@ public class FormPreviewActivity extends BaseActivity {
 
     }
 
-    private void Cardiovascular()
-    {
+    private void Cardiovascular() {
 
-        mtvHr=findViewById(R.id.tv_hr);
-        mtvBp=findViewById(R.id.tv_Bp);
-        mtvCVp=findViewById(R.id.tv_cvp);
-        mtvTemp=findViewById(R.id.tv_temp);
-        mtvCo=findViewById(R.id.tv_co);
-        mtvCardindex=findViewById(R.id.tv_cardiacindex);
-        mtvleftventri=findViewById(R.id.tv_lvef);
+        mtvHr = findViewById(R.id.tv_hr);
+        mtvBp = findViewById(R.id.tv_Bp);
+        mtvCVp = findViewById(R.id.tv_cvp);
+        mtvTemp = findViewById(R.id.tv_temp);
+        mtvCo = findViewById(R.id.tv_co);
+        mtvCardindex = findViewById(R.id.tv_cardiacindex);
+        mtvleftventri = findViewById(R.id.tv_lvef);
 
         mtvHr.setText(dene.getHr());
         mtvBp.setText(dene.getBp());
@@ -163,11 +178,112 @@ public class FormPreviewActivity extends BaseActivity {
         mtvleftventri.setText(dene.getLeftventricularejectionfraction());
     }
 
-    private void Investigation() {
-
-    }
 
     private void Agents() {
+        magentone = findViewById(R.id.agentone);
+        magenttwo = findViewById(R.id.agenttwo);
+        magentthree = findViewById(R.id.agentthree);
+        msagentone = findViewById(R.id.sedationagentone);
+        msagentwo = findViewById(R.id.sedationagenttwo);
+        msagentthree = findViewById(R.id.view_sedationagentthree);
+        mmagent = findViewById(R.id.relaxantsagentone);
+
+        mdoseone = findViewById(R.id.view_doseone);
+        mdosetwo = findViewById(R.id.view_dostvwo);
+        mdosethree = findViewById(R.id.view_dostvhree);
+        msdoseone = findViewById(R.id.view_sedationdoseone);
+        msdosewo = findViewById(R.id.view_sedationdostvwo);
+        msdosethree = findViewById(R.id.view_sedationdostvhree);
+        mmdose = findViewById(R.id.relaxantsdoseone);
+
+
+        magentone.setText(dene.getInotropesagent1());
+        magenttwo.setText(dene.getInotropesagent2());
+        magentthree.setText(dene.getInotropesagent3());
+        msagentone.setText(dene.getSedationagent1());
+        msagentwo.setText(dene.getSedationagent2());
+        msagentthree.setText(dene.getSedationagent3());
+        mmagent.setText(dene.getMusclerelaxantsagent1());
+
+        mdoseone.setText(dene.getInotropesdose1());
+        mdosetwo.setText(dene.getInotropesdose2());
+        mdosethree.setText(dene.getInotropesdose3());
+        msdoseone.setText(dene.getSedationdose1());
+        msdosewo.setText(dene.getSedationdose2());
+        msdosethree.setText(dene.getSedationdose3());
+        mmdose.setText(dene.getMusclerelaxantsdose1());
 
     }
+
+
+    private void Investigation()
+    {
+        mtvurea = findViewById(R.id.tv_urea);
+        mtvcr = findViewById(R.id.tv_cr);
+        mtvlactate = findViewById(R.id.tv_lactate);
+        mtvUo = findViewById(R.id.tv_uo);
+        mtvDialysis = findViewById(R.id.tv_dialysis);
+        mtvph = findViewById(R.id.tv_ph);
+        mtvinvpo2 = findViewById(R.id.tv_ingpo2);
+        mtvpco2 = findViewById(R.id.tv_pco2);
+        mtvHco3 = findViewById(R.id.tv_hco3);
+        mtvbe = findViewById(R.id.tv_bf);
+        button=findViewById(R.id.fag_submit);
+
+
+        mtvurea.setText(dene.getUrea());
+        mtvcr.setText(dene.getCr());
+        mtvlactate.setText(dene.getLactate());
+        mtvUo.setText(dene.getUo());
+        mtvDialysis.setText(dene.getDialysis());
+        mtvph.setText(dene.getBloodgasPH());
+        mtvinvpo2.setText(dene.getBloodgasPO2());
+        mtvpco2.setText(dene.getBloodgasPCO2());
+        mtvHco3.setText(dene.getBloodgasHCO3());
+        mtvbe.setText(dene.getBloodgasBE());
+
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                SubmitApplication(dene);
+            }
+        });
+    }
+
+    private void SubmitApplication(PatientFormRequest patientFormRequest) {
+        commonLoaderstart();
+        ApiInterface apiService = ApiClient.getClientrefpatient().create(ApiInterface.class);
+        Call<CommonResponse> call = apiService.getFormRequest(patientFormRequest);
+        call.enqueue(new Callback<CommonResponse>() {
+            @Override
+            public void onResponse(Call<CommonResponse> call, Response<CommonResponse> response)
+            {
+                commonLoaderstop();
+                CommonResponse commonResponse = response.body();
+                if (commonResponse != null)
+                {
+                    if (commonResponse.getResult().equalsIgnoreCase("Success"))
+                    {
+                        commonToast("Sucsess");
+                    } else {
+                        commonToast("Fail");
+
+                    }
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<CommonResponse> call, Throwable t) {
+                commonLoaderstop();
+
+            }
+        });
+
+    }
+
+
+
 }

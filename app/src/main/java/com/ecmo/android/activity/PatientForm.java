@@ -21,10 +21,8 @@ import android.widget.TextView;
 
 import com.ecmo.android.BaseActivity;
 import com.ecmo.android.R;
-import com.ecmo.android.model.HospitalList;
-import com.ecmo.android.model.SpecialityList;
 import com.ecmo.android.model.request.PatientFormRequest;
-import com.ecmo.android.model.response.RegisterResponse;
+import com.ecmo.android.model.response.CommonResponse;
 import com.ecmo.android.rest.ApiClient;
 import com.ecmo.android.rest.ApiInterface;
 import com.ecmo.android.utils.Helper;
@@ -32,7 +30,6 @@ import com.ecmo.android.utils.UserPreferences;
 
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -1177,14 +1174,17 @@ public class PatientForm extends BaseActivity {
                 userPreferences.getSession()
         );*/
 
-        Call<RegisterResponse> call = apiService.getFormRequest(patientFormRequest);
-        call.enqueue(new Callback<RegisterResponse>() {
+        Call<CommonResponse> call = apiService.getFormRequest(patientFormRequest);
+        call.enqueue(new Callback<CommonResponse>() {
             @Override
-            public void onResponse(Call<RegisterResponse> call, Response<RegisterResponse> response) {
+            public void onResponse(Call<CommonResponse> call, Response<CommonResponse> response)
+            {
                 commonLoaderstop();
-                RegisterResponse registerResponse = response.body();
-                if (registerResponse != null) {
-                    if (registerResponse.getResult().equalsIgnoreCase("Success")) {
+                CommonResponse commonResponse = response.body();
+                if (commonResponse != null)
+                {
+                    if (commonResponse.getResult().equalsIgnoreCase("Success"))
+                    {
                         commonToast("Sucsess");
                     } else {
                         commonToast("Fail");
@@ -1195,9 +1195,8 @@ public class PatientForm extends BaseActivity {
             }
 
             @Override
-            public void onFailure(Call<RegisterResponse> call, Throwable t) {
+            public void onFailure(Call<CommonResponse> call, Throwable t) {
                 commonLoaderstop();
-                commonToast("Network Issue Please Try Again");
             }
         });
 
