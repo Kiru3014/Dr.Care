@@ -12,8 +12,6 @@
         android:id="@+id/mainlayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin10"
-        android:layout_marginBottom="@dimen/margin10"
         android:background="@color/colorWhite">
 
         <View
@@ -23,19 +21,7 @@
             android:background="@color/colorClearfilter" />
 
 
-        <TextView
-            android:id="@+id/viewdetails"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="5dp"
-            android:paddingTop="@dimen/margin10"
-            android:text="View Details"
-            android:textSize="16sp"
-            android:textColor="@color/colorblack"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentTop="true"
-            />
-        <LinearLayout
+        <RelativeLayout
             android:id="@+id/status_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -48,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:paddingStart="@dimen/margin10"
                 android:paddingTop="@dimen/margin10"
-                android:text="Ref Status : "
+                android:text="Referral Status:"
                 android:textColor="@color/colorButton"
                 android:textSize="20sp" />
 
@@ -56,14 +42,26 @@
                 android:id="@+id/ref_status"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/divview"
+                android:layout_toEndOf="@+id/txt_status"
                 android:paddingStart="10dp"
-                android:paddingTop="5dp"
-                android:text="Pending"
+                android:paddingTop="@dimen/margin10"
                 android:textAllCaps="true"
                 android:textColor="@color/colorButton"
                 android:textSize="20sp" />
-        </LinearLayout>
+
+            <TextView
+                android:id="@+id/viewdetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:paddingTop="@dimen/margin10"
+                android:text="View Details"
+                android:textSize="20sp"
+                android:textColor="@color/colorblack"
+                android:layout_alignParentEnd="true"
+
+                />
+        </RelativeLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -77,8 +75,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingStart="@dimen/margin10"
-                android:paddingTop="@dimen/margin10"
-                android:text="Pat Name"
+                android:text="Pat. Name"
                 android:textColor="@color/textcolor"
                 android:textSize="20sp"
                 />
@@ -86,7 +83,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/textcolor"
-                android:text=" : "
+                android:text=":"
                 android:textSize="20sp"
                 />
             <TextView
@@ -94,21 +91,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingStart="@dimen/margin5"
-                android:paddingTop="@dimen/margin10"
                 android:textColor="@color/textcolor"
-                android:text="vdjhcgfhvghk ehk"
                 android:textSize="20sp"
                 />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/colorblack"
                 android:text=" , Age : "/>
 
             <TextView
                 android:id="@+id/patage"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorblack"/>
 
         </LinearLayout>
 
@@ -123,12 +120,16 @@
                 android:id="@+id/hospital_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingRight="@dimen/margin10"
-                android:paddingLeft="@dimen/margin10"
-                android:paddingTop="@dimen/margin10"
+                android:paddingStart="@dimen/margin10"
                 android:text="Hospital Name"
-                android:textColor="@color/colorSecondaryText"
+                android:textColor="@color/colorblack"
                 android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorblack"
+                android:text=",Referal Date:"/>
 
             <TextView
                 android:id="@+id/ref_date"
@@ -137,17 +138,16 @@
                 android:layout_below="@+id/tv_status"
                 android:layout_toEndOf="@+id/lbl_placed_Date"
                 android:paddingEnd="@dimen/margin10"
-                android:paddingTop="@dimen/margin10"
-                android:textColor="@color/colorSecondaryText"
+                android:textColor="@color/colorblack"
                 android:textSize="15sp" />
         </LinearLayout>
 
         <View
-
             android:id="@+id/view1"
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:background="@color/colorClearfilter"
+            android:layout_marginTop="5dp"
             android:layout_below="@+id/second_inner_R_layout"/>
 
         <LinearLayout
@@ -164,7 +164,7 @@
                 android:layout_height="wrap_content"
                 android:paddingStart="@dimen/margin10"
                 android:paddingBottom="@dimen/margin10"
-                android:paddingTop="@dimen/margin10"
+                android:paddingTop="@dimen/margin5"
                 android:textColor="@color/colorText"
                 android:text="Diagnosis"
                 android:textSize="15sp" />
@@ -172,7 +172,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" : "
+                android:text=":"
                 android:textColor="@color/colorText"
                 android:textSize="15sp" />
 
@@ -180,9 +180,7 @@
                 android:id="@+id/diagnosis"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
                 android:maxLines="2"
-                android:padding="@dimen/margin10"
                 android:textColor="@color/colorText"
                 android:textSize="15sp" />
 

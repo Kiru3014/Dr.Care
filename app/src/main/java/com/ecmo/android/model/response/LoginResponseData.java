@@ -28,7 +28,7 @@ public class LoginResponseData
     private Integer specialistId;
     @SerializedName("user_type")
     @Expose
-    private Integer userType;
+    private String userType;
     @SerializedName("device_token")
     @Expose
     private Object deviceToken;
@@ -110,11 +110,11 @@ public class LoginResponseData
         this.specialistId = specialistId;
     }
 
-    public Integer getUserType() {
+    public String getUserType() {
         return userType;
     }
 
-    public void setUserType(Integer userType) {
+    public void setUserType(String userType) {
         this.userType = userType;
     }
 

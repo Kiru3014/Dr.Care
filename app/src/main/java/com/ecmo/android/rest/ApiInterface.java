@@ -1,6 +1,7 @@
 package com.ecmo.android.rest;
 
 import com.ecmo.android.model.request.ChangepasswordRequest;
+import com.ecmo.android.model.request.CommonRequest;
 import com.ecmo.android.model.request.EditProfileRequest;
 import com.ecmo.android.model.request.ForgotPasswordRequest;
 import com.ecmo.android.model.request.HospitalReq;
@@ -9,6 +10,7 @@ import com.ecmo.android.model.request.PatientFormRequest;
 import com.ecmo.android.model.request.RegisterRequest;
 import com.ecmo.android.model.response.HospitalList;
 import com.ecmo.android.model.response.LoginResponse;
+import com.ecmo.android.model.response.PatReferalList;
 import com.ecmo.android.model.response.RegisterResponse;
 
 import retrofit2.Call;
@@ -73,13 +75,20 @@ public interface ApiInterface
     })
     Call<RegisterResponse> getForgotpasswordRequest(@Body ForgotPasswordRequest forgotPasswordRequest);
 
-
-    @POST("ForgotPassword")
+    @POST("AddUpdateRefPatient")
     @Headers({
             "Accept: application/json",
             "Content-Type: application/json"
     })
     Call<RegisterResponse> getFormRequest(@Body PatientFormRequest patientFormRequest);
+
+    @POST("GetAllRefPatientList")
+    @Headers({
+            "Accept: application/json",
+            "Content-Type: application/json"
+    })
+    Call<PatReferalList> GetAllRefPatientList(@Body CommonRequest CommonReq);
+
 }
 
 

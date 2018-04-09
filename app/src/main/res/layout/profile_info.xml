@@ -24,6 +24,7 @@
             android:layout_width="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
+            android:layout_marginEnd="10dp"
             android:text="Close"
             android:layout_alignParentRight="true" />
 
@@ -45,7 +46,7 @@
                 android:weightSum="10">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="80dp"
                     android:enabled="false"
                     android:gravity="center_vertical"
                     android:layout_height="@dimen/margin30"
@@ -75,7 +76,7 @@
 
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="80dp"
                     android:layout_height="@dimen/margin30"
                     android:gravity="center_vertical"
                     android:text="Hospital "
@@ -106,7 +107,7 @@
 
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="80dp"
                     android:layout_height="@dimen/margin30"
                     android:gravity="center_vertical"
                     android:text="Speciality "
@@ -135,7 +136,7 @@
 
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="80dp"
                     android:layout_height="@dimen/margin30"
                     android:gravity="center_vertical"
                     android:text="Mobile No"
@@ -166,7 +167,7 @@
 
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="80dp"
                     android:layout_height="@dimen/margin30"
                     android:gravity="center_vertical"
                     android:text="Email Id"

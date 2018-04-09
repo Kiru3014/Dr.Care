@@ -9,7 +9,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.ecmo.android.R;
-import com.ecmo.android.model.response.PatReferalListdata;
+import com.ecmo.android.model.response.PatReferalListitem;
 
 import java.util.List;
 
@@ -19,11 +19,11 @@ import java.util.List;
  */
 public class RefpatentAdaptor extends RecyclerView.Adapter<RefpatentAdaptor.ItemRowHolder> {
 
-    private List<PatReferalListdata> patReferalListdata;
+    private List<PatReferalListitem> patReferalListdata;
     private Context mContext;
 
 
-    public RefpatentAdaptor(Context mContext, List<PatReferalListdata> patReferalListdata) {
+    public RefpatentAdaptor(Context mContext, List<PatReferalListitem> patReferalListdata) {
         this.patReferalListdata = patReferalListdata;
         this.mContext = mContext;
 
@@ -38,7 +38,7 @@ public class RefpatentAdaptor extends RecyclerView.Adapter<RefpatentAdaptor.Item
 
     @Override
     public void onBindViewHolder(ItemRowHolder itemRowHolder, int i) {
-        final PatReferalListdata patdata=patReferalListdata.get(i);
+        final PatReferalListitem patdata=patReferalListdata.get(i);
 
         itemRowHolder.patStatus.setText(patdata.getStatus());
         itemRowHolder.patname.setText(patdata.getPat_name());
