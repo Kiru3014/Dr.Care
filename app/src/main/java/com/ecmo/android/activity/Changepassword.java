@@ -12,6 +12,7 @@ import com.ecmo.android.model.request.ChangepasswordRequest;
 import com.ecmo.android.model.response.CommonResponse;
 import com.ecmo.android.rest.ApiClient;
 import com.ecmo.android.rest.ApiInterface;
+import com.ecmo.android.utils.Helper;
 import com.ecmo.android.utils.UserPreferences;
 
 import retrofit2.Call;
@@ -42,7 +43,13 @@ public class Changepassword extends BaseActivity{
         newPwd = findViewById(R.id.et_newPwd);
         confPwd = findViewById(R.id.et_confPwd);
 
+        curPwd.setTypeface(Helper.getSharedHelper().getNormalFont());
+        newPwd.setTypeface(Helper.getSharedHelper().getNormalFont());
+        confPwd.setTypeface(Helper.getSharedHelper().getNormalFont());
+
+
         btnSave = findViewById(R.id.btn_savePwd);
+        btnSave.setTypeface(Helper.getSharedHelper().getBoldFont());
         btnSave.setOnClickListener(mClicked);
 
         id_close = findViewById(R.id.id_close);

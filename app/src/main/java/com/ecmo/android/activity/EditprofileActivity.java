@@ -122,7 +122,6 @@ public class EditprofileActivity extends BaseActivity {
                 else
                 {
                     commonToast("Profile Not saved, try again later.");
-
                 }
 
             }
