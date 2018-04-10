@@ -50,7 +50,7 @@ public class DocListAdaptor extends RecyclerView.Adapter<DocListAdaptor.ItemRowH
             itemRowHolder.approveddoc.setText("APPROVED");
             itemRowHolder.approveddoc.setBackgroundColor(mContext.getColor(R.color.green));
         }
-        else if(docdata.getStatus().equalsIgnoreCase("0")){
+        else if(docdata.getStatus().equalsIgnoreCase("2")){
             itemRowHolder.approve.setVisibility(View.GONE);
             itemRowHolder.approveddoc.setText("REJECTED");
             itemRowHolder.approveddoc.setBackgroundColor(mContext.getColor(R.color.sample_dark_red));

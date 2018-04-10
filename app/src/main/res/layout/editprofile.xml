@@ -72,6 +72,7 @@
                 android:textColor="@color/colorPrimaryDark"
                 android:textColorHint="@color/divider"
                 android:textCursorDrawable="@drawable/color_cursor"
+                android:paddingStart="10dp"
                 android:textSize="@dimen/normalText" />
 
         </LinearLayout>
@@ -155,6 +156,7 @@
                 android:inputType="number"
                 android:singleLine="true"
                 android:textColor="@color/colorPrimaryDark"
+                android:paddingStart="10dp"
                 android:textColorHint="@color/divider"
                 android:textCursorDrawable="@drawable/color_cursor"
                 android:textSize="@dimen/normalText" />
