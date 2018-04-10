@@ -156,7 +156,7 @@ public class ViewReferalForm extends BaseActivity {
         mtvHospitalSpecialty.setText(pat_data.getSpeciallist());
         mtvConcultant.setText(pat_data.getReferConsulutantName());
         mtvDate.setText(pat_data.getRefDate());
-        mtvDiagnosis.setText(pat_data.getDialysis());
+        mtvDiagnosis.setText(pat_data.getAdmissionDiagnosis());
         mtvPatientfilNumber.setText(pat_data.getFileNo());
         mtvpatientName.setText(pat_data.getPatientName());
         mtvPatientcivilid.setText(pat_data.getCivilId());
