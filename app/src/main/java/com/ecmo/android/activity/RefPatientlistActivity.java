@@ -60,7 +60,7 @@ public class RefPatientlistActivity extends BaseActivity {
                 if(Response!=null&&Response.getResult().equals("SUCCESS"))
                 {
                     refpatlist=Response.getData();
-                    if(refpatlist != null) {
+                    if(refpatlist != null && refpatlist.size()>0) {
                         setData();
                     }
                     else {
