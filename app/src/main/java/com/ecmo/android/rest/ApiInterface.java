@@ -5,15 +5,18 @@ import com.ecmo.android.model.request.CommonRequest;
 import com.ecmo.android.model.request.DrApproveRejectRequest;
 import com.ecmo.android.model.request.EditProfileRequest;
 import com.ecmo.android.model.request.ForgotPasswordRequest;
+import com.ecmo.android.model.request.FormActionRequest;
+import com.ecmo.android.model.request.FormviewRequest;
 import com.ecmo.android.model.request.HospitalReq;
 import com.ecmo.android.model.request.LoginRequest;
 import com.ecmo.android.model.request.PatientFormRequest;
 import com.ecmo.android.model.request.RegisterRequest;
+import com.ecmo.android.model.response.CommonResponse;
 import com.ecmo.android.model.response.DoctorList;
 import com.ecmo.android.model.response.HospitalList;
 import com.ecmo.android.model.response.LoginResponse;
 import com.ecmo.android.model.response.PatReferalList;
-import com.ecmo.android.model.response.CommonResponse;
+import com.ecmo.android.model.response.Referalformdata;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -107,6 +110,23 @@ public interface ApiInterface
             "Content-Type: application/json"
     })
     Call<CommonResponse> docApproveRequest(@Body DrApproveRejectRequest Request);
+
+
+    @POST("GetRefPatientDetails")
+    @Headers({
+            "Accept: application/json",
+            "Content-Type: application/json"
+    })
+    Call<Referalformdata> GetRefPatientDetails(@Body FormviewRequest Request);
+
+
+    @POST("AddUpdatePatientStatus")
+    @Headers({
+            "Accept: application/json",
+            "Content-Type: application/json"
+    })
+    Call<CommonResponse> AddUpdatePatientStatus(@Body FormActionRequest Request);
+
 }
 
 

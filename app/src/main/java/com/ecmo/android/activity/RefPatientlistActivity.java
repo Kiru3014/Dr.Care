@@ -1,6 +1,7 @@
 package com.ecmo.android.activity;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -34,8 +35,16 @@ public class RefPatientlistActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.doc_list);
         userSharedPreferences = new UserPreferences(this);
+
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         getDAta();
     }
+
     private void getDAta() {
 
         commonLoaderstart();
@@ -97,8 +106,10 @@ public class RefPatientlistActivity extends BaseActivity {
     RefpatentAdaptor.OnViewItemClickListener listner=new RefpatentAdaptor.OnViewItemClickListener() {
         @Override
         public void onviewClick(String formid) {
+            Intent intent = new Intent(getApplicationContext(), ViewReferalForm.class);
+            intent.putExtra("formid",  formid);
+            startActivity(intent);
 
-            commonToast("formid id " + formid);
         }
     };
 }

@@ -3,21 +3,16 @@ package com.ecmo.android.activity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.ecmo.android.BaseActivity;
 import com.ecmo.android.R;
-import com.ecmo.android.adaptors.GalleryAdapter;
 import com.ecmo.android.model.request.PatientFormRequest;
 import com.ecmo.android.model.response.CommonResponse;
 import com.ecmo.android.rest.ApiClient;
 import com.ecmo.android.rest.ApiInterface;
-import com.ecmo.android.utils.Constants;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -68,8 +63,6 @@ public class FormPreviewActivity extends BaseActivity {
         Cardiovascular();
         Agents();
         Investigation();
-
-
     }
 
 
