@@ -205,7 +205,7 @@ public class BaseActivity extends AppCompatActivity
         int year = c.get(Calendar.YEAR)%100;
 
         if(cidyy<=year)
-            return cidyy;
+            return year-cidyy;
 
         year=year+100;
         return year-cidyy;

@@ -2,11 +2,9 @@ package com.ecmo.android.activity;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.support.design.widget.FloatingActionButton;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -225,7 +223,7 @@ public class PatientForm extends BaseActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count)
             {
-                if(s.length()==10)
+                if(s.length()>=10)
                 {
                     metage.setText(getAgefromCivilId(etcivilid.getText().toString())+"");
                 }
