@@ -195,7 +195,7 @@ public class BaseActivity extends AppCompatActivity
 
     public int getAgefromCivilId( String civilid){
 
-        int cidyy= Integer.parseInt(civilid.substring(1,2));
+        int cidyy= Integer.parseInt(civilid.substring(1,3));
         Calendar c = Calendar.getInstance();
 //        int seconds = c.get(Calendar.SECOND);
 //        int hour = c.get(Calendar.HOUR_OF_DAY); // IF YOU USE HOUR IT WILL GIVE 12 HOUR USE HOUR_OF_DAY TO GET 24 HOUR FORMAT
@@ -203,6 +203,9 @@ public class BaseActivity extends AppCompatActivity
 //        int date = c.get(Calendar.DATE);
 //        int month = c.get(Calendar.MONTH) + 1; // in java month starts from 0 not from 1 so for december 11+1 = 12
         int year = c.get(Calendar.YEAR)%100;
+
+        if(cidyy<=year)
+            return cidyy;
 
         year=year+100;
         return year-cidyy;
