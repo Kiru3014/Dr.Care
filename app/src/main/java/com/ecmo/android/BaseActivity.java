@@ -275,8 +275,8 @@ public class BaseActivity extends AppCompatActivity
 
     public  void LogoutSession()
     {
-        Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
         userPreferences.clearSession();
+        Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK );
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
