@@ -99,7 +99,7 @@ public class FormPreviewActivity extends BaseActivity {
         mtvpatientName.setText(dene.getPatientName());
         mtvPatientcivilid.setText(dene.getCivilId());
         mtvgender.setText(dene.getGender());
-        mtvage.setText("--");
+        mtvage.setText(getAgefromCivilId(dene.getCivilId())+"");
         mtvunit.setText(dene.getUnit());
         mtvward.setText(dene.getWard());
         mtvbed.setText(dene.getBed());
