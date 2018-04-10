@@ -28,13 +28,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ecmo.android.activity.HelpActivity;
-import com.ecmo.android.activity.HomeActivity;
 import com.ecmo.android.activity.LoginActivity;
 import com.ecmo.android.model.response.Hospitalitem;
 import com.ecmo.android.utils.Helper;
 import com.ecmo.android.utils.UserPreferences;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 
@@ -191,6 +191,23 @@ public class BaseActivity extends AppCompatActivity
         manager.notify(0, builder.build());
 
     }
+
+
+    public int getAgefromCivilId( String civilid){
+
+        int cidyy= Integer.parseInt(civilid.substring(1,2));
+        Calendar c = Calendar.getInstance();
+//        int seconds = c.get(Calendar.SECOND);
+//        int hour = c.get(Calendar.HOUR_OF_DAY); // IF YOU USE HOUR IT WILL GIVE 12 HOUR USE HOUR_OF_DAY TO GET 24 HOUR FORMAT
+//        int minutes = c.get(Calendar.MINUTE);
+//        int date = c.get(Calendar.DATE);
+//        int month = c.get(Calendar.MONTH) + 1; // in java month starts from 0 not from 1 so for december 11+1 = 12
+        int year = c.get(Calendar.YEAR)%100;
+
+        year=year+100;
+        return year-cidyy;
+    }
+
 
 
     public void showConfirmDialog(Context c) {
