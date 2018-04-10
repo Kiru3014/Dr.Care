@@ -152,7 +152,7 @@
                 android:background="@android:color/transparent"
                 android:cursorVisible="true"
                 android:gravity="center_vertical"
-                android:inputType="textPassword"
+                android:inputType="number"
                 android:singleLine="true"
                 android:textColor="@color/colorPrimaryDark"
                 android:textColorHint="@color/divider"
