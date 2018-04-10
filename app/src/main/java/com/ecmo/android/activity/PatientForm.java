@@ -8,6 +8,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.design.widget.FloatingActionButton;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -218,6 +220,29 @@ public class PatientForm extends BaseActivity {
         mtvdate.setTypeface(Helper.getSharedHelper().getNormalFont());
         metextrainfo.setTypeface(Helper.getSharedHelper().getNormalFont());
         mtvdate.setText(formattedDate);
+
+        etcivilid.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count)
+            {
+                if(s.length()==10)
+                {
+                    metage.setText(getAgefromCivilId(etcivilid.getText().toString())+"");
+                }
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                // TODO Auto-generated method stub
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+                // TODO Auto-generated method stub
+            }
+        });
 
         fabscreenonenext = (FloatingActionButton) findViewById(R.id.fag_screenone_next);
 
