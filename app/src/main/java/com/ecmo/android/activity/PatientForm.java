@@ -933,6 +933,7 @@ public class PatientForm extends BaseActivity {
         ethco3 = findViewById(R.id.et_hco3);
         etbf = findViewById(R.id.et_bf);
         etrefphonenumber = findViewById(R.id.et_refdoctelephone);
+        etrefphonenumber.setText(userPreferences.getKeyUserMob());
         erefddesignation = findViewById(R.id.et_refdocdesignation);
         etrefphonenumber.setTypeface(Helper.getSharedHelper().getNormalFont());
         erefddesignation.setTypeface(Helper.getSharedHelper().getNormalFont());
@@ -1186,6 +1187,7 @@ public class PatientForm extends BaseActivity {
                     if (commonResponse.getResult().equalsIgnoreCase("Success"))
                     {
                         commonToast("Sucsess");
+                        finish();
                     } else {
                         commonToast("Fail");
 

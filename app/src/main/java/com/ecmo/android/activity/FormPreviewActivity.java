@@ -260,6 +260,11 @@ public class FormPreviewActivity extends BaseActivity {
                     if (commonResponse.getResult().equalsIgnoreCase("Success"))
                     {
                         commonToast("Sucsess");
+                        Intent intent = new Intent(getApplicationContext(),HomeActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK );
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(intent);
+                        finish();
                     } else {
                         commonToast("Fail");
 

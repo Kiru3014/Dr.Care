@@ -28,6 +28,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ecmo.android.activity.HelpActivity;
+import com.ecmo.android.activity.HomeActivity;
 import com.ecmo.android.activity.LoginActivity;
 import com.ecmo.android.model.response.Hospitalitem;
 import com.ecmo.android.utils.Helper;
@@ -250,6 +251,16 @@ public class BaseActivity extends AppCompatActivity
         }
 
         return new ArrayAdapter<String>(context, android.R.layout.simple_dropdown_item_1line, list);
+    }
+
+    public  void LogoutSession()
+    {
+        Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
+        userPreferences.clearSession();
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK );
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+        finish();
     }
 
 }

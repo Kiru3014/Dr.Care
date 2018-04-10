@@ -472,7 +472,6 @@
                         android:hint="Enter Gender"
                         android:imeOptions="actionNext"
                         android:inputType="number"
-                        android:maxLength="2"
                         android:padding="15dp"
                         android:singleLine="true"
                         android:textColor="@color/darkblue"

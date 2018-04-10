@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/doctor_bgnew"
@@ -16,71 +17,95 @@
             style="@style/Header"
             android:gravity="center"
             android:text="Change Password"
-            android:textSize="16dp"
-            android:textColor="@color/colorblack"/>
+            android:textColor="@color/colorblack"
+            android:textSize="16dp" />
 
         <TextView
             android:id="@+id/id_close"
             style="@style/PrimaryText"
             android:layout_width="wrap_content"
             android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginEnd="10dp"
-            android:text="Close"
-            android:layout_alignParentRight="true" />
+            android:layout_marginRight="10dp"
+            android:text="Close" />
 
     </RelativeLayout>
 
     <View style="@style/Divider" />
 
-
-    <EditText
-        android:id="@+id/et_curPwd"
-        style="@style/NewAddressEditText"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:hint="Current Password"
-        android:inputType="textPassword"
-        android:layout_marginStart="5dp"
-        android:textSize="14sp"
-        android:textAlignment="viewStart"/>
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="@dimen/margin20"
+        android:layout_marginRight="@dimen/margin20"
+        android:layout_marginTop="@dimen/margin30"
+        android:background="@drawable/login_bg"
+        android:orientation="vertical">
 
-    <View style="@style/DividerThin"></View>
+        <EditText
+            android:id="@+id/et_curPwd"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin40"
+            android:background="@android:color/transparent"
+            android:cursorVisible="true"
+            android:hint="Current Password"
+            android:inputType="textPassword"
+            android:singleLine="true"
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHint="@color/divider"
+            android:textCursorDrawable="@drawable/color_cursor"
+            android:textSize="@dimen/normalText" />
 
-    <EditText
-        android:id="@+id/et_newPwd"
-        android:layout_width="match_parent"
-        style="@style/NewAddressEditText"
-        android:hint="New Password"
-        android:inputType="textPassword"
-        android:textSize="14sp"
-        android:layout_marginStart="5dp"
-        android:textAlignment="viewStart"/>
 
-    <View style="@style/DividerThin"></View>
+        <View style="@style/DividerThin" />
 
-    <EditText
-        android:id="@+id/et_confPwd"
-        style="@style/NewAddressEditText"
-        android:layout_width="match_parent"
-        android:hint="Confirm New Password"
-        android:inputType="textPassword"
-        android:textSize="14sp"
-        android:layout_marginStart="5dp"
-        android:textAlignment="viewStart"/>
+        <EditText
+            android:id="@+id/et_newPwd"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin40"
+            android:background="@android:color/transparent"
+            android:cursorVisible="true"
+            android:hint="New Password"
+            android:inputType="textPassword"
+            android:singleLine="true"
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHint="@color/divider"
+            android:textCursorDrawable="@drawable/color_cursor"
+            android:textSize="@dimen/normalText" />
 
-    <View style="@style/DividerThin"></View>
+
+        <View style="@style/DividerThin" />
+
+        <EditText
+            android:id="@+id/et_confPwd"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin40"
+            android:background="@android:color/transparent"
+            android:cursorVisible="true"
+            android:hint="Confirm New Password"
+            android:inputType="textPassword"
+            android:singleLine="true"
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHint="@color/divider"
+            android:textCursorDrawable="@drawable/color_cursor"
+            android:textSize="@dimen/normalText" />
+
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/btn_savePwd"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/margin30"
-        android:textColor="@color/colorWhite"
+        android:layout_height="@dimen/margin40"
         android:layout_gravity="center"
-        android:layout_marginStart="@dimen/margin5"
-        android:layout_marginEnd="@dimen/margin5"
-        android:layout_marginTop="@dimen/margin10"
+        android:layout_margin="@dimen/margin20"
+        android:background="@drawable/apply_btn_background"
         android:text="Change Password"
-        android:background="@drawable/apply_btn_background" />
+        android:textColor="@color/colorWhite"
+        tools:targetApi="lollipop" />
 
 </LinearLayout>
 

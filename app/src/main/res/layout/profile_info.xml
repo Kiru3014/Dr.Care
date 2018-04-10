@@ -14,211 +14,196 @@
         <TextView
             style="@style/Header"
             android:gravity="center"
-            android:text="Profile Information" 
-            android:textSize="16dp"
-            android:textColor="@color/colorblack"/>
+            android:text="Profile Information"
+            android:textColor="@color/colorblack"
+            android:textSize="16dp" />
 
         <TextView
             android:id="@+id/id_close"
             style="@style/PrimaryText"
             android:layout_width="wrap_content"
             android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginEnd="10dp"
-            android:text="Close"
-            android:layout_alignParentRight="true" />
+            android:layout_marginRight="10dp"
+            android:text="Close" />
 
     </RelativeLayout>
 
     <View style="@style/DividerThin" />
 
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin20"
+        android:layout_marginRight="@dimen/margin20"
+        android:layout_marginTop="@dimen/margin30"
+        android:background="@drawable/login_bg"
+        android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="@dimen/margin40"
+            android:orientation="horizontal"
+            android:weightSum="10">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/margin30"
-                android:orientation="horizontal"
-                android:paddingStart="@dimen/margin20"
-                android:weightSum="10">
-
-                <TextView
-                    android:layout_width="80dp"
-                    android:enabled="false"
-                    android:gravity="center_vertical"
-                    android:layout_height="@dimen/margin30"
-                    android:text="Full Name"
-                    android:textColor="@color/colorHint" />
-
-                <TextView
-                    android:id="@+id/fullname"
-                    style="@style/hintText"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/margin30"
-                    android:gravity="center_vertical"
-                    android:paddingStart="@dimen/margin20"
-                    android:textAlignment="viewStart" />
-
-            </LinearLayout>
-
-            <View style="@style/DividerThin" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/margin30"
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="@dimen/margin40"
+                android:enabled="false"
                 android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingStart="@dimen/margin20"
-                android:weightSum="10">
+                android:text="Full Name"
+                android:textColor="@color/colorHint" />
 
-
-                <TextView
-                    android:layout_width="80dp"
-                    android:layout_height="@dimen/margin30"
-                    android:gravity="center_vertical"
-                    android:text="Hospital "
-                    android:textAlignment="viewStart"
-                    android:textColor="@color/colorHint" />
-
-                <TextView
-                    android:id="@+id/hospitalname"
-                    style="@style/hintText"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/margin30"
-                    android:enabled="false"
-                    android:gravity="center_vertical"
-                    android:paddingStart="@dimen/margin20" />
-
-            </LinearLayout>
-
-            <View style="@style/DividerThin" />
-
-
-            <LinearLayout
+            <TextView
+                android:id="@+id/fullname"
+                style="@style/hintText"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/margin30"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingStart="@dimen/margin20"
-                android:weightSum="10">
+                android:layout_height="@dimen/margin40"
+                android:gravity="center_vertical" />
 
-
-                <TextView
-                    android:layout_width="80dp"
-                    android:layout_height="@dimen/margin30"
-                    android:gravity="center_vertical"
-                    android:text="Speciality "
-                    android:textAlignment="viewStart"
-                    android:textColor="@color/colorHint" />
-
-                <TextView
-                    android:id="@+id/specility"
-                    style="@style/hintText"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/margin30"
-                    android:enabled="false"
-                    android:gravity="center_vertical"
-                    android:paddingStart="@dimen/margin20" />
-
-            </LinearLayout>
-
-            <View style="@style/DividerThin" />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/margin30"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingStart="@dimen/margin20"
-                android:weightSum="10">
-
-
-                <TextView
-                    android:layout_width="80dp"
-                    android:layout_height="@dimen/margin30"
-                    android:gravity="center_vertical"
-                    android:text="Mobile No"
-                    android:textAlignment="viewStart"
-                    android:textColor="@color/colorHint" />
-
-                <TextView
-                    android:id="@+id/mobile_no_value"
-                    style="@style/hintText"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/margin30"
-                    android:enabled="false"
-                    android:gravity="center_vertical"
-                    android:paddingStart="@dimen/margin20"
-                    android:textAlignment="viewStart" />
-
-            </LinearLayout>
-
-            <View style="@style/DividerThin" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/margin30"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingStart="@dimen/margin20"
-                android:weightSum="10">
-
-
-                <TextView
-                    android:layout_width="80dp"
-                    android:layout_height="@dimen/margin30"
-                    android:gravity="center_vertical"
-                    android:text="Email Id"
-                    android:textAlignment="viewStart"
-                    android:textColor="@color/colorHint" />
-
-                <TextView
-                    android:id="@+id/email_ID_value"
-                    style="@style/hintText"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/margin30"
-                    android:enabled="false"
-                    android:gravity="center_vertical"
-                    android:paddingStart="@dimen/margin20"
-                    />
-
-            </LinearLayout>
-
-            <View
-                style="@style/DividerThin"
-                android:layout_marginBottom="@dimen/margin5" />
-
-
-            <Button
-                android:id="@+id/btn_edit_profile"
-                android:layout_width="match_parent"
-                android:layout_height="46dp"
-                android:layout_gravity="center"
-                android:layout_marginEnd="@dimen/margin5"
-                android:layout_marginStart="@dimen/margin5"
-                android:layout_marginTop="@dimen/margin10"
-                android:background="@drawable/apply_btn_background"
-                android:text="Edit Profile"
-                android:textColor="@color/colorWhite"
-                android:textSize="14sp" />
-
-
-            <Button
-                android:id="@+id/btn_change_pwd"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/margin50"
-                android:textColor="@color/colorWhite"
-                android:layout_gravity="center"
-                android:layout_marginLeft="@dimen/margin5"
-                android:layout_marginRight="@dimen/margin5"
-                android:layout_marginTop="@dimen/margin10"
-                android:background="@drawable/apply_btn_background"
-                android:textSize="14sp"
-                android:text="Change Password" />
         </LinearLayout>
 
+        <View style="@style/DividerThin" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin40"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="@dimen/margin40"
+                android:gravity="center_vertical"
+                android:text="Hospital "
+                android:textColor="@color/colorHint" />
+
+            <TextView
+                android:id="@+id/hospitalname"
+                style="@style/hintText"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin40"
+                android:enabled="false"
+                android:gravity="center_vertical" />
+
+        </LinearLayout>
+
+        <View style="@style/DividerThin" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin40"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="@dimen/margin40"
+                android:gravity="center_vertical"
+                android:text="Speciality "
+                android:textColor="@color/colorHint" />
+
+            <TextView
+                android:id="@+id/specility"
+                style="@style/hintText"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin40"
+                android:enabled="false"
+                android:gravity="center_vertical" />
+
+        </LinearLayout>
+
+        <View style="@style/DividerThin" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin40"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="@dimen/margin40"
+                android:gravity="center_vertical"
+                android:text="Mobile No"
+                android:textColor="@color/colorHint" />
+
+            <TextView
+                android:id="@+id/mobile_no_value"
+                style="@style/hintText"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin40"
+                android:enabled="false"
+                android:gravity="center_vertical"/>
+
+        </LinearLayout>
+
+        <View style="@style/DividerThin" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin40"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="@dimen/margin40"
+                android:gravity="center_vertical"
+                android:text="Email Id"
+                android:textColor="@color/colorHint" />
+
+            <TextView
+                android:id="@+id/email_ID_value"
+                style="@style/hintText"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin40"
+                android:enabled="false"
+                android:gravity="center_vertical"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btn_edit_profile"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin40"
+        android:layout_gravity="center"
+        android:layout_marginLeft="@dimen/margin30"
+        android:layout_marginRight="@dimen/margin30"
+        android:layout_marginTop="@dimen/margin30"
+        android:background="@drawable/apply_btn_background"
+        android:text="Edit Profile"
+        android:textColor="@color/colorWhite"
+        android:textSize="14sp" />
+
+
+    <Button
+        android:id="@+id/btn_change_pwd"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin40"
+        android:layout_gravity="center"
+        android:layout_marginLeft="@dimen/margin30"
+        android:layout_marginRight="@dimen/margin30"
+        android:layout_marginTop="@dimen/margin20"
+        android:background="@drawable/apply_btn_background"
+        android:text="Change Password"
+        android:textColor="@color/colorWhite"
+        android:textSize="14sp" />
 
 
 </LinearLayout>
