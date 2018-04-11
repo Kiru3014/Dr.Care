@@ -3258,6 +3258,26 @@
                 </LinearLayout>
 
 
+                <EditText
+                    android:id="@+id/ref_comment"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:background="@drawable/form_cell_bg"
+                    android:hint="Comments "
+                    android:padding="5dp"
+                    android:textColor="@color/darkblue"
+                    android:textColorHint="@color/divider"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/resend_form"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_next"
+                    android:visibility="gone"
+                    android:text="RESEND REFERRAL FORM"/>
                 <RelativeLayout
                     android:id="@+id/formaction"
                     android:layout_width="match_parent"
@@ -3267,26 +3287,11 @@
                     android:orientation="horizontal">
 
 
-                    <EditText
-                        android:id="@+id/ref_comment"
-                        android:layout_width="match_parent"
-                        android:layout_height="100dp"
-                        android:background="@drawable/form_cell_bg"
-                        android:hint="Add Comments "
-                        android:padding="5dp"
-                        android:textColor="@color/darkblue"
-                        android:textColorHint="@color/divider"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
-
-
-
                     <Button
                         android:id="@+id/form_approve"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="15dp"
-                        android:layout_below="@+id/ref_comment"
                         android:layout_alignParentStart="true"
                         android:background="@color/green"
                         android:text="APPROVE"
@@ -3298,7 +3303,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
-                        android:layout_below="@+id/ref_comment"
                         android:background="@color/gray_color"
                         android:layout_margin="15dp"
                         android:text="HOLD"
@@ -3311,7 +3315,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
-                        android:layout_below="@+id/ref_comment"
                         android:background="@color/sample_dark_red"
                         android:layout_margin="15dp"
                         android:text="REJECT"
@@ -3320,6 +3323,8 @@
 
 
                 </RelativeLayout>
+
+
 
             </LinearLayout>
 

@@ -23,6 +23,7 @@ import com.ecmo.android.BaseActivity;
 import com.ecmo.android.R;
 import com.ecmo.android.model.request.PatientFormRequest;
 import com.ecmo.android.model.response.CommonResponse;
+import com.ecmo.android.model.response.referalformResponse;
 import com.ecmo.android.rest.ApiClient;
 import com.ecmo.android.rest.ApiInterface;
 import com.ecmo.android.utils.Helper;
@@ -91,6 +92,8 @@ public class PatientForm extends BaseActivity {
     String dialysis = "";
     EditText eturea, etcr, etlactate, etUo, etph, etinpo2, etpco2, ethco3, etbf, etrefphonenumber, erefddesignation;
 
+    referalformResponse formdata;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,6 +107,9 @@ public class PatientForm extends BaseActivity {
         llcardiovascular = (LinearLayout) findViewById(R.id.section_cardiovascular);
         llagents = (LinearLayout) findViewById(R.id.section_agents);
         llInvestigation = (LinearLayout) findViewById(R.id.section_investigation);
+
+        Intent i = getIntent();
+        formdata = (referalformResponse) i.getSerializableExtra("resendform");
 
         initDoctorPatient();
         PatientParameters();

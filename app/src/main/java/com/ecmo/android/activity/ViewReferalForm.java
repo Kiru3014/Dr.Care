@@ -22,6 +22,8 @@ import com.ecmo.android.rest.ApiClient;
 import com.ecmo.android.rest.ApiInterface;
 import com.ecmo.android.utils.UserPreferences;
 
+import java.io.Serializable;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -49,7 +51,7 @@ public class ViewReferalForm extends BaseActivity {
 
     //Invegation
     TextView mtvurea, mtvcr, mtvlactate, mtvUo, mtvDialysis, mtvph, mtvinvpo2, mtvpco2, mtvHco3, mtvbe;
-    Button approve,reject,hold;
+    Button approve,reject,hold,resend;
     String formid;
     RelativeLayout formaction;
     UserPreferences userPreferences;
@@ -65,15 +67,10 @@ public class ViewReferalForm extends BaseActivity {
         reject=findViewById(R.id.form_reject);
         hold=findViewById(R.id.form_hold);
         ref_comment=findViewById(R.id.ref_comment);
+        resend=findViewById(R.id.resend_form);
         i = getIntent();
         formid=i.getStringExtra("formid");
         getformdata(formid);
-//        HospitalPatient();
-//        PatienParameters();
-//        Ventalation();
-//        Cardiovascular();
-//        Agents();
-//        Investigation();
     }
 
     private void getformdata(String formid) {
@@ -114,13 +111,18 @@ public class ViewReferalForm extends BaseActivity {
     }
 
     private void vailidateActionView() {
-        if(userPreferences.getDocType().equalsIgnoreCase("3") || pat_data.getStatus().equalsIgnoreCase("Approved") || pat_data.getStatus().equalsIgnoreCase("3")
-                || pat_data.getStatus().equalsIgnoreCase("Reject")|| pat_data.getStatus().equalsIgnoreCase("4")){
+        if(userPreferences.getDocType().equalsIgnoreCase("3")){
             formaction.setVisibility(View.GONE);
             approve.setVisibility(View.GONE);
             reject.setVisibility(View.GONE);
             hold.setVisibility(View.GONE);
-            ref_comment.setVisibility(View.GONE);
+            ref_comment.setVisibility(View.VISIBLE);
+            ref_comment.setEnabled(false);
+            if(pat_data.getStatus().equalsIgnoreCase("Reject")|| pat_data.getStatus().equalsIgnoreCase("4")
+                    || pat_data.getStatus().equalsIgnoreCase("Hold")|| pat_data.getStatus().equalsIgnoreCase("2"))
+            {
+                resend.setVisibility(View.VISIBLE);
+            }
         }
         else if(userPreferences.getDocType().equalsIgnoreCase("1") || pat_data.getStatus().equalsIgnoreCase("New")|| pat_data.getStatus().equalsIgnoreCase("0")
                 || pat_data.getStatus().equalsIgnoreCase("Hold")|| pat_data.getStatus().equalsIgnoreCase("2")){
@@ -128,7 +130,10 @@ public class ViewReferalForm extends BaseActivity {
             approve.setVisibility(View.VISIBLE);
             reject.setVisibility(View.VISIBLE);
             hold.setVisibility(View.VISIBLE);
+            resend.setVisibility(View.GONE);
             ref_comment.setVisibility(View.VISIBLE);
+            if(pat_data.getStatus().equalsIgnoreCase("Hold")|| pat_data.getStatus().equalsIgnoreCase("2"))
+                hold.setVisibility(View.GONE);
         }
 
     }
@@ -319,6 +324,19 @@ public class ViewReferalForm extends BaseActivity {
                showconfirmation("APPROVE",ViewReferalForm.this);
             }
         });
+
+
+        resend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+           //     pat_data  send to patient form.
+
+                Intent intent = new Intent(getApplicationContext(), PatientForm.class);
+                intent.putExtra("resendform", (Serializable) pat_data);
+                startActivity(intent);
+            }
+        });
+
     }
 
 
