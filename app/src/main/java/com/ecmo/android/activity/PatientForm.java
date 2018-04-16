@@ -686,20 +686,43 @@ public class PatientForm extends BaseActivity {
                 //spac02fio2="",speee="",srr="",slung="",scrx=""
                 if (spac02fio2.isEmpty() || speee.isEmpty() || slung.isEmpty() || srr.isEmpty() || scrx.isEmpty()) {
                     commonToast("Please enter all Ventilation Parameters");
-                } else if (etventdays.getText().toString().isEmpty() ||
-                        etspo2.getText().toString().isEmpty() ||
-                        etpo2.getText().toString().isEmpty() ||
-                        etfio2.getText().toString().isEmpty() ||
-                        etpipvalues.getText().toString().isEmpty() ||
-                        ettv.getText().toString().isEmpty()) {
+                } else if (etventdays.getText().toString().isEmpty()){
                     commonToast("Please enter all Ventilation Parameters");
                     etventdays.setError("Enter Details");
+                }else if (etspo2.getText().toString().isEmpty()){
+                    commonToast("Please enter all Ventilation Parameters");
                     etspo2.setError("Enter Details");
+                }else if (etpo2.getText().toString().isEmpty()){
+                    commonToast("Please enter all Ventilation Parameters");
                     etpo2.setError("Enter Details");
+                }else if (etfio2.getText().toString().isEmpty()){
+                    commonToast("Please enter all Ventilation Parameters");
                     etfio2.setError("Enter Details");
+                }else if (etpipvalues.getText().toString().isEmpty()){
+                    commonToast("Please enter all Ventilation Parameters");
                     etpipvalues.setError("Enter Details");
+                }else if (ettv.getText().toString().isEmpty()){
+                    commonToast("Please enter all Ventilation Parameters");
                     ettv.setError("Enter Details");
-                } else {
+                }
+//
+//
+//
+//                else if (etventdays.getText().toString().isEmpty() ||
+//                        etspo2.getText().toString().isEmpty() ||
+//                        etpo2.getText().toString().isEmpty() ||
+//                        etfio2.getText().toString().isEmpty() ||
+//                        etpipvalues.getText().toString().isEmpty() ||
+//                        ettv.getText().toString().isEmpty()) {
+//                    commonToast("Please enter all Ventilation Parameters");
+//                    etventdays.setError("Enter Details");
+//                    etspo2.setError("Enter Details");
+//                    etpo2.setError("Enter Details");
+//                    etfio2.setError("Enter Details");
+//                    etpipvalues.setError("Enter Details");
+//                    ettv.setError("Enter Details");
+//                }
+                else {
                     Log.d("Ventil;ation Details\n",
                             "No dats in vent - " + etventdays.getText().toString() +
                                     "\n Spo2 - " + etspo2.getText().toString() +
@@ -1029,15 +1052,25 @@ public class PatientForm extends BaseActivity {
         fabscreensixnext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (eturea.getText().toString().isEmpty() || etcr.getText().toString().isEmpty() || etUo.getText().toString().isEmpty() || etpco2.getText().toString().isEmpty() || ethco3.getText().toString().isEmpty()) {
+                if (eturea.getText().toString().isEmpty()) {
                     eturea.setError("Enter Details");
+                    commonToast("Please enter required details");
+                }else if(etcr.getText().toString().isEmpty()){
                     etcr.setError("Enter Details");
+                    commonToast("Please enter required details");
+                }else if(etUo.getText().toString().isEmpty()){
                     etUo.setError("Enter Details");
-                    etpco2.setError("Enter Details");
-                    ethco3.setError("Enter Details");
+                    commonToast("Please enter required details");
                 } else if (dialysis.isEmpty()) {
                     commonToast("Please Select Dialysis");
-                } else {
+                } else if(etpco2.getText().toString().isEmpty()){
+                    etpco2.setError("Enter Details");
+                    commonToast("Please enter required details");
+                }else if(ethco3.getText().toString().isEmpty()){
+                    ethco3.setError("Enter Details");
+                    commonToast("Please enter required details");
+                }
+                else {
 
                     final PatientFormRequest patientFormRequest = new PatientFormRequest(
                             mdatahospital,
@@ -1250,10 +1283,10 @@ public class PatientForm extends BaseActivity {
                 {
                     if (commonResponse.getResult().equalsIgnoreCase("Success"))
                     {
-                        commonToast("Sucsess");
+                        commonToast("Referral form submitted Successfully");
                         finish();
                     } else {
-                        commonToast("Fail");
+                        commonToast("Error , plz check data entered.");
 
                     }
 
