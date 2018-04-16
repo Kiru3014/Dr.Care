@@ -246,14 +246,14 @@
                     android:orientation="horizontal">
 
                     <RadioButton
-                        android:id="@+id/bed_bound"
+                        android:id="@+id/yes"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
                         android:text="Yes" />
 
                     <RadioButton
-                        android:id="@+id/chair_bound"
+                        android:id="@+id/no"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"

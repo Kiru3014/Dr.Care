@@ -24,6 +24,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -120,6 +121,17 @@ public class BaseActivity extends AppCompatActivity
     }
 
 
+    public int getspinnerIndexvalue(Spinner spinner, String myString){
+        for (int i=0;i<spinner.getCount();i++){
+            if (spinner.getItemAtPosition(i).toString().equalsIgnoreCase(myString)){
+                return i;
+            }
+        }
+
+        return 0;
+    }
+
+
     public void commonToast(String msg) {
         LayoutInflater layoutInflater = getLayoutInflater();
         View layout = layoutInflater.inflate(R.layout.custom_toast, (ViewGroup) findViewById(R.id.custom_toast_layout));
@@ -193,8 +205,8 @@ public class BaseActivity extends AppCompatActivity
     }
 
 
-    public int getAgefromCivilId( String civilid){
-
+    public int getAgefromCivilId( String civilid)
+    {
         int cidyy= Integer.parseInt(civilid.substring(1,3));
         Calendar c = Calendar.getInstance();
 //        int seconds = c.get(Calendar.SECOND);
@@ -209,6 +221,7 @@ public class BaseActivity extends AppCompatActivity
 
         year=year+100;
         return year-cidyy;
+
     }
 
 
@@ -245,6 +258,8 @@ public class BaseActivity extends AppCompatActivity
         alertDialog.setCanceledOnTouchOutside(false);
         alertDialog.show();
     }
+
+
 
     public ArrayAdapter<String> getSpeciality(Context context) {
         List<String> list = new ArrayList<String>();

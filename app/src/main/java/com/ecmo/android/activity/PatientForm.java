@@ -19,6 +19,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.ecmo.android.BaseActivity;
 import com.ecmo.android.R;
@@ -119,6 +120,12 @@ public class PatientForm extends BaseActivity {
         Agents();
         Investigation();
 
+
+        if (formdata != null) {
+            ResendDataFill();
+        }
+
+
     }
 
     @Override
@@ -129,7 +136,7 @@ public class PatientForm extends BaseActivity {
     public void showConfirmdialog(Context c) {
         final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(c);
 
-        alertDialogBuilder.setTitle("Entered referral data will be lost, you want to continue?");
+        alertDialogBuilder.setTitle("Entered referral data will be lost, you want to close form?");
 
         alertDialogBuilder.setPositiveButton("NO",
                 new DialogInterface.OnClickListener() {
@@ -262,11 +269,9 @@ public class PatientForm extends BaseActivity {
 
         etcivilid.addTextChangedListener(new TextWatcher() {
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count)
-            {
-                if(s.length()>=10)
-                {
-                    metage.setText(getAgefromCivilId(etcivilid.getText().toString())+"");
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (s.length() >= 10) {
+                    metage.setText(getAgefromCivilId(etcivilid.getText().toString()) + "");
                 }
             }
 
@@ -1173,8 +1178,7 @@ public class PatientForm extends BaseActivity {
     /* Investigation  Paramentes Form End*/
 
 
-    private void Submitalert(final PatientFormRequest patientFormRequest)
-    {
+    private void Submitalert(final PatientFormRequest patientFormRequest) {
 
         AlertDialog alertDialog = new AlertDialog.Builder(PatientForm.this).create();
         alertDialog.setTitle("YOU Want to Preview Application Or Submit Application");
@@ -1275,8 +1279,7 @@ public class PatientForm extends BaseActivity {
         Call<CommonResponse> call = apiService.getFormRequest(patientFormRequest);
         call.enqueue(new Callback<CommonResponse>() {
             @Override
-            public void onResponse(Call<CommonResponse> call, Response<CommonResponse> response)
-            {
+            public void onResponse(Call<CommonResponse> call, Response<CommonResponse> response) {
                 commonLoaderstop();
                 CommonResponse commonResponse = response.body();
                 if (commonResponse != null)
@@ -1302,4 +1305,139 @@ public class PatientForm extends BaseActivity {
     }
 
 
+    //resend filling
+    private void ResendDataFill() {
+        //Docotor form
+        //Radiobutton
+        RadioButton male, female;
+        male = (RadioButton) findViewById(R.id.male);
+        female = (RadioButton) findViewById(R.id.female);
+        if (formdata.getGender().equalsIgnoreCase("Male")) {
+            male.setChecked(true);
+            mdatagender = "MALE";
+        } else {
+            female.setChecked(true);
+            mdatagender = "FEMALE";
+        }
+
+
+        mtvadmdiagnosis.setText(formdata.getAdmissionDiagnosis());
+        metfilenumber.setText(formdata.getFileNo());
+        metpacitentname.setText(formdata.getPatientName());
+        etcivilid.setText(formdata.getCivilId());
+        metage.setText(formdata.getAge());
+        metunit.setText(formdata.getUnit());
+        metward.setText(formdata.getWard());
+        metbed.setText(formdata.getBed());
+        metextrainfo.setText(formdata.getHistory());
+        mspinnerhospital.setSelection(getspinnerIndexvalue(mspinnerhospital, formdata.getReferHospital()));
+        mspinnerSpeciallity.setSelection(getspinnerIndexvalue(mspinnerSpeciallity, formdata.getSpeciallist()));
+
+        //Need to set spinner value;
+
+
+        //Patient
+        switch (formdata.getPreMorbFunctionalStatus()) {
+            case "bed bound":
+                radiofunctionstatusGroup.check(R.id.bed_bound);
+                functionstatus = "bed bound";
+                break;
+            case "chair bound":
+                radiofunctionstatusGroup.check(R.id.chair_bound);
+                functionstatus = "chair bound";
+
+                break;
+            case "mobile":
+                radiofunctionstatusGroup.check(R.id.mobile);
+                functionstatus = "mobile";
+                break;
+        }
+
+
+        switch (formdata.getPreMorbFunctionalConsciousStatus()) {
+            case "Alert and Oriented":
+                radioconsciousstatusgroup.check(R.id.alertandorientd);
+                conscioussstatus = "Alert and Oriented";
+                break;
+            case "Demented":
+                radioconsciousstatusgroup.check(R.id.demented);
+                conscioussstatus = "Demented";
+
+                break;
+            case "Coma/vegetative Status":
+                radioconsciousstatusgroup.check(R.id.coma);
+                conscioussstatus = "Coma/vegetative Status";
+                break;
+        }
+
+
+        metgcsE.setSelection(getspinnerIndexvalue(metgcsE, formdata.getE()));
+        metgcsv.setSelection(getspinnerIndexvalue(metgcsv, formdata.getV()));
+        metgcsM.setSelection(getspinnerIndexvalue(metgcsM, formdata.getM()));
+        mtvtotoalgcs.setText(formdata.getTotalscore());
+
+
+        //Ventilation
+
+        etventdays.setText(formdata.getDurOfConventianalMechanicalVentination());
+        etspo2.setText(formdata.getSpO2());
+        etpo2.setText(formdata.getPO2());
+        etfio2.setText(formdata.getFiO2());
+        ettv.setText(formdata.getTv());
+        etpipvalues.setText(formdata.getPip());
+
+        spinnerpafio2.setSelection(getspinnerIndexvalue(spinnerpafio2, formdata.getPao2fio2ratio()));
+        spinnerpeep.setSelection(getspinnerIndexvalue(spinnerpeep, formdata.getPeep()));
+        spinnerrr.setSelection(getspinnerIndexvalue(spinnerrr, formdata.getRr()));
+        spinnerlungcompliance.setSelection(getspinnerIndexvalue(spinnerlungcompliance, formdata.getLungCompliance()));
+        spinnercxr.setSelection(getspinnerIndexvalue(spinnercxr, formdata.getCxrquadrants()));
+
+        //cardiovascular
+
+        etcvp.setText(formdata.getCardiacindex());
+        etco.setText(formdata.getLeftventricularejectionfraction());
+        spinnerhr.setSelection(getspinnerIndexvalue(spinnerhr, formdata.getHr()));
+        spinnerbp.setSelection(getspinnerIndexvalue(spinnerbp, formdata.getBp()));
+        spinnertemp.setSelection(getspinnerIndexvalue(spinnertemp, formdata.getTemp()));
+        spinnercardiac.setSelection(getspinnerIndexvalue(spinnercardiac, formdata.getCardiacindex()));
+        spinnerlvef.setSelection(getspinnerIndexvalue(spinnerlvef, formdata.getLeftventricularejectionfraction()));
+
+        //agents
+        etagentone.setText(formdata.getInotropesagent1());
+        etagettwo.setText(formdata.getInotropesagent2());
+        wtagentthree.setText(formdata.getInotropesagent3());
+        etdoseone.setText(formdata.getInotropesdose1());
+        etdosetwo.setText(formdata.getInotropesdose2());
+        etdosethree.setText(formdata.getInotropesdose3());
+
+        etsedagentone.setText(formdata.getSedationagent1());
+        etsedagettwo.setText(formdata.getSedationagent2());
+        wtsedagentthree.setText(formdata.getSedationagent3());
+        etseddoseone.setText(formdata.getSedationdose1());
+        etseddosetwo.setText(formdata.getSedationdose2());
+        etseddosethree.setText(formdata.getSedationdose3());
+
+        etmuscelagent.setText(formdata.getMusclerelaxantsagent1());
+        etmuscledose.setText(formdata.getMusclerelaxantsdose1());
+
+        //investigation
+
+        eturea.setText(formdata.getUrea());
+        etcr.setText(formdata.getCr());
+        etlactate.setText(formdata.getLactate());
+        etUo.setText(formdata.getUo());
+        etph.setText(formdata.getBloodgasPH());
+        etinpo2.setText(formdata.getBloodgasPO2());
+        etpco2.setText(formdata.getBloodgasPCO2());
+        ethco3.setText(formdata.getBloodgasHCO3());
+        etbf.setText(formdata.getBloodgasBE());
+
+        if (formdata.getDialysis().equalsIgnoreCase("YES")) {
+            radiodialysisGroup.check(R.id.yes);
+            dialysis = "yes";
+        } else {
+            radiodialysisGroup.check(R.id.no);
+            dialysis = "no";
+        }
+    }
 }
