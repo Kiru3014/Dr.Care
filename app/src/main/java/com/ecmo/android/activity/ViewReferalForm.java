@@ -124,8 +124,8 @@ public class ViewReferalForm extends BaseActivity {
                 resend.setVisibility(View.VISIBLE);
             }
         }
-        else if(userPreferences.getDocType().equalsIgnoreCase("1") || pat_data.getStatus().equalsIgnoreCase("New")|| pat_data.getStatus().equalsIgnoreCase("0")
-                || pat_data.getStatus().equalsIgnoreCase("Hold")|| pat_data.getStatus().equalsIgnoreCase("2")){
+        else if(userPreferences.getDocType().equalsIgnoreCase("1") &&( pat_data.getStatus().equalsIgnoreCase("New")|| pat_data.getStatus().equalsIgnoreCase("0")
+                || pat_data.getStatus().equalsIgnoreCase("Hold")|| pat_data.getStatus().equalsIgnoreCase("2"))){
             formaction.setVisibility(View.VISIBLE);
             approve.setVisibility(View.VISIBLE);
             reject.setVisibility(View.VISIBLE);
