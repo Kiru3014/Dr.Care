@@ -30,6 +30,7 @@ import android.widget.Toast;
 
 import com.ecmo.android.activity.HelpActivity;
 import com.ecmo.android.activity.LoginActivity;
+import com.ecmo.android.activity.WelcomeActivity;
 import com.ecmo.android.model.response.Hospitalitem;
 import com.ecmo.android.utils.Helper;
 import com.ecmo.android.utils.UserPreferences;
@@ -246,7 +247,7 @@ public class BaseActivity extends AppCompatActivity
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         userPreferences.clearSession();
-                        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                        Intent intent = new Intent(getApplicationContext(), WelcomeActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);
                         finish();

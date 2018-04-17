@@ -5,7 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.ecmo.android.utils.Helper;
 import com.ecmo.android.R;
@@ -51,8 +54,24 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
         TextView txtListChild = (TextView) convertView
                 .findViewById(R.id.lblListItem);
+        TextView txtListChildd = (TextView) convertView
+                .findViewById(R.id.lblListItemm);
+        LinearLayout tableview = (LinearLayout)convertView.findViewById(R.id.table);
         txtListChild.setTypeface(Helper.getSharedHelper().getLightFont());
+        txtListChildd.setTypeface(Helper.getSharedHelper().getLightFont());
         txtListChild.setText(childText);
+        if(groupPosition==3)
+        {
+            tableview.setVisibility(View.VISIBLE);
+        }
+        else
+        {
+            tableview.setVisibility(View.GONE);
+        }
+
+        TextView link = (TextView) convertView
+                .findViewById(R.id.txtLostpassword);
+
         return convertView;
     }
 

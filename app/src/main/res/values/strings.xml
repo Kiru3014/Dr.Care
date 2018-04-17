@@ -13,7 +13,13 @@
     <string name="forgot_pwd">Forgot Password</string>
     <string name="enter">Submit</string>
     <string name="fcm_sender_id">562387292074</string>
-
+    <string name="_13kpa6_100mmhg"><![CDATA[<13kpa6(100mmHg)]]></string>
+    <string name="_40kpa_300mhg"><![CDATA[>=40kpa(300mHg)]]></string>
+    <string name="_15"><![CDATA[>=15]]></string>
+    <string name="_5"><![CDATA[<=5]]></string>
+    <string name="_19"><![CDATA[<=19]]></string>
+    <string name="_80"><![CDATA[>=80]]></string>
+    <string name="link_ecmo"> <a href="http://cesar.lshtm.ac.uk/murrayscorecalculator.htm">http://cesar.lshtm.ac.uk/murrayscorecalculator.htm</a></string>
 
     <string-array name="hospital_arrays">
         <item>Select Hospital</item>

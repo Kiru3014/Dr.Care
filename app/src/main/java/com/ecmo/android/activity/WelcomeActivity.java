@@ -1,7 +1,9 @@
 package com.ecmo.android.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -15,7 +17,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class HelpActivity extends BaseActivity {
+public class WelcomeActivity extends BaseActivity {
 
     ExpandableListAdapter listAdapter;
     ExpandableListView expListView;
@@ -23,6 +25,8 @@ public class HelpActivity extends BaseActivity {
     HashMap<String, List<String>> listDataChild;
     private int lastExpandedPosition = -1;
     TextView mtitle;
+    LinearLayout bunlayout;
+    Button btnlogin,btnregister;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,9 +36,25 @@ public class HelpActivity extends BaseActivity {
         mtitle = (TextView) findViewById(R.id.tv_title);
         mtitle.setTypeface(Helper.getSharedHelper().getSemiBoldFont());
         // get the listview
-        LinearLayout bunlayout = (LinearLayout) findViewById(R.id.btn_layout);
-        bunlayout.setVisibility(View.GONE);
         expListView = (ExpandableListView) findViewById(R.id.expandableListView);
+        bunlayout=(LinearLayout)findViewById(R.id.btn_layout);
+        bunlayout.setVisibility(View.VISIBLE);
+
+        btnlogin=(Button)findViewById(R.id.btn_login);
+        btnlogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),LoginActivity.class));
+            }
+        });
+
+        btnregister=(Button)findViewById(R.id.btn_register);
+        btnregister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),RegisterActivity.class));
+            }
+        });
         // preparing list data
         prepareListData();
 

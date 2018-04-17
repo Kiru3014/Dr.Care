@@ -12,7 +12,7 @@
         android:id="@+id/logo"
         android:layout_width="wrap_content"
         android:layout_height="140dp"
-        android:layout_marginTop="@dimen/margin60"
+        android:layout_marginTop="@dimen/margin40"
         android:src="@drawable/icon" />
 
     <TextView
@@ -33,11 +33,60 @@
         android:id="@+id/expandableListView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/btn_layout"
         android:layout_alignParentBottom="true"
         android:layout_below="@+id/tv_title"
-        android:layout_margin="@dimen/margin10"
+        android:layout_marginBottom="78dp"
+        android:layout_marginEnd="@dimen/margin10"
+        android:layout_marginLeft="@dimen/margin10"
+        android:layout_marginRight="@dimen/margin10"
+        android:layout_marginStart="@dimen/margin10"
+        android:layout_marginTop="@dimen/margin10"
         android:divider="@android:color/white"
         android:dividerHeight="0.1dp"
-        android:groupIndicator="@null" />
+        android:groupIndicator="@drawable/group_indicator"
+        android:layoutDirection="rtl"
+        tools:targetApi="jelly_bean_mr1" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_layout"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/margin20"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="@dimen/margin40"
+            android:layout_marginLeft="@dimen/margin20"
+            android:layout_marginRight="@dimen/margin20"
+            android:layout_marginTop="@dimen/margin15"
+            android:background="@drawable/login_button"
+            android:elevation="2dp"
+            android:text="@string/login"
+            android:textAllCaps="false"
+            android:textColor="@color/colorWhite"
+            android:textSize="16sp"
+            tools:targetApi="lollipop" />
+
+        <Button
+            android:id="@+id/btn_register"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="@dimen/margin40"
+            android:layout_marginLeft="@dimen/margin20"
+            android:layout_marginRight="@dimen/margin20"
+            android:layout_marginTop="@dimen/margin15"
+            android:background="@drawable/register_button"
+            android:elevation="2dp"
+            android:text="@string/register"
+            android:textAllCaps="false"
+            android:textColor="@color/colorWhite"
+            android:textSize="16sp"
+            tools:targetApi="lollipop" />
+
+    </LinearLayout>
 </RelativeLayout>
