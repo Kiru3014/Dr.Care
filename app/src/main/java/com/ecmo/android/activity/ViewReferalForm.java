@@ -118,6 +118,9 @@ public class ViewReferalForm extends BaseActivity {
             hold.setVisibility(View.GONE);
             ref_comment.setVisibility(View.VISIBLE);
             ref_comment.setEnabled(false);
+            if(pat_data.getStatus().equalsIgnoreCase("NEW")){
+                ref_comment.setVisibility(View.GONE);
+            }
             if(pat_data.getStatus().equalsIgnoreCase("Reject")|| pat_data.getStatus().equalsIgnoreCase("4")
                     || pat_data.getStatus().equalsIgnoreCase("Hold")|| pat_data.getStatus().equalsIgnoreCase("2"))
             {
@@ -300,6 +303,8 @@ public class ViewReferalForm extends BaseActivity {
         mtvpco2.setText(pat_data.getBloodgasPCO2());
         mtvHco3.setText(pat_data.getBloodgasHCO3());
         mtvbe.setText(pat_data.getBloodgasBE());
+        if(!pat_data.getComment().isEmpty())
+            ref_comment.setText(pat_data.getComment());
 
         reject.setOnClickListener(new View.OnClickListener() {
             @Override
