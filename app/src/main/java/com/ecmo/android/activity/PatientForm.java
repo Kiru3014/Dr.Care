@@ -349,13 +349,20 @@ public class PatientForm extends BaseActivity {
             commonToast("Please Select Hospital and Speciality");
         } else if (mdataadmdiagnosis.isEmpty()) {
             mtvadmdiagnosis.setError("Enter Details");
+            commonToast("Please Enter all Details");
 
-        } else if (mdatacivilid.isEmpty()) {
+        } else if (mdatacivilid.isEmpty() ||mdatacivilid.length()<12)
+        {
             etcivilid.setError("Enter Details");
+            commonToast("Please Enter Correct CivilID");
         } else if (mdataage.isEmpty()) {
             metage.setError("Enter Details");
+            commonToast("Please Enter all Details");
+
         } else if (mdatafilenumber.isEmpty()) {
             metfilenumber.setError("Enter Details");
+            commonToast("Please Enter all Details");
+
         } else if (mdatagender.isEmpty()) {
             commonToast("Please Select Gender");
         } else {
