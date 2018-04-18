@@ -20,6 +20,7 @@ import com.ecmo.android.model.response.Referalformdata;
 import com.ecmo.android.model.response.referalformResponse;
 import com.ecmo.android.rest.ApiClient;
 import com.ecmo.android.rest.ApiInterface;
+import com.ecmo.android.utils.Constants;
 import com.ecmo.android.utils.UserPreferences;
 
 import java.io.Serializable;
@@ -83,7 +84,10 @@ public class ViewReferalForm extends BaseActivity {
             public void onResponse(Call<Referalformdata> call, Response<Referalformdata> response) {
                 commonLoaderstop();
                 Referalformdata Referalformdata = response.body();
-                if (Referalformdata != null && Referalformdata.getResult().equalsIgnoreCase("success")) {
+                if(response!=null&&response.body().getResult().equalsIgnoreCase("FAILED") && response.message().contains(Constants.AUTH_FAIL)){
+                    LogoutSession();
+                }
+                else if (Referalformdata != null && Referalformdata.getResult().equalsIgnoreCase("success")) {
                     pat_data=Referalformdata.getData();
                     if(pat_data!=null ) {
                         HospitalPatient();
@@ -118,6 +122,9 @@ public class ViewReferalForm extends BaseActivity {
             hold.setVisibility(View.GONE);
             ref_comment.setVisibility(View.VISIBLE);
             ref_comment.setEnabled(false);
+            if(pat_data.getStatus().equalsIgnoreCase("NEW")){
+                ref_comment.setVisibility(View.GONE);
+            }
             if(pat_data.getStatus().equalsIgnoreCase("Reject")|| pat_data.getStatus().equalsIgnoreCase("4")
                     || pat_data.getStatus().equalsIgnoreCase("Hold")|| pat_data.getStatus().equalsIgnoreCase("2"))
             {
@@ -300,6 +307,8 @@ public class ViewReferalForm extends BaseActivity {
         mtvpco2.setText(pat_data.getBloodgasPCO2());
         mtvHco3.setText(pat_data.getBloodgasHCO3());
         mtvbe.setText(pat_data.getBloodgasBE());
+        if(!pat_data.getComment().isEmpty())
+            ref_comment.setText(pat_data.getComment());
 
         reject.setOnClickListener(new View.OnClickListener() {
             @Override

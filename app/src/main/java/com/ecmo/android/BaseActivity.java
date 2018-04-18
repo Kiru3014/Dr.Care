@@ -291,6 +291,7 @@ public class BaseActivity extends AppCompatActivity
 
     public  void LogoutSession()
     {
+        commonToast("Session Expired , log In again to continue.");
         userPreferences.clearSession();
         Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK );

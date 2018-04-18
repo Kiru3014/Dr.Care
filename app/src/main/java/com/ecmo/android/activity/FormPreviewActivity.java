@@ -13,6 +13,7 @@ import com.ecmo.android.model.request.PatientFormRequest;
 import com.ecmo.android.model.response.CommonResponse;
 import com.ecmo.android.rest.ApiClient;
 import com.ecmo.android.rest.ApiInterface;
+import com.ecmo.android.utils.Constants;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -255,7 +256,10 @@ public class FormPreviewActivity extends BaseActivity {
             {
                 commonLoaderstop();
                 CommonResponse commonResponse = response.body();
-                if (commonResponse != null)
+                if(response!=null&&response.body().getResult().equalsIgnoreCase("FAILED") && response.message().contains(Constants.AUTH_FAIL)){
+                    LogoutSession();
+                }
+                else if (commonResponse != null)
                 {
                     if (commonResponse.getResult().equalsIgnoreCase("Success"))
                     {

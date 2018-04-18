@@ -18,6 +18,7 @@ import com.ecmo.android.model.response.DocListItem;
 import com.ecmo.android.model.response.DoctorList;
 import com.ecmo.android.rest.ApiClient;
 import com.ecmo.android.rest.ApiInterface;
+import com.ecmo.android.utils.Constants;
 import com.ecmo.android.utils.UserPreferences;
 
 import java.util.ArrayList;
@@ -52,7 +53,10 @@ public class DocListActivity  extends BaseActivity {
             {
                 commonLoaderstop();
                 DoctorList Response= response.body();
-                if(Response!=null&&Response.getResult().equals("SUCCESS"))
+                if(response!=null&&response.body().getResult().equalsIgnoreCase("FAILED") && response.message().contains(Constants.AUTH_FAIL)){
+                    LogoutSession();
+                }
+                else if(Response!=null&&Response.getResult().equals("SUCCESS"))
                 {
                     doclist=Response.getData();
                     if(doclist != null) {
