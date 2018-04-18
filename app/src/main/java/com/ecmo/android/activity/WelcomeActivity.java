@@ -157,7 +157,7 @@ public class WelcomeActivity extends BaseActivity {
 
 
         List<String> MURRAY = new ArrayList<String>();
-        MURRAY.add("Each parameter scroes between 0 to 4 and an average of the 4 parameters scroring is calculated to get the final Murray score.A score of >=3 is an indication of VV-ECMO.");
+        MURRAY.add("Each parameter scroes between 0 to 4 and an average of the 4 parameters scroring is calculated to get the final Murray score.A score of \u2265 3 is an indication of VV-ECMO.");
 
 
         listDataChild.put(listDataHeader.get(0), ADULT); // Header, Child data
