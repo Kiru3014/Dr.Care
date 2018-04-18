@@ -27,6 +27,7 @@ import com.ecmo.android.model.response.CommonResponse;
 import com.ecmo.android.model.response.referalformResponse;
 import com.ecmo.android.rest.ApiClient;
 import com.ecmo.android.rest.ApiInterface;
+import com.ecmo.android.utils.Constants;
 import com.ecmo.android.utils.Helper;
 import com.ecmo.android.utils.UserPreferences;
 
@@ -1283,7 +1284,10 @@ public class PatientForm extends BaseActivity {
                 CommonResponse commonResponse = response.body();
                 if (commonResponse != null)
                 {
-                    if (commonResponse.getResult().equalsIgnoreCase("Success"))
+                    if(response!=null&&response.body().getResult().equalsIgnoreCase("FAILED") && response.message().contains(Constants.AUTH_FAIL)){
+                        LogoutSession();
+                    }
+                    else if (commonResponse.getResult().equalsIgnoreCase("Success"))
                     {
                         commonToast("Referral form submitted Successfully");
                         finish();

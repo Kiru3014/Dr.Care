@@ -14,6 +14,8 @@ public class Constants {
     public static final String REGISTER_MSG = "Your Request will be approved by Admin";
     public static final String REFERAL_MSG = "Request for new referal for ECMO .Please Verify and accept the request!!!";
     public static final String SESSIONID = "E7F75D55-C483-43BD-ACF5-FB3ADFF51C02";
+    public static final String AUTH_FAIL = "Authorization fail";
+
 
 
     public static class Config {

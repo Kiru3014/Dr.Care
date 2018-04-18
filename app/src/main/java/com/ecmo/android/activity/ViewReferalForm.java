@@ -20,6 +20,7 @@ import com.ecmo.android.model.response.Referalformdata;
 import com.ecmo.android.model.response.referalformResponse;
 import com.ecmo.android.rest.ApiClient;
 import com.ecmo.android.rest.ApiInterface;
+import com.ecmo.android.utils.Constants;
 import com.ecmo.android.utils.UserPreferences;
 
 import java.io.Serializable;
@@ -83,7 +84,10 @@ public class ViewReferalForm extends BaseActivity {
             public void onResponse(Call<Referalformdata> call, Response<Referalformdata> response) {
                 commonLoaderstop();
                 Referalformdata Referalformdata = response.body();
-                if (Referalformdata != null && Referalformdata.getResult().equalsIgnoreCase("success")) {
+                if(response!=null&&response.body().getResult().equalsIgnoreCase("FAILED") && response.message().contains(Constants.AUTH_FAIL)){
+                    LogoutSession();
+                }
+                else if (Referalformdata != null && Referalformdata.getResult().equalsIgnoreCase("success")) {
                     pat_data=Referalformdata.getData();
                     if(pat_data!=null ) {
                         HospitalPatient();

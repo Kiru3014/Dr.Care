@@ -12,6 +12,7 @@ import com.ecmo.android.model.request.ChangepasswordRequest;
 import com.ecmo.android.model.response.CommonResponse;
 import com.ecmo.android.rest.ApiClient;
 import com.ecmo.android.rest.ApiInterface;
+import com.ecmo.android.utils.Constants;
 import com.ecmo.android.utils.Helper;
 import com.ecmo.android.utils.UserPreferences;
 
@@ -110,7 +111,10 @@ public class Changepassword extends BaseActivity{
             public void onResponse(Call<CommonResponse> call, Response<CommonResponse> response)
             {
                 commonLoaderstop();
-                if(response!=null&&response.body().getResult().equalsIgnoreCase("success"))
+                if(response!=null&&response.body().getResult().equalsIgnoreCase("FAILED") && response.message().contains(Constants.AUTH_FAIL)){
+                    LogoutSession();
+                }
+                else if(response!=null&&response.body().getResult().equalsIgnoreCase("success"))
                 {
                     commonToast("Password changed successfully.");
                 }
