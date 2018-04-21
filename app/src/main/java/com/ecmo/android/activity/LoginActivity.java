@@ -140,7 +140,7 @@ public class LoginActivity extends FragmentActivity implements View.OnClickListe
     {
         commonLoaderstart();
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        final LoginRequest loginRequest = new LoginRequest(bEmail,bPassword,"login", Constants.SESSIONID);
+        final LoginRequest loginRequest = new LoginRequest(bEmail,bPassword,"login", Constants.SESSIONID,userPreferences.getPushwooshToken());
         Call<LoginResponse> call = apiService.getLoginRequest(loginRequest);
         call.enqueue(new Callback<LoginResponse>() {
             @Override

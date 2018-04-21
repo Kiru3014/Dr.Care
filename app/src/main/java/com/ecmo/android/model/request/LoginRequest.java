@@ -17,12 +17,16 @@ public class LoginRequest
     @SerializedName("sessid")
     @Expose
     private String sessid;
+    @SerializedName("device_token")
+    @Expose
+    private String deviceToken;
 
-    public LoginRequest(String email, String password, String transactiontype, String sessid) {
+    public LoginRequest(String email, String password, String transactiontype, String sessid, String pushwooshToken) {
         this.email = email;
         this.password = password;
         this.transactiontype = transactiontype;
         this.sessid = sessid;
+        this.deviceToken=pushwooshToken;
     }
 
     public String getEmail() {
@@ -55,5 +59,13 @@ public class LoginRequest
 
     public void setSessid(String sessid) {
         this.sessid = sessid;
+    }
+
+    public String getDeviceToken() {
+        return deviceToken;
+    }
+
+    public void setDeviceToken(String deviceToken) {
+        this.deviceToken = deviceToken;
     }
 }
