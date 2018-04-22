@@ -1,6 +1,8 @@
 package com.ecmo.android.adaptors;
 
 import android.content.Context;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +12,7 @@ import android.widget.TextView;
 
 import com.ecmo.android.R;
 import com.ecmo.android.model.response.DocListItem;
+import com.ecmo.android.utils.Helper;
 
 import java.util.List;
 
@@ -33,6 +36,7 @@ public class DocListAdaptor extends RecyclerView.Adapter<DocListAdaptor.ItemRowH
         return mh;
         }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public void onBindViewHolder(ItemRowHolder itemRowHolder, int i) {
         final DocListItem docdata=patReferalListdata.get(i);
@@ -53,7 +57,7 @@ public class DocListAdaptor extends RecyclerView.Adapter<DocListAdaptor.ItemRowH
         else if(docdata.getStatus().equalsIgnoreCase("2")){
             itemRowHolder.approve.setVisibility(View.GONE);
             itemRowHolder.approveddoc.setText("REJECTED");
-            itemRowHolder.approveddoc.setBackgroundColor(mContext.getColor(R.color.sample_dark_red));
+            itemRowHolder.approveddoc.setBackgroundColor(mContext.getColor(R.color.dark_red));
             itemRowHolder.reject.setVisibility(View.GONE);
             itemRowHolder.approveddoc.setVisibility(View.VISIBLE);
         }
@@ -117,6 +121,16 @@ public class DocListAdaptor extends RecyclerView.Adapter<DocListAdaptor.ItemRowH
         this.approve=view.findViewById(R.id.approve);
         this.reject=view.findViewById(R.id.reject);
         this.approveddoc=view.findViewById(R.id.approveddoc);
+
+
+        this.docname.setTypeface(Helper.getSharedHelper().getSemiBoldFont());
+        this.dochospital.setTypeface(Helper.getSharedHelper().getNormalFont());
+        this.docSpeclity.setTypeface(Helper.getSharedHelper().getNormalFont());
+        this.docmob.setTypeface(Helper.getSharedHelper().getNormalFont());
+        this.docemail.setTypeface(Helper.getSharedHelper().getNormalFont());
+        this.approve.setTypeface(Helper.getSharedHelper().getBoldFont());
+        this.reject.setTypeface(Helper.getSharedHelper().getBoldFont());
+        this.approveddoc.setTypeface(Helper.getSharedHelper().getBoldFont());
     }
 
 }

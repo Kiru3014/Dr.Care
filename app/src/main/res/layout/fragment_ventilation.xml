@@ -426,7 +426,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:background="@drawable/form_cell_bg"
-                    android:gravity="center"
+                    android:gravity="left|center"
                     android:hint="Enter TV"
                     android:imeOptions="actionNext"
                     android:inputType="number"

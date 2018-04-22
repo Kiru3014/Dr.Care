@@ -155,13 +155,15 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
         }
         else if (!Helper.isValidEmail(sEmail) || sEmail.isEmpty()) {
             commonToast(Constants.REG_VALID_EMAIL);
-        } else if (sPassword == null || sPassword.isEmpty()) {
+        } else if (sPassword == null || sPassword.isEmpty()||sPassword.length()<5)
+        {
             commonToast(Constants.REG_PASSOWRD);
         } else if (sMobile == null || sMobile.isEmpty()) {
             commonToast(Constants.REG_NUMBER);
-        } else if (scivilid == null || scivilid.isEmpty()) {
+        } /*else if (scivilid == null || scivilid.isEmpty()) {
             commonToast(Constants.REG_CIVILID);
-        } else {
+        }*/
+        else {
             initRegister(sFirstName, sHospital,specilaity, sEmail, sPassword, sMobile, scivilid);
         }
     }

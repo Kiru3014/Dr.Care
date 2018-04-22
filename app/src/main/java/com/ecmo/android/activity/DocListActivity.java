@@ -195,6 +195,7 @@ public class DocListActivity  extends BaseActivity {
                     if(response!=null&&response.body().getResult().equalsIgnoreCase("success"))
                     {
                         commonToast("Doctor Registration Approved.");
+                        getDAta();
                     }
                     else
                     {
@@ -226,6 +227,7 @@ public class DocListActivity  extends BaseActivity {
                 if(response!=null&&response.body().getResult().equalsIgnoreCase("success"))
                 {
                     commonToast("Doctor Registration Rejected.");
+                    getDAta();
                 }
                 else
                 {
