@@ -6,7 +6,6 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.app.FragmentActivity;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +16,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.ecmo.android.BaseActivity;
 import com.ecmo.android.R;
 import com.ecmo.android.model.request.LoginRequest;
 import com.ecmo.android.model.response.LoginResponse;
@@ -25,7 +25,6 @@ import com.ecmo.android.rest.ApiInterface;
 import com.ecmo.android.utils.Constants;
 import com.ecmo.android.utils.Helper;
 import com.ecmo.android.utils.UserPreferences;
-import com.pushwoosh.fragment.PushEventListener;
 import com.pushwoosh.fragment.PushFragment;
 
 import retrofit2.Call;
@@ -33,7 +32,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class LoginActivity extends FragmentActivity implements View.OnClickListener, PushEventListener {
+public class LoginActivity extends BaseActivity implements View.OnClickListener {
 
     public Dialog mAlertDialog;
     EditText zEmail, zPassword;
@@ -189,40 +188,40 @@ public class LoginActivity extends FragmentActivity implements View.OnClickListe
 
     }
 
-    @Override
-    public void doOnUnregisteredError(String s) {
-
-    }
-
-    @Override
-    public void doOnRegisteredError(String s) {
-
-    }
-    @Override
-    public void onNewIntent(Intent intent)
-    {
-        super.onNewIntent(intent);
-        //Check if we've got new intent with a push notification
-        PushFragment.onNewIntent(this, intent);
-    }
-
-    @Override
-    public void doOnRegistered(String registrationId)
-    {
-        if(registrationId!=null && !registrationId.isEmpty())
-            userPreferences.setPushwooshToken(registrationId);
-    }
-
-
-    @Override
-    public void doOnMessageReceive(String s) {
-
-    }
-
-    @Override
-    public void doOnUnregistered(String s) {
-
-    }
+//    @Override
+//    public void doOnUnregisteredError(String s) {
+//
+//    }
+//
+//    @Override
+//    public void doOnRegisteredError(String s) {
+//
+//    }
+//    @Override
+//    public void onNewIntent(Intent intent)
+//    {
+//        super.onNewIntent(intent);
+//        //Check if we've got new intent with a push notification
+//        PushFragment.onNewIntent(this, intent);
+//    }
+//
+//    @Override
+//    public void doOnRegistered(String registrationId)
+//    {
+//        if(registrationId!=null && !registrationId.isEmpty())
+//            userPreferences.setPushwooshToken(registrationId);
+//    }
+//
+//
+//    @Override
+//    public void doOnMessageReceive(String s) {
+//
+//    }
+//
+//    @Override
+//    public void doOnUnregistered(String s) {
+//
+//    }
 
 
 
