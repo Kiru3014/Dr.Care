@@ -25,7 +25,6 @@ import com.ecmo.android.rest.ApiInterface;
 import com.ecmo.android.utils.Constants;
 import com.ecmo.android.utils.Helper;
 import com.ecmo.android.utils.UserPreferences;
-import com.pushwoosh.fragment.PushFragment;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -46,7 +45,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         userPreferences = new UserPreferences(this);
-        PushFragment.init(LoginActivity.this);
+//        PushFragment.init(LoginActivity.this);
 
         //initilizise views
         initViews();
