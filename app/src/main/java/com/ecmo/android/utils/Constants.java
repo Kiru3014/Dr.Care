@@ -16,7 +16,8 @@ public class Constants {
     public static final String SESSIONID = "E7F75D55-C483-43BD-ACF5-FB3ADFF51C02";
     public static final String AUTH_FAIL = "Authorization fail";
 
-
+    public static final String PHONE_NUMBER = "+96596623263";
+    public static final String TEL = "tel:";
 
     public static class Config {
         public static final String BASE_URL_NEW = "http://13.127.190.221/hms/api/Common/";

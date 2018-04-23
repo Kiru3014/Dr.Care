@@ -1,10 +1,14 @@
 package com.ecmo.android.activity;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
+import android.support.v4.app.ActivityCompat;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -17,6 +21,7 @@ import com.ecmo.android.model.request.HospitalReq;
 import com.ecmo.android.model.response.HospitalList;
 import com.ecmo.android.rest.ApiClient;
 import com.ecmo.android.rest.ApiInterface;
+import com.ecmo.android.utils.Constants;
 import com.ecmo.android.utils.Helper;
 import com.ecmo.android.utils.UserPreferences;
 
@@ -140,7 +145,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 startActivity(new Intent(getApplicationContext(), RefPatientlistActivity.class));
                 break;
             case R.id.btn_phonecall:
-                commonToast("Call");
+                Calling();
                 break;
 
             case R.id.logout_btn:
@@ -150,10 +155,65 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
 
     }
 
+    private void Calling()
+    {
+        PackageManager packageManager = getApplicationContext().getPackageManager();
+        if (packageManager.hasSystemFeature(PackageManager.FEATURE_TELEPHONY)) {
+            Intent intent = new Intent(Intent.ACTION_CALL);
+            intent.setData(Uri.parse(Constants.TEL + Constants.PHONE_NUMBER));
+            if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                callPermission();
+            }else
+                startActivity(intent);
+        }
+    }
+
     private void webview() {
         // open rest of URLS in default browser
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.elso.org/resources/guidelines.aspx"));
         startActivity(intent);
 
     }
+
+
+    private void callPermission(){
+
+        if (ActivityCompat.shouldShowRequestPermissionRationale(this,Manifest.permission.CALL_PHONE)){
+            //If the user has denied the permission previously your code will come to this block
+            //Here you can explain why you need this permission
+            //Explain here why you need this permission
+        }
+
+        //And finally ask for the permission
+        ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.CALL_PHONE},3);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+
+        if (requestCode == 3) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                PackageManager packageManager = getApplicationContext().getPackageManager();
+                String phoneNumber = Constants.PHONE_NUMBER;
+                if (packageManager.hasSystemFeature(PackageManager.FEATURE_TELEPHONY)) {
+                    Intent intent = new Intent(Intent.ACTION_CALL);
+                    intent.setData(Uri.parse("tel:" + phoneNumber));
+                    if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                        return;
+                    }
+                    startActivity(intent);
+                }
+
+                //Displaying a toast
+                //Toast.makeText(this, "Permission granted now you can read the storage", Toast.LENGTH_LONG).show();
+            } else {
+                //Displaying another toast if permission is not granted
+                //Toast.makeText(this, "Oops you just denied the permission", Toast.LENGTH_LONG).show();
+            }
+        }
+
+
+    }
+
 }
