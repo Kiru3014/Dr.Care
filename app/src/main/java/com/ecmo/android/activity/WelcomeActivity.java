@@ -2,22 +2,25 @@ package com.ecmo.android.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.ecmo.android.BaseActivity;
 import com.ecmo.android.R;
 import com.ecmo.android.adaptors.ExpandableListAdapter;
 import com.ecmo.android.utils.Helper;
+import com.ecmo.android.utils.UserPreferences;
+import com.pushwoosh.fragment.PushEventListener;
+import com.pushwoosh.fragment.PushFragment;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class WelcomeActivity extends BaseActivity {
+public class WelcomeActivity extends FragmentActivity implements PushEventListener {
 
     ExpandableListAdapter listAdapter;
     ExpandableListView expListView;
@@ -27,11 +30,15 @@ public class WelcomeActivity extends BaseActivity {
     TextView mtitle;
     LinearLayout bunlayout;
     Button btnlogin,btnregister;
+    UserPreferences userPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_help);
+
+        userPreferences = new UserPreferences(this);
+        PushFragment.init(WelcomeActivity.this);
 
         mtitle = (TextView) findViewById(R.id.tv_title);
         mtitle.setTypeface(Helper.getSharedHelper().getSemiBoldFont());
@@ -164,5 +171,42 @@ public class WelcomeActivity extends BaseActivity {
         listDataChild.put(listDataHeader.get(1), INDICATIONS);
         listDataChild.put(listDataHeader.get(2), ABSOLUTE);
         listDataChild.put(listDataHeader.get(3), MURRAY);
+    }
+
+
+    @Override
+    public void onNewIntent(Intent intent)
+    {
+        super.onNewIntent(intent);
+        //Check if we've got new intent with a push notification
+        PushFragment.onNewIntent(this, intent);
+    }
+
+    @Override
+    public void doOnRegistered(String registrationId)
+    {
+        if(registrationId!=null && !registrationId.isEmpty())
+            userPreferences.setPushwooshToken(registrationId);
+    }
+
+
+    @Override
+    public void doOnUnregisteredError(String s) {
+
+    }
+
+    @Override
+    public void doOnRegisteredError(String s) {
+
+    }
+
+    @Override
+    public void doOnMessageReceive(String s) {
+
+    }
+
+    @Override
+    public void doOnUnregistered(String s) {
+
     }
 }
