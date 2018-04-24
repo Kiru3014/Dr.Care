@@ -149,7 +149,7 @@ public class WelcomeActivity extends FragmentActivity implements PushEventListen
 
 
         List<String> INDICATIONS = new ArrayList<String>();
-        INDICATIONS.add("1. PaO2/FiO2 <150 despite optimalventilator support.");
+        INDICATIONS.add("1. PaO2/FiO2 <150 despite optimal ventilator support.");
         INDICATIONS.add("2. Murray score 3-4** despite optimal care for 6 hours or more.");
         INDICATIONS.add("3. Immediate cardiac or respiratory collapse (PE, blocked airway,unresponsive to optimal care).");
         INDICATIONS.add("4. Duration of conventional mechanical ventilation>7 days,with single organ dysfunction.");

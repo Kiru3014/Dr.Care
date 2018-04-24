@@ -230,7 +230,7 @@
                         android:gravity="center"
                         android:maxLines="5"
                         android:padding="@dimen/margin5"
-                        android:text="CXR  quadrant" />
+                        android:text="CXR quadrants" />
                 </TableRow>
 
                 <TableRow
