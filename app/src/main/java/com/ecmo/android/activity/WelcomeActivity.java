@@ -185,8 +185,10 @@ public class WelcomeActivity extends FragmentActivity implements PushEventListen
     @Override
     public void doOnRegistered(String registrationId)
     {
-        if(registrationId!=null && !registrationId.isEmpty())
+        if(registrationId!=null && !registrationId.isEmpty()) {
             userPreferences.setPushwooshToken(registrationId);
+            btnlogin.setEnabled(true);
+        }
     }
 
 
