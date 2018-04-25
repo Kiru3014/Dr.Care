@@ -42,6 +42,7 @@ public class SplashScreen extends BaseActivity
                                 Intent intent = new Intent(SplashScreen.this, ViewReferalForm.class);
                                 intent.putExtra("formid",  getIntent().getStringExtra("FORMID"));
                                 startActivity(intent);
+                                finish();
                             }
                             else {
                                 Intent intent = new Intent(SplashScreen.this, HomeActivity.class);
