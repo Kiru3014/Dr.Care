@@ -34,7 +34,7 @@ public class FirebaseMessagingRouterService extends FirebaseMessagingService {
             if(title.length()>28) {
                 titlenew = title.substring(0, 28);
             }
-            String id = title.replaceAll("[^\\0123456789]","");
+            String id = title.replaceAll("[^0-9]", "");
             if(titlenew!=null && !titlenew.isEmpty()){
                 title=titlenew;
             }
