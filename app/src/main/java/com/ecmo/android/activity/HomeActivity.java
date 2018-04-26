@@ -135,8 +135,8 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 if (usp.getDocType().equalsIgnoreCase("1"))
                     startActivity(new Intent(getApplicationContext(), DocListActivity.class));
                 else
-                    //startActivity(new Intent(getApplicationContext(), HelpActivity.class));
-                    webview();
+                    startActivity(new Intent(getApplicationContext(), HelpActivity.class));
+                   // webview();
                 break;
             case R.id.rv_referpatient:
                 startActivity(new Intent(getApplicationContext(), PatientForm.class));

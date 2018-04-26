@@ -21,6 +21,14 @@
     <string name="_80"><![CDATA[80\u2264 ]]></string>
     <string name="link_ecmo"> <a href="http://cesar.lshtm.ac.uk/murrayscorecalculator.htm">http://cesar.lshtm.ac.uk/murrayscorecalculator.htm</a></string>
 
+    <string name="general_one">ELSO Guidelines General v1.4</string>
+    <string name="general_two">Guidelines for ECMO Transport</string>
+    <string name="general_three">Ultrasound Guidance for Extra-corporeal Membrane Oxygenation</string>
+    <string name="guidelines_news_one">Joint Statement on Mechanical Circulatory Support in Children: A Consensus Review from the Pediatric Cardiac Intensive Care Society and Extracorporeal Life Support Organization</string>
+    <string name="guidelines_news_two">Position Paper for the Organization of Extracorporeal Membrane Oxygenation Programs for Acute Respiratory Failure in Adult Patients. Published online, July 2014</string>
+    <string name="link_guidl_one"> <a href="https://journals.lww.com/pccmjournal/toc/2013/06001">https://journals.lww.com/pccmjournal/toc/2013/06001</a></string>
+    <string name="link_guidl_two" ><a href="http://www.atsjournals.org/doi/full/10.1164/rccm.201404-0630CP#.VAXoGaMzxH4">http://www.atsjournals.org/doi/full/10.1164/rccm.201404-0630CP#.VAXoGaMzxH4</a></string>
+
     <string-array name="hospital_arrays">
         <item>Select Hospital</item>
         <item>Hospital 1</item>

@@ -2756,7 +2756,7 @@
 
                 </LinearLayout>
 
-)
+                )
             </LinearLayout>
 
             <LinearLayout
@@ -3256,8 +3256,39 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <ImageView
+                        android:id="@+id/img_one"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/margin115"
+                        android:layout_margin="@dimen/margin10"
+                        android:layout_weight="1" />
+
+                    <ImageView
+                        android:id="@+id/img_two"
+                        android:layout_width="0dp"
+                        android:src="@mipmap/ic_launcher"
+                        android:layout_height="@dimen/margin115"
+                        android:layout_margin="@dimen/margin10"
+                        android:layout_weight="1" />
+
+                    <ImageView
+                        android:id="@+id/img_three"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/margin115"
+                        android:layout_margin="@dimen/margin10"
+                        android:src="@mipmap/ic_launcher"
+                        android:layout_weight="1" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
+                    android:gravity="center"
                     android:orientation="horizontal">
 
                     <Button
@@ -3265,8 +3296,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="15dp"
-                        android:text="Submit"
-                        android:src="@drawable/ic_next" />
+                        android:src="@drawable/ic_next"
+                        android:text="Submit" />
 
 
                 </LinearLayout>

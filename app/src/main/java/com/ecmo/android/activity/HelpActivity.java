@@ -1,148 +1,162 @@
 package com.ecmo.android.activity;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ExpandableListView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.ecmo.android.BaseActivity;
 import com.ecmo.android.R;
-import com.ecmo.android.adaptors.ExpandableListAdapter;
-import com.ecmo.android.utils.Helper;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 public class HelpActivity extends BaseActivity {
 
-    ExpandableListAdapter listAdapter;
-    ExpandableListView expListView;
-    List<String> listDataHeader;
-    HashMap<String, List<String>> listDataChild;
-    private int lastExpandedPosition = -1;
-    TextView mtitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_help);
-
-        mtitle = (TextView) findViewById(R.id.tv_title);
-        mtitle.setTypeface(Helper.getSharedHelper().getSemiBoldFont());
-        // get the listview
-        LinearLayout bunlayout = (LinearLayout) findViewById(R.id.btn_layout);
-        bunlayout.setVisibility(View.GONE);
-        expListView = (ExpandableListView) findViewById(R.id.expandableListView);
-        // preparing list data
-        prepareListData();
-
-        listAdapter = new ExpandableListAdapter(this, listDataHeader, listDataChild);
-
-        // setting list adapter
-        expListView.setAdapter(listAdapter);
-
-        // Listview Group click listener
-        expListView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
-
-            @Override
-            public boolean onGroupClick(ExpandableListView parent, View v,
-                                        int groupPosition, long id) {
-                // Toast.makeText(getApplicationContext(),
-                // "Group Clicked " + listDataHeader.get(groupPosition),
-                // Toast.LENGTH_SHORT).show();
-                return false;
-            }
-        });
-
-        // Listview Group expanded listener
-        expListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
-
-            @Override
-            public void onGroupExpand(int groupPosition) {
-                if (lastExpandedPosition != -1
-                        && groupPosition != lastExpandedPosition) {
-                    expListView.collapseGroup(lastExpandedPosition);
-                }
-                lastExpandedPosition = groupPosition;
-
-            }
-        });
-
-        // Listview Group collasped listener
-        expListView.setOnGroupCollapseListener(new ExpandableListView.OnGroupCollapseListener() {
-
-            @Override
-            public void onGroupCollapse(int groupPosition) {
-
-
-            }
-        });
-
-        // Listview on child click listener
-        expListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
-
-            @Override
-            public boolean onChildClick(ExpandableListView parent, View v,
-                                        int groupPosition, int childPosition, long id) {
-                // TODO Auto-generated method stub
-
-                return false;
-            }
-        });
-
-
-        //Notification
+        setContentView(R.layout.activity_ecmo);
 
     }
 
+    public void generalone(View view) {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.elso.org/Portals/0/ELSO%20Guidelines%20General%20All%20ECLS%20Version%201_4.pdf"));
+        startActivity(browserIntent);
+    }
 
-    /*
-     * Preparing the list data
-     */
-    private void prepareListData() {
-        listDataHeader = new ArrayList<String>();
-        listDataChild = new HashMap<String, List<String>>();
+    public void generaltwo(View view) {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.elso.org/Portals/0/Files/ELSO%20GUIDELINES%20FOR%20ECMO%20TRANSPORT_May2015.pdf"));
+        startActivity(browserIntent);
+    }
 
-        // Adding child data
-        listDataHeader.add("INDICATIONS FOR VV-ECMO");
-        listDataHeader.add("VV-ECMO Should also be considered for");
-        listDataHeader.add("ABSOLUTE CONTRAINDICATIONS TO VENO-VENOUS ECMO                          ");
-        listDataHeader.add("MURRAY SCORE");
+    public void generalthree(View view) {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.elso.org/Portals/0/Files/elso_Ultrasoundguideance_ecmogeneral_guidelines_May2015.pdf"));
+        startActivity(browserIntent);
+    }
 
-        // Adding child data
-        List<String> ADULT = new ArrayList<String>();
-        ADULT.add("Any reversible, life-threatening form of respiratory failure where the \trisk \tof mortality is 80% * or greater and where cardiac function is \tadequate.This includes the following(see table below):");
-        ADULT.add("1. PaO2/FiO2 <100 despite optimal ventilator support.");
-        ADULT.add("2. Murray score 3-4** despite optimal care for 6 hours or more.");
-        ADULT.add("3. PH<7.2 due to CO2 retention on mechanical ventilation despite  optimal ventilation with high Pplat(>30 cm H2O).");
-        ADULT.add("4. Severe air leak syndromes (e.g. pheumothorax secondary to trauma,   fistula).");
-        ADULT.add("5. Need for intubation in a patient on lung transplant list.");
+    public void respiratoryone(View view) {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.elso.org/Portals/0/IGD/Archive/FileManager/6f129b235acusersshyerdocumentselsoguidelinesforpediatricrespiratoryfailure1.3.pdf"));
+        startActivity(browserIntent);
+    }
+
+    public void respiratorytwo(View view) {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.elso.org/Portals/0/ELSO%20Guidelines%20For%20Adult%20Respiratory%20Failure%201_4.pdf"));
+        startActivity(browserIntent);
+    }
+
+    public void respiratorythree(View view) {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.elso.org/Portals/0/Files/ELSO_ExtubationGuidelines_May2015.pdf"));
+        startActivity(browserIntent);
+    }
+
+    public void respiratoryfour(View view) {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.elso.org/Portals/0/Files/ELSO_Recirculation_guideline_May2015.pdf"));
+        startActivity(browserIntent);
+    }
+
+    public void respiratoryfive(View view) {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.elso.org/Portals/0/Files/ELSO%20guidelines%20paeds%20resp_May2015.pdf"));
+        startActivity(browserIntent);
+    }
+
+    public void respiratorysix(View view) {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.elso.org/Portals/0/Files/elso_Ultrasoundguidance_vvecmo_guidelines_MAY2015.pdf"));
+        startActivity(browserIntent);
+    }
+
+    public void circulatoryone(View view) {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.elso.org/Portals/0/IGD/Archive/FileManager/ELSO_Reformatted_2018.02.23.pdf"));
+        startActivity(browserIntent);
+    }
+
+    public void circulatorytwo(View view) {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.elso.org/Portals/0/IGD/Archive/FileManager/e76ef78eabcusersshyerdocumentselsoguidelinesforadultcardiacfailure1.3.pdf"));
+        startActivity(browserIntent);
+    }
+
+    public void circulatorythree(View view) {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.elso.org/Portals/0/IGD/Archive/FileManager/6713186745cusersshyerdocumentselsoguidelinesforecprcases1.3.pdf"));
+        startActivity(browserIntent);
+    }
+
+    public void circulatoryfour(View view) {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.elso.org/Portals/0/Files/elso_Ultrasoundguidance_vaecmo_guidelines_May2015.pdf"));
+        startActivity(browserIntent);
+    }
 
 
-        List<String> INDICATIONS = new ArrayList<String>();
-        INDICATIONS.add("1. PaO2/FiO2 <150 despite optimalventilator support.");
-        INDICATIONS.add("2. Murray score 3-4** despite optimal care for 6 hours or more.");
-        INDICATIONS.add("3. Immediate cardiac or respiratory collapse (PE, blocked airway,unresponsive to optimal care).");
-        INDICATIONS.add("4. Duration of conventional mechanical ventilation>7 days,with single organ dysfunction.");
+    public void specialone(View view) {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.elso.org/Portals/0/Files/elsoanticoagulationguideline8-2014-table-contents.pdf"));
+        startActivity(browserIntent);
+    }
 
-        List<String> ABSOLUTE = new ArrayList<String>();
-        ABSOLUTE.add("1. Severe (medically unsupportable) heart failure/cardiogenic shock. ");
-        ABSOLUTE.add("2. Severe chronic pulmonary hypertension and right ventricular failure (mean pulmonary artery pressure approaching systemic blood pressure) ");
-        ABSOLUTE.add("3. Cardiac arrest(ongoing) ");
-        ABSOLUTE.add("4. Advanced/terminal malignancy. ");
-        ABSOLUTE.add("5. Graft versus host diseases. ");
-        ABSOLUTE.add("6. Cachexia due to an underlying progressive chronic disease.");
+    public void specialtwo(View view) {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.elso.org/Portals/0/IGD/Archive/FileManager/2440a82ecdcusersshyerdocumentselsorecommendationsforneonatalpediatricecmopatientfollowup.pdf"));
+        startActivity(browserIntent);
+    }
 
-
-        List<String> MURRAY = new ArrayList<String>();
-        MURRAY.add("Each parameter scroes between 0 to 4 and an average of the 4 parameters scroring is calculated to get the final Murray score.A score of \u2265 3 is an indication of VV-ECMO.");
+    public void specialthree(View view) {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.elso.org/Portals/0/IGD/Archive/FileManager/eb07e0ae08cusersshyerdocumentselsoh1n1specificguidelines.pdf"));
+        startActivity(browserIntent);
+    }
 
 
-        listDataChild.put(listDataHeader.get(0), ADULT); // Header, Child data
-        listDataChild.put(listDataHeader.get(1), INDICATIONS);
-        listDataChild.put(listDataHeader.get(2), ABSOLUTE);
-        listDataChild.put(listDataHeader.get(3), MURRAY);
+    public void centerone(View view) {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.elso.org/Portals/0/IGD/Archive/FileManager/faf3f6a3c7cusersshyerdocumentselsoguidelinesecmocentersv1.8.pdf"));
+        startActivity(browserIntent);
+    }
+
+
+    public void centertwo(View view) {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.elso.org/Portals/0/IGD/Archive/FileManager/97000963d6cusersshyerdocumentselsoguidelinesfortrainingandcontinuingeducationofecmospecialists.pdf"));
+        startActivity(browserIntent);
+    }
+
+
+    public void spanishone(View view) {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.elso.org/Portals/0/Files/Guideline/ELSO_GuiasExtubacion_Mayo2015.pdf"));
+        startActivity(browserIntent);
+    }
+
+    public void spanishtwo(View view) {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.elso.org/Portals/0/Files/Guideline/ELSO%20Guias%20para%20la%20Insuficiencia%20Respiratoria%20Aguda%20Neonatal%201%203.pdf"));
+        startActivity(browserIntent);
+    }
+
+    public void spanishthree(View view) {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.elso.org/Portals/0/Files/Guideline/ELSO%20Guias%20Para%20Insuficiencia%20Cardiaca%20Pediatrica%201.3.pdf"));
+        startActivity(browserIntent);
+    }
+
+
+    public void spanishfour(View view) {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.elso.org/Portals/0/Files/Guideline/ELSO%20Guias%20para%20Insuficiencia%20Cardiaca%20del%20Adulto%201.3.pdf"));
+        startActivity(browserIntent);
+    }
+
+
+    public void spanishfive(View view) {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.elso.org/Portals/0/Files/Guideline/ELSO%20Guias%20para%20Centros%20de%20ECMO%20Version%201.8.pdf"));
+        startActivity(browserIntent);
+    }
+
+
+    public void spanishsix(View view) {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.elso.org/Portals/0/Files/Guideline/ELSO%20Gui%C2%B4as%20para%20Entrenamiento%20y%20Educacion%20Version%201.5.pdf"));
+        startActivity(browserIntent);
+    }
+
+
+    public void japaneseshone(View view) {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.elso.org/Portals/0/IGD/Archive/FileManager/3f4de7e28ecusersshyerdocumentselsoguidelinesgeneraljapanesetranslation.pdf"));
+        startActivity(browserIntent);
+    }
+
+    public void japaneseshtwo(View view) {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.elso.org/Portals/0/Files/ELSOVersion1.3JapaneseTranslation.pdf"));
+        startActivity(browserIntent);
     }
 }
+
+
+
+

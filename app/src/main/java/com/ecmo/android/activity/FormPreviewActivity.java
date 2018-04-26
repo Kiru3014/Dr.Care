@@ -2,9 +2,12 @@ package com.ecmo.android.activity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ecmo.android.BaseActivity;
@@ -50,6 +53,8 @@ public class FormPreviewActivity extends BaseActivity {
     TextView mtvurea, mtvcr, mtvlactate, mtvUo, mtvDialysis, mtvph, mtvinvpo2, mtvpco2, mtvHco3, mtvbe;
     Button button;
 
+    Bitmap bitmapone, bitmaptwo, bitmapthree;
+    ImageView imageview_one, imageview_two, imageview_three;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +69,27 @@ public class FormPreviewActivity extends BaseActivity {
         Cardiovascular();
         Agents();
         Investigation();
+        Camera();
+    }
+
+    private void Camera()
+    {
+        imageview_one = (ImageView) findViewById(R.id.img_one);
+        imageview_two = (ImageView) findViewById(R.id.img_two);
+        imageview_three = (ImageView) findViewById(R.id.img_three);
+
+        byte[]  bytesone = this.getIntent().getByteArrayExtra("BitmapImageOne");
+        if (bytesone != null)
+            bitmapone = BitmapFactory.decodeByteArray(bytesone, 0, bytesone.length);
+            imageview_one.setImageBitmap(bitmapone);
+        byte[] bytestwo = this.getIntent().getByteArrayExtra("BitmapImageTwo");
+        if (bytestwo != null)
+            bitmaptwo = BitmapFactory.decodeByteArray(bytestwo, 0, bytestwo.length);
+            imageview_two.setImageBitmap(bitmaptwo);
+        byte[] bytesthree = this.getIntent().getByteArrayExtra("BitmapImageThree");
+        if (bytesthree != null)
+            bitmapthree = BitmapFactory.decodeByteArray(bytesthree, 0, bytesthree.length);
+            imageview_three.setImageBitmap(bitmapthree);
     }
 
 
@@ -100,7 +126,7 @@ public class FormPreviewActivity extends BaseActivity {
         mtvpatientName.setText(dene.getPatientName());
         mtvPatientcivilid.setText(dene.getCivilId());
         mtvgender.setText(dene.getGender());
-        mtvage.setText(getAgefromCivilId(dene.getCivilId())+"");
+        mtvage.setText(getAgefromCivilId(dene.getCivilId()) + "");
         mtvunit.setText(dene.getUnit());
         mtvward.setText(dene.getWard());
         mtvbed.setText(dene.getBed());
@@ -210,8 +236,7 @@ public class FormPreviewActivity extends BaseActivity {
     }
 
 
-    private void Investigation()
-    {
+    private void Investigation() {
         mtvurea = findViewById(R.id.tv_urea);
         mtvcr = findViewById(R.id.tv_cr);
         mtvlactate = findViewById(R.id.tv_lactate);
@@ -222,7 +247,7 @@ public class FormPreviewActivity extends BaseActivity {
         mtvpco2 = findViewById(R.id.tv_pco2);
         mtvHco3 = findViewById(R.id.tv_hco3);
         mtvbe = findViewById(R.id.tv_bf);
-        button=findViewById(R.id.fag_submit);
+        button = findViewById(R.id.fag_submit);
 
 
         mtvurea.setText(dene.getUrea());
@@ -239,8 +264,7 @@ public class FormPreviewActivity extends BaseActivity {
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
+            public void onClick(View view) {
                 SubmitApplication(dene);
             }
         });
@@ -252,20 +276,16 @@ public class FormPreviewActivity extends BaseActivity {
         Call<CommonResponse> call = apiService.getFormRequest(patientFormRequest);
         call.enqueue(new Callback<CommonResponse>() {
             @Override
-            public void onResponse(Call<CommonResponse> call, Response<CommonResponse> response)
-            {
+            public void onResponse(Call<CommonResponse> call, Response<CommonResponse> response) {
                 commonLoaderstop();
                 CommonResponse commonResponse = response.body();
-                if(response!=null&&response.body().getResult().equalsIgnoreCase("FAILED") && response.message().contains(Constants.AUTH_FAIL)){
+                if (response != null && response.body().getResult().equalsIgnoreCase("FAILED") && response.message().contains(Constants.AUTH_FAIL)) {
                     LogoutSession();
-                }
-                else if (commonResponse != null)
-                {
-                    if (commonResponse.getResult().equalsIgnoreCase("Success"))
-                    {
+                } else if (commonResponse != null) {
+                    if (commonResponse.getResult().equalsIgnoreCase("Success")) {
                         commonToast("Sucsess");
-                        Intent intent = new Intent(getApplicationContext(),HomeActivity.class);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK );
+                        Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);
                         finish();
@@ -285,7 +305,6 @@ public class FormPreviewActivity extends BaseActivity {
         });
 
     }
-
 
 
 }
