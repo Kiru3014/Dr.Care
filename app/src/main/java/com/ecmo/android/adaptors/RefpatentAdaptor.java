@@ -11,7 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.ecmo.android.R;
-import com.ecmo.android.model.response.PatReferalListitem;
+import com.ecmo.android.model.PatReferalListitemArray;
 import com.ecmo.android.utils.Helper;
 
 import java.util.List;
@@ -22,12 +22,12 @@ import java.util.List;
  */
 public class RefpatentAdaptor extends RecyclerView.Adapter<RefpatentAdaptor.ItemRowHolder> {
 
-    private List<PatReferalListitem> patReferalListdata;
+    private List<PatReferalListitemArray> patReferalListdata;
     private Context mContext;
     private OnViewItemClickListener viewlistner;
 
 
-    public RefpatentAdaptor(Context mContext, List<PatReferalListitem> patReferalListdata) {
+    public RefpatentAdaptor(Context mContext, List<PatReferalListitemArray> patReferalListdata) {
         this.patReferalListdata = patReferalListdata;
         this.mContext = mContext;
 
@@ -42,11 +42,11 @@ public class RefpatentAdaptor extends RecyclerView.Adapter<RefpatentAdaptor.Item
 
     @Override
     public void onBindViewHolder(ItemRowHolder itemRowHolder, int i) {
-        final PatReferalListitem patdata = patReferalListdata.get(i);
+        final PatReferalListitemArray patdata = patReferalListdata.get(i);
 
         itemRowHolder.patStatus.setText(patdata.getStatus());
         itemRowHolder.patname.setText(patdata.getPat_name());
-        itemRowHolder.hospitalname.setText(patdata.getPat_Hospital());
+        itemRowHolder.hospitalname.setText(patdata.getPat_hospital());
         itemRowHolder.refdate.setText(patdata.getRefdate());
         itemRowHolder.patage.setText(patdata.getPat_age());
         itemRowHolder.patdiag.setText(patdata.getDiagnosis());

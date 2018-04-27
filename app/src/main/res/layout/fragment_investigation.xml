@@ -639,7 +639,7 @@
                         android:layout_height="40dp"
                         android:layout_gravity="center_horizontal|center_vertical"
                         android:layout_marginTop="5dp"
-                        android:visibility="gone"
+                        android:visibility="invisible"
                         android:scaleType="fitXY"
                         android:src="@drawable/ic_close" />
                 </LinearLayout>
@@ -674,7 +674,7 @@
                         android:id="@+id/crose_two"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:visibility="gone"
+                        android:visibility="invisible"
                         android:layout_marginTop="@dimen/margin5"
                         android:layout_gravity="center_horizontal|center_vertical"
                         android:scaleType="fitXY"
@@ -714,7 +714,7 @@
                         android:layout_marginTop="@dimen/margin5"
                         android:scaleType="fitXY"
                         android:src="@drawable/ic_close"
-                        android:visibility="gone" />
+                        android:visibility="invisible" />
 
                 </LinearLayout>
 

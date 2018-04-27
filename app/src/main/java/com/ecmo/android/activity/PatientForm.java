@@ -1541,7 +1541,7 @@ public class PatientForm extends BaseActivity {
             @Override
             public void onClick(View view) {
                 imageview_one.setImageBitmap(null);
-                imageviewclose_one.setVisibility(View.GONE);
+                imageviewclose_one.setVisibility(View.INVISIBLE);
                 bitmapone=null;
             }
         });
@@ -1549,7 +1549,7 @@ public class PatientForm extends BaseActivity {
             @Override
             public void onClick(View view) {
                 imageview_two.setImageBitmap(null);
-                imageviewclose_two.setVisibility(View.GONE);
+                imageviewclose_two.setVisibility(View.INVISIBLE);
                 bitmaptwo=null;
 
             }
@@ -1558,7 +1558,7 @@ public class PatientForm extends BaseActivity {
             @Override
             public void onClick(View view) {
                 imageview_three.setImageBitmap(null);
-                imageviewclose_three.setVisibility(View.GONE);
+                imageviewclose_three.setVisibility(View.INVISIBLE);
                 bitmapthree=null;
             }
         });
