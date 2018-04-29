@@ -8,10 +8,14 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.media.MediaScannerConnection;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.text.Editable;
@@ -42,12 +46,17 @@ import com.ecmo.android.utils.Helper;
 import com.ecmo.android.utils.UserPreferences;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -114,6 +123,7 @@ public class PatientForm extends BaseActivity {
     private static final String IMAGE_DIRECTORY = "/demonuts";
     private int GALLERY = 1, CAMERA = 2;
     String attachment = "null";
+    String filetype = "0";
     byte[] bitmapone, bitmaptwo, bitmapthree;
     private ImageView imageviewclose_one, imageviewclose_two, imageviewclose_three;
 
@@ -1498,7 +1508,9 @@ public class PatientForm extends BaseActivity {
                 if (packageManager.hasSystemFeature(PackageManager.FEATURE_CAMERA)) {
 
                     if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-                        callPermission();
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                            callPermission();
+                        }
                     } else
                         showPictureDialog("one");
                 }
@@ -1513,7 +1525,9 @@ public class PatientForm extends BaseActivity {
                 if (packageManager.hasSystemFeature(PackageManager.FEATURE_CAMERA)) {
 
                     if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-                        callPermission();
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                            callPermission();
+                        }
                     } else
                         showPictureDialog("two");
                 }
@@ -1528,7 +1542,9 @@ public class PatientForm extends BaseActivity {
                 if (packageManager.hasSystemFeature(PackageManager.FEATURE_CAMERA)) {
 
                     if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-                        callPermission();
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                            callPermission();
+                        }
                     } else
                         showPictureDialog("three");
                 }
@@ -1540,32 +1556,27 @@ public class PatientForm extends BaseActivity {
         imageviewclose_one.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                imageview_one.setImageBitmap(null);
-                imageviewclose_one.setVisibility(View.INVISIBLE);
-                bitmapone=null;
+                showPictureDialog("one");
             }
         });
         imageviewclose_two.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                imageview_two.setImageBitmap(null);
-                imageviewclose_two.setVisibility(View.INVISIBLE);
-                bitmaptwo=null;
+                showPictureDialog("two");
 
             }
         });
         imageviewclose_three.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                imageview_three.setImageBitmap(null);
-                imageviewclose_three.setVisibility(View.INVISIBLE);
-                bitmapthree=null;
+                showPictureDialog("three");
             }
         });
 
     }
 
 
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     private void callPermission() {
 
         if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.CAMERA)) {
@@ -1574,10 +1585,26 @@ public class PatientForm extends BaseActivity {
             //Explain here why you need this permission
         }
 
+
+        if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.READ_EXTERNAL_STORAGE)) {
+            //If the user has denied the permission previously your code will come to this block
+            //Here you can explain why you need this permission
+            //Explain here why you need this permission
+        }
+
+
+        if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+            //If the user has denied the permission previously your code will come to this block
+            //Here you can explain why you need this permission
+            //Explain here why you need this permission
+        }
+
+
         //And finally ask for the permission
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, 3);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
 
@@ -1594,14 +1621,12 @@ public class PatientForm extends BaseActivity {
                 }
 
                 //Displaying a toast
-                //Toast.makeText(this, "Permission granted now you can read the storage", Toast.LENGTH_LONG).show();
-            } else {
-                //Displaying another toast if permission is not granted
-                //Toast.makeText(this, "Oops you just denied the permission", Toast.LENGTH_LONG).show();
+                //
+            }  //Displaying another toast if permission is not granted //Toast.makeText(this, "Oops you just denied the permission", Toast.LENGTH_LONG).show();
+            else {
+                Toast.makeText(this, "Permission granted now you can read the storage", Toast.LENGTH_LONG).show();
             }
         }
-
-
     }
 
     private void showPictureDialog(String attachhment_section) {
@@ -1652,12 +1677,13 @@ public class PatientForm extends BaseActivity {
         if (requestCode == GALLERY) {
             if (data != null) {
                 Uri contentURI = data.getData();
+
                 try {
                     Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), contentURI);
-
                     // String path = saveImage(bitmap);
                     switch (attachment) {
                         case "one":
+                            filetype = "1";
                             imageview_one.setImageBitmap(bitmap);
                             ByteArrayOutputStream stream1 = new ByteArrayOutputStream();
                             bitmap.compress(Bitmap.CompressFormat.JPEG, 50, stream1);
@@ -1665,6 +1691,7 @@ public class PatientForm extends BaseActivity {
                             imageviewclose_one.setVisibility(View.VISIBLE);
                             break;
                         case "two":
+                            filetype = "2";
                             imageview_two.setImageBitmap(bitmap);
                             ByteArrayOutputStream stream2 = new ByteArrayOutputStream();
                             bitmap.compress(Bitmap.CompressFormat.JPEG, 50, stream2);
@@ -1672,6 +1699,7 @@ public class PatientForm extends BaseActivity {
                             imageviewclose_two.setVisibility(View.VISIBLE);
                             break;
                         case "three":
+                            filetype = "3";
                             imageview_three.setImageBitmap(bitmap);
                             ByteArrayOutputStream stream3 = new ByteArrayOutputStream();
                             bitmap.compress(Bitmap.CompressFormat.JPEG, 50, stream3);
@@ -1680,8 +1708,8 @@ public class PatientForm extends BaseActivity {
                             break;
 
                     }
-                    Toast.makeText(PatientForm.this, "Image Saved!", Toast.LENGTH_SHORT).show();
 
+                    saveImage(bitmap, filetype);
 
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -1692,18 +1720,19 @@ public class PatientForm extends BaseActivity {
         } else if (requestCode == CAMERA) {
             try {
                 Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
-
                 switch (attachment) {
                     case "one":
+                        filetype = "1";
                         imageview_one.setImageBitmap(thumbnail);
                         ByteArrayOutputStream stream1 = new ByteArrayOutputStream();
                         assert thumbnail != null;
                         thumbnail.compress(Bitmap.CompressFormat.JPEG, 50, stream1);
                         bitmapone = stream1.toByteArray();
                         imageviewclose_one.setVisibility(View.VISIBLE);
+
                         break;
                     case "two":
-
+                        filetype = "2";
                         imageview_two.setImageBitmap(thumbnail);
                         ByteArrayOutputStream stream2 = new ByteArrayOutputStream();
                         assert thumbnail != null;
@@ -1712,7 +1741,7 @@ public class PatientForm extends BaseActivity {
                         imageviewclose_two.setVisibility(View.VISIBLE);
                         break;
                     case "three":
-
+                        filetype = "3";
                         imageview_three.setImageBitmap(thumbnail);
                         ByteArrayOutputStream stream3 = new ByteArrayOutputStream();
                         assert thumbnail != null;
@@ -1722,13 +1751,82 @@ public class PatientForm extends BaseActivity {
                         break;
 
                 }
-                // saveImage(thumbnail);
-                Toast.makeText(PatientForm.this, "Image Saved!", Toast.LENGTH_SHORT).show();
-
+                saveImage(thumbnail, filetype);
             } catch (Exception e) {
-                e.printStackTrace();
+                Log.d("UPLOAD", e.getLocalizedMessage() + "");
                 Toast.makeText(PatientForm.this, "Failed!", Toast.LENGTH_SHORT).show();
             }
         }
     }
+
+    private void UploadFile(File finalFile, String filetypenumber) {
+        commonLoaderstart();
+        //    RequestBody reqFile = RequestBody.create(MediaType.parse("image/jpeg"), finalFile);
+        RequestBody temp = RequestBody.create(MediaType.parse("image/*"), finalFile);
+        RequestBody guid = RequestBody.create(MediaType.parse("text/plain"), userPreferences.getSession());
+        RequestBody filetype = RequestBody.create(MediaType.parse("text/plain"), filetypenumber);
+        RequestBody docid = RequestBody.create(MediaType.parse("text/plain"), userPreferences.getUserId());
+
+        ApiInterface apiService = ApiClient.getClientrefpatient().create(ApiInterface.class);
+        MultipartBody.Part body = MultipartBody.Part.createFormData("file", finalFile.getName(), temp);
+
+        Call<CommonResponse> call = apiService.postFile(body, guid, filetype, docid);
+        call.enqueue(new Callback<CommonResponse>() {
+            @Override
+            public void onResponse(Call<CommonResponse> call, Response<CommonResponse> response) {
+
+                CommonResponse commonResponse = response.body();
+                if (commonResponse != null) {
+                    if (response != null && response.body().getResult().equalsIgnoreCase("FAILED")) {
+                        commonToast("Invalid File");
+                    } else if (commonResponse.getResult().equalsIgnoreCase("Success")) {
+                        commonToast("Attachment Uploaded sucessfully");
+                    } else {
+                        commonToast("Error , plz check data entered.");
+                    }
+                }
+                commonLoaderstop();
+            }
+
+            @Override
+            public void onFailure(Call<CommonResponse> call, Throwable t) {
+                commonToast("Fail Upload");
+                commonLoaderstop();
+            }
+        });
+    }
+
+
+    public void saveImage(Bitmap myBitmap, String filetype) {
+        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+        myBitmap.compress(Bitmap.CompressFormat.JPEG, 90, bytes);
+        File wallpaperDirectory = new File(
+                Environment.getExternalStorageDirectory() + IMAGE_DIRECTORY);
+        // have the object build the directory structure, if needed.
+        if (!wallpaperDirectory.exists()) {
+            wallpaperDirectory.mkdirs();
+        }
+
+        try {
+            File f = new File(wallpaperDirectory, Calendar.getInstance()
+                    .getTimeInMillis() + ".jpg");
+            f.createNewFile();
+            FileOutputStream fo = new FileOutputStream(f);
+            fo.write(bytes.toByteArray());
+            MediaScannerConnection.scanFile(this,
+                    new String[]{f.getPath()},
+                    new String[]{"image/jpg"}, null);
+            fo.close();
+            Log.d("TAG", "File Saved::--->" + f.getAbsolutePath());
+            f.getAbsolutePath();
+
+            UploadFile(new File(f.getAbsolutePath()), filetype);
+
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
+    }
+
+
 }
+

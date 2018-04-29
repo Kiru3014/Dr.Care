@@ -18,10 +18,14 @@ import com.ecmo.android.model.response.LoginResponse;
 import com.ecmo.android.model.response.PatReferalList;
 import com.ecmo.android.model.response.Referalformdata;
 
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.Headers;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.Part;
 
 public interface ApiInterface
 {
@@ -126,6 +130,13 @@ public interface ApiInterface
             "Content-Type: application/json"
     })
     Call<CommonResponse> AddUpdatePatientStatus(@Body FormActionRequest Request);
+
+
+    //fileUpload
+    @Multipart
+    @POST("SavePatientFile")
+    Call<CommonResponse> postFile(@Part MultipartBody.Part file, @Part("guid") RequestBody guid, @Part("filetype") RequestBody filetype, @Part("docid") RequestBody docid);
+
 
 }
 

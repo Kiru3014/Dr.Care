@@ -641,7 +641,8 @@
                         android:layout_marginTop="5dp"
                         android:visibility="invisible"
                         android:scaleType="fitXY"
-                        android:src="@drawable/ic_close" />
+                        android:rotation="180"
+                        android:src="@drawable/ic_system_update"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -678,7 +679,8 @@
                         android:layout_marginTop="@dimen/margin5"
                         android:layout_gravity="center_horizontal|center_vertical"
                         android:scaleType="fitXY"
-                        android:src="@drawable/ic_close" />
+                        android:rotation="180"
+                        android:src="@drawable/ic_system_update" />
 
                 </LinearLayout>
 
@@ -713,7 +715,8 @@
                         android:layout_gravity="center_horizontal|center_vertical"
                         android:layout_marginTop="@dimen/margin5"
                         android:scaleType="fitXY"
-                        android:src="@drawable/ic_close"
+                        android:rotation="180"
+                        android:src="@drawable/ic_system_update"
                         android:visibility="invisible" />
 
                 </LinearLayout>

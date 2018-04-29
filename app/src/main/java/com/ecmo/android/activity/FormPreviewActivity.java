@@ -72,24 +72,23 @@ public class FormPreviewActivity extends BaseActivity {
         Camera();
     }
 
-    private void Camera()
-    {
+    private void Camera() {
         imageview_one = (ImageView) findViewById(R.id.img_one);
         imageview_two = (ImageView) findViewById(R.id.img_two);
         imageview_three = (ImageView) findViewById(R.id.img_three);
 
-        byte[]  bytesone = this.getIntent().getByteArrayExtra("BitmapImageOne");
+        byte[] bytesone = this.getIntent().getByteArrayExtra("BitmapImageOne");
         if (bytesone != null)
             bitmapone = BitmapFactory.decodeByteArray(bytesone, 0, bytesone.length);
-            imageview_one.setImageBitmap(bitmapone);
+        imageview_one.setImageBitmap(bitmapone);
         byte[] bytestwo = this.getIntent().getByteArrayExtra("BitmapImageTwo");
         if (bytestwo != null)
             bitmaptwo = BitmapFactory.decodeByteArray(bytestwo, 0, bytestwo.length);
-            imageview_two.setImageBitmap(bitmaptwo);
+        imageview_two.setImageBitmap(bitmaptwo);
         byte[] bytesthree = this.getIntent().getByteArrayExtra("BitmapImageThree");
         if (bytesthree != null)
             bitmapthree = BitmapFactory.decodeByteArray(bytesthree, 0, bytesthree.length);
-            imageview_three.setImageBitmap(bitmapthree);
+        imageview_three.setImageBitmap(bitmapthree);
     }
 
 
@@ -265,7 +264,9 @@ public class FormPreviewActivity extends BaseActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SubmitApplication(dene);
+
+               // finish();
+                 SubmitApplication(dene);
             }
         });
     }
