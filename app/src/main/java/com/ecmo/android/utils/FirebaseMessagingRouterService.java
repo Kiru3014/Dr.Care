@@ -26,12 +26,24 @@ public class FirebaseMessagingRouterService extends FirebaseMessagingService {
 
     private void dispatchNonPushwooshMessage(String title) {
 
+
         Intent intent = new Intent(this, SplashScreen.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        if(title.contains("form id")){
+            String titlenew="";
+            if(title.length()>28) {
+                titlenew = title.substring(0, 28);
+            }
+            String id = title.replaceAll("[^0-9]", "");
+            if(titlenew!=null && !titlenew.isEmpty()){
+                title=titlenew;
+            }
+            if(!id.isEmpty()){
+                intent.putExtra("FORMID",id);
+            }
+        }
+
         PendingIntent pendingIntentYes = PendingIntent.getActivity(this, 12345, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-
-
-
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this)
                 .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.icon))
                 .setSmallIcon(R.drawable.icon)
@@ -43,6 +55,5 @@ public class FirebaseMessagingRouterService extends FirebaseMessagingService {
         NotificationManager mNotificationManager =
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         mNotificationManager.notify((int) new Date().getTime(), mBuilder.build());
-
     }
 }
