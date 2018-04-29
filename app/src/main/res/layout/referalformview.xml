@@ -9,29 +9,28 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:gravity="center"
-        >
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:padding="10dp"
-        android:text="Referral Status :"
-        android:textColor="@color/colorblack"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        android:gravity="center">
 
-    <TextView
-        android:id="@+id/ref_status"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/colorblack"
-        android:textSize="20sp"
-        android:textAllCaps="true"
-        android:textStyle="bold" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:text="Referral Status :"
+            android:textColor="@color/colorblack"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/ref_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="true"
+            android:textColor="@color/colorblack"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
-
 
 
     <View
@@ -3270,44 +3269,76 @@
                     android:textSize="14sp"
                     android:textStyle="bold" />
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <ImageView
+                        android:id="@+id/image_one"
+                        android:layout_width="0dp"
+                        android:layout_margin="3dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <ImageView
+                        android:id="@+id/image_two"
+                        android:layout_margin="3dp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <ImageView
+                        android:layout_margin="3dp"
+                        android:id="@+id/image_three"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+
+                </LinearLayout>
+
+
                 <Button
                     android:id="@+id/resend_form"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:src="@drawable/ic_next"
-                    android:visibility="gone"
-                    android:text="RESEND REFERRAL FORM"/>
+                    android:text="RESEND REFERRAL FORM"
+                    android:visibility="gone" />
+
                 <RelativeLayout
                     android:id="@+id/formaction"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:visibility="gone"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:visibility="gone">
 
 
                     <Button
                         android:id="@+id/form_approve"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_margin="15dp"
                         android:layout_alignParentStart="true"
+                        android:layout_margin="15dp"
                         android:background="@color/green"
+                        android:src="@drawable/ic_next"
                         android:text="APPROVE"
-                        android:visibility="gone"
-                        android:src="@drawable/ic_next" />
+                        android:visibility="gone" />
 
                     <Button
                         android:id="@+id/form_hold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
-                        android:background="@color/gray_color"
                         android:layout_margin="15dp"
+                        android:background="@color/gray_color"
+                        android:src="@drawable/ic_next"
                         android:text="HOLD"
-                        android:visibility="gone"
-                        android:src="@drawable/ic_next" />
+                        android:visibility="gone" />
 
 
                     <Button
@@ -3315,15 +3346,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
-                        android:background="@color/sample_dark_red"
                         android:layout_margin="15dp"
+                        android:background="@color/sample_dark_red"
+                        android:src="@drawable/ic_next"
                         android:text="REJECT"
-                        android:visibility="gone"
-                        android:src="@drawable/ic_next" />
+                        android:visibility="gone" />
 
 
                 </RelativeLayout>
-
 
 
             </LinearLayout>
