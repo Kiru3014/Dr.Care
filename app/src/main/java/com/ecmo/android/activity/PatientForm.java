@@ -1601,7 +1601,7 @@ public class PatientForm extends BaseActivity {
 
 
         //And finally ask for the permission
-        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, 3);
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 3);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
@@ -1609,23 +1609,32 @@ public class PatientForm extends BaseActivity {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
 
         if (requestCode == 3) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            for (int i = 0; i < grantResults.length; i++) {
+                if (grantResults[i] == PackageManager.PERMISSION_GRANTED) {
 
-                PackageManager packageManager = getApplicationContext().getPackageManager();
-                if (packageManager.hasSystemFeature(PackageManager.FEATURE_CAMERA)) {
+                   /* PackageManager packageManager = getApplicationContext().getPackageManager();
+                    if (packageManager.hasSystemFeature(PackageManager.FEATURE_CAMERA))
+                    {*/
+                        if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+                            callPermission();
+                        }
+                        if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                            callPermission();
+                        }
 
-                    if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-                        callPermission();
-                    } else
-                        showPictureDialog("three");
-                }
+                        if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                            callPermission();
+                        }
+                   // }
 
-                //Displaying a toast
-                //
-            }  //Displaying another toast if permission is not granted //Toast.makeText(this, "Oops you just denied the permission", Toast.LENGTH_LONG).show();
-            else {
-                Toast.makeText(this, "Permission granted now you can read the storage", Toast.LENGTH_LONG).show();
+                    //Displaying a toast
+                    //
+                }  //Displaying another toast if permission is not granted //Toast.makeText(this, "Oops you just denied the permission", Toast.LENGTH_LONG).show();
+                /*else {
+                  //  Toast.makeText(this, "Permission granted now you can read the storage", Toast.LENGTH_LONG).show();
+                }*/
             }
+
         }
     }
 
