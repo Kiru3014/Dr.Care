@@ -5,8 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
-public class referalformResponse  implements Serializable
-{
+public class referalformResponse implements Serializable {
     @SerializedName("status")
     @Expose
     private String status;
@@ -227,6 +226,15 @@ public class referalformResponse  implements Serializable
     @Expose
     private String age;
 
+    @SerializedName("file1")
+    @Expose
+    private String file_one;
+    @SerializedName("file2")
+    @Expose
+    private String file_two;
+    @SerializedName("file3")
+    @Expose
+    private String file_three;
 
 
     @SerializedName("comment")
@@ -308,7 +316,6 @@ public class referalformResponse  implements Serializable
 //        this.transactiontype = transactiontype;
 //        this.sessid = sessid;
 //    }
-
 
 
     public String getStatus() {
@@ -879,4 +886,27 @@ public class referalformResponse  implements Serializable
         this.transactiontype = transactiontype;
     }
 
+    public String getFile_one() {
+        return file_one;
+    }
+
+    public void setFile_one(String file_one) {
+        this.file_one = file_one;
+    }
+
+    public String getFile_two() {
+        return file_two;
+    }
+
+    public void setFile_two(String file_two) {
+        this.file_two = file_two;
+    }
+
+    public String getFile_three() {
+        return file_three;
+    }
+
+    public void setFile_three(String file_three) {
+        this.file_three = file_three;
+    }
 }

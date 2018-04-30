@@ -8,9 +8,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.ecmo.android.BaseActivity;
 import com.ecmo.android.R;
 import com.ecmo.android.model.request.FormActionRequest;
@@ -57,6 +59,7 @@ public class ViewReferalForm extends BaseActivity {
     RelativeLayout formaction;
     UserPreferences userPreferences;
     EditText ref_comment;
+    ImageView mfileone,mfiletwo,mfilethree;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -142,6 +145,8 @@ public class ViewReferalForm extends BaseActivity {
             if(pat_data.getStatus().equalsIgnoreCase("Hold")|| pat_data.getStatus().equalsIgnoreCase("2"))
                 hold.setVisibility(View.GONE);
         }
+
+
 
     }
 
@@ -296,6 +301,25 @@ public class ViewReferalForm extends BaseActivity {
         mtvHco3 = findViewById(R.id.tv_hco3);
         mtvbe = findViewById(R.id.tv_bf);
 
+        mfileone= findViewById(R.id.image_one);
+        mfiletwo= findViewById(R.id.image_two);
+        mfilethree= findViewById(R.id.image_three);
+
+        if(pat_data.getFile_one()!=null&!pat_data.getFile_one().isEmpty())
+        Glide.with(getApplicationContext())
+                .load(pat_data.getFile_one())
+                .into(mfileone);
+
+        if(pat_data.getFile_two()!=null&!pat_data.getFile_two().isEmpty())
+        Glide.with(getApplicationContext())
+                .load(pat_data.getFile_two())
+                .into(mfiletwo);
+
+        if(pat_data.getFile_three()!=null&!pat_data.getFile_three().isEmpty())
+        Glide.with(getApplicationContext())
+
+                .load(pat_data.getFile_three())
+                .into(mfilethree);
 
         mtvurea.setText(pat_data.getUrea());
         mtvcr.setText(pat_data.getCr());

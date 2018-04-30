@@ -1,0 +1,686 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerHorizontal="true"
+    android:layout_centerVertical="true"
+    android:background="@color/colorWhite"
+    android:orientation="vertical"
+    tools:context=".activity.HelpActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin50"
+        android:scaleType="fitXY"
+        android:src="@drawable/sub_header" />
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/margin10"
+            android:orientation="vertical"
+            android:padding="@dimen/margin5">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:text="ELSO Guidelines"
+                android:textColor="@color/product_list_gray_font"
+                android:textSize="18sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:paddingLeft="@dimen/margin10"
+                android:paddingStart="@dimen/margin10"
+                android:text="Patient Care Practice Guidelines"
+                android:textColor="@color/product_list_gray_font"
+                android:textSize="18sp"
+                android:textStyle="normal"
+                tools:ignore="RtlSymmetry" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin30"
+                android:layout_marginStart="@dimen/margin30"
+                android:fontFamily="sans-serif-medium"
+                android:paddingTop="@dimen/margin10"
+                android:text="General Guidelines for all Cases"
+                android:textColor="@color/product_list_gray_font"
+                android:textSize="18sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin50"
+                android:layout_marginStart="@dimen/margin50"
+                android:onClick="generalone"
+                android:padding="@dimen/margin5"
+                android:text="@string/general_one"
+                android:textColor="@color/text_colour"
+                android:textSize="16sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin50"
+                android:layout_marginStart="@dimen/margin50"
+                android:fontFamily="sans-serif"
+                android:padding="@dimen/margin5"
+                android:text="Equipment, cannulation, safety measures and general management of the ECLS patient are discussed within these guidelines."
+                android:textColor="@color/grand_total_grayed_color"
+                android:textSize="16sp"
+                android:textStyle="normal" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin50"
+                android:layout_marginStart="@dimen/margin50"
+                android:onClick="generaltwo"
+                android:padding="@dimen/margin5"
+                android:paddingTop="@dimen/margin10"
+                android:text="@string/general_two"
+                android:textColor="@color/text_colour"
+                android:textSize="16sp"
+                android:textStyle="normal" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin50"
+                android:layout_marginStart="@dimen/margin50"
+                android:onClick="generalthree"
+                android:padding="@dimen/margin5"
+
+                android:paddingTop="@dimen/margin10"
+                android:text="@string/general_three"
+                android:textColor="@color/text_colour"
+                android:textSize="16sp"
+                android:textStyle="normal" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin30"
+                android:layout_marginStart="@dimen/margin30"
+                android:fontFamily="sans-serif-medium"
+                android:padding="@dimen/margin5"
+                android:paddingTop="@dimen/margin10"
+                android:text="Respiratory Support Guidelines"
+                android:textColor="@color/product_list_gray_font"
+                android:textSize="18sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin50"
+                android:layout_marginStart="@dimen/margin50"
+
+                android:padding="@dimen/margin5"
+                android:paddingTop="@dimen/margin10"
+                android:text="ELSO Guidelines for Neonatal Respiratory Failure v1.4"
+                android:textColor="@color/grand_total_grayed_color"
+                android:textSize="16sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin50"
+                android:layout_marginStart="@dimen/margin50"
+                android:onClick="respiratoryone"
+                android:padding="@dimen/margin5"
+
+                android:text="ELSO Guidelines for Pediatric Respiratory Failure v1.3"
+                android:textColor="@color/text_colour"
+                android:textSize="16sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin50"
+                android:layout_marginStart="@dimen/margin50"
+                android:onClick="respiratorytwo"
+                android:padding="@dimen/margin5"
+
+                android:text="ELSO Guidelines for Adult Respiratory Failure v1.4"
+                android:textColor="@color/text_colour"
+                android:textSize="16sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin50"
+                android:layout_marginStart="@dimen/margin50"
+                android:onClick="respiratorythree"
+                android:padding="@dimen/margin5"
+
+                android:text="Endotracheal extubation in patients with respiratory failure receiving venovenous ECMO"
+                android:textColor="@color/text_colour"
+                android:textSize="16sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin50"
+                android:layout_marginStart="@dimen/margin50"
+                android:onClick="respiratoryfour"
+
+                android:padding="@dimen/margin5"
+                android:text="Identification and management of recirculation in venovenous ECMO"
+                android:textColor="@color/text_colour"
+                android:textSize="16sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin50"
+                android:layout_marginStart="@dimen/margin50"
+                android:onClick="respiratoryfive"
+
+                android:padding="@dimen/margin5"
+                android:text="Indications for Pediatric Respiratory Extracorporeal Life Support"
+                android:textColor="@color/text_colour"
+                android:textSize="16sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin50"
+                android:layout_marginStart="@dimen/margin50"
+                android:onClick="respiratorysix"
+                android:padding="@dimen/margin5"
+
+                android:text="Ultrasound Guidance for Extra-corporeal Membrane Oxygenation Veno-Venous ECMO"
+                android:textColor="@color/text_colour"
+                android:textSize="16sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin30"
+                android:layout_marginStart="@dimen/margin30"
+                android:fontFamily="sans-serif-medium"
+                android:padding="@dimen/margin5"
+                android:paddingTop="@dimen/margin10"
+                android:text="Circulatory / Cardiac Support"
+                android:textColor="@color/product_list_gray_font"
+                android:textSize="18sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin50"
+                android:layout_marginStart="@dimen/margin50"
+                android:onClick="circulatoryone"
+                android:padding="@dimen/margin5"
+
+                android:text="ELSO Guidelines for Pediatric Cardiac Failure v1.4"
+                android:textColor="@color/text_colour"
+                android:textSize="16sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin50"
+                android:layout_marginStart="@dimen/margin50"
+                android:onClick="circulatorytwo"
+                android:padding="@dimen/margin5"
+
+                android:text="ELSO Guidelines for Adult Cardiac Failure v1.3"
+                android:textColor="@color/text_colour"
+                android:textSize="16sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin50"
+                android:layout_marginStart="@dimen/margin50"
+                android:onClick="circulatorythree"
+                android:padding="@dimen/margin5"
+
+                android:text="ELSO Guidelines for ECPR Cases v1.3"
+                android:textColor="@color/text_colour"
+                android:textSize="16sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin50"
+                android:layout_marginStart="@dimen/margin50"
+                android:onClick="circulatoryfour"
+                android:padding="@dimen/margin5"
+
+                android:text="Ultrasound Guidance for Extra-corporeal Membrane Oxygenation Veno-Arterial ECMO"
+                android:textColor="@color/text_colour"
+                android:textSize="16sp"
+                android:textStyle="normal" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin30"
+                android:layout_marginStart="@dimen/margin30"
+                android:fontFamily="sans-serif-medium"
+                android:padding="@dimen/margin5"
+                android:paddingTop="@dimen/margin10"
+                android:text="Special Topic Guidelines"
+                android:textColor="@color/product_list_gray_font"
+                android:textSize="18sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin50"
+                android:layout_marginStart="@dimen/margin50"
+                android:onClick="specialone"
+                android:padding="@dimen/margin5"
+
+                android:text="ELSO Anticoagulation Guideline"
+                android:textColor="@color/text_colour"
+                android:textSize="16sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin50"
+                android:layout_marginStart="@dimen/margin50"
+                android:fontFamily="sans-serif"
+                android:padding="@dimen/margin5"
+                android:text="ELSO Anticoagulation Guidelines 2014"
+                android:textColor="@color/grand_total_grayed_color"
+                android:textSize="16sp"
+                android:textStyle="normal" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin50"
+                android:layout_marginStart="@dimen/margin50"
+                android:onClick="specialtwo"
+                android:padding="@dimen/margin5"
+
+                android:text="ELSO Recommendations for Neonatal-Pediatric ECMO Patient Follow-Up"
+                android:textColor="@color/text_colour"
+                android:textSize="16sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin50"
+                android:layout_marginStart="@dimen/margin50"
+                android:fontFamily="sans-serif"
+                android:padding="@dimen/margin5"
+                android:text="Time directed follow-up recommendations for the ECMO patient, with specific emphasis on family, community and schools."
+                android:textColor="@color/grand_total_grayed_color"
+                android:textSize="16sp"
+                android:textStyle="normal" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin50"
+                android:layout_marginStart="@dimen/margin50"
+                android:onClick="specialthree"
+
+                android:padding="@dimen/margin5"
+                android:text="ELSO H1N1 Specific Guidelines"
+                android:textColor="@color/text_colour"
+                android:textSize="16sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin50"
+                android:layout_marginStart="@dimen/margin50"
+                android:fontFamily="sans-serif"
+                android:padding="@dimen/margin5"
+                android:text="Pre-ECMO through Post-ECMO care of the influenza A(H1N1)-associated ARDS patient are described herein."
+                android:textColor="@color/grand_total_grayed_color"
+                android:textSize="16sp"
+                android:textStyle="normal" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin30"
+                android:layout_marginStart="@dimen/margin30"
+                android:fontFamily="sans-serif-medium"
+                android:padding="@dimen/margin5"
+                android:paddingTop="@dimen/margin10"
+                android:text="Center and Training Guidelines"
+                android:textColor="@color/product_list_gray_font"
+                android:textSize="18sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin50"
+                android:layout_marginStart="@dimen/margin50"
+                android:onClick="centerone"
+                android:padding="@dimen/margin5"
+                android:text="ELSO Guidelines For ECMO Centers v1.8 "
+                android:textColor="@color/text_colour"
+                android:textSize="16sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin50"
+                android:layout_marginStart="@dimen/margin50"
+                android:fontFamily="sans-serif"
+                android:padding="@dimen/margin5"
+                android:text="Provides centers with physical and personnel attributes needed to safely provide ECMO."
+                android:textColor="@color/grand_total_grayed_color"
+                android:textSize="16sp"
+                android:textStyle="normal" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin50"
+                android:layout_marginStart="@dimen/margin50"
+                android:onClick="centertwo"
+                android:padding="@dimen/margin5"
+
+                android:text="ELSO Guidelines for Training and Continuing Education of ECMO Specialists"
+                android:textColor="@color/text_colour"
+                android:textSize="16sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin50"
+                android:layout_marginStart="@dimen/margin50"
+                android:fontFamily="sans-serif"
+                android:padding="@dimen/margin5"
+                android:text="New and experienced ECMO centers will find valuable information regarding the training and continuing education of the bedside ECMO specialist here."
+                android:textColor="@color/grand_total_grayed_color"
+                android:textSize="16sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin30"
+                android:layout_marginStart="@dimen/margin30"
+                android:fontFamily="sans-serif-medium"
+                android:padding="@dimen/margin5"
+                android:paddingTop="@dimen/margin10"
+                android:text="Guidelines News"
+                android:textColor="@color/product_list_gray_font"
+                android:textSize="18sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin50"
+                android:layout_marginStart="@dimen/margin50"
+                android:fontFamily="sans-serif-medium"
+                android:padding="@dimen/margin5"
+                android:paddingTop="@dimen/margin10"
+                android:text="General Guidelines for all Cases"
+                android:textColor="@color/product_list_gray_font"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin50"
+                android:layout_marginStart="@dimen/margin50"
+                android:padding="@dimen/margin5"
+                android:text="@string/guidelines_news_one"
+                android:textColor="@color/product_list_gray_font"
+                android:textSize="16sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin50"
+                android:layout_marginStart="@dimen/margin50"
+                android:autoLink="web"
+                android:clickable="true"
+                android:linksClickable="true"
+                android:padding="@dimen/margin5"
+                android:text="@string/link_guidl_one"
+                android:textColor="@color/product_list_gray_font"
+                android:textSize="16sp"
+                android:textStyle="normal" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin50"
+                android:layout_marginStart="@dimen/margin50"
+                android:fontFamily="sans-serif-medium"
+                android:padding="@dimen/margin5"
+                android:paddingTop="@dimen/margin10"
+                android:text="Position Paper on Adult ECMO Centers"
+                android:textColor="@color/product_list_gray_font"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin50"
+                android:layout_marginStart="@dimen/margin50"
+                android:padding="@dimen/margin5"
+                android:text="@string/guidelines_news_two"
+                android:textColor="@color/product_list_gray_font"
+                android:textSize="16sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin50"
+                android:layout_marginStart="@dimen/margin50"
+                android:autoLink="web"
+                android:clickable="true"
+                android:linksClickable="true"
+                android:padding="@dimen/margin5"
+                android:text="@string/link_guidl_two"
+                android:textColor="@color/product_list_gray_font"
+                android:textSize="16sp"
+                android:textStyle="normal" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin30"
+                android:layout_marginStart="@dimen/margin30"
+                android:fontFamily="sans-serif-medium"
+                android:padding="@dimen/margin5"
+                android:paddingTop="@dimen/margin10"
+                android:text="Guideline Translations"
+                android:textColor="@color/product_list_gray_font"
+                android:textSize="18sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin50"
+                android:layout_marginStart="@dimen/margin50"
+                android:fontFamily="sans-serif-medium"
+                android:padding="@dimen/margin5"
+                android:paddingTop="@dimen/margin10"
+                android:text="Spanish Translations"
+                android:textColor="@color/product_list_gray_font"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin50"
+                android:layout_marginStart="@dimen/margin50"
+                android:onClick="spanishone"
+                android:padding="@dimen/margin5"
+                android:paddingTop="@dimen/margin10"
+                android:text="ELSO Guias Extubacion Mayo 2015"
+                android:textColor="@color/text_colour"
+                android:textSize="16sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin50"
+                android:layout_marginStart="@dimen/margin50"
+                android:onClick="spanishtwo"
+                android:padding="@dimen/margin5"
+                android:paddingTop="@dimen/margin10"
+                android:text="ELSO Guias para la Insuficiencia Respiratoria Aguda Neonatal v1.3"
+                android:textColor="@color/text_colour"
+                android:textSize="16sp"
+                android:textStyle="normal" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin50"
+                android:layout_marginStart="@dimen/margin50"
+                android:onClick="spanishthree"
+                android:padding="@dimen/margin5"
+                android:paddingTop="@dimen/margin10"
+                android:text="ELSO Guias Para Insuficiencia Cardiaca Pediatrica v1.3"
+                android:textColor="@color/text_colour"
+                android:textSize="16sp"
+                android:textStyle="normal" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin50"
+                android:layout_marginStart="@dimen/margin50"
+                android:onClick="spanishfour"
+                android:padding="@dimen/margin5"
+                android:paddingTop="@dimen/margin10"
+                android:text="ELSO Guias para Insuficiencia Cardiaca del Adulto v1.3"
+                android:textColor="@color/text_colour"
+                android:textSize="16sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin50"
+                android:layout_marginStart="@dimen/margin50"
+                android:onClick="spanishfive"
+                android:padding="@dimen/margin5"
+                android:paddingTop="@dimen/margin10"
+                android:text="ELSO Guias para Centros de ECMO Version v1.8"
+                android:textColor="@color/text_colour"
+                android:textSize="16sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin50"
+                android:layout_marginStart="@dimen/margin50"
+                android:onClick="spanishsix"
+                android:padding="@dimen/margin5"
+                android:paddingTop="@dimen/margin10"
+                android:text="ELSO Gui´as para Entrenamiento y Educacion Version 1.5.pdf v1.5"
+                android:textColor="@color/text_colour"
+                android:textSize="16sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin50"
+                android:layout_marginStart="@dimen/margin50"
+                android:fontFamily="sans-serif-medium"
+                android:padding="@dimen/margin5"
+                android:paddingTop="@dimen/margin10"
+                android:text="Japanese Translation"
+                android:textColor="@color/product_list_gray_font"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin50"
+                android:layout_marginStart="@dimen/margin50"
+                android:onClick="japaneseshone"
+                android:padding="@dimen/margin5"
+                android:paddingTop="@dimen/margin10"
+                android:text="ELSO Guidelines for ECMO Centers v1.8 Japanese"
+                android:textColor="@color/text_colour"
+                android:textSize="16sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin20"
+                android:layout_marginLeft="@dimen/margin50"
+                android:layout_marginStart="@dimen/margin50"
+                android:onClick="japaneseshtwo"
+                android:padding="@dimen/margin5"
+                android:paddingTop="@dimen/margin10"
+                android:text="ELSO Guidelines General v 1.3 Japanese"
+                android:textColor="@color/text_colour"
+                android:textSize="16sp"
+                android:textStyle="normal" />
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+</LinearLayout>
