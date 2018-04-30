@@ -39,14 +39,15 @@ public class SplashScreen extends BaseActivity
                     if (userProfileSharedPreferences.isUserLogin() && !userProfileSharedPreferences.getSession().isEmpty())
                         {
                             if(getIntent().hasExtra("FORMID")){
-                                Intent intent = new Intent(SplashScreen.this, ViewReferalForm.class);
-                                intent.putExtra("formid",  getIntent().getStringExtra("FORMID"));
+                                Intent intent = new Intent(SplashScreen.this, RefPatientlistActivity.class);
+//                                intent.putExtra("formid",  getIntent().getStringExtra("FORMID"));
                                 startActivity(intent);
                                 finish();
                             }
                             else {
                                 Intent intent = new Intent(SplashScreen.this, HomeActivity.class);
                                 intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                 startActivity(intent);
                                 finish();
                             }

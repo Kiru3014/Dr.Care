@@ -25,29 +25,35 @@ public class FirebaseMessagingRouterService extends FirebaseMessagingService {
     }
 
     private void dispatchNonPushwooshMessage(String title) {
-
+        String titlenew="",id="0";
+        int reqid=0;
 
         Intent intent = new Intent(this, SplashScreen.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        if(title.contains("form id")){
-            String titlenew="";
+        if(title.toLowerCase().contains("form id")){
+
             if(title.length()>28) {
                 titlenew = title.substring(0, 28);
             }
-            String id = title.replaceAll("[^0-9]", "");
+            id = title.replaceAll("[^0-9]", "");
             if(titlenew!=null && !titlenew.isEmpty()){
-                title=titlenew;
+              //  title=titlenew;
             }
-            if(!id.isEmpty()){
+            if(!id.isEmpty() && !id.equalsIgnoreCase("0")){
                 intent.putExtra("FORMID",id);
+                try {
+                    reqid = Integer.getInteger(id);
+                }
+                catch (Exception e){}
             }
         }
 
-        PendingIntent pendingIntentYes = PendingIntent.getActivity(this, 12345, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        PendingIntent pendingIntentYes = PendingIntent.getActivity(this, 1234+reqid, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this)
                 .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.icon))
                 .setSmallIcon(R.drawable.icon)
-                .setContentTitle(title)
+                .setContentTitle("ECMO")
                 .setDefaults(Notification.DEFAULT_SOUND)
                 .setContentText(title);
         mBuilder.setAutoCancel(true);
