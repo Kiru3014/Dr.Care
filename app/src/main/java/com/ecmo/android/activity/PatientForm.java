@@ -1689,36 +1689,34 @@ public class PatientForm extends BaseActivity {
 
                 try {
                     Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), contentURI);
-                    // String path = saveImage(bitmap);
+                    ByteArrayOutputStream stream1 = new ByteArrayOutputStream();
+                    bitmap.compress(Bitmap.CompressFormat.PNG, 50, stream1);
+                    byte[] b =stream1.toByteArray();
+                    long lengthbmp = b.length;
+                    commonToast(lengthbmp+"");
                     switch (attachment) {
                         case "one":
                             filetype = "1";
                             imageview_one.setImageBitmap(bitmap);
-                            ByteArrayOutputStream stream1 = new ByteArrayOutputStream();
-                            bitmap.compress(Bitmap.CompressFormat.JPEG, 50, stream1);
-                            bitmapone = stream1.toByteArray();
+                            bitmapone = b;
                             imageviewclose_one.setVisibility(View.VISIBLE);
+
                             break;
                         case "two":
                             filetype = "2";
                             imageview_two.setImageBitmap(bitmap);
-                            ByteArrayOutputStream stream2 = new ByteArrayOutputStream();
-                            bitmap.compress(Bitmap.CompressFormat.JPEG, 50, stream2);
-                            bitmaptwo = stream2.toByteArray();
+                            bitmaptwo = stream1.toByteArray();
                             imageviewclose_two.setVisibility(View.VISIBLE);
                             break;
                         case "three":
                             filetype = "3";
                             imageview_three.setImageBitmap(bitmap);
-                            ByteArrayOutputStream stream3 = new ByteArrayOutputStream();
-                            bitmap.compress(Bitmap.CompressFormat.JPEG, 50, stream3);
-                            bitmapthree = stream3.toByteArray();
+                            bitmapthree = stream1.toByteArray();
                             imageviewclose_three.setVisibility(View.VISIBLE);
                             break;
-
                     }
 
-                    saveImage(bitmap, filetype);
+                    //saveImage(bitmap, filetype);
 
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -1727,35 +1725,33 @@ public class PatientForm extends BaseActivity {
             }
 
         } else if (requestCode == CAMERA) {
-            try {
+            try
+            {
                 Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
+                ByteArrayOutputStream stream1 = new ByteArrayOutputStream();
+                assert thumbnail != null;
+                thumbnail.compress(Bitmap.CompressFormat.PNG, 50, stream1);
+                byte[] b =stream1.toByteArray();
+                long lengthbmp = b.length;
+                commonToast(lengthbmp+"");
                 switch (attachment) {
                     case "one":
                         filetype = "1";
                         imageview_one.setImageBitmap(thumbnail);
-                        ByteArrayOutputStream stream1 = new ByteArrayOutputStream();
-                        assert thumbnail != null;
-                        thumbnail.compress(Bitmap.CompressFormat.JPEG, 50, stream1);
-                        bitmapone = stream1.toByteArray();
+                        bitmapone = b;
                         imageviewclose_one.setVisibility(View.VISIBLE);
 
                         break;
                     case "two":
                         filetype = "2";
                         imageview_two.setImageBitmap(thumbnail);
-                        ByteArrayOutputStream stream2 = new ByteArrayOutputStream();
-                        assert thumbnail != null;
-                        thumbnail.compress(Bitmap.CompressFormat.JPEG, 50, stream2);
-                        bitmaptwo = stream2.toByteArray();
+                        bitmaptwo = b;
                         imageviewclose_two.setVisibility(View.VISIBLE);
                         break;
                     case "three":
                         filetype = "3";
                         imageview_three.setImageBitmap(thumbnail);
-                        ByteArrayOutputStream stream3 = new ByteArrayOutputStream();
-                        assert thumbnail != null;
-                        thumbnail.compress(Bitmap.CompressFormat.JPEG, 50, stream3);
-                        bitmapthree = stream3.toByteArray();
+                        bitmapthree = b;
                         imageviewclose_three.setVisibility(View.VISIBLE);
                         break;
 
@@ -1808,7 +1804,7 @@ public class PatientForm extends BaseActivity {
 
     public void saveImage(Bitmap myBitmap, String filetype) {
         ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-        myBitmap.compress(Bitmap.CompressFormat.JPEG, 90, bytes);
+        myBitmap.compress(Bitmap.CompressFormat.PNG, 50, bytes);
         File wallpaperDirectory = new File(
                 Environment.getExternalStorageDirectory() + IMAGE_DIRECTORY);
         // have the object build the directory structure, if needed.
