@@ -115,9 +115,10 @@
 
     <string-array name="HR">
         <item>Select HR </item>
-        <item>&gt;120</item>
-        <item>120–80</item>
         <item>&lt;80</item>
+        <item>80–120</item>
+        <item>&gt;120</item>
+
     </string-array>
 
 

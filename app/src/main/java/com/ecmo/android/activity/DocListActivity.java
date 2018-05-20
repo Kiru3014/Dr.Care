@@ -38,9 +38,9 @@ public class DocListActivity  extends BaseActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.doc_list);
         linearLayout = (LinearLayout)findViewById(R.id.ll_options);
         linearLayout.setVisibility(View.GONE);
-        setContentView(R.layout.doc_list);
         TextView heading= findViewById(R.id.img_login_logo);
         heading.setText("Doctors Registration");
         userSharedPreferences = new UserPreferences(this);
