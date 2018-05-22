@@ -99,9 +99,9 @@ public class PatientForm extends BaseActivity {
 
     //cardiovascular
     FloatingActionButton fabscreenfournext, fabscreenfourback;
-    Spinner spinnerhr, spinnercardiac, spinnerlvef;
+    Spinner spinnerhr, spinnercardiac;
     String shr, sbp, stemp, scardiac, slvef;
-    EditText etcvp, etco,etbps,etbpp,spinnertemp;
+    EditText etcvp, etco,etbps,etbpp,spinnertemp,spinnerlvef;
 
     //Agents
     FloatingActionButton fabscreenfivenext, fabscreenfiveback;
@@ -260,6 +260,9 @@ public class PatientForm extends BaseActivity {
 
             }
         });
+
+        mspinnerhospital.setSelection(getspinnerIndexvalue(mspinnerhospital, userPreferences.getKeyUserHospital()));
+        mspinnerSpeciallity.setSelection(getspinnerIndexvalue(mspinnerSpeciallity, userPreferences.getKeyUserSpeciality()));
 
 
         mtvdate = (TextView) findViewById(R.id.tv_date);
@@ -954,9 +957,25 @@ public class PatientForm extends BaseActivity {
         }
         else
         {
-            Float tv = Float.valueOf(ettv.getText().toString());
-            Float pip = Float.valueOf(etpipvalues.getText().toString());
-            Float peep = Float.valueOf(spinnerpeep.getText().toString());
+            String ettvtemp=ettv.getText().toString();
+            if(ettv.getText().toString().startsWith("."))
+            {
+                ettvtemp="0"+ettv.getText().toString();
+            }
+
+            String etpiptemp=etpipvalues.getText().toString();
+            if(etpipvalues.getText().toString().startsWith("."))
+            {
+                etpiptemp="0"+etpipvalues.getText().toString();
+            }
+            String etpeeptemp=spinnerpeep.getText().toString();
+            if(spinnerpeep.getText().toString().startsWith("."))
+            {
+                etpeeptemp="0"+spinnerpeep.getText().toString();
+            }
+            Float tv = Float.valueOf(ettvtemp);
+            Float pip = Float.valueOf(etpiptemp);
+            Float peep = Float.valueOf(etpeeptemp);
             Float pippee = pip-peep;
             Float lungcomp = tv/pippee;
             slung = lungcomp.toString();
@@ -973,11 +992,49 @@ public class PatientForm extends BaseActivity {
         }
         else
         {
-            Float pao2 = Float.valueOf(etpo2.getText().toString());
-            Float fio2 = Float.valueOf(etfio2.getText().toString());
+            String etfio2temp=etfio2.getText().toString();
+            if(etfio2.getText().toString().startsWith("."))
+            {
+                etfio2temp="0"+etfio2.getText().toString();
+            }
+
+            String etpao2temp=etpo2.getText().toString();
+            if(etpo2.getText().toString().startsWith("."))
+            {
+                etpao2temp="0"+etpo2.getText().toString();
+            }
+
+            Float pao2 = Float.valueOf(etpao2temp);
+            Float fio2 = Float.valueOf(etfio2temp);
             Float pao2fao2 = pao2/fio2;
+            String pao2faotmmhg = "";
+
+            if(pao2fao2<13)
+            {
+                pao2faotmmhg="100";
+            }
+            else if (pao2fao2>=13||pao2fao2<=23)
+            {
+                pao2faotmmhg="100-174";
+
+            }
+            else if(pao2fao2>=23||pao2fao2<=30)
+            {
+                pao2faotmmhg="175-224";
+
+            }
+            else if (pao2fao2>=30||pao2fao2<=40)
+            {
+                pao2faotmmhg="225-229";
+
+            }
+            else if(pao2fao2>40)
+            {
+                pao2faotmmhg="300";
+
+            }
             spac02fio2 = pao2fao2.toString();
-            spinnerpafio2.setText(spac02fio2);
+            spinnerpafio2.setText(spac02fio2+" kp    "+pao2faotmmhg);
         }
 
     }
@@ -1077,7 +1134,7 @@ public class PatientForm extends BaseActivity {
         });
 
         spinnerlvef = findViewById(R.id.simpleSpinner_lvef);
-        spinnerlvef.setOnItemSelectedListener(new OnItemSelectedListener() {
+        /*spinnerlvef.setOnItemSelectedListener(new OnItemSelectedListener() {
 
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View arg1,
@@ -1099,19 +1156,30 @@ public class PatientForm extends BaseActivity {
 
             }
         });
-
+*/
 
         fabscreenfournext = (FloatingActionButton) findViewById(R.id.fag_cardiovascular_next);
         fabscreenfournext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
             {
-                sbp = etbps.getText().toString()+"-"+etbpp.getText().toString();
+                sbp = etbps.getText().toString()+"/"+etbpp.getText().toString();
                 stemp = spinnertemp.getText().toString();
+                slvef = spinnerlvef.getText().toString();
 
                 if (shr.isEmpty() || sbp.isEmpty() || stemp.isEmpty() || scardiac.isEmpty() || slvef.isEmpty()) {
                     commonToast("Please Select all Cardiovascular");
-                } else if (etcvp.getText().toString().isEmpty() || etco.getText().toString().isEmpty()) {
+                }
+                else if(etbps.getText().toString().isEmpty()||etbpp.getText().toString().isEmpty())
+                {
+                    commonToast("Please Enter BP Values");
+                }
+                else if(Float.valueOf(spinnerlvef.getText().toString().trim())<0||Integer.parseInt(spinnerlvef.getText().toString().trim())>100)
+                {
+                    commonToast("Please Enter correct Left Ventricular Ejection Fraction ");
+                    spinnerlvef.setError("Please Enter correct Left Ventricular Ejection Fraction ");
+                }
+                else if (etcvp.getText().toString().isEmpty() || etco.getText().toString().isEmpty()) {
                     etcvp.setError("Enter Details");
                     etco.setError("Enter Details");
                 } else {
@@ -1614,12 +1682,12 @@ public class PatientForm extends BaseActivity {
         spinnerhr.setSelection(getspinnerIndexvalue(spinnerhr, formdata.getHr()));
 
         String currentString = formdata.getBp();
-        String[] separated = currentString.split("-");
-        etbps.setText(separated[0]);
+        String[] separated = currentString.split("/");
+        etbps.setText(separated[0]+" / ");
         etbpp.setText(separated[1]);
         spinnertemp.setText(formdata.getTemp());
         spinnercardiac.setSelection(getspinnerIndexvalue(spinnercardiac, formdata.getCardiacindex()));
-        spinnerlvef.setSelection(getspinnerIndexvalue(spinnerlvef, formdata.getLeftventricularejectionfraction()));
+        spinnerlvef.setText(formdata.getLeftventricularejectionfraction());
 
         //agents
         etagentone.setText(formdata.getInotropesagent1());
