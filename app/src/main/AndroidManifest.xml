@@ -78,9 +78,6 @@
             android:name=".activity.HelpActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.GalleryActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name="com.ecmo.android.activity.ProfileInfoActivity"
             android:screenOrientation="portrait" />
         <activity
