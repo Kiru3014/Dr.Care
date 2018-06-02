@@ -8,6 +8,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.icu.text.DecimalFormat;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Build;
@@ -93,14 +94,14 @@ public class PatientForm extends BaseActivity {
     //Ventilation
     FloatingActionButton fabscreenthreenext, fabscreenthreeback;
     String spac02fio2 = "", speee = "", srr = "", slung = "", scrx = "";
-    Spinner spinnerpafio2, spinnerpeep, spinnerrr, spinnerlungcompliance, spinnercxr;
-    EditText etventdays, etspo2, etpo2, etfio2, etpipvalues, ettv;
+    Spinner  spinnercxr;
+    EditText etventdays, etspo2, etpo2, etfio2, etpipvalues, ettv,spinnerpafio2,spinnerpeep,spinnerrr,spinnerlungcompliance;
 
     //cardiovascular
     FloatingActionButton fabscreenfournext, fabscreenfourback;
-    Spinner spinnerhr, spinnerbp, spinnertemp, spinnercardiac, spinnerlvef;
+    Spinner spinnerhr, spinnercardiac;
     String shr, sbp, stemp, scardiac, slvef;
-    EditText etcvp, etco;
+    EditText etcvp, etco,etbps,etbpp,spinnertemp,spinnerlvef;
 
     //Agents
     FloatingActionButton fabscreenfivenext, fabscreenfiveback;
@@ -259,6 +260,9 @@ public class PatientForm extends BaseActivity {
 
             }
         });
+
+        mspinnerhospital.setSelection(getspinnerIndexvalue(mspinnerhospital, userPreferences.getKeyUserHospital()));
+        mspinnerSpeciallity.setSelection(getspinnerIndexvalue(mspinnerSpeciallity, userPreferences.getKeyUserSpeciality()));
 
 
         mtvdate = (TextView) findViewById(R.id.tv_date);
@@ -602,7 +606,62 @@ public class PatientForm extends BaseActivity {
 
         // String spac02fio2="",speee="",srr="",slung="",scrx="";
         spinnerpafio2 = findViewById(R.id.et_fio2_paO2);
-        spinnerpafio2.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+        //pao2
+        etpo2.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                //Your query to fetch Data
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (s.length() > 0)
+                {
+                    //commonToast(s+"");
+                    calacualtepao2fio2();
+                }
+            }
+        });
+
+        //fio2
+        etfio2.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                //Your query to fetch Data
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (s.length() > 0)
+                {
+                  //  commonToast(s+"");
+                    calacualtepao2fio2();
+                }
+            }
+        });
+
+
+
+
+
+
+
+        /*spinnerpafio2.setOnItemSelectedListener(new OnItemSelectedListener() {
 
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View arg1,
@@ -623,10 +682,10 @@ public class PatientForm extends BaseActivity {
                 // TODO Auto-generated method stub
 
             }
-        });
+        });*/
 
         spinnerpeep = findViewById(R.id.et_pieep);
-        spinnerpeep.setOnItemSelectedListener(new OnItemSelectedListener() {
+      /*  spinnerpeep.setOnItemSelectedListener(new OnItemSelectedListener() {
 
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View arg1,
@@ -648,9 +707,11 @@ public class PatientForm extends BaseActivity {
 
             }
         });
+*/
+
 
         spinnerrr = findViewById(R.id.et_rr);
-        spinnerrr.setOnItemSelectedListener(new OnItemSelectedListener() {
+       /* spinnerrr.setOnItemSelectedListener(new OnItemSelectedListener() {
 
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View arg1,
@@ -671,10 +732,10 @@ public class PatientForm extends BaseActivity {
                 // TODO Auto-generated method stub
 
             }
-        });
+        });*/
 
         spinnerlungcompliance = findViewById(R.id.et_lung);
-        spinnerlungcompliance.setOnItemSelectedListener(new OnItemSelectedListener() {
+       /* spinnerlungcompliance.setOnItemSelectedListener(new OnItemSelectedListener() {
 
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View arg1,
@@ -695,7 +756,7 @@ public class PatientForm extends BaseActivity {
                 // TODO Auto-generated method stub
 
             }
-        });
+        });*/
 
 
         spinnercxr = findViewById(R.id.et_cxr);
@@ -722,12 +783,91 @@ public class PatientForm extends BaseActivity {
             }
         });
 
+        //lung comple calaculation
+
+        //tv
+        ettv.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                //Your query to fetch Data
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (s.length() > 0)
+                {
+                    //  commonToast(s+"");
+                    calculationlung();
+                }
+            }
+        });
+
+        //pip
+        etpipvalues.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                //Your query to fetch Data
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (s.length() > 0)
+                {
+                    //  commonToast(s+"");
+                    calculationlung();
+                }
+            }
+        });
+
+        //peep
+        spinnerpeep.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                //Your query to fetch Data
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (s.length() > 0)
+                {
+                    //  commonToast(s+"");
+                    calculationlung();
+                }
+            }
+        });
+
 
         fabscreenthreenext = (FloatingActionButton) findViewById(R.id.fag_ventilation_next);
         fabscreenthreenext.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                //spac02fio2="",speee="",srr="",slung="",scrx=""
+            public void onClick(View view)
+            {
+                speee = spinnerpeep.getText().toString();
+                srr =spinnerrr.getText().toString();
+                slung = spinnerlungcompliance.getText().toString();
+
+
                 if (spac02fio2.isEmpty() || speee.isEmpty() || slung.isEmpty() || srr.isEmpty() || scrx.isEmpty()) {
                     commonToast("Please enter all Ventilation Parameters");
                 } else if (etventdays.getText().toString().isEmpty()) {
@@ -736,36 +876,48 @@ public class PatientForm extends BaseActivity {
                 } else if (etspo2.getText().toString().isEmpty()) {
                     commonToast("Please enter all Ventilation Parameters");
                     etspo2.setError("Enter Details");
-                } else if (etpo2.getText().toString().isEmpty()) {
+                }
+                else if(Float.valueOf(etspo2.getText().toString())>100||Float.valueOf(etspo2.getText().toString())<0)
+                 {
+                     etspo2.setError("SpO2 Value Should be between 0-100");
+                     commonToast("SpO2 Value Should be between 0-100");
+                 }
+                else if (etpo2.getText().toString().isEmpty()) {
                     commonToast("Please enter all Ventilation Parameters");
                     etpo2.setError("Enter Details");
-                } else if (etfio2.getText().toString().isEmpty()) {
+                }
+                else if(Float.valueOf(etpo2.getText().toString())>100||Float.valueOf(etpo2.getText().toString())<1) {
+                    commonToast("PaO2 Value Should be between 1-100");
+                    etpo2.setError("PaO2 Value Should be between 1-100");
+                 }
+                else if (etfio2.getText().toString().isEmpty()) {
                     commonToast("Please enter all Ventilation Parameters");
                     etfio2.setError("Enter Details");
-                } else if (etpipvalues.getText().toString().isEmpty()) {
+                }
+                else if(Float.valueOf(etfio2.getText().toString())>1||Float.valueOf(etfio2.getText().toString())<0)
+                {
+                    commonToast("FiO2Value Should be between 0-1");
+                    etfio2.setError("FiO2 Value Should be between 0-1");
+
+                }
+                else if (etpipvalues.getText().toString().isEmpty()) {
                     commonToast("Please enter all Ventilation Parameters");
                     etpipvalues.setError("Enter Details");
-                } else if (ettv.getText().toString().isEmpty()) {
+                } else if (ettv.getText().toString().isEmpty())
+                {
                     commonToast("Please enter all Ventilation Parameters");
                     ettv.setError("Enter Details");
                 }
-//
-//
-//
-//                else if (etventdays.getText().toString().isEmpty() ||
-//                        etspo2.getText().toString().isEmpty() ||
-//                        etpo2.getText().toString().isEmpty() ||
-//                        etfio2.getText().toString().isEmpty() ||
-//                        etpipvalues.getText().toString().isEmpty() ||
-//                        ettv.getText().toString().isEmpty()) {
-//                    commonToast("Please enter all Ventilation Parameters");
-//                    etventdays.setError("Enter Details");
-//                    etspo2.setError("Enter Details");
-//                    etpo2.setError("Enter Details");
-//                    etfio2.setError("Enter Details");
-//                    etpipvalues.setError("Enter Details");
-//                    ettv.setError("Enter Details");
-//                }
+                else if (Float.valueOf(ettv.getText().toString())>600||Float.valueOf(ettv.getText().toString())<0)
+                {
+                    commonToast("TV Value Should be between 0-600");
+                    ettv.setError("TV Value Should be between 0-600");
+                }
+                else if (Float.valueOf(spinnerrr.getText().toString())>600||Float.valueOf(spinnerrr.getText().toString())<0)
+                {
+                    commonToast("RR Value Should be between 0-600");
+                    spinnerrr.setError("RR Value Should be between 0-600");
+                }
                 else {
                     Log.d("Ventil;ation Details\n",
                             "No dats in vent - " + etventdays.getText().toString() +
@@ -797,6 +949,96 @@ public class PatientForm extends BaseActivity {
 
     }
 
+    private void calculationlung()
+    {
+        if(ettv.getText().toString().trim().isEmpty()||etpipvalues.getText().toString().trim().isEmpty()||spinnerpeep.getText().toString().isEmpty())
+        {
+            spinnerlungcompliance.setText("");
+        }
+        else
+        {
+            String ettvtemp=ettv.getText().toString();
+            if(ettv.getText().toString().startsWith("."))
+            {
+                ettvtemp="0"+ettv.getText().toString();
+            }
+
+            String etpiptemp=etpipvalues.getText().toString();
+            if(etpipvalues.getText().toString().startsWith("."))
+            {
+                etpiptemp="0"+etpipvalues.getText().toString();
+            }
+            String etpeeptemp=spinnerpeep.getText().toString();
+            if(spinnerpeep.getText().toString().startsWith("."))
+            {
+                etpeeptemp="0"+spinnerpeep.getText().toString();
+            }
+            Float tv = Float.valueOf(ettvtemp);
+            Float pip = Float.valueOf(etpiptemp);
+            Float peep = Float.valueOf(etpeeptemp);
+            Float pippee = pip-peep;
+            Float lungcomp = tv/pippee;
+            slung = lungcomp.toString();
+            spinnerlungcompliance.setText(slung);
+        }
+
+    }
+
+    private void calacualtepao2fio2()
+    {
+        if(etpo2.getText().toString().trim().isEmpty()||etfio2.getText().toString().trim().isEmpty())
+        {
+            spinnerpafio2.setText("");
+        }
+        else
+        {
+            String etfio2temp=etfio2.getText().toString();
+            if(etfio2.getText().toString().startsWith("."))
+            {
+                etfio2temp="0"+etfio2.getText().toString();
+            }
+
+            String etpao2temp=etpo2.getText().toString();
+            if(etpo2.getText().toString().startsWith("."))
+            {
+                etpao2temp="0"+etpo2.getText().toString();
+            }
+
+            Float pao2 = Float.valueOf(etpao2temp);
+            Float fio2 = Float.valueOf(etfio2temp);
+            Float pao2fao2 = pao2/fio2;
+            String pao2faotmmhg = "";
+
+            if(pao2fao2<13)
+            {
+                pao2faotmmhg="100";
+            }
+            else if (pao2fao2>=13||pao2fao2<=23)
+            {
+                pao2faotmmhg="100-174";
+
+            }
+            else if(pao2fao2>=23||pao2fao2<=30)
+            {
+                pao2faotmmhg="175-224";
+
+            }
+            else if (pao2fao2>=30||pao2fao2<=40)
+            {
+                pao2faotmmhg="225-229";
+
+            }
+            else if(pao2fao2>40)
+            {
+                pao2faotmmhg="300";
+
+            }
+            spac02fio2 = pao2fao2.toString();
+            spinnerpafio2.setText(spac02fio2+" kp    "+pao2faotmmhg);
+        }
+
+    }
+
     /* Ventilation  Paramentes Form End*/
 
 
@@ -811,6 +1053,9 @@ public class PatientForm extends BaseActivity {
 
         etcvp = (EditText) findViewById(R.id.simpleSpinner_cvp);
         etco = (EditText) findViewById(R.id.et_co);
+        etbps= (EditText) findViewById(R.id.bp_s);
+        etbpp= (EditText) findViewById(R.id.bp_p);
+
         etcvp.setTypeface(Helper.getSharedHelper().getNormalFont());
         etco.setTypeface(Helper.getSharedHelper().getNormalFont());
 
@@ -838,32 +1083,10 @@ public class PatientForm extends BaseActivity {
             }
         });
 
-        spinnerbp = findViewById(R.id.simpleSpinner_Bp);
-        spinnerbp.setOnItemSelectedListener(new OnItemSelectedListener() {
 
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View arg1,
-                                       int pos, long arg3) {
-
-
-                if (pos != 0) {
-                    sbp = adapterView.getItemAtPosition(pos).toString();
-                } else {
-                    sbp = "";
-                }
-
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> arg0) {
-                // TODO Auto-generated method stub
-
-            }
-        });
 
         spinnertemp = findViewById(R.id.simpleSpinner_temp);
-        spinnertemp.setOnItemSelectedListener(new OnItemSelectedListener() {
+        /*spinnertemp.setOnItemSelectedListener(new OnItemSelectedListener() {
 
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View arg1,
@@ -885,7 +1108,7 @@ public class PatientForm extends BaseActivity {
 
             }
         });
-
+*/
         spinnercardiac = findViewById(R.id.simpleSpinner_cardiacindex);
         spinnercardiac.setOnItemSelectedListener(new OnItemSelectedListener() {
 
@@ -911,7 +1134,7 @@ public class PatientForm extends BaseActivity {
         });
 
         spinnerlvef = findViewById(R.id.simpleSpinner_lvef);
-        spinnerlvef.setOnItemSelectedListener(new OnItemSelectedListener() {
+        /*spinnerlvef.setOnItemSelectedListener(new OnItemSelectedListener() {
 
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View arg1,
@@ -933,15 +1156,30 @@ public class PatientForm extends BaseActivity {
 
             }
         });
-
+*/
 
         fabscreenfournext = (FloatingActionButton) findViewById(R.id.fag_cardiovascular_next);
         fabscreenfournext.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view)
+            {
+                sbp = etbps.getText().toString()+"/"+etbpp.getText().toString();
+                stemp = spinnertemp.getText().toString();
+                slvef = spinnerlvef.getText().toString();
+
                 if (shr.isEmpty() || sbp.isEmpty() || stemp.isEmpty() || scardiac.isEmpty() || slvef.isEmpty()) {
                     commonToast("Please Select all Cardiovascular");
-                } else if (etcvp.getText().toString().isEmpty() || etco.getText().toString().isEmpty()) {
+                }
+                else if(etbps.getText().toString().isEmpty()||etbpp.getText().toString().isEmpty())
+                {
+                    commonToast("Please Enter BP Values");
+                }
+                else if(Float.valueOf(spinnerlvef.getText().toString().trim())<0||Integer.parseInt(spinnerlvef.getText().toString().trim())>100)
+                {
+                    commonToast("Please Enter correct Left Ventricular Ejection Fraction ");
+                    spinnerlvef.setError("Please Enter correct Left Ventricular Ejection Fraction ");
+                }
+                else if (etcvp.getText().toString().isEmpty() || etco.getText().toString().isEmpty()) {
                     etcvp.setError("Enter Details");
                     etco.setError("Enter Details");
                 } else {
@@ -1108,7 +1346,13 @@ public class PatientForm extends BaseActivity {
                 } else if (etpco2.getText().toString().isEmpty()) {
                     etpco2.setError("Enter Details");
                     commonToast("Please enter required details");
-                } else if (ethco3.getText().toString().isEmpty()) {
+                }
+                else if(Float.valueOf(etpco2.getText().toString())>600 ||Float.valueOf(etpco2.getText().toString())<0)
+                {
+                    etpco2.setError("Enter Details");
+                    commonToast("PCO2 should be 0-600");
+                }
+                else if (ethco3.getText().toString().isEmpty()) {
                     ethco3.setError("Enter Details");
                     commonToast("Please enter required details");
                 } else {
@@ -1425,10 +1669,10 @@ public class PatientForm extends BaseActivity {
         ettv.setText(formdata.getTv());
         etpipvalues.setText(formdata.getPip());
 
-        spinnerpafio2.setSelection(getspinnerIndexvalue(spinnerpafio2, formdata.getPao2fio2ratio()));
-        spinnerpeep.setSelection(getspinnerIndexvalue(spinnerpeep, formdata.getPeep()));
-        spinnerrr.setSelection(getspinnerIndexvalue(spinnerrr, formdata.getRr()));
-        spinnerlungcompliance.setSelection(getspinnerIndexvalue(spinnerlungcompliance, formdata.getLungCompliance()));
+        spinnerpafio2.setText(formdata.getPao2fio2ratio());
+        spinnerpeep.setText(formdata.getPeep());
+        spinnerrr.setText(formdata.getRr());
+        spinnerlungcompliance.setText(formdata.getLungCompliance());
         spinnercxr.setSelection(getspinnerIndexvalue(spinnercxr, formdata.getCxrquadrants()));
 
         //cardiovascular
@@ -1436,10 +1680,14 @@ public class PatientForm extends BaseActivity {
         etcvp.setText(formdata.getCardiacindex());
         etco.setText(formdata.getLeftventricularejectionfraction());
         spinnerhr.setSelection(getspinnerIndexvalue(spinnerhr, formdata.getHr()));
-        spinnerbp.setSelection(getspinnerIndexvalue(spinnerbp, formdata.getBp()));
-        spinnertemp.setSelection(getspinnerIndexvalue(spinnertemp, formdata.getTemp()));
+
+        String currentString = formdata.getBp();
+        String[] separated = currentString.split("/");
+        etbps.setText(separated[0]+" / ");
+        etbpp.setText(separated[1]);
+        spinnertemp.setText(formdata.getTemp());
         spinnercardiac.setSelection(getspinnerIndexvalue(spinnercardiac, formdata.getCardiacindex()));
-        spinnerlvef.setSelection(getspinnerIndexvalue(spinnerlvef, formdata.getLeftventricularejectionfraction()));
+        spinnerlvef.setText(formdata.getLeftventricularejectionfraction());
 
         //agents
         etagentone.setText(formdata.getInotropesagent1());
@@ -1689,7 +1937,6 @@ public class PatientForm extends BaseActivity {
 
                 try {
                     Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), contentURI);
-                    // String path = saveImage(bitmap);
                     switch (attachment) {
                         case "one":
                             filetype = "1";
@@ -1715,7 +1962,6 @@ public class PatientForm extends BaseActivity {
                             bitmapthree = stream3.toByteArray();
                             imageviewclose_three.setVisibility(View.VISIBLE);
                             break;
-
                     }
 
                     saveImage(bitmap, filetype);
@@ -1727,7 +1973,8 @@ public class PatientForm extends BaseActivity {
             }
 
         } else if (requestCode == CAMERA) {
-            try {
+            try
+            {
                 Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
                 switch (attachment) {
                     case "one":
@@ -1738,7 +1985,6 @@ public class PatientForm extends BaseActivity {
                         thumbnail.compress(Bitmap.CompressFormat.JPEG, 50, stream1);
                         bitmapone = stream1.toByteArray();
                         imageviewclose_one.setVisibility(View.VISIBLE);
-
                         break;
                     case "two":
                         filetype = "2";
@@ -1808,7 +2054,7 @@ public class PatientForm extends BaseActivity {
 
     public void saveImage(Bitmap myBitmap, String filetype) {
         ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-        myBitmap.compress(Bitmap.CompressFormat.JPEG, 90, bytes);
+        myBitmap.compress(Bitmap.CompressFormat.JPEG, 50, bytes);
         File wallpaperDirectory = new File(
                 Environment.getExternalStorageDirectory() + IMAGE_DIRECTORY);
         // have the object build the directory structure, if needed.
@@ -1818,7 +2064,7 @@ public class PatientForm extends BaseActivity {
 
         try {
             File f = new File(wallpaperDirectory, Calendar.getInstance()
-                    .getTimeInMillis() + ".jpg");
+                    .getTimeInMillis() + ".jpeg");
             f.createNewFile();
             FileOutputStream fo = new FileOutputStream(f);
             fo.write(bytes.toByteArray());
@@ -1826,7 +2072,8 @@ public class PatientForm extends BaseActivity {
                     new String[]{f.getPath()},
                     new String[]{"image/jpg"}, null);
             fo.close();
-            Log.d("TAG", "File Saved::--->" + f.getAbsolutePath());
+            Log.d("TAG", "File Saved::--->" + f.length());
+           // commonToast(f.length()+"");
             f.getAbsolutePath();
 
             UploadFile(new File(f.getAbsolutePath()), filetype);

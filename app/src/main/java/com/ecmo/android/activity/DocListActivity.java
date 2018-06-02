@@ -6,6 +6,8 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.ecmo.android.BaseActivity;
@@ -31,11 +33,14 @@ import retrofit2.Response;
 public class DocListActivity  extends BaseActivity {
     List<DocListItem> doclist = new ArrayList<>();
     UserPreferences userSharedPreferences;
+    LinearLayout linearLayout;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.doc_list);
+        linearLayout = (LinearLayout)findViewById(R.id.ll_options);
+        linearLayout.setVisibility(View.GONE);
         TextView heading= findViewById(R.id.img_login_logo);
         heading.setText("Doctors Registration");
         userSharedPreferences = new UserPreferences(this);

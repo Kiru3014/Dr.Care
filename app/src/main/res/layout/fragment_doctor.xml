@@ -538,7 +538,7 @@
                     android:background="@drawable/form_cell_bg"
                     android:hint="Enter  Unit"
                     android:imeOptions="actionNext"
-                    android:inputType="number"
+                    android:inputType="numberDecimal"
                     android:padding="15dp"
                     android:singleLine="true"
                     android:textColor="@color/darkblue"

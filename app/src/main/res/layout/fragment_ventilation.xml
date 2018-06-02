@@ -117,7 +117,7 @@
                     android:gravity="center"
                     android:hint="Enter SpO2"
                     android:imeOptions="actionNext"
-                    android:inputType="number"
+                    android:inputType="numberDecimal"
                     android:padding="10dp"
                     android:singleLine="true"
                     android:textColor="@color/colorblack"
@@ -153,7 +153,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:padding="10dp"
-                    android:text="PO2*"
+                    android:text="Pao2(PO2*)"
                     android:textColor="@color/colorblack"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -174,7 +174,7 @@
                     android:gravity="center"
                     android:hint="Enter PO2"
                     android:imeOptions="actionNext"
-                    android:inputType="number"
+                    android:inputType="numberDecimal"
                     android:padding="10dp"
                     android:singleLine="true"
                     android:textColor="@color/colorblack"
@@ -231,7 +231,7 @@
                     android:gravity="center"
                     android:hint="Enter FiO2"
                     android:imeOptions="actionNext"
-                    android:inputType="number"
+                    android:inputType="numberDecimal"
                     android:padding="10dp"
                     android:singleLine="true"
                     android:textColor="@color/colorblack"
@@ -273,10 +273,16 @@
                     android:background="@color/colorblack" />
 
 
-                <Spinner
+                <EditText
                     android:id="@+id/et_fio2_paO2"
                     android:layout_width="0dp"
                     android:layout_weight="1"
+                    android:hint="paO2/Fio2"
+                    android:textColor="@color/colorblack"
+                    android:background="@drawable/form_cell_bg"
+                    android:textSize="16sp"
+                    android:editable="true"
+                    android:enabled="false"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
@@ -331,7 +337,7 @@
                         android:gravity="center"
                         android:hint="Enter pipvalue"
                         android:imeOptions="actionNext"
-                        android:inputType="number"
+                        android:inputType="numberDecimal"
                         android:padding="10dp"
                         android:singleLine="true"
                         android:textColor="@color/colorblack"
@@ -379,11 +385,16 @@
                     android:layout_gravity="center"
                     android:background="@color/colorblack" />
 
-                <Spinner
+                <EditText
                     android:id="@+id/et_pieep"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
+                    android:hint="Select Peep"
+                    android:textColor="@color/colorblack"
+                    android:background="@drawable/form_cell_bg"
+                    android:textSize="16sp"
+                    android:inputType="numberDecimal"
                     android:layout_centerVertical="true"
                     android:entries="@array/pipvalue"
                     android:padding="15dp" />
@@ -466,9 +477,14 @@
                     android:layout_gravity="center"
                     android:background="@color/colorblack" />
 
-                <Spinner
+                <EditText
                     android:id="@+id/et_rr"
                     android:layout_width="match_parent"
+                    android:hint="Select Peep"
+                    android:textColor="@color/colorblack"
+                    android:background="@drawable/form_cell_bg"
+                    android:textSize="16sp"
+                    android:inputType="numberDecimal"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
@@ -517,13 +533,17 @@
                         android:textSize="10sp"
                         android:textStyle="bold" />
 
-                    <Spinner
+                    <EditText
                         android:id="@+id/et_lung"
                         android:layout_width="match_parent"
+                        android:background="@drawable/form_cell_bg"
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
                         android:layout_centerVertical="true"
                         android:entries="@array/LungCompliance"
+                        android:hint="Select Lung Compliance"
+                        android:textSize="16sp"
+                        android:textColor="@color/colorblack"
                         android:padding="15dp" />
 
                 </LinearLayout>

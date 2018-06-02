@@ -62,18 +62,18 @@ public class RefPatientlistActivity extends BaseActivity implements View.OnClick
         mtvhold.setTypeface(Helper.getSharedHelper().getSemiBoldFont());
 
 
-
     }
 
 
     @Override
     protected void onResume() {
         super.onResume();
+        refpatlist = null;
+        patReferalListitems.clear();
         getDAta();
     }
 
-    private void getDAta()
-    {
+    private void getDAta() {
         mtvnew.setTextColor(Color.parseColor("#FF4081"));
         mtvapprovel.setTextColor(Color.parseColor("#00c373"));
         mtvreject.setTextColor(Color.parseColor("#ff0040"));
@@ -147,6 +147,7 @@ public class RefPatientlistActivity extends BaseActivity implements View.OnClick
             my_recycler_view.setAdapter(adapter);
             commonLoaderstop();
         } else {
+            commonLoaderstop();
             commonToast("No Application Found");
         }
     }
