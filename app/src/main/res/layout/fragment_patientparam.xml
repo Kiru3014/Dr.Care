@@ -34,7 +34,7 @@
                 android:layout_gravity="center"
                 android:padding="5dp"
                 android:text="(*has to completed , otherwise the consultantion will be rejected)"
-                android:textColor="@color/divider"
+                android:textColor="@color/dark_red"
                 android:textSize="12sp"
                 android:textStyle="bold" />
 
