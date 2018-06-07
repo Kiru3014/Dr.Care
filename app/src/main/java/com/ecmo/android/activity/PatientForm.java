@@ -1163,7 +1163,7 @@ public class PatientForm extends BaseActivity {
             @Override
             public void onClick(View view)
             {
-                sbp = etbps.getText().toString()+"/"+etbpp.getText().toString();
+                sbp = etbps.getText().toString()+"-"+etbpp.getText().toString();
                 stemp = spinnertemp.getText().toString();
                 slvef = spinnerlvef.getText().toString();
 
@@ -1682,10 +1682,10 @@ public class PatientForm extends BaseActivity {
         spinnerhr.setSelection(getspinnerIndexvalue(spinnerhr, formdata.getHr()));
 
         String currentString = formdata.getBp();
-        String[] separated = currentString.split("/");
+        String[] separated = currentString.split("-");
         if(separated.length>1&&separated[0]!=null&&separated[1]!=null)
         {
-            etbps.setText(separated[0] + " / ");
+            etbps.setText(separated[0]);
             etbpp.setText(separated[1]);
         }
         spinnertemp.setText(formdata.getTemp());
