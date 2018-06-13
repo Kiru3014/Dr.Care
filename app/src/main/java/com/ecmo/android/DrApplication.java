@@ -3,7 +3,7 @@ package com.ecmo.android;
 import android.annotation.SuppressLint;
 import android.app.Application;
 
-import com.facebook.drawee.backends.pipeline.Fresco;
+
 
 @SuppressLint("Registered")
 public class DrApplication extends Application
@@ -15,7 +15,6 @@ public class DrApplication extends Application
     @Override
     public void onCreate() {
         super.onCreate();
-        Fresco.initialize(this);
 
     }
 

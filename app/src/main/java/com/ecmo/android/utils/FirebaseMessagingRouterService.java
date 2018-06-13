@@ -51,8 +51,8 @@ public class FirebaseMessagingRouterService extends FirebaseMessagingService {
 
         PendingIntent pendingIntentYes = PendingIntent.getActivity(this, 1234+reqid, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this)
-                .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.icon))
-                .setSmallIcon(R.drawable.icon)
+                .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.new_icon))
+                .setSmallIcon(R.drawable.new_icon)
                 .setContentTitle("ECMO")
                 .setDefaults(Notification.DEFAULT_SOUND)
                 .setContentText(title);
