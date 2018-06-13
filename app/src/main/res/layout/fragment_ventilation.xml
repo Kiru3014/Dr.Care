@@ -263,7 +263,7 @@
                     android:layout_centerVertical="true"
                     android:padding="10dp"
                     android:text="*PaO2/FiO2 Ratio"
-                    android:textColor="@color/colorblack"
+                    android:textColor="@color/dark_red"
                     android:textSize="16sp"
                     android:textStyle="bold" />
                 <View
@@ -376,7 +376,7 @@
                     android:layout_centerVertical="true"
                     android:padding="10dp"
                     android:text="*PEEP"
-                    android:textColor="@color/colorblack"
+                    android:textColor="@color/dark_red"
                     android:textSize="16sp"
                     android:textStyle="bold" />
                 <View
@@ -513,7 +513,7 @@
                     android:layout_centerVertical="true"
                     android:padding="10dp"
                     android:text="*Lung Compliance (mls/cmH20)"
-                    android:textColor="@color/colorblack"
+                    android:textColor="@color/dark_red"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
@@ -567,11 +567,18 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:padding="10dp"
-                    android:text="*CXR quadrants (number of quadrats with infiltration seen on CXR : alveolar consolidation ) 1point per quadrant , minmum 0 ,maximum 4)"
-                    android:textColor="@color/colorblack"
+                    android:text="*CXR quadrants"
+                    android:textColor="@color/dark_red"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=" (number of quadrats with infiltration seen on CXR : alveolar consolidation ) 1point per quadrant , minmum 0 ,maximum 4)"
+                    android:textColor="@color/black_color"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">

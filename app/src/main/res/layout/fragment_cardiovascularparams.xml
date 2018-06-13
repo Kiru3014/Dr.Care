@@ -113,7 +113,14 @@
                         android:textColorHint="@color/divider"
                         android:textSize="14sp"
                         android:textStyle="bold" />
-
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="/"
+                        android:gravity="center"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black_color"/>
                     <EditText
                         android:id="@+id/bp_p"
                         android:layout_width="0dp"
@@ -201,7 +208,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:padding="15dp"
-                    android:text="TEMP * "
+                    android:text="Temp * "
                     android:textColor="@color/colorblack"
                     android:textSize="14sp"
                     android:textStyle="bold" />

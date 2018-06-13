@@ -388,7 +388,7 @@
                         android:layout_centerVertical="true"
                         android:padding="15dp"
                         android:text="*PCO2"
-                        android:textColor="@color/colorblack"
+                        android:textColor="@color/dark_red"
                         android:textSize="14sp"
                         android:textStyle="bold" />
 
@@ -431,7 +431,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:padding="15dp"
-                        android:text="*HCO3"
+                        android:text="HCO3"
                         android:textColor="@color/colorblack"
                         android:textSize="14sp"
                         android:textStyle="bold" />

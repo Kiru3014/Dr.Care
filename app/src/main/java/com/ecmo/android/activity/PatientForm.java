@@ -866,7 +866,7 @@ public class PatientForm extends BaseActivity {
                 speee = spinnerpeep.getText().toString();
                 srr =spinnerrr.getText().toString();
                 slung = spinnerlungcompliance.getText().toString();
-
+                spac02fio2 =  spinnerpafio2.getText().toString();
 
                 if (spac02fio2.isEmpty() || speee.isEmpty() || slung.isEmpty() || srr.isEmpty() || scrx.isEmpty()) {
                     commonToast("Please enter all Ventilation Parameters");
@@ -1163,7 +1163,7 @@ public class PatientForm extends BaseActivity {
             @Override
             public void onClick(View view)
             {
-                sbp = etbps.getText().toString()+"/"+etbpp.getText().toString();
+                sbp = etbps.getText().toString()+"-"+etbpp.getText().toString();
                 stemp = spinnertemp.getText().toString();
                 slvef = spinnerlvef.getText().toString();
 
@@ -1682,9 +1682,12 @@ public class PatientForm extends BaseActivity {
         spinnerhr.setSelection(getspinnerIndexvalue(spinnerhr, formdata.getHr()));
 
         String currentString = formdata.getBp();
-        String[] separated = currentString.split("/");
-        etbps.setText(separated[0]+" / ");
-        etbpp.setText(separated[1]);
+        String[] separated = currentString.split("-");
+        if(separated.length>1&&separated[0]!=null&&separated[1]!=null)
+        {
+            etbps.setText(separated[0]);
+            etbpp.setText(separated[1]);
+        }
         spinnertemp.setText(formdata.getTemp());
         spinnercardiac.setSelection(getspinnerIndexvalue(spinnercardiac, formdata.getCardiacindex()));
         spinnerlvef.setText(formdata.getLeftventricularejectionfraction());
