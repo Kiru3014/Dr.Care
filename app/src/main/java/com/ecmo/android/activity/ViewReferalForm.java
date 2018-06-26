@@ -43,7 +43,7 @@ public class ViewReferalForm extends BaseActivity {
     TextView mtvfunstatus, mtvconsciousstatus, mtvgcsE, mtvgcsV, mtvgcsM, mgcstotoal;
 
     //Ventilation
-    TextView mtvnumberdayvent, mtvspo2, mtvpo2, mtvfio2, mtvpafi, mtvpip, mtvpeep, mtvtv, mtvrr, tvlung, mtvcxr;
+    TextView mtvnumberdayvent, mtvspo2, mtvpo2, mtvfio2, mtvpafi, mtvpip, mtvpeep, mtvtv, mtvrr, tvlung, mtvcxr,mmurryscore;
 
     //Cardiovascular
     TextView mtvHr, mtvBp, mtvCVp, mtvTemp, mtvCo, mtvCardindex, mtvleftventri;
@@ -55,7 +55,7 @@ public class ViewReferalForm extends BaseActivity {
     //Invegation
     TextView mtvurea, mtvcr, mtvlactate, mtvUo, mtvDialysis, mtvph, mtvinvpo2, mtvpco2, mtvHco3, mtvbe;
     Button approve,reject,hold,resend;
-    String formid;
+    String formid,mresend;
     RelativeLayout formaction;
     UserPreferences userPreferences;
     EditText ref_comment;
@@ -74,6 +74,7 @@ public class ViewReferalForm extends BaseActivity {
         resend=findViewById(R.id.resend_form);
         i = getIntent();
         formid=i.getStringExtra("formid");
+        mresend = i.getStringExtra("resend");
         getformdata(formid);
     }
 
@@ -131,7 +132,11 @@ public class ViewReferalForm extends BaseActivity {
             if(pat_data.getStatus().equalsIgnoreCase("Reject")|| pat_data.getStatus().equalsIgnoreCase("4")
                     || pat_data.getStatus().equalsIgnoreCase("Hold")|| pat_data.getStatus().equalsIgnoreCase("2"))
             {
-                resend.setVisibility(View.VISIBLE);
+                if(mresend.equalsIgnoreCase("0"))
+                {
+                    resend.setVisibility(View.VISIBLE);
+                }
+
             }
         }
         else if(userPreferences.getDocType().equalsIgnoreCase("1") &&( pat_data.getStatus().equalsIgnoreCase("New")|| pat_data.getStatus().equalsIgnoreCase("0")
@@ -216,6 +221,7 @@ public class ViewReferalForm extends BaseActivity {
         mtvrr = findViewById(R.id.tv_rr);
         tvlung = findViewById(R.id.tv_lungcomplice);
         mtvcxr = findViewById(R.id.tv_cxr);
+        mmurryscore=findViewById(R.id.et_murryscore);
 
         mtvnumberdayvent.setText(pat_data.getDurOfConventianalMechanicalVentination());
         mtvspo2.setText(pat_data.getSpO2());
@@ -228,6 +234,7 @@ public class ViewReferalForm extends BaseActivity {
         mtvrr.setText(pat_data.getRr());
         tvlung.setText(pat_data.getLungCompliance());
         mtvcxr.setText(pat_data.getCxrquadrants());
+        mmurryscore.setText(pat_data.getMurrayscore());
 
     }
 
@@ -338,7 +345,7 @@ public class ViewReferalForm extends BaseActivity {
             @Override
             public void onClick(View view)
             {
-                showconfirmation("REJECT",ViewReferalForm.this);
+                showconfirmation("REJECTED",ViewReferalForm.this);
             }
         });
 
@@ -357,6 +364,7 @@ public class ViewReferalForm extends BaseActivity {
                showconfirmation("APPROVE",ViewReferalForm.this);
             }
         });
+
 
 
         resend.setOnClickListener(new View.OnClickListener() {
@@ -409,7 +417,7 @@ public class ViewReferalForm extends BaseActivity {
             act="3";
         else  if(action.equalsIgnoreCase("HOLD"))
             act="2";
-        else if(action.equalsIgnoreCase("REJECT"))
+        else if(action.equalsIgnoreCase("REJECTED"))
             act="4";
         FormActionRequest fm= new FormActionRequest(act,formid,ref_comment.getText().toString(),"insertaction",userPreferences.getSession());
         Call<CommonResponse> call = apiService.AddUpdatePatientStatus(fm);

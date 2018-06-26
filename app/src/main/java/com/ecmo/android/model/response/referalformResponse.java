@@ -236,10 +236,16 @@ public class referalformResponse implements Serializable {
     @Expose
     private String file_three;
 
+    @SerializedName("resend")
+    @Expose
+    private String mResend;
 
     @SerializedName("comment")
     @Expose
     private String comment;
+    @SerializedName("murrayscore")
+    @Expose
+    private String murrayscore;
 
     public String getComment() {
         return comment;
@@ -908,5 +914,21 @@ public class referalformResponse implements Serializable {
 
     public void setFile_three(String file_three) {
         this.file_three = file_three;
+    }
+
+    public String getmResend() {
+        return mResend;
+    }
+
+    public void setmResend(String mResend) {
+        this.mResend = mResend;
+    }
+
+    public String getMurrayscore() {
+        return murrayscore;
+    }
+
+    public void setMurrayscore(String murrayscore) {
+        this.murrayscore = murrayscore;
     }
 }

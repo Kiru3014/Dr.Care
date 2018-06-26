@@ -205,10 +205,14 @@ public class PatientFormRequest implements Serializable
     @SerializedName("age")
     @Expose
     private String age;
+    @SerializedName("resend")
+    @Expose
+    private String mResend;
+    @SerializedName("murrayscore")
+    @Expose
+    private String murrayscore;
 
-
-
-    public PatientFormRequest(String referHospitalId, String speciallistId, String docId, String referConsulutantName, String admissionDiagnosis, String patientName, String civilId, String gender, String unit, String ward, String bed, String fileNo, String preMorbFunctionalStatus, String preMorbFunctionalConsciousStatus, String e, String v, String m, String totalscore, String durOfConventianalMechanicalVentination, String spO2, String pO2, String fiO2, String pao2fio2ratio, String pip, String peep, String tv, String rr, String lungCompliance, String cxrquadrants, String hr, String bp, String cvp, String temp, String co, String cardiacindex, String leftventricularejectionfraction, String inotropesagent1, String inotropesdose1, String inotropesagent2, String inotropesdose2, String inotropesagent3, String inotropesdose3, String sedationagent1, String sedationdose1, String sedationagent2, String sedationdose2, String sedationagent3, String sedationdose3, String musclerelaxantsagent1, String musclerelaxantsdose1, String urea, String cr, String lactate, String uo, String dialysis, String bloodgasPH, String bloodgasPO2, String bloodgasPCO2, String bloodgasHCO3, String bloodgasBE, String refdocdesignation, String refdoctelephone, String history, String transactiontype, String sessid,String age)
+    public PatientFormRequest(String referHospitalId, String speciallistId, String docId, String referConsulutantName, String admissionDiagnosis, String patientName, String civilId, String gender, String unit, String ward, String bed, String fileNo, String preMorbFunctionalStatus, String preMorbFunctionalConsciousStatus, String e, String v, String m, String totalscore, String durOfConventianalMechanicalVentination, String spO2, String pO2, String fiO2, String pao2fio2ratio, String pip, String peep, String tv, String rr, String lungCompliance, String cxrquadrants, String hr, String bp, String cvp, String temp, String co, String cardiacindex, String leftventricularejectionfraction, String inotropesagent1, String inotropesdose1, String inotropesagent2, String inotropesdose2, String inotropesagent3, String inotropesdose3, String sedationagent1, String sedationdose1, String sedationagent2, String sedationdose2, String sedationagent3, String sedationdose3, String musclerelaxantsagent1, String musclerelaxantsdose1, String urea, String cr, String lactate, String uo, String dialysis, String bloodgasPH, String bloodgasPO2, String bloodgasPCO2, String bloodgasHCO3, String bloodgasBE, String refdocdesignation, String refdoctelephone, String history, String transactiontype, String sessid,String age,String mresend,String murrayscore)
     {
         this.referHospitalId = referHospitalId;
         this.speciallistId = speciallistId;
@@ -276,6 +280,8 @@ public class PatientFormRequest implements Serializable
         this.transactiontype = transactiontype;
         this.sessid = sessid;
         this.age=age;
+        this.mResend=mresend;
+        this.murrayscore=murrayscore;
     }
 
     public String getReferHospitalId() {
@@ -804,5 +810,21 @@ public class PatientFormRequest implements Serializable
 
     public void setAge(String age) {
         this.age = age;
+    }
+
+    public String getmResend() {
+        return mResend;
+    }
+
+    public void setmResend(String mResend) {
+        this.mResend = mResend;
+    }
+
+    public String getMurrayscore() {
+        return murrayscore;
+    }
+
+    public void setMurrayscore(String murrayscore) {
+        this.murrayscore = murrayscore;
     }
 }

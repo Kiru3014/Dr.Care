@@ -9,8 +9,9 @@ public class PatReferalListitemArray
     String diagnosis;
     String pat_age;
     String refdate;
+    String refresend;
 
-    public PatReferalListitemArray(String referalformid, String status, String pat_name, String pat_hospital, String diagnosis, String pat_age, String refdate) {
+    public PatReferalListitemArray(String referalformid, String status, String pat_name, String pat_hospital, String diagnosis, String pat_age, String refdate,String refresend) {
         this.referalformid = referalformid;
         this.status = status;
         this.pat_name = pat_name;
@@ -18,6 +19,7 @@ public class PatReferalListitemArray
         this.diagnosis = diagnosis;
         this.pat_age = pat_age;
         this.refdate = refdate;
+        this.refresend=refresend;
     }
 
     public String getReferalformid() {
@@ -74,5 +76,13 @@ public class PatReferalListitemArray
 
     public void setRefdate(String refdate) {
         this.refdate = refdate;
+    }
+
+    public String getRefresend() {
+        return refresend;
+    }
+
+    public void setRefresend(String refresend) {
+        this.refresend = refresend;
     }
 }

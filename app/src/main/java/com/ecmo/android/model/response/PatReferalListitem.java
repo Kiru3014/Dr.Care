@@ -33,10 +33,13 @@ public class PatReferalListitem {
     @Expose
     private String diagnosis;
 
-
     @SerializedName("age")
     @Expose
     private String pat_age;
+
+    @SerializedName("isresend")
+    @Expose
+    private String pat_resend;
 
     public String getReferalformid() {
         return referalformid;
@@ -92,5 +95,13 @@ public class PatReferalListitem {
 
     public void setDiagnosis(String diagnosis) {
         this.diagnosis = diagnosis;
+    }
+
+    public String getPat_resend() {
+        return pat_resend;
+    }
+
+    public void setPat_resend(String pat_resend) {
+        this.pat_resend = pat_resend;
     }
 }

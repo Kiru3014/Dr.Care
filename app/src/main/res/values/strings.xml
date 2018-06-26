@@ -42,29 +42,29 @@
 
     <string-array name="gus_E_arrays">
         <item>Select GCS E</item>
-        <item>1/4</item>
-        <item>2/4</item>
-        <item>3/4</item>
-        <item>4/4</item>
+        <item>No response(no eye opening)</item>
+        <item>Open to painful stimulus</item>
+        <item>Open to speech</item>
+        <item>Open spontaneously</item>
     </string-array>
 
     <string-array name="gus_V_arrays">
         <item>Select GCS V</item>
-        <item>1/5</item>
-        <item>2/5</item>
-        <item>3/5</item>
-        <item>4/5</item>
-        <item>5/5</item>
+        <item>No response(silent)</item>
+        <item>Incomprehenisble sounds</item>
+        <item>Inappropriate words</item>
+        <item>Confused</item>
+        <item>Responds sensibly</item>
     </string-array>
 
     <string-array name="gus_M_arrays">
         <item>Select GCS M</item>
-        <item>1/6</item>
-        <item>2/6</item>
-        <item>3/6</item>
-        <item>4/6</item>
-        <item>5/6</item>
-        <item>6/6</item>
+        <item>No response</item>
+        <item>Straighteen limbs is response to pain(extension)</item>
+        <item>Bends limbs in response to pain(flexion)</item>
+        <item>Withdraws from pain</item>
+        <item>Points (localises) to pain</item>
+        <item>Obeys commands</item>
     </string-array>
 
 
@@ -162,6 +162,22 @@
         <item>5</item>
 
     </string-array>
+
+
+    <string-array name="fio2">
+        <item>Select Fio2</item>
+        <item>0.2</item>
+        <item>0.3</item>
+        <item>0.4</item>
+        <item>0.5</item>
+        <item>0.6</item>
+        <item>0.7</item>
+        <item>0.8</item>
+        <item>0.9</item>
+        <item>1</item>
+
+    </string-array>
+
 
 
     <string-array name="Leftventricularejectionfraction">

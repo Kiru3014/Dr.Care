@@ -63,7 +63,7 @@ public class RefpatentAdaptor extends RecyclerView.Adapter<RefpatentAdaptor.Item
             case "APPROVED":
                 itemRowHolder.patStatus.setTextColor(Color.parseColor("#00c373"));
                 break;
-            case "REJECT":
+            case "REJECTED":
                 itemRowHolder.patStatus.setTextColor(Color.parseColor("#ff0040"));
                 break;
             case "HOLD":
@@ -78,14 +78,14 @@ public class RefpatentAdaptor extends RecyclerView.Adapter<RefpatentAdaptor.Item
         itemRowHolder.mainlayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                viewlistner.onviewClick(patdata.getReferalformid());
+                viewlistner.onviewClick(patdata.getReferalformid(),patdata.getRefresend());
             }
         });
 
         itemRowHolder.view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                viewlistner.onviewClick(patdata.getReferalformid());
+                viewlistner.onviewClick(patdata.getReferalformid(), patdata.getRefresend());
             }
         });
 
@@ -97,7 +97,7 @@ public class RefpatentAdaptor extends RecyclerView.Adapter<RefpatentAdaptor.Item
 
 
     public interface OnViewItemClickListener {
-        void onviewClick(String formid);
+        void onviewClick(String formid, String refresend);
 
     }
 

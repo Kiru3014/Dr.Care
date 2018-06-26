@@ -40,7 +40,8 @@ public class FormPreviewActivity extends BaseActivity {
     TextView mtvfunstatus, mtvconsciousstatus, mtvgcsE, mtvgcsV, mtvgcsM, mgcstotoal;
 
     //Ventilation
-    TextView mtvnumberdayvent, mtvspo2, mtvpo2, mtvfio2, mtvpafi, mtvpip, mtvpeep, mtvtv, mtvrr, tvlung, mtvcxr;
+    TextView mtvnumberdayvent, mtvspo2, mtvpo2, mtvfio2, mtvpafi, mtvpip, mtvpeep, mtvtv, mtvrr, tvlung, mtvcxr,mMurryscore;
+
 
     //Cardiovascular
     TextView mtvHr, mtvBp, mtvCVp, mtvTemp, mtvCo, mtvCardindex, mtvleftventri;
@@ -163,6 +164,7 @@ public class FormPreviewActivity extends BaseActivity {
         mtvrr = findViewById(R.id.tv_rr);
         tvlung = findViewById(R.id.tv_lungcomplice);
         mtvcxr = findViewById(R.id.tv_cxr);
+        mMurryscore = findViewById(R.id.et_murryscore);
 
         mtvnumberdayvent.setText(dene.getDurOfConventianalMechanicalVentination());
         mtvspo2.setText(dene.getSpO2());
@@ -175,6 +177,7 @@ public class FormPreviewActivity extends BaseActivity {
         mtvrr.setText(dene.getRr());
         tvlung.setText(dene.getLungCompliance());
         mtvcxr.setText(dene.getCxrquadrants());
+        mMurryscore.setText(dene.getMurrayscore());
 
     }
 

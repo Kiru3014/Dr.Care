@@ -65,7 +65,7 @@
             android:background="@drawable/put_away"
             android:gravity="center"
             android:padding="@dimen/margin5"
-            android:text="REJECT"
+            android:text="REJECTED"
             android:textAllCaps="true"
             android:textColor="#ff0040"
             android:textSize="16sp" />

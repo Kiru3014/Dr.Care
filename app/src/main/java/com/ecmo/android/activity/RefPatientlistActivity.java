@@ -105,7 +105,8 @@ public class RefPatientlistActivity extends BaseActivity implements View.OnClick
                                     refpatlist.get(i).getPat_Hospital(),
                                     refpatlist.get(i).getDiagnosis(),
                                     refpatlist.get(i).getPat_age(),
-                                    refpatlist.get(i).getRefdate()
+                                    refpatlist.get(i).getRefdate(),
+                                    refpatlist.get(i).getPat_resend()
                             ));
                         }
 
@@ -154,9 +155,10 @@ public class RefPatientlistActivity extends BaseActivity implements View.OnClick
 
     RefpatentAdaptor.OnViewItemClickListener listner = new RefpatentAdaptor.OnViewItemClickListener() {
         @Override
-        public void onviewClick(String formid) {
+        public void onviewClick(String formid, String refresend) {
             Intent intent = new Intent(getApplicationContext(), ViewReferalForm.class);
             intent.putExtra("formid", formid);
+            intent.putExtra("resend", refresend);
             startActivity(intent);
         }
     };
@@ -187,7 +189,7 @@ public class RefPatientlistActivity extends BaseActivity implements View.OnClick
                 mtvhold.setBackgroundResource(R.drawable.put_away);
                 break;
             case R.id.tv_reject:
-                FilterResult("REJECT");
+                FilterResult("REJECTED");
                 mtvnew.setTextColor(Color.parseColor("#FF4081"));
                 mtvapprovel.setTextColor(Color.parseColor("#00c373"));
                 mtvreject.setTextColor(Color.parseColor("#FFFFFF"));
@@ -219,8 +221,8 @@ public class RefPatientlistActivity extends BaseActivity implements View.OnClick
                 if (patReferalListitem.getStatus().toUpperCase().equalsIgnoreCase("APPROVED")) {
                     tempArrayList.add(patReferalListitem);
                 }
-            } else if (filtertype.equalsIgnoreCase("REJECT")) {
-                if (patReferalListitem.getStatus().toUpperCase().equalsIgnoreCase("REJECT")) {
+            } else if (filtertype.equalsIgnoreCase("REJECTED")) {
+                if (patReferalListitem.getStatus().toUpperCase().equalsIgnoreCase("REJECTED")) {
                     tempArrayList.add(patReferalListitem);
                 }
             } else if (filtertype.equalsIgnoreCase("HOLD")) {
