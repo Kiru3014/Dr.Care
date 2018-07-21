@@ -47,6 +47,36 @@ public class BaseActivity extends AppCompatActivity
     UserPreferences userPreferences;
     static List<Hospitalitem> hospitallist;
     static List<Hospitalitem> specialitylist;
+    static List<Hospitalitem> inotropeslist;
+    static List<Hospitalitem> sedationlist;
+    static List<Hospitalitem> unitslist;
+
+    public static List<Hospitalitem> getUnitslistlist() {
+        return unitslist;
+    }
+
+    public static void setUnitslist(List<Hospitalitem> hospitallist) {
+        BaseActivity.unitslist = hospitallist;
+    }
+
+
+    public static List<Hospitalitem> getSedationlist() {
+        return sedationlist;
+    }
+
+    public static void setSedationlist(List<Hospitalitem> hospitallist) {
+        BaseActivity.sedationlist = hospitallist;
+    }
+
+
+    public static List<Hospitalitem> getInotropeslist() {
+        return inotropeslist;
+    }
+
+    public static void setInotropeslist(List<Hospitalitem> hospitallist) {
+        BaseActivity.inotropeslist = hospitallist;
+    }
+
 
     public static List<Hospitalitem> getHospitallist() {
         return hospitallist;
@@ -299,5 +329,45 @@ public class BaseActivity extends AppCompatActivity
         startActivity(intent);
         finish();
     }
+
+    public ArrayAdapter<String> getAgents(Context context) {
+        List<String> list = new ArrayList<String>();
+        List<Hospitalitem> hosplist= getInotropeslist();
+        if(hosplist!=null) {
+            for (int i = 0; i < hosplist.size(); i++) {
+                list.add(hosplist.get(i).getText());
+            }
+
+        }
+
+        return new ArrayAdapter<String>(context, android.R.layout.simple_dropdown_item_1line, list);
+    }
+
+    public ArrayAdapter<String> getSedation(Context context) {
+        List<String> list = new ArrayList<String>();
+        List<Hospitalitem> hosplist= getSedationlist();
+        if(hosplist!=null) {
+            for (int i = 0; i < hosplist.size(); i++) {
+                list.add(hosplist.get(i).getText());
+            }
+
+        }
+
+        return new ArrayAdapter<String>(context, android.R.layout.simple_dropdown_item_1line, list);
+    }
+
+    public ArrayAdapter<String> getUnits(Context context) {
+        List<String> list = new ArrayList<String>();
+        List<Hospitalitem> hosplist= getUnitslistlist();
+        if(hosplist!=null) {
+            for (int i = 0; i < hosplist.size(); i++) {
+                list.add(hosplist.get(i).getText());
+            }
+
+        }
+
+        return new ArrayAdapter<String>(context, android.R.layout.simple_dropdown_item_1line, list);
+    }
+
 
 }

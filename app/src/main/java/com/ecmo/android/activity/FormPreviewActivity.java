@@ -7,6 +7,7 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -47,12 +48,14 @@ public class FormPreviewActivity extends BaseActivity {
     TextView mtvHr, mtvBp, mtvCVp, mtvTemp, mtvCo, mtvCardindex, mtvleftventri;
 
     //Inotropes
-    TextView magentone, magenttwo, magentthree, msagentone, msagentwo, msagentthree, mmagent;
-    TextView mdoseone, mdosetwo, mdosethree, msdoseone, msdosewo, msdosethree, mmdose;
+    TextView magentone, magenttwo, magentthree,magentfour, magentfive, msagentone, msagentwo, msagentthree, msagentfour, msagentfive;
+    TextView mdoseone, mdosetwo, mdosethree,mdosefour, mdosefive, msdoseone, msdosewo, msdosethree, msdosefour, msdosefive;
 
     //Invegation
     TextView mtvurea, mtvcr, mtvlactate, mtvUo, mtvDialysis, mtvph, mtvinvpo2, mtvpco2, mtvHco3, mtvbe;
     Button button;
+    TextView mtvprone,mtvproneimp,mtvnitciacid,mtvnitciacidimp,mtvplasmap,mtvplasmapimp,mtvteraphyp,mtvteraphypimp,mtvothers, mtvothersimp;
+    TextView etabglac,etsao2,etspo2bg;
 
     Bitmap bitmapone, bitmaptwo, bitmapthree;
     ImageView imageview_one, imageview_two, imageview_three;
@@ -205,35 +208,68 @@ public class FormPreviewActivity extends BaseActivity {
         magentone = findViewById(R.id.agentone);
         magenttwo = findViewById(R.id.agenttwo);
         magentthree = findViewById(R.id.agentthree);
+        magentfour = findViewById(R.id.agentfour);
+        magentfive = findViewById(R.id.agentfive);
+
         msagentone = findViewById(R.id.sedationagentone);
         msagentwo = findViewById(R.id.sedationagenttwo);
         msagentthree = findViewById(R.id.view_sedationagentthree);
-        mmagent = findViewById(R.id.relaxantsagentone);
+        msagentfour = findViewById(R.id.view_sedationagentfour);
+        msagentfive = findViewById(R.id.view_sedationagentfive);
 
         mdoseone = findViewById(R.id.view_doseone);
         mdosetwo = findViewById(R.id.view_dostvwo);
         mdosethree = findViewById(R.id.view_dostvhree);
+        mdosefour = findViewById(R.id.view_dostvfour);
+        mdosefive = findViewById(R.id.view_dostvfive);
+
         msdoseone = findViewById(R.id.view_sedationdoseone);
         msdosewo = findViewById(R.id.view_sedationdostvwo);
         msdosethree = findViewById(R.id.view_sedationdostvhree);
-        mmdose = findViewById(R.id.relaxantsdoseone);
+        msdosefour = findViewById(R.id.view_sedationdosfour);
+        msdosefive = findViewById(R.id.view_sedationdosfive);
 
+        mtvprone = findViewById(R.id.tvprone);
+        mtvproneimp= findViewById(R.id.tvproneimp);
+        mtvnitciacid= findViewById(R.id.tvnitricacid);
+        mtvnitciacidimp= findViewById(R.id.tvnitricacidimp);
+        mtvplasmap= findViewById(R.id.tvplasmaphers);
+        mtvplasmapimp= findViewById(R.id.tvplasmaphersimp);
+        mtvteraphyp= findViewById(R.id.tvtherapuethyp);
+        mtvteraphypimp= findViewById(R.id.tvtherapuethypimp);
+        mtvothers= findViewById(R.id.tvothers);
+        mtvothersimp= findViewById(R.id.tvothersimp);
 
         magentone.setText(dene.getInotropesagent1());
         magenttwo.setText(dene.getInotropesagent2());
         magentthree.setText(dene.getInotropesagent3());
+        magentfour.setText(dene.getInotropesagent4());
+
         msagentone.setText(dene.getSedationagent1());
         msagentwo.setText(dene.getSedationagent2());
         msagentthree.setText(dene.getSedationagent3());
-        mmagent.setText(dene.getMusclerelaxantsagent1());
+        msagentfour.setText(dene.getSedationagent4());
 
         mdoseone.setText(dene.getInotropesdose1());
         mdosetwo.setText(dene.getInotropesdose2());
         mdosethree.setText(dene.getInotropesdose3());
+        mdosefour.setText(dene.getInotropesdose4());
+
         msdoseone.setText(dene.getSedationdose1());
         msdosewo.setText(dene.getSedationdose2());
         msdosethree.setText(dene.getSedationdose3());
-        mmdose.setText(dene.getMusclerelaxantsdose1());
+        msdosefour.setText(dene.getSedationdose4());
+
+        mtvprone.setText(dene.getPronePositioning());
+        mtvproneimp.setText(dene.getPronePositioningImprov());
+        mtvnitciacid.setText(dene.getNitricAcid());
+        mtvnitciacidimp.setText(dene.getNitricAcidImprov());
+        mtvplasmap.setText(dene.getPlasmaphersis());
+        mtvplasmapimp.setText(dene.getPronePositioningImprov());
+        mtvteraphyp.setText(dene.getTherapueticHypothermia());
+        mtvteraphypimp.setText(dene.getTherapueticHypothermiaImprov());
+        mtvothers.setText(dene.getOthers());
+        mtvothersimp.setText(dene.getOthersImprov());
 
     }
 
@@ -251,6 +287,9 @@ public class FormPreviewActivity extends BaseActivity {
         mtvbe = findViewById(R.id.tv_bf);
         button = findViewById(R.id.fag_submit);
 
+        etabglac = findViewById(R.id.et_abg);
+        etsao2 = findViewById(R.id.et_sao2);
+        etspo2bg = findViewById(R.id.et_spso2);
 
         mtvurea.setText(dene.getUrea());
         mtvcr.setText(dene.getCr());
@@ -262,7 +301,9 @@ public class FormPreviewActivity extends BaseActivity {
         mtvpco2.setText(dene.getBloodgasPCO2());
         mtvHco3.setText(dene.getBloodgasHCO3());
         mtvbe.setText(dene.getBloodgasBE());
-
+        etabglac.setText(dene.getAbgLactate());
+        etsao2.setText(dene.getBgSao2());
+        etspo2bg.setText(dene.getBgSpo2());
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override

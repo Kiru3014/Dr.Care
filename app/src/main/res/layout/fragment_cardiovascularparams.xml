@@ -160,7 +160,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:padding="15dp"
-                    android:text="CVP * "
+                    android:text="CVP  "
                     android:textColor="@color/colorblack"
                     android:textSize="14sp"
                     android:textStyle="bold" />

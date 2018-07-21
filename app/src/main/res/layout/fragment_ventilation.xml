@@ -52,23 +52,17 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <EditText
+                    <Spinner
                         android:id="@+id/et_number_ofdays"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
                         android:layout_centerVertical="true"
-                        android:background="@drawable/form_cell_bg"
-                        android:hint="No of Day's"
-                        android:imeOptions="actionNext"
-                        android:inputType="number"
-                        android:singleLine="true"
-                        android:textColor="@color/colorblack"
-                        android:textColorHint="@color/colorSecondaryText"
-                        android:textSize="14sp"
-                        android:textStyle="bold">
+                        android:entries="@array/noofdaty"
+                        android:padding="15dp">
 
                         <requestFocus />
-                    </EditText>
+                    </Spinner>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -157,7 +151,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:padding="10dp"
-                    android:text="Pao2(PO2*)"
+                    android:text="Pao2*"
                     android:textColor="@color/colorblack"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -177,7 +171,7 @@
                     android:layout_marginRight="10dp"
                     android:background="@drawable/form_cell_bg"
                     android:gravity="center"
-                    android:hint="Enter PO2"
+                    android:hint="Enter PaO2"
                     android:imeOptions="actionNext"
                     android:inputType="numberDecimal"
                     android:padding="10dp"

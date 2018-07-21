@@ -660,6 +660,26 @@
                         android:background="@color/colorblack" />
 
                     <TextView
+                        android:id="@+id/tv_peep"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/form_cell_bg"
+                        android:gravity="center"
+                        android:hint=" PEEP"
+                        android:imeOptions="actionNext"
+                        android:inputType="number"
+                        android:padding="10dp"
+                        android:singleLine="true"
+                        android:textColor="@color/colorblack"
+                        android:textColorHint="@color/colorSecondaryText"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
                         android:id="@+id/tv_bed"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -1165,7 +1185,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:padding="10dp"
-                        android:text="PO2*"
+                        android:text="PaO2*"
                         android:textColor="@color/colorblack"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -1185,7 +1205,7 @@
                         android:layout_marginRight="10dp"
                         android:background="@drawable/form_cell_bg"
                         android:gravity="center"
-                        android:hint=" PO2"
+                        android:hint=" PaO2"
                         android:imeOptions="actionNext"
                         android:inputType="number"
                         android:padding="10dp"
@@ -1403,25 +1423,6 @@
                         android:layout_height="20dp"
                         android:layout_gravity="center"
                         android:background="@color/colorblack" />
-
-                    <TextView
-                        android:id="@+id/tv_peep"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:background="@drawable/form_cell_bg"
-                        android:gravity="center"
-                        android:hint=" PEEP"
-                        android:imeOptions="actionNext"
-                        android:inputType="number"
-                        android:padding="10dp"
-                        android:singleLine="true"
-                        android:textColor="@color/colorblack"
-                        android:textColorHint="@color/colorSecondaryText"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
 
 
                 </LinearLayout>
@@ -1659,22 +1660,22 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:orientation="vertical"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/et_murryscore"
                             android:layout_width="match_parent"
-                            android:background="@drawable/form_cell_bg"
                             android:layout_height="wrap_content"
                             android:layout_centerHorizontal="true"
                             android:layout_centerVertical="true"
+                            android:background="@drawable/form_cell_bg"
+                            android:enabled="false"
                             android:entries="@array/LungCompliance"
                             android:hint="Enter Murray Score"
-                            android:textSize="16sp"
-                            android:enabled="false"
+                            android:padding="15dp"
                             android:textColor="@color/colorblack"
-                            android:padding="15dp" />
+                            android:textSize="16sp" />
 
                     </LinearLayout>
 
@@ -2168,15 +2169,6 @@
                             android:textSize="14sp"
                             android:textStyle="bold" />
 
-                        <TextView
-                            android:layout_width="40dp"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:maxLines="3"
-                            android:text="mcg/kg/mm"
-                            android:textColor="@color/colorblack"
-                            android:textSize="10sp"
-                            android:textStyle="bold" />
 
                     </LinearLayout>
 
@@ -2271,15 +2263,6 @@
                             android:textSize="14sp"
                             android:textStyle="bold" />
 
-                        <TextView
-                            android:layout_width="40dp"
-                            android:layout_height="match_parent"
-                            android:layout_centerVertical="true"
-                            android:gravity="center"
-                            android:text="mcg/kg/mm"
-                            android:textColor="@color/colorblack"
-                            android:textSize="10sp"
-                            android:textStyle="bold" />
 
                     </LinearLayout>
 
@@ -2373,21 +2356,198 @@
                             android:textSize="14sp"
                             android:textStyle="bold" />
 
-                        <TextView
-                            android:layout_width="40dp"
-                            android:layout_height="match_parent"
-                            android:layout_centerVertical="true"
-                            android:gravity="center"
-                            android:text="mcg/kg/mm"
-                            android:textColor="@color/colorblack"
-                            android:textSize="10sp"
-                            android:textStyle="bold" />
 
                     </LinearLayout>
 
 
                 </LinearLayout>
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:padding="15dp"
+                            android:text="Agent"
+                            android:textColor="@color/colorblack"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="0.1dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:background="@color/colorblack" />
+
+
+                        <TextView
+                            android:id="@+id/agentfour"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center"
+                            android:background="@drawable/form_cell_bg"
+                            android:hint=" Enter Agent"
+                            android:imeOptions="actionNext"
+                            android:padding="15dp"
+                            android:singleLine="true"
+                            android:textColor="@color/darkblue"
+                            android:textColorHint="@color/divider"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:padding="15dp"
+                            android:text="Dose"
+                            android:textColor="@color/colorblack"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="0.1dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:background="@color/colorblack" />
+
+
+                        <TextView
+                            android:id="@+id/view_dostvfour"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:background="@drawable/form_cell_bg"
+                            android:hint=" Enter Dose"
+                            android:imeOptions="actionNext"
+                            android:padding="15dp"
+                            android:singleLine="true"
+                            android:textColor="@color/darkblue"
+                            android:textColorHint="@color/divider"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:padding="15dp"
+                            android:text="Agent"
+                            android:textColor="@color/colorblack"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="0.1dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:background="@color/colorblack" />
+
+
+                        <TextView
+                            android:id="@+id/agentfive"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center"
+                            android:background="@drawable/form_cell_bg"
+                            android:hint=" Enter Agent"
+                            android:imeOptions="actionNext"
+                            android:padding="15dp"
+                            android:singleLine="true"
+                            android:textColor="@color/darkblue"
+                            android:textColorHint="@color/divider"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:padding="15dp"
+                            android:text="Dose"
+                            android:textColor="@color/colorblack"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="0.1dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:background="@color/colorblack" />
+
+
+                        <TextView
+                            android:id="@+id/view_dostvfive"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:background="@drawable/form_cell_bg"
+                            android:hint=" Enter Dose"
+                            android:imeOptions="actionNext"
+                            android:padding="15dp"
+                            android:singleLine="true"
+                            android:textColor="@color/darkblue"
+                            android:textColorHint="@color/divider"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -2681,33 +2841,16 @@
 
                 </LinearLayout>
 
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_centerVertical="true"
-                    android:layout_gravity="center"
-                    android:padding="15dp"
-                    android:text="Muscle relaxants"
-                    android:textColor="@color/colorblack"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="0.4dp"
-                    android:background="@color/colorblack" />
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="horizontal"
+                    android:weightSum="2">
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:orientation="horizontal">
 
                         <TextView
@@ -2728,13 +2871,13 @@
 
 
                         <TextView
-                            android:id="@+id/relaxantsagentone"
+                            android:id="@+id/view_sedationagentfour"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_gravity="center"
                             android:background="@drawable/form_cell_bg"
-                            android:hint="  Agent"
+                            android:hint=" Enter Agent"
                             android:imeOptions="actionNext"
                             android:padding="15dp"
                             android:singleLine="true"
@@ -2746,8 +2889,9 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:orientation="horizontal">
 
                         <TextView
@@ -2768,14 +2912,13 @@
 
 
                         <TextView
-                            android:id="@+id/relaxantsdoseone"
+                            android:id="@+id/view_sedationdosfour"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_gravity="center"
-                            android:layout_weight="1"
                             android:background="@drawable/form_cell_bg"
-                            android:hint="  Dose"
+                            android:hint=" Enter Dose"
                             android:imeOptions="actionNext"
                             android:padding="15dp"
                             android:singleLine="true"
@@ -2784,27 +2927,102 @@
                             android:textSize="14sp"
                             android:textStyle="bold" />
 
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:padding="15dp"
-                            android:text="(bolus/infusion)"
+                            android:text="Agent"
                             android:textColor="@color/colorblack"
-                            android:textSize="10sp"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="0.1dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:background="@color/colorblack" />
+
+
+                        <TextView
+                            android:id="@+id/view_sedationagentfive"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center"
+                            android:background="@drawable/form_cell_bg"
+                            android:hint=" Enter Agent"
+                            android:imeOptions="actionNext"
+                            android:padding="15dp"
+                            android:singleLine="true"
+                            android:textColor="@color/darkblue"
+                            android:textColorHint="@color/divider"
+                            android:textSize="14sp"
                             android:textStyle="bold" />
 
                     </LinearLayout>
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="0.4dp"
-                        android:background="@color/colorblack" />
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:padding="15dp"
+                            android:text="Dose"
+                            android:textColor="@color/colorblack"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="0.1dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:background="@color/colorblack" />
+
+
+                        <TextView
+                            android:id="@+id/view_sedationdosfive"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center"
+                            android:background="@drawable/form_cell_bg"
+                            android:hint=" Enter Dose"
+                            android:imeOptions="actionNext"
+                            android:padding="15dp"
+                            android:singleLine="true"
+                            android:textColor="@color/darkblue"
+                            android:textColorHint="@color/divider"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
 
 
                 </LinearLayout>
 
-                )
             </LinearLayout>
 
             <LinearLayout
@@ -3176,7 +3394,7 @@
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:padding="15dp"
-                            android:text="*PCO2"
+                            android:text="*PaCO2"
                             android:textColor="@color/colorblack"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -3193,7 +3411,7 @@
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:background="@drawable/form_cell_bg"
-                            android:hint=" PCO2"
+                            android:hint=" PaCO2"
                             android:imeOptions="actionDone"
                             android:inputType="number"
                             android:padding="15dp"
@@ -3298,7 +3516,521 @@
                         android:layout_marginTop="5dp"
                         android:background="@color/colorblack" />
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="140dp"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:padding="15dp"
+                            android:text="ABG Lactate"
+                            android:textColor="@color/colorblack"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="0.1dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:background="@color/colorblack" />
+
+                        <TextView
+                            android:id="@+id/et_abg"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/form_cell_bg"
+                            android:hint="ABG Lactate"
+                            android:imeOptions="actionDone"
+                            android:inputType="numberDecimal"
+                            android:padding="15dp"
+                            android:singleLine="true"
+                            android:textColor="@color/darkblue"
+                            android:textColorHint="@color/colorSecondaryText"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.4dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@color/colorblack" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="140dp"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:padding="15dp"
+                            android:text="SaO2"
+                            android:textColor="@color/colorblack"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="0.1dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:background="@color/colorblack" />
+
+                        <TextView
+                            android:id="@+id/et_sao2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/form_cell_bg"
+                            android:hint="SaO2"
+                            android:imeOptions="actionDone"
+                            android:inputType="numberDecimal"
+                            android:padding="15dp"
+                            android:singleLine="true"
+                            android:textColor="@color/darkblue"
+                            android:textColorHint="@color/colorSecondaryText"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.4dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@color/colorblack" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="140dp"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:padding="15dp"
+                            android:text="SpO2"
+                            android:textColor="@color/colorblack"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="0.1dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:background="@color/colorblack" />
+
+                        <TextView
+                            android:id="@+id/et_spso2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/form_cell_bg"
+                            android:hint="SpO2"
+                            android:imeOptions="actionDone"
+                            android:inputType="numberDecimal"
+                            android:padding="15dp"
+                            android:singleLine="true"
+                            android:textColor="@color/darkblue"
+                            android:textColorHint="@color/colorSecondaryText"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.4dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@color/colorblack" />
+
                 </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:paddingTop="20dp"
+                    android:text="Other Supports"
+                    android:textColor="@color/colorblack"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center|left"
+                        android:padding="10dp"
+                        android:text="Prone Positioning"
+                        android:textColor="@color/darkblue"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvprone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center|left"
+                        android:padding="10dp"
+                        android:hint="Prone Positioning"
+                        android:textColor="@color/darkblue"
+                        android:textColorHint="@color/divider"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:background="@color/colorblack" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center|left"
+                        android:padding="10dp"
+                        android:text="Prone Positioning Improvement"
+                        android:textColor="@color/darkblue"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:id="@+id/tvproneimp"
+                        android:layout_gravity="center|left"
+                        android:padding="10dp"
+                        android:hint="Prone Positioning Improvement"
+                        android:textColor="@color/darkblue"
+                        android:textColorHint="@color/divider"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:background="@color/colorblack" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center|left"
+                        android:padding="10dp"
+                        android:text="Nitric Acid"
+                        android:textColor="@color/darkblue"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvnitricacid"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center|left"
+                        android:padding="10dp"
+                        android:hint="Nitric Acid"
+                        android:textColor="@color/darkblue"
+                        android:textColorHint="@color/divider"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:background="@color/colorblack" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center|left"
+                        android:padding="10dp"
+                        android:text="Nitric Acid Improvement"
+                        android:textColor="@color/darkblue"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:id="@+id/tvnitricacidimp"
+                        android:layout_gravity="center|left"
+                        android:padding="10dp"
+                        android:hint="Nitric Acid Improvement"
+                        android:textColor="@color/darkblue"
+                        android:textColorHint="@color/divider"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:background="@color/colorblack" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center|left"
+                        android:padding="10dp"
+                        android:text="Plasmaphersis"
+                        android:textColor="@color/darkblue"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tvplasmaphers"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center|left"
+                        android:padding="10dp"
+                        android:hint="Plasmaphersis"
+                        android:textColor="@color/darkblue"
+                        android:textColorHint="@color/divider"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:background="@color/colorblack" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center|left"
+                        android:padding="10dp"
+                        android:text="Plasmaphersis Improvement"
+                        android:textColor="@color/darkblue"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tvplasmaphersimp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center|left"
+                        android:padding="10dp"
+                        android:hint="Plasmaphersis Improvement"
+                        android:textColor="@color/darkblue"
+                        android:textColorHint="@color/divider"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:background="@color/colorblack" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center|left"
+                        android:padding="10dp"
+                        android:text="Therapuetic Hypothermia"
+                        android:textColor="@color/darkblue"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:id="@+id/tvtherapuethyp"
+                        android:layout_gravity="center|left"
+                        android:padding="10dp"
+                        android:hint="Therapuetic Hypothermia"
+                        android:textColor="@color/darkblue"
+                        android:textColorHint="@color/divider"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:background="@color/colorblack" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="240dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center|left"
+                        android:padding="10dp"
+                        android:singleLine="true"
+                        android:text="Therapuetic Hypothermia Improvement"
+                        android:textColor="@color/darkblue"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:id="@+id/tvtherapuethypimp"
+                        android:layout_gravity="center|left"
+                        android:padding="10dp"
+                        android:hint="Therapuetic Hypothermia Improvement"
+                        android:textColor="@color/darkblue"
+                        android:textColorHint="@color/divider"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:background="@color/colorblack" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center|left"
+                        android:padding="10dp"
+                        android:text="Others"
+                        android:textColor="@color/darkblue"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvothers"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center|left"
+                        android:padding="10dp"
+                        android:hint="Others"
+                        android:textColor="@color/darkblue"
+                        android:textColorHint="@color/divider"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:background="@color/colorblack" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center|left"
+                        android:padding="10dp"
+                        android:text="Others Improvement"
+                        android:textColor="@color/darkblue"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center|left"
+                        android:id="@+id/tvothersimp"
+                        android:padding="10dp"
+                        android:hint="Others Improvement"
+                        android:textColor="@color/darkblue"
+                        android:textColorHint="@color/divider"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"
+                    android:background="@color/colorblack" />
 
 
                 <EditText
@@ -3322,22 +4054,22 @@
                     <ImageView
                         android:id="@+id/image_one"
                         android:layout_width="0dp"
-                        android:layout_margin="3dp"
                         android:layout_height="wrap_content"
+                        android:layout_margin="3dp"
                         android:layout_weight="1" />
 
                     <ImageView
                         android:id="@+id/image_two"
-                        android:layout_margin="3dp"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_margin="3dp"
                         android:layout_weight="1" />
 
                     <ImageView
-                        android:layout_margin="3dp"
                         android:id="@+id/image_three"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_margin="3dp"
                         android:layout_weight="1" />
 
 
@@ -3366,6 +4098,7 @@
                         android:id="@+id/form_approve"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
                         android:layout_margin="15dp"
                         android:background="@color/green"
@@ -3390,6 +4123,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
                         android:layout_margin="15dp"
                         android:background="@color/sample_dark_red"
                         android:src="@drawable/ic_next"

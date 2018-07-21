@@ -49,10 +49,12 @@ public class ViewReferalForm extends BaseActivity {
     TextView mtvHr, mtvBp, mtvCVp, mtvTemp, mtvCo, mtvCardindex, mtvleftventri;
 
     //Inotropes
-    TextView magentone, magenttwo, magentthree, msagentone, msagentwo, msagentthree, mmagent;
-    TextView mdoseone, mdosetwo, mdosethree, msdoseone, msdosewo, msdosethree, mmdose;
+    TextView magentone, magenttwo, magentthree, magentfour, magentfive, msagentone, msagentwo, msagentthree, msagentfour, msagentfive;
+    TextView mdoseone, mdosetwo, mdosethree,mdosefour,mdosefive, msdoseone, msdosewo, msdosethree, msdosefour, msdosefive;
 
-    //Invegation
+    TextView mtvprone,mtvproneimp,mtvnitciacid,mtvnitciacidimp,mtvplasmap,mtvplasmapimp,mtvteraphyp,mtvteraphypimp,mtvothers, mtvothersimp;
+
+   //Invegation
     TextView mtvurea, mtvcr, mtvlactate, mtvUo, mtvDialysis, mtvph, mtvinvpo2, mtvpco2, mtvHco3, mtvbe;
     Button approve,reject,hold,resend;
     String formid,mresend;
@@ -60,6 +62,8 @@ public class ViewReferalForm extends BaseActivity {
     UserPreferences userPreferences;
     EditText ref_comment;
     ImageView mfileone,mfiletwo,mfilethree;
+    TextView etabglac,etsao2,etspo2bg;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -132,7 +136,7 @@ public class ViewReferalForm extends BaseActivity {
             if(pat_data.getStatus().equalsIgnoreCase("Reject")|| pat_data.getStatus().equalsIgnoreCase("4")
                     || pat_data.getStatus().equalsIgnoreCase("Hold")|| pat_data.getStatus().equalsIgnoreCase("2"))
             {
-                if(mresend.equalsIgnoreCase("0"))
+                if(mresend.equalsIgnoreCase("1"))
                 {
                     resend.setVisibility(View.VISIBLE);
                 }
@@ -262,36 +266,70 @@ public class ViewReferalForm extends BaseActivity {
         magentone = findViewById(R.id.agentone);
         magenttwo = findViewById(R.id.agenttwo);
         magentthree = findViewById(R.id.agentthree);
+        magentfour = findViewById(R.id.agentfour);
+        magentfive = findViewById(R.id.agentfive);
+
         msagentone = findViewById(R.id.sedationagentone);
         msagentwo = findViewById(R.id.sedationagenttwo);
         msagentthree = findViewById(R.id.view_sedationagentthree);
-        mmagent = findViewById(R.id.relaxantsagentone);
+        msagentfour = findViewById(R.id.view_sedationagentfour);
+        msagentfive = findViewById(R.id.view_sedationagentfive);
 
         mdoseone = findViewById(R.id.view_doseone);
         mdosetwo = findViewById(R.id.view_dostvwo);
         mdosethree = findViewById(R.id.view_dostvhree);
+        mdosefour = findViewById(R.id.view_dostvfour);
+        mdosefive = findViewById(R.id.view_dostvfive);
+
         msdoseone = findViewById(R.id.view_sedationdoseone);
         msdosewo = findViewById(R.id.view_sedationdostvwo);
         msdosethree = findViewById(R.id.view_sedationdostvhree);
-        mmdose = findViewById(R.id.relaxantsdoseone);
+        msdosefour = findViewById(R.id.view_sedationdosfour);
+        msdosefive = findViewById(R.id.view_sedationdosfive);
 
+
+        mtvprone = findViewById(R.id.tvprone);
+        mtvproneimp= findViewById(R.id.tvproneimp);
+        mtvnitciacid= findViewById(R.id.tvnitricacid);
+        mtvnitciacidimp= findViewById(R.id.tvnitricacidimp);
+        mtvplasmap= findViewById(R.id.tvplasmaphers);
+        mtvplasmapimp= findViewById(R.id.tvplasmaphersimp);
+        mtvteraphyp= findViewById(R.id.tvtherapuethyp);
+        mtvteraphypimp= findViewById(R.id.tvtherapuethypimp);
+        mtvothers= findViewById(R.id.tvothers);
+        mtvothersimp= findViewById(R.id.tvothersimp);
 
         magentone.setText(pat_data.getInotropesagent1());
         magenttwo.setText(pat_data.getInotropesagent2());
         magentthree.setText(pat_data.getInotropesagent3());
+        magentfour.setText(pat_data.getInotropesagent4());
+
         msagentone.setText(pat_data.getSedationagent1());
         msagentwo.setText(pat_data.getSedationagent2());
         msagentthree.setText(pat_data.getSedationagent3());
-        mmagent.setText(pat_data.getMusclerelaxantsagent1());
+        msagentfour.setText(pat_data.getSedationagent4());
+
 
         mdoseone.setText(pat_data.getInotropesdose1());
         mdosetwo.setText(pat_data.getInotropesdose2());
         mdosethree.setText(pat_data.getInotropesdose3());
+        mdosefour.setText(pat_data.getInotropesdose4());
+
         msdoseone.setText(pat_data.getSedationdose1());
         msdosewo.setText(pat_data.getSedationdose2());
         msdosethree.setText(pat_data.getSedationdose3());
-        mmdose.setText(pat_data.getMusclerelaxantsdose1());
+        msdosefour.setText(pat_data.getSedationdose4());
 
+        mtvprone.setText(pat_data.getPronePositioning());
+        mtvproneimp.setText(pat_data.getPronePositioningImprov());
+        mtvnitciacid.setText(pat_data.getNitricAcid());
+        mtvnitciacidimp.setText(pat_data.getNitricAcidImprov());
+        mtvplasmap.setText(pat_data.getPlasmaphersis());
+        mtvplasmapimp.setText(pat_data.getPronePositioningImprov());
+        mtvteraphyp.setText(pat_data.getTherapueticHypothermia());
+        mtvteraphypimp.setText(pat_data.getTherapueticHypothermiaImprov());
+        mtvothers.setText(pat_data.getOthers());
+        mtvothersimp.setText(pat_data.getOthersImprov());
     }
 
 
@@ -307,6 +345,12 @@ public class ViewReferalForm extends BaseActivity {
         mtvpco2 = findViewById(R.id.tv_pco2);
         mtvHco3 = findViewById(R.id.tv_hco3);
         mtvbe = findViewById(R.id.tv_bf);
+
+        etabglac = findViewById(R.id.et_abg);
+        etsao2 = findViewById(R.id.et_sao2);
+        etspo2bg = findViewById(R.id.et_spso2);
+
+
 
         mfileone= findViewById(R.id.image_one);
         mfiletwo= findViewById(R.id.image_two);
@@ -338,6 +382,12 @@ public class ViewReferalForm extends BaseActivity {
         mtvpco2.setText(pat_data.getBloodgasPCO2());
         mtvHco3.setText(pat_data.getBloodgasHCO3());
         mtvbe.setText(pat_data.getBloodgasBE());
+
+        etabglac.setText(pat_data.getAbgLactate());
+        etsao2.setText(pat_data.getBgSao2());
+        etspo2bg.setText(pat_data.getBgSpo2());
+
+
         if(!pat_data.getComment().isEmpty())
             ref_comment.setText(pat_data.getComment());
 

@@ -14,9 +14,11 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.ecmo.android.BaseActivity;
 import com.ecmo.android.R;
+import com.ecmo.android.model.request.AgentsReq;
 import com.ecmo.android.model.request.HospitalReq;
 import com.ecmo.android.model.response.HospitalList;
 import com.ecmo.android.rest.ApiClient;
@@ -48,6 +50,9 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         initfonts();
         getHospitallistfromapi();
         getSpecialitylistfromapi();
+        getInotropeslistfromapi();
+        getSedationlistfromapi();
+        getUnitslistfromapi();
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -92,7 +97,64 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
 
             @Override
             public void onFailure(Call<HospitalList> call, Throwable t) {
+                Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 
+    private void getInotropeslistfromapi() {
+        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+        Call<HospitalList> call = apiService.getallInotrop(new AgentsReq("inotropes"));
+        call.enqueue(new Callback<HospitalList>() {
+            @Override
+            public void onResponse(Call<HospitalList> call, Response<HospitalList> response) {
+                HospitalList module = response.body();
+                if (module != null && module.getResult().equals("SUCCESS") && module.getData() != null) {
+                    setInotropeslist(module.getData());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<HospitalList> call, Throwable t) {
+                Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void getSedationlistfromapi() {
+        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+        Call<HospitalList> call = apiService.getallInotrop(new AgentsReq("sedation"));
+        call.enqueue(new Callback<HospitalList>() {
+            @Override
+            public void onResponse(Call<HospitalList> call, Response<HospitalList> response) {
+                HospitalList module = response.body();
+                if (module != null && module.getResult().equals("SUCCESS") && module.getData() != null) {
+                    setSedationlist(module.getData());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<HospitalList> call, Throwable t) {
+                Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void getUnitslistfromapi() {
+        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+        Call<HospitalList> call = apiService.getallInotrop(new AgentsReq("units"));
+        call.enqueue(new Callback<HospitalList>() {
+            @Override
+            public void onResponse(Call<HospitalList> call, Response<HospitalList> response) {
+                HospitalList module = response.body();
+                if (module != null && module.getResult().equals("SUCCESS") && module.getData() != null) {
+                    setUnitslist(module.getData());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<HospitalList> call, Throwable t) {
+                Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -111,7 +173,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
 
             @Override
             public void onFailure(Call<HospitalList> call, Throwable t) {
-
+                Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -136,7 +198,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                     startActivity(new Intent(getApplicationContext(), DocListActivity.class));
                 else
                     startActivity(new Intent(getApplicationContext(), HelpActivity.class));
-                   // webview();
+                // webview();
                 break;
             case R.id.rv_referpatient:
                 startActivity(new Intent(getApplicationContext(), PatientForm.class));
@@ -155,15 +217,14 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
 
     }
 
-    private void Calling()
-    {
+    private void Calling() {
         PackageManager packageManager = getApplicationContext().getPackageManager();
         if (packageManager.hasSystemFeature(PackageManager.FEATURE_TELEPHONY)) {
             Intent intent = new Intent(Intent.ACTION_CALL);
             intent.setData(Uri.parse(Constants.TEL + Constants.PHONE_NUMBER));
             if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
                 callPermission();
-            }else
+            } else
                 startActivity(intent);
         }
     }
@@ -176,16 +237,16 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     }
 
 
-    private void callPermission(){
+    private void callPermission() {
 
-        if (ActivityCompat.shouldShowRequestPermissionRationale(this,Manifest.permission.CALL_PHONE)){
+        if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.CALL_PHONE)) {
             //If the user has denied the permission previously your code will come to this block
             //Here you can explain why you need this permission
             //Explain here why you need this permission
         }
 
         //And finally ask for the permission
-        ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.CALL_PHONE},3);
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CALL_PHONE}, 3);
     }
 
     @Override

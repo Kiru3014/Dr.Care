@@ -19,7 +19,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
                 android:layout_gravity="center"
-                android:padding="15dp"
+                android:padding="@dimen/margin10"
                 android:text="Inotropes/vasoconstrictors"
                 android:textColor="@color/colorblack"
                 android:textSize="20sp"
@@ -27,7 +27,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="0.4dp"
+                android:layout_height="0.9dp"
                 android:background="@color/colorblack" />
 
             <LinearLayout
@@ -38,97 +38,93 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:gravity="center|left"
+                    android:orientation="horizontal"
+                    android:padding="0dp"
+                    android:weightSum="1">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:padding="15dp"
                         android:text="Agent"
                         android:textColor="@color/colorblack"
                         android:textSize="14sp"
                         android:textStyle="bold" />
 
-                    <View
-                        android:layout_width="0.1dp"
-                        android:layout_height="20dp"
-                        android:layout_gravity="center"
-                        android:background="@color/colorblack" />
+
+                    <Spinner
+                        android:id="@+id/agentone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center|top" />
 
 
                     <EditText
-                        android:id="@+id/agentone"
-                        android:layout_width="match_parent"
+                        android:id="@+id/otheragentone"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_gravity="center"
+                        android:layout_weight="0.5"
                         android:background="@drawable/form_cell_bg"
                         android:hint=" Enter Agent"
                         android:imeOptions="actionNext"
-                        android:padding="15dp"
                         android:singleLine="true"
+
                         android:textColor="@color/darkblue"
                         android:textColorHint="@color/divider"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:gravity="center|left"
+                    android:orientation="horizontal"
+                    android:padding="0dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:padding="15dp"
                         android:text="Dose"
                         android:textColor="@color/colorblack"
                         android:textSize="14sp"
                         android:textStyle="bold" />
 
-                    <View
-                        android:layout_width="0.1dp"
-                        android:layout_height="20dp"
-                        android:layout_gravity="center"
-                        android:background="@color/colorblack" />
-
-
                     <EditText
                         android:id="@+id/doseone"
-                        android:layout_width="match_parent"
+                        android:layout_width="120dp"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_gravity="center"
-                        android:layout_weight="1"
                         android:background="@drawable/form_cell_bg"
                         android:hint=" Enter Dose"
                         android:imeOptions="actionNext"
-                        android:padding="15dp"
+                        android:inputType="numberDecimal"
                         android:singleLine="true"
                         android:textColor="@color/darkblue"
                         android:textColorHint="@color/divider"
-                        android:textSize="14sp"
+                        android:textSize="12sp"
                         android:textStyle="bold" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <Spinner
+                        android:id="@+id/doseoneunit"
+                        android:layout_width="160dp"
                         android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:padding="15dp"
-                        android:text="mcg/kg/mm"
-                        android:textColor="@color/colorblack"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
+                        android:layout_gravity="center" />
+
 
                 </LinearLayout>
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="0.4dp"
+                    android:layout_height="0.9dp"
                     android:background="@color/colorblack" />
 
 
@@ -142,97 +138,302 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:gravity="center|left"
+                    android:orientation="horizontal"
+                    android:padding="2dp"
+                    android:weightSum="1">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:padding="15dp"
+
                         android:text="Agent"
                         android:textColor="@color/colorblack"
                         android:textSize="14sp"
                         android:textStyle="bold" />
 
-                    <View
-                        android:layout_width="0.1dp"
-                        android:layout_height="20dp"
-                        android:layout_gravity="center"
-                        android:background="@color/colorblack" />
+
+                    <Spinner
+                        android:id="@+id/agenttwo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center" />
 
 
                     <EditText
-                        android:id="@+id/agenttwo"
-                        android:layout_width="match_parent"
+                        android:id="@+id/otheragenttwo"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_gravity="center"
+                        android:layout_weight="0.5"
                         android:background="@drawable/form_cell_bg"
                         android:hint=" Enter Agent"
                         android:imeOptions="actionNext"
-                        android:padding="15dp"
                         android:singleLine="true"
                         android:textColor="@color/darkblue"
                         android:textColorHint="@color/divider"
                         android:textSize="14sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:gravity="center|left"
+                    android:orientation="horizontal"
+                    android:padding="2dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:padding="15dp"
                         android:text="Dose"
                         android:textColor="@color/colorblack"
                         android:textSize="14sp"
                         android:textStyle="bold" />
-
-                    <View
-                        android:layout_width="0.1dp"
-                        android:layout_height="20dp"
-                        android:layout_gravity="center"
-                        android:background="@color/colorblack" />
 
 
                     <EditText
                         android:id="@+id/dosetwo"
-                        android:layout_width="match_parent"
+                        android:layout_width="120dp"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_gravity="center"
-                        android:layout_weight="1"
                         android:background="@drawable/form_cell_bg"
                         android:hint=" Enter Dose"
                         android:imeOptions="actionNext"
-                        android:padding="15dp"
+                        android:inputType="numberDecimal"
                         android:singleLine="true"
                         android:textColor="@color/darkblue"
                         android:textColorHint="@color/divider"
                         android:textSize="14sp"
                         android:textStyle="bold" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
+
+                    <Spinner
+                        android:id="@+id/dosetwounit"
+                        android:layout_width="160dp"
                         android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:padding="15dp"
-                        android:text="mcg/kg/mm"
-                        android:textColor="@color/colorblack"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
+                        android:layout_gravity="center" />
+
 
                 </LinearLayout>
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="0.4dp"
+                    android:layout_height="0.9dp"
+                    android:background="@color/colorblack" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center|left"
+                    android:orientation="horizontal"
+                    android:padding="2dp"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="Agent"
+                        android:textColor="@color/colorblack"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+
+                    <Spinner
+                        android:id="@+id/agentthree"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center" />
+
+
+                    <EditText
+                        android:id="@+id/otheragentthree"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:layout_weight="0.5"
+                        android:background="@drawable/form_cell_bg"
+                        android:hint=" Enter Agent"
+                        android:imeOptions="actionNext"
+                        android:singleLine="true"
+
+                        android:textColor="@color/darkblue"
+                        android:textColorHint="@color/divider"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center|left"
+                    android:orientation="horizontal"
+                    android:padding="2dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="Dose"
+                        android:textColor="@color/colorblack"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+
+                    <EditText
+                        android:id="@+id/dosethree"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:background="@drawable/form_cell_bg"
+                        android:hint=" Enter Dose"
+                        android:imeOptions="actionNext"
+                        android:inputType="numberDecimal"
+                        android:singleLine="true"
+                        android:textColor="@color/darkblue"
+                        android:textColorHint="@color/divider"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+
+                    <Spinner
+                        android:id="@+id/dosethreeunit"
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center" />
+
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.9dp"
+                    android:background="@color/colorblack" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center|left"
+                android:orientation="vertical"
+                android:padding="2dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:gravity="center|left"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="Agent"
+                        android:textColor="@color/colorblack"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+
+                    <Spinner
+                        android:id="@+id/agentfour"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center" />
+
+
+                    <EditText
+                        android:id="@+id/otheragentfour"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:layout_weight="0.5"
+                        android:background="@drawable/form_cell_bg"
+                        android:hint=" Enter Agent"
+                        android:imeOptions="actionNext"
+                        android:singleLine="true"
+                        android:textColor="@color/darkblue"
+                        android:textColorHint="@color/divider"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center|left"
+                    android:orientation="horizontal"
+                    android:padding="2dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+
+                        android:text="Dose"
+                        android:textColor="@color/colorblack"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/dosefour"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:background="@drawable/form_cell_bg"
+                        android:hint=" Enter Dose"
+                        android:imeOptions="actionNext"
+
+                        android:inputType="numberDecimal"
+                        android:singleLine="true"
+                        android:textColor="@color/darkblue"
+                        android:textColorHint="@color/divider"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+
+                    <Spinner
+                        android:id="@+id/dosefourunit"
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center" />
+
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.9dp"
                     android:background="@color/colorblack" />
 
 
@@ -246,102 +447,97 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:gravity="center|left"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:padding="15dp"
                         android:text="Agent"
                         android:textColor="@color/colorblack"
                         android:textSize="14sp"
                         android:textStyle="bold" />
 
-                    <View
-                        android:layout_width="0.1dp"
-                        android:layout_height="20dp"
-                        android:layout_gravity="center"
-                        android:background="@color/colorblack" />
+
+                    <Spinner
+                        android:id="@+id/agentfive"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"/>
 
 
                     <EditText
-                        android:id="@+id/agentthree"
-                        android:layout_width="match_parent"
+                        android:id="@+id/otheragentfive"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_gravity="center"
+                        android:layout_weight="0.5"
                         android:background="@drawable/form_cell_bg"
                         android:hint=" Enter Agent"
                         android:imeOptions="actionNext"
-                        android:padding="15dp"
                         android:singleLine="true"
                         android:textColor="@color/darkblue"
                         android:textColorHint="@color/divider"
                         android:textSize="14sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:gravity="center|left"
+                    android:orientation="horizontal"
+                    android:padding="2dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:padding="15dp"
+
                         android:text="Dose"
                         android:textColor="@color/colorblack"
                         android:textSize="14sp"
                         android:textStyle="bold" />
 
-                    <View
-                        android:layout_width="0.1dp"
-                        android:layout_height="20dp"
-                        android:layout_gravity="center"
-                        android:background="@color/colorblack" />
-
-
                     <EditText
-                        android:id="@+id/dosethree"
-                        android:layout_width="match_parent"
+                        android:id="@+id/dosefive"
+                        android:layout_width="120dp"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_gravity="center"
-                        android:layout_weight="1"
                         android:background="@drawable/form_cell_bg"
                         android:hint=" Enter Dose"
                         android:imeOptions="actionNext"
-                        android:padding="15dp"
+                        android:inputType="numberDecimal"
                         android:singleLine="true"
                         android:textColor="@color/darkblue"
                         android:textColorHint="@color/divider"
                         android:textSize="14sp"
                         android:textStyle="bold" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
+
+                    <Spinner
+                        android:id="@+id/dosefiveunit"
+                        android:layout_width="160dp"
                         android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:padding="15dp"
-                        android:text="mcg/kg/mm"
-                        android:textColor="@color/colorblack"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
+                        android:layout_gravity="center" />
+
 
                 </LinearLayout>
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="0.4dp"
+                    android:layout_height="0.9dp"
                     android:background="@color/colorblack" />
 
 
             </LinearLayout>
-
 
             <TextView
                 android:layout_width="wrap_content"
@@ -349,7 +545,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
                 android:layout_gravity="center"
-                android:padding="15dp"
+                android:padding="@dimen/margin5"
                 android:text="Sedation"
                 android:textColor="@color/colorblack"
                 android:textSize="20sp"
@@ -357,7 +553,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="0.4dp"
+                android:layout_height="0.9dp"
                 android:background="@color/colorblack" />
 
             <LinearLayout
@@ -368,75 +564,72 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:gravity="center|left"
+                    android:orientation="horizontal"
+                    android:padding="2dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:padding="15dp"
                         android:text="Agent"
                         android:textColor="@color/colorblack"
                         android:textSize="14sp"
                         android:textStyle="bold" />
 
-                    <View
-                        android:layout_width="0.1dp"
-                        android:layout_height="20dp"
-                        android:layout_gravity="center"
-                        android:background="@color/colorblack" />
+                    <Spinner
+                        android:id="@+id/sedationagentone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center" />
 
 
                     <EditText
-                        android:id="@+id/sedationagentone"
-                        android:layout_width="match_parent"
+                        android:id="@+id/sedationotheragentone"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_gravity="center"
+                        android:layout_weight="0.37"
                         android:background="@drawable/form_cell_bg"
                         android:hint=" Enter Agent"
                         android:imeOptions="actionNext"
-                        android:padding="15dp"
                         android:singleLine="true"
                         android:textColor="@color/darkblue"
                         android:textColorHint="@color/divider"
                         android:textSize="14sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:visibility="gone" />
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:gravity="center|left"
+                    android:orientation="horizontal"
+                    android:padding="2dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:padding="15dp"
                         android:text="Dose"
                         android:textColor="@color/colorblack"
                         android:textSize="14sp"
                         android:textStyle="bold" />
-
-                    <View
-                        android:layout_width="0.1dp"
-                        android:layout_height="20dp"
-                        android:layout_gravity="center"
-                        android:background="@color/colorblack" />
 
 
                     <EditText
                         android:id="@+id/sedationdoseone"
-                        android:layout_width="match_parent"
+                        android:layout_width="120dp"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_gravity="center"
                         android:background="@drawable/form_cell_bg"
                         android:hint=" Enter Dose"
                         android:imeOptions="actionNext"
-                        android:padding="15dp"
+                        android:inputType="numberDecimal"
                         android:singleLine="true"
                         android:textColor="@color/darkblue"
                         android:textColorHint="@color/divider"
@@ -444,11 +637,18 @@
                         android:textStyle="bold" />
 
 
+                    <Spinner
+                        android:id="@+id/sedationdoseoneunit"
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center" />
+
+
                 </LinearLayout>
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="0.4dp"
+                    android:layout_height="0.9dp"
                     android:background="@color/colorblack" />
 
 
@@ -462,75 +662,75 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:gravity="center|left"
+                    android:orientation="horizontal"
+                    android:padding="2dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:padding="15dp"
+
                         android:text="Agent"
                         android:textColor="@color/colorblack"
                         android:textSize="14sp"
                         android:textStyle="bold" />
 
-                    <View
-                        android:layout_width="0.1dp"
-                        android:layout_height="20dp"
-                        android:layout_gravity="center"
-                        android:background="@color/colorblack" />
+
+                    <Spinner
+                        android:id="@+id/sedationagenttwo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center" />
 
 
                     <EditText
-                        android:id="@+id/sedationagenttwo"
-                        android:layout_width="match_parent"
+                        android:id="@+id/sedationotheragenttwo"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_gravity="center"
+                        android:layout_weight="0.37"
                         android:background="@drawable/form_cell_bg"
                         android:hint=" Enter Agent"
                         android:imeOptions="actionNext"
-                        android:padding="15dp"
                         android:singleLine="true"
+
                         android:textColor="@color/darkblue"
                         android:textColorHint="@color/divider"
                         android:textSize="14sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:visibility="gone" />
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:gravity="center|left"
+                    android:orientation="horizontal"
+                    android:padding="2dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:padding="15dp"
                         android:text="Dose"
                         android:textColor="@color/colorblack"
                         android:textSize="14sp"
                         android:textStyle="bold" />
-
-                    <View
-                        android:layout_width="0.1dp"
-                        android:layout_height="20dp"
-                        android:layout_gravity="center"
-                        android:background="@color/colorblack" />
 
 
                     <EditText
                         android:id="@+id/sedationdosetwo"
-                        android:layout_width="match_parent"
+                        android:layout_width="120dp"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_gravity="center"
                         android:background="@drawable/form_cell_bg"
                         android:hint=" Enter Dose"
                         android:imeOptions="actionNext"
-                        android:padding="15dp"
+                        android:inputType="numberDecimal"
                         android:singleLine="true"
                         android:textColor="@color/darkblue"
                         android:textColorHint="@color/divider"
@@ -538,11 +738,18 @@
                         android:textStyle="bold" />
 
 
+                    <Spinner
+                        android:id="@+id/sedationdosetwounit"
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center" />
+
+
                 </LinearLayout>
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="0.4dp"
+                    android:layout_height="0.9dp"
                     android:background="@color/colorblack" />
 
 
@@ -556,117 +763,110 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:gravity="center|left"
+                    android:orientation="horizontal"
+                    android:padding="2dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:padding="15dp"
+
                         android:text="Agent"
                         android:textColor="@color/colorblack"
                         android:textSize="14sp"
                         android:textStyle="bold" />
 
-                    <View
-                        android:layout_width="0.1dp"
-                        android:layout_height="20dp"
-                        android:layout_gravity="center"
-                        android:background="@color/colorblack" />
+
+                    <Spinner
+                        android:id="@+id/sedationagentthree"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center" />
 
 
                     <EditText
-                        android:id="@+id/sedationagentthree"
-                        android:layout_width="match_parent"
+                        android:id="@+id/sedationotheragentthree"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_gravity="center"
+                        android:layout_weight="0.37"
                         android:background="@drawable/form_cell_bg"
                         android:hint=" Enter Agent"
                         android:imeOptions="actionNext"
-                        android:padding="15dp"
                         android:singleLine="true"
+
                         android:textColor="@color/darkblue"
                         android:textColorHint="@color/divider"
                         android:textSize="14sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:visibility="gone" />
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:gravity="center|left"
+                    android:orientation="horizontal"
+                    android:padding="2dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:padding="15dp"
+
                         android:text="Dose"
                         android:textColor="@color/colorblack"
                         android:textSize="14sp"
                         android:textStyle="bold" />
-
-                    <View
-                        android:layout_width="0.1dp"
-                        android:layout_height="20dp"
-                        android:layout_gravity="center"
-                        android:background="@color/colorblack" />
 
 
                     <EditText
                         android:id="@+id/sedationdosethree"
-                        android:layout_width="match_parent"
+                        android:layout_width="120dp"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_gravity="center"
                         android:background="@drawable/form_cell_bg"
                         android:hint=" Enter Dose"
                         android:imeOptions="actionNext"
-                        android:padding="15dp"
+                        android:inputType="numberDecimal"
                         android:singleLine="true"
                         android:textColor="@color/darkblue"
                         android:textColorHint="@color/divider"
                         android:textSize="14sp"
                         android:textStyle="bold" />
 
+
+                    <Spinner
+                        android:id="@+id/sedationdosethreeunit"
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center" />
+
+
                 </LinearLayout>
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="0.4dp"
+                    android:layout_height="0.9dp"
                     android:background="@color/colorblack" />
 
 
             </LinearLayout>
 
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:layout_gravity="center"
-                android:padding="15dp"
-                android:text="Muscle relaxants"
-                android:textColor="@color/colorblack"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0.4dp"
-                android:background="@color/colorblack" />
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:gravity="center|left"
+                android:orientation="vertical"
+                android:padding="2dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
+                    android:gravity="center|left"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
@@ -674,39 +874,101 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:padding="15dp"
                         android:text="Agent"
                         android:textColor="@color/colorblack"
                         android:textSize="14sp"
                         android:textStyle="bold" />
 
-                    <View
-                        android:layout_width="0.1dp"
-                        android:layout_height="20dp"
-                        android:layout_gravity="center"
-                        android:background="@color/colorblack" />
+
+                    <Spinner
+                        android:id="@+id/sedationagentfour"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center" />
 
 
                     <EditText
-                        android:id="@+id/relaxantsagentone"
-                        android:layout_width="match_parent"
+                        android:id="@+id/sedationotheragentfour"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:layout_weight="0.37"
+                        android:background="@drawable/form_cell_bg"
+                        android:hint=" Enter Agent"
+                        android:imeOptions="actionNext"
+                        android:singleLine="true"
+                        android:textColor="@color/darkblue"
+                        android:textColorHint="@color/divider"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center|left"
+                    android:orientation="horizontal"
+                    android:padding="2dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+
+                        android:text="Dose"
+                        android:textColor="@color/colorblack"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+
+                    <EditText
+                        android:id="@+id/sedationdosefour"
+                        android:layout_width="120dp"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_gravity="center"
                         android:background="@drawable/form_cell_bg"
-                        android:hint=" Enter Agent"
+                        android:hint=" Enter Dose"
                         android:imeOptions="actionNext"
-                        android:padding="15dp"
+                        android:inputType="numberDecimal"
+
                         android:singleLine="true"
                         android:textColor="@color/darkblue"
                         android:textColorHint="@color/divider"
                         android:textSize="14sp"
                         android:textStyle="bold" />
 
+
+                    <Spinner
+                        android:id="@+id/sedationdosefourunit"
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center" />
+
+
                 </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.9dp"
+                    android:background="@color/colorblack" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center|left"
+                android:orientation="vertical"
+                android:padding="2dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
+                    android:gravity="center|left"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
@@ -714,51 +976,85 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:padding="15dp"
-                        android:text="Dose"
+                        android:text="Agent"
                         android:textColor="@color/colorblack"
                         android:textSize="14sp"
                         android:textStyle="bold" />
 
-                    <View
-                        android:layout_width="0.1dp"
-                        android:layout_height="20dp"
-                        android:layout_gravity="center"
-                        android:background="@color/colorblack" />
+
+                    <Spinner
+                        android:id="@+id/sedationagentfive"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center" />
 
 
                     <EditText
-                        android:id="@+id/relaxantsdoseone"
-                        android:layout_width="match_parent"
+                        android:id="@+id/sedationotheragentfive"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_gravity="center"
-                        android:layout_weight="1"
+                        android:layout_weight="0.37"
                         android:background="@drawable/form_cell_bg"
-                        android:hint=" Enter Dose"
+                        android:hint=" Enter Agent"
                         android:imeOptions="actionNext"
-                        android:padding="15dp"
                         android:singleLine="true"
                         android:textColor="@color/darkblue"
                         android:textColorHint="@color/divider"
                         android:textSize="14sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center|left"
+                    android:orientation="horizontal"
+                    android:padding="2dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:padding="15dp"
-                        android:text="(bolus/infusion)"
+
+                        android:text="Dose"
                         android:textColor="@color/colorblack"
                         android:textSize="14sp"
                         android:textStyle="bold" />
+
+
+                    <EditText
+                        android:id="@+id/sedationdosefive"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:background="@drawable/form_cell_bg"
+                        android:hint=" Enter Dose"
+                        android:imeOptions="actionNext"
+                        android:singleLine="true"
+                        android:inputType="numberDecimal"
+                        android:textColor="@color/darkblue"
+                        android:textColorHint="@color/divider"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+
+                    <Spinner
+                        android:id="@+id/sedationdosefiveunit"
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center" />
+
 
                 </LinearLayout>
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="0.4dp"
+                    android:layout_height="0.9dp"
                     android:background="@color/colorblack" />
 
 
@@ -776,7 +1072,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|end"
-                    android:layout_margin="15dp"
+                    android:layout_margin="7dp"
                     android:rotation="180"
                     android:src="@drawable/ic_next"
                     app:fabSize="normal" />
@@ -786,7 +1082,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|end"
-                    android:layout_margin="15dp"
+                    android:layout_margin="7dp"
                     android:src="@drawable/ic_next"
                     app:fabSize="normal" />
             </LinearLayout>

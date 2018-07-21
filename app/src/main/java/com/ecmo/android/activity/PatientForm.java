@@ -93,9 +93,9 @@ public class PatientForm extends BaseActivity {
 
     //Ventilation
     FloatingActionButton fabscreenthreenext, fabscreenthreeback;
-    String sfio2 = "", spac02fio2 = "", speee = "", srr = "", slung = "", scrx = "";
-    Spinner spinnercxr, etfio2;
-    EditText etventdays, etspo2, etpo2, etpipvalues, ettv, spinnerpafio2, spinnerpeep, spinnerrr, spinnerlungcompliance,etmurrayscore;
+    String sdays ="" ,sfio2 = "", spac02fio2 = "", speee = "", srr = "", slung = "", scrx = "";
+    Spinner spinnercxr, etfio2,etventdays;
+    EditText etspo2, etpo2, etpipvalues, ettv, spinnerpafio2, spinnerpeep, spinnerrr, spinnerlungcompliance, etmurrayscore;
     int scorepao2fio2;
     int scorecxr;
     int scorepeep;
@@ -110,17 +110,32 @@ public class PatientForm extends BaseActivity {
 
     //Agents
     FloatingActionButton fabscreenfivenext, fabscreenfiveback;
-    EditText etagentone, etagettwo, wtagentthree, etdoseone, etdosetwo, etdosethree;
-    EditText etsedagentone, etsedagettwo, wtsedagentthree, etseddoseone, etseddosetwo, etseddosethree;
-    EditText etmuscelagent, etmuscledose;
+
+    Spinner etagentone, etagettwo, wtagentthree, etagentfour, etagetfive;
+    EditText etdoseone, etdosetwo, etdosethree, etdosefour, etdosefive;
+    Spinner spindoseone, spindosetwo, spindosethree, spindosefour, spindosefive;
+    EditText etothersdose, etothersdosetwo, etothersdosehree, etothersdosefour, etothersdosefive;
+
+    String sagentone = "", sagettwo = "", sagentthree = "", sagentfour = "", sagetfive = "";
+    String unitdoseone = "", unitdosetwo = "", unitdosethree = "", unitdosefour = "", unitdosefive = "";
+
+    EditText etseddoseone, etseddosetwo, etseddosethree, etseddosefour, etseddosefive;
+    Spinner etsedagentone, etsedagettwo, wtsedagentthree, etsedagentfour, etsedagetfive;
+    EditText etsedagenothersdose, etsedagenothersdosetwo, etsedagenothersdosehree, etsedagenothersdosefour, etsedagenothersdosefive;
+    Spinner sedagenspindoseone, sedagenspindosetwo, sedagenspindosethree, sedagenspindosefour, sedagenspindosefive;
+
+    String ssedagentone = "", ssedagettwo = "", ssedagentthree = "", ssedagentfour = "", ssedagetfive = "";
+    String unitsedadoseone = "", unitsedadosetwo = "", unitsedadosethree = "", unitsedadosefour = "", unitsedadosefive = "";
 
 
     //Investigation
     FloatingActionButton fabscreensixnext, fabscreensixback;
-    RadioGroup radiodialysisGroup;
+    RadioGroup radiodialysisGroup, rbpronposing, rbpronposingimp, rbniticacid, rbniticacidimp, rbplasmaphersis, rbplasmaphersisimp, rbtherapuethyp, rbtherapuethypimp,rbothersimp;
+    EditText rbothers;
     String dialysis = "";
+    String spronposing = "", spronposingimp = "", sniticacid = "", sniticacidimp = "", splasmaphersis = "", splasmaphersisimp = "", stherapuethyp = "", stherapuethypimp = "", sothersimp = "";
     EditText eturea, etcr, etlactate, etUo, etph, etinpo2, etpco2, ethco3, etbf, etrefphonenumber, erefddesignation;
-
+    EditText etabglac,etsao2,etspo2bg;
 
     referalformResponse formdata;
 
@@ -217,7 +232,6 @@ public class PatientForm extends BaseActivity {
         //Doctor
         mspinnerhospital = (Spinner) findViewById(R.id.simpleSpinner_hospital);
         mspinnerSpeciallity = (Spinner) findViewById(R.id.simpleSpinner_speciality);
-
 
         mspinnerhospital.setAdapter(getAutosuggestion(getApplicationContext()));
         mspinnerhospital.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -602,9 +616,8 @@ public class PatientForm extends BaseActivity {
         etfio2 = findViewById(R.id.et_fio2);
         etpipvalues = findViewById(R.id.et_pip);
         ettv = findViewById(R.id.et_tv);
-        etmurrayscore=findViewById(R.id.et_murryscore);
+        etmurrayscore = findViewById(R.id.et_murryscore);
 
-        etventdays.setTypeface(Helper.getSharedHelper().getNormalFont());
         etspo2.setTypeface(Helper.getSharedHelper().getNormalFont());
         etpo2.setTypeface(Helper.getSharedHelper().getNormalFont());
         etpipvalues.setTypeface(Helper.getSharedHelper().getNormalFont());
@@ -648,6 +661,30 @@ public class PatientForm extends BaseActivity {
                     calacualtepao2fio2();
                 } else {
                     sfio2 = "";
+                }
+
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+                // TODO Auto-generated method stub
+
+            }
+        });
+
+        //number of days
+        etventdays.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View arg1,
+                                       int pos, long arg3) {
+                if (pos != 0)
+                {
+                    sdays = adapterView.getItemAtPosition(pos).toString();
+
+                } else {
+                    sdays = "";
                 }
 
 
@@ -741,7 +778,6 @@ public class PatientForm extends BaseActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View arg1,
                                        int pos, long arg3) {
-
 
 
                 if (pos != 0) {
@@ -844,9 +880,8 @@ public class PatientForm extends BaseActivity {
 
                 if (spac02fio2.isEmpty() || speee.isEmpty() || slung.isEmpty() || srr.isEmpty() || scrx.isEmpty() || sfio2.isEmpty()) {
                     commonToast("Please enter all Ventilation Parameters");
-                } else if (etventdays.getText().toString().isEmpty()) {
+                } else if (sdays.isEmpty()) {
                     commonToast("Please enter all Ventilation Parameters");
-                    etventdays.setError("Enter Details");
                 } else if (etspo2.getText().toString().isEmpty()) {
                     commonToast("Please enter all Ventilation Parameters");
                     etspo2.setError("Enter Details");
@@ -873,7 +908,7 @@ public class PatientForm extends BaseActivity {
                     spinnerrr.setError("RR Value Should be between 0-600");
                 } else {
                     Log.d("Ventil;ation Details\n",
-                            "No dats in vent - " + etventdays.getText().toString() +
+                            "No dats in vent - " + sdays +
                                     "\n Spo2 - " + etspo2.getText().toString() +
                                     "\n po2 - " + etpo2.getText().toString() +
                                     "\n fio2 - " + sfio2 +
@@ -885,10 +920,10 @@ public class PatientForm extends BaseActivity {
                                     "\n lung - " + slung +
                                     "\n cxr - " + scrx);
 
-                    Log.d("SCORE pao2/fio2",""+scorepao2fio2);
-                    Log.d("SCORE cxr",""+scorecxr);
-                    Log.d("SCORE peep",""+scorepeep);
-                    Log.d("SCORE lung",""+scorelung);
+                    Log.d("SCORE pao2/fio2", "" + scorepao2fio2);
+                    Log.d("SCORE cxr", "" + scorecxr);
+                    Log.d("SCORE peep", "" + scorepeep);
+                    Log.d("SCORE lung", "" + scorelung);
 
                     llventilationparameters.setVisibility(View.GONE);
                     llcardiovascular.setVisibility(View.VISIBLE);
@@ -950,13 +985,13 @@ public class PatientForm extends BaseActivity {
             slung = lungcomp.toString();
             spinnerlungcompliance.setText(slung);
 
-            int scrlungval = (int)Math.round(lungcomp);
+            int scrlungval = (int) Math.round(lungcomp);
             if (scrlungval >= 80) {
-                scorelung=0;
+                scorelung = 0;
             } else if (scrlungval >= 60 && scrlungval <= 79.9) {
-                scorelung=1;
+                scorelung = 1;
             } else if (scrlungval >= 40 && scrlungval <= 59.9) {
-                scorelung=2;
+                scorelung = 2;
             } else if (scrlungval >= 20 && scrlungval <= 39.9) {
                 scorelung = 3;
             } else if (scrlungval <= 19.9) {
@@ -1144,10 +1179,7 @@ public class PatientForm extends BaseActivity {
                 } else if (Float.valueOf(spinnerlvef.getText().toString().trim()) < 0 || Integer.parseInt(spinnerlvef.getText().toString().trim()) > 100) {
                     commonToast("Please Enter correct Left Ventricular Ejection Fraction ");
                     spinnerlvef.setError("Please Enter correct Left Ventricular Ejection Fraction ");
-                } else if (etcvp.getText().toString().isEmpty() || etco.getText().toString().isEmpty()) {
-                    etcvp.setError("Enter Details");
-                    etco.setError("Enter Details");
-                } else {
+                }  else {
                     Log.d("Cardiovascular Details\n", "HR - " + shr +
                             "\n BP - " + sbp +
                             "\n Temp - " + stemp +
@@ -1179,59 +1211,624 @@ public class PatientForm extends BaseActivity {
     /* Agents  Paramentes Form begining*/
 
     private void Agents() {
-        etagentone = findViewById(R.id.agentone);
-        etagettwo = findViewById(R.id.agenttwo);
-        wtagentthree = findViewById(R.id.agentthree);
-        etdoseone = findViewById(R.id.doseone);
-        etdosetwo = findViewById(R.id.dosetwo);
-        etdosethree = findViewById(R.id.dosethree);
-        etagentone.setTypeface(Helper.getSharedHelper().getNormalFont());
-        etagettwo.setTypeface(Helper.getSharedHelper().getNormalFont());
-        wtagentthree.setTypeface(Helper.getSharedHelper().getNormalFont());
-        etdoseone.setTypeface(Helper.getSharedHelper().getNormalFont());
-        etdosetwo.setTypeface(Helper.getSharedHelper().getNormalFont());
-        etdosethree.setTypeface(Helper.getSharedHelper().getNormalFont());
+        //agent
+        etagentone = (Spinner) findViewById(R.id.agentone);
+        etagettwo = (Spinner) findViewById(R.id.agenttwo);
+        wtagentthree = (Spinner) findViewById(R.id.agentthree);
+        etagentfour = (Spinner) findViewById(R.id.agentfour);
+        etagetfive = (Spinner) findViewById(R.id.agentfive);
 
-        etsedagentone = findViewById(R.id.sedationagentone);
-        etsedagettwo = findViewById(R.id.sedationagenttwo);
-        wtsedagentthree = findViewById(R.id.sedationagentthree);
-        etseddoseone = findViewById(R.id.sedationdoseone);
-        etseddosetwo = findViewById(R.id.sedationdosetwo);
-        etseddosethree = findViewById(R.id.sedationdosethree);
+        etdoseone = (EditText) findViewById(R.id.doseone);
+        etdosetwo = (EditText) findViewById(R.id.dosetwo);
+        etdosethree = (EditText) findViewById(R.id.dosethree);
+        etdosefour = (EditText) findViewById(R.id.dosefour);
+        etdosefive = (EditText) findViewById(R.id.dosefive);
 
-        etsedagentone.setTypeface(Helper.getSharedHelper().getNormalFont());
-        etsedagettwo.setTypeface(Helper.getSharedHelper().getNormalFont());
-        wtsedagentthree.setTypeface(Helper.getSharedHelper().getNormalFont());
-        etseddoseone.setTypeface(Helper.getSharedHelper().getNormalFont());
-        etseddosetwo.setTypeface(Helper.getSharedHelper().getNormalFont());
-        etseddosethree.setTypeface(Helper.getSharedHelper().getNormalFont());
+        spindoseone = (Spinner) findViewById(R.id.doseoneunit);
+        spindosetwo = (Spinner) findViewById(R.id.dosetwounit);
+        spindosethree = (Spinner) findViewById(R.id.dosethreeunit);
+        spindosefour = (Spinner) findViewById(R.id.dosefourunit);
+        spindosefive = (Spinner) findViewById(R.id.dosefiveunit);
+
+        etothersdose = (EditText) findViewById(R.id.otheragentone);
+        etothersdosetwo = (EditText) findViewById(R.id.otheragenttwo);
+        etothersdosehree = (EditText) findViewById(R.id.otheragentthree);
+        etothersdosefour = (EditText) findViewById(R.id.otheragentfour);
+        etothersdosefive = (EditText) findViewById(R.id.otheragentfive);
+
+        etagentone.setAdapter(getAgents(getApplicationContext()));
+        spindoseone.setAdapter(getUnits(getApplicationContext()));
+        etagettwo.setAdapter(getAgents(getApplicationContext()));
+        spindosetwo.setAdapter(getUnits(getApplicationContext()));
+        wtagentthree.setAdapter(getAgents(getApplicationContext()));
+        spindosethree.setAdapter(getUnits(getApplicationContext()));
+        etagentfour.setAdapter(getAgents(getApplicationContext()));
+        spindosefour.setAdapter(getUnits(getApplicationContext()));
+        etagetfive.setAdapter(getAgents(getApplicationContext()));
+        spindosefive.setAdapter(getUnits(getApplicationContext()));
+
+        //agent one
+        etagentone.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View arg1,
+                                       int pos, long arg3) {
+
+                if (adapterView.getItemAtPosition(pos).toString().contains("Others")) {
+                    sagentone = adapterView.getItemAtPosition(pos).toString();
+                    etothersdose.setVisibility(View.VISIBLE);
+                } else {
+                    sagentone = adapterView.getItemAtPosition(pos).toString();
+                    etothersdose.setVisibility(View.GONE);
+                }
 
 
-        etmuscelagent = findViewById(R.id.relaxantsagentone);
-        etmuscledose = findViewById(R.id.relaxantsdoseone);
-        etmuscelagent.setTypeface(Helper.getSharedHelper().getNormalFont());
-        etmuscledose.setTypeface(Helper.getSharedHelper().getNormalFont());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+                // TODO Auto-generated method stub
+
+            }
+        });
+        spindoseone.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View arg1,
+                                       int pos, long arg3) {
+                unitdoseone = adapterView.getItemAtPosition(pos).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+                // TODO Auto-generated method stub
+
+            }
+        });
+
+        //agentwo
+        etagettwo.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View arg1,
+                                       int pos, long arg3) {
+
+                if (adapterView.getItemAtPosition(pos).toString().contains("Others")) {
+                    sagettwo = adapterView.getItemAtPosition(pos).toString();
+                    etothersdosetwo.setVisibility(View.VISIBLE);
+                } else {
+                    sagettwo = adapterView.getItemAtPosition(pos).toString();
+                    etothersdosetwo.setVisibility(View.GONE);
+                }
+
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+                // TODO Auto-generated method stub
+
+            }
+        });
+        spindosetwo.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View arg1,
+                                       int pos, long arg3) {
+                unitdosetwo = adapterView.getItemAtPosition(pos).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+                // TODO Auto-generated method stub
+
+            }
+        });
+
+
+        //agenthree
+        wtagentthree.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View arg1,
+                                       int pos, long arg3) {
+
+                if (adapterView.getItemAtPosition(pos).toString().contains("Others")) {
+                    sagentthree = adapterView.getItemAtPosition(pos).toString();
+                    etothersdosehree.setVisibility(View.VISIBLE);
+                } else {
+                    sagentthree = adapterView.getItemAtPosition(pos).toString();
+                    etothersdosehree.setVisibility(View.GONE);
+                }
+
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+                // TODO Auto-generated method stub
+
+            }
+        });
+        spindosethree.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View arg1,
+                                       int pos, long arg3) {
+                unitdosethree = adapterView.getItemAtPosition(pos).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+                // TODO Auto-generated method stub
+
+            }
+        });
+
+        //agenfour
+        etagentfour.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View arg1,
+                                       int pos, long arg3) {
+
+                if (adapterView.getItemAtPosition(pos).toString().contains("Others")) {
+                    sagentfour = adapterView.getItemAtPosition(pos).toString();
+                    etothersdosefour.setVisibility(View.VISIBLE);
+                } else {
+                    sagentfour = adapterView.getItemAtPosition(pos).toString();
+                    etothersdosefour.setVisibility(View.GONE);
+                }
+
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+                // TODO Auto-generated method stub
+
+            }
+        });
+        spindosefour.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View arg1,
+                                       int pos, long arg3) {
+                unitdosefour = adapterView.getItemAtPosition(pos).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+                // TODO Auto-generated method stub
+
+            }
+        });
+
+
+        //agenfive
+        etagetfive.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View arg1,
+                                       int pos, long arg3) {
+
+                if (adapterView.getItemAtPosition(pos).toString().contains("Others")) {
+                    sagetfive = adapterView.getItemAtPosition(pos).toString() + "" + etothersdosefive.getText().toString();
+                    etothersdosefive.setVisibility(View.VISIBLE);
+                } else {
+                    sagetfive = adapterView.getItemAtPosition(pos).toString();
+                    etothersdosefive.setVisibility(View.GONE);
+                }
+
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+                // TODO Auto-generated method stub
+
+            }
+        });
+        spindosefive.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View arg1,
+                                       int pos, long arg3) {
+                unitdosefive = adapterView.getItemAtPosition(pos).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+                // TODO Auto-generated method stub
+
+            }
+        });
+
+
+        //seduction
+
+        etsedagentone = (Spinner) findViewById(R.id.sedationagentone);
+        etsedagettwo = (Spinner) findViewById(R.id.sedationagenttwo);
+        wtsedagentthree = (Spinner) findViewById(R.id.sedationagentthree);
+        etsedagentfour = (Spinner) findViewById(R.id.sedationagentfour);
+        etsedagetfive = (Spinner) findViewById(R.id.sedationagentfive);
+
+        etseddoseone = (EditText) findViewById(R.id.sedationdoseone);
+        etseddosetwo = (EditText) findViewById(R.id.sedationdosetwo);
+        etseddosethree = (EditText) findViewById(R.id.sedationdosethree);
+        etseddosefour = (EditText) findViewById(R.id.sedationdosefour);
+        etseddosefive = (EditText) findViewById(R.id.sedationdosefive);
+
+
+        etsedagenothersdose = (EditText) findViewById(R.id.sedationotheragentone);
+        etsedagenothersdosetwo = (EditText) findViewById(R.id.sedationotheragenttwo);
+        etsedagenothersdosehree = (EditText) findViewById(R.id.sedationotheragentthree);
+        etsedagenothersdosefour = (EditText) findViewById(R.id.sedationotheragentfour);
+        etsedagenothersdosefive = (EditText) findViewById(R.id.sedationotheragentfive);
+
+
+        sedagenspindoseone = (Spinner) findViewById(R.id.sedationdoseoneunit);
+        sedagenspindosetwo = (Spinner) findViewById(R.id.sedationdosetwounit);
+        sedagenspindosethree = (Spinner) findViewById(R.id.sedationdosethreeunit);
+        sedagenspindosefour = (Spinner) findViewById(R.id.sedationdosefourunit);
+        sedagenspindosefive = (Spinner) findViewById(R.id.sedationdosefiveunit);
+
+
+        etsedagentone.setAdapter(getSedation(getApplicationContext()));
+        sedagenspindoseone.setAdapter(getUnits(getApplicationContext()));
+        etsedagettwo.setAdapter(getSedation(getApplicationContext()));
+        sedagenspindosetwo.setAdapter(getUnits(getApplicationContext()));
+        wtsedagentthree.setAdapter(getSedation(getApplicationContext()));
+        sedagenspindosethree.setAdapter(getUnits(getApplicationContext()));
+        etsedagentfour.setAdapter(getSedation(getApplicationContext()));
+        sedagenspindosefour.setAdapter(getUnits(getApplicationContext()));
+        etsedagetfive.setAdapter(getSedation(getApplicationContext()));
+        sedagenspindosefive.setAdapter(getUnits(getApplicationContext()));
+
+
+        //sedaone
+        etsedagentone.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View arg1,
+                                       int pos, long arg3) {
+
+                if (adapterView.getItemAtPosition(pos).toString().contains("Others")) {
+
+                    ssedagentone = adapterView.getItemAtPosition(pos).toString();
+                    etsedagenothersdose.setVisibility(View.VISIBLE);
+                } else {
+
+                    ssedagentone = adapterView.getItemAtPosition(pos).toString();
+                    etsedagenothersdose.setVisibility(View.GONE);
+                }
+
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+                // TODO Auto-generated method stub
+
+            }
+        });
+        sedagenspindoseone.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View arg1,
+                                       int pos, long arg3) {
+                unitsedadoseone = adapterView.getItemAtPosition(pos).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+                // TODO Auto-generated method stub
+
+            }
+        });
+
+        //sedatwo
+        etsedagettwo.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View arg1,
+                                       int pos, long arg3) {
+
+                if (adapterView.getItemAtPosition(pos).toString().contains("Others")) {
+
+                    ssedagettwo = adapterView.getItemAtPosition(pos).toString();
+                    etsedagenothersdosetwo.setVisibility(View.VISIBLE);
+                } else {
+
+                    ssedagettwo = adapterView.getItemAtPosition(pos).toString();
+                    etsedagenothersdosetwo.setVisibility(View.GONE);
+                }
+
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+                // TODO Auto-generated method stub
+
+            }
+        });
+        sedagenspindosetwo.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View arg1,
+                                       int pos, long arg3) {
+                unitsedadosetwo = adapterView.getItemAtPosition(pos).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+                // TODO Auto-generated method stub
+
+            }
+        });
+
+
+        //sedathree
+        wtsedagentthree.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View arg1,
+                                       int pos, long arg3) {
+
+                if (adapterView.getItemAtPosition(pos).toString().contains("Others")) {
+
+                    ssedagentthree = adapterView.getItemAtPosition(pos).toString();
+                    etsedagenothersdosehree.setVisibility(View.VISIBLE);
+                } else {
+
+                    ssedagentthree = adapterView.getItemAtPosition(pos).toString();
+                    etsedagenothersdosehree.setVisibility(View.GONE);
+                }
+
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+                // TODO Auto-generated method stub
+
+            }
+        });
+        sedagenspindosethree.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View arg1,
+                                       int pos, long arg3) {
+                unitsedadosethree = adapterView.getItemAtPosition(pos).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+                // TODO Auto-generated method stub
+
+            }
+        });
+
+        //sedafour
+        etsedagentfour.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View arg1,
+                                       int pos, long arg3) {
+
+                if (adapterView.getItemAtPosition(pos).toString().contains("Others")) {
+
+                    ssedagentfour = adapterView.getItemAtPosition(pos).toString();
+                    etsedagenothersdosefour.setVisibility(View.VISIBLE);
+                } else {
+
+                    ssedagentfour = adapterView.getItemAtPosition(pos).toString();
+                    etsedagenothersdosefour.setVisibility(View.GONE);
+                }
+
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+                // TODO Auto-generated method stub
+
+            }
+        });
+        sedagenspindosefour.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View arg1,
+                                       int pos, long arg3) {
+                unitsedadosefour = adapterView.getItemAtPosition(pos).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+                // TODO Auto-generated method stub
+
+            }
+        });
+
+        //sedafive
+        etsedagetfive.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View arg1,
+                                       int pos, long arg3) {
+
+                if (adapterView.getItemAtPosition(pos).toString().contains("Others")) {
+
+                    ssedagetfive = adapterView.getItemAtPosition(pos).toString();
+                    etsedagenothersdosefive.setVisibility(View.VISIBLE);
+                } else {
+
+                    ssedagetfive = adapterView.getItemAtPosition(pos).toString();
+                    etsedagenothersdosefive.setVisibility(View.GONE);
+                }
+
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+                // TODO Auto-generated method stub
+
+            }
+        });
+        sedagenspindosefive.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View arg1,
+                                       int pos, long arg3) {
+                unitsedadosefive = adapterView.getItemAtPosition(pos).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+                // TODO Auto-generated method stub
+
+            }
+        });
+
+
         fabscreenfivenext = (FloatingActionButton) findViewById(R.id.fag_agent_next);
         fabscreenfivenext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Log.d("Agent Details", "" +
-                        "\n Agent one - " + etagentone.getText().toString() +
-                        "\n DOse One - " + etdoseone.getText().toString() +
-                        "\n Agent two - " + etagettwo.getText().toString() +
-                        "\n DOse two - " + etdosetwo.getText().toString() +
-                        "\n Agent three - " + wtagentthree.getText().toString() +
-                        "\n Dose three - " + etdosethree.getText().toString() +
-                        "\n S Agent one - " + etsedagentone.getText().toString() +
-                        "\n S DOse One - " + etseddoseone.getText().toString() +
-                        "\n S Agent two - " + etsedagettwo.getText().toString() +
-                        "\n S DOse two - " + etseddosetwo.getText().toString() +
-                        "\n S Agent three - " + wtsedagentthree.getText().toString() +
-                        "\n S Dose three - " + etseddosethree.getText().toString() +
-                        "\n M Agent one - " + etmuscelagent.getText().toString() +
-                        "\n M Dose one - " + etmuscledose.getText().toString() +
-                        "\n");
+
+                //agents
+                sagentone = sagentone + "" + etothersdose.getText().toString();
+                sagettwo = sagettwo + "" + etothersdosetwo.getText().toString();
+                sagentthree = sagentthree + "" + etothersdosehree.getText().toString();
+                sagentfour = sagentfour + "" + etothersdosefour.getText().toString();
+
+                if(etdoseone.getText().toString().trim().isEmpty())
+                {
+                    unitdoseone="";
+                }
+                else
+                {
+                    unitdoseone = etdoseone.getText().toString() + " " + unitdoseone;
+
+                }
+                if(etdosetwo.getText().toString().trim().isEmpty())
+                {
+                    unitdosetwo="";
+
+                }
+                else
+                {
+                    unitdosetwo = etdosetwo.getText().toString() + " " + unitdosetwo;
+
+                }
+                if(etdosethree.getText().toString().trim().isEmpty())
+                {
+                    unitdosethree="";
+                }
+                else
+                {
+                    unitdosethree = etdosethree.getText().toString() + " " + unitdosethree;
+
+                }
+                if(etdosefour.getText().toString().trim().isEmpty())
+                {
+                    unitdosefour="";
+
+                }
+                else
+                {
+                    unitdosefour = etdosefour.getText().toString() + " " + unitdosefour;
+
+                }
+                if(etdosefive.getText().toString().trim().isEmpty())
+                {
+                    unitdosefive="";
+                }
+                else
+                {
+                    unitdosefive = etdosefive.getText().toString() + " " + unitdosefive;
+
+                }
+
+
+                //sedag
+                ssedagentone = ssedagentone + "" + etsedagenothersdose.getText().toString();
+                ssedagettwo = ssedagettwo + "" + etsedagenothersdosetwo.getText().toString();
+                ssedagentthree = ssedagentthree + "" + etsedagenothersdosehree.getText().toString();
+                ssedagentfour = ssedagentfour + "" + etsedagenothersdosefour.getText().toString();
+                ssedagetfive = ssedagetfive + "" + etsedagenothersdosefive.getText().toString();
+
+                if(etseddoseone.getText().toString().trim().isEmpty())
+                {
+                    unitsedadoseone ="";
+
+                }
+                else
+                {
+                    unitsedadoseone = etseddoseone.getText().toString() + " " + unitsedadoseone;
+
+                }
+                if(etseddosetwo.getText().toString().trim().isEmpty())
+                {
+                    unitsedadosetwo ="";
+
+                }
+                else
+                {
+                    unitsedadosetwo = etseddosetwo.getText().toString() + " " + unitsedadosetwo;
+
+                }
+                if(etseddosethree.getText().toString().trim().isEmpty())
+                {
+                    unitsedadosethree ="";
+
+                }
+                else
+                {
+                    unitsedadosethree = etseddosethree.getText().toString() + " " + unitsedadosethree;
+
+                }
+                 if(etseddosefour.getText().toString().trim().isEmpty())
+                {
+                    unitsedadosefour ="";
+
+                }
+                else
+                {
+                    unitsedadosefour = etseddosefour.getText().toString() + " " + unitsedadosefour;
+
+                }if(etseddosefive.getText().toString().trim().isEmpty())
+                {
+                    unitsedadosefive ="";
+
+                }
+                else
+                {
+                    unitsedadosefive = etseddosefive.getText().toString() + " " + unitsedadosefive;
+
+                }
+
+
+
+                Log.d("AGENTS", "Agetone " + sagentone + "\n" +
+                        "Agettwo " + sagettwo + "\n" +
+                        "Agetthree " + sagentthree + "\n" +
+                        "Agetfour " + sagentfour + "\n" +
+                        "Agetfive " + sagetfive + "\n" +
+                        "Agetdoseone " + ssedagentone + "\n" +
+                        "Agetdosetwo " + ssedagettwo + "\n" +
+                        "Agetdosethree " + ssedagentthree + "\n" +
+                        "Agetdosefour " + ssedagentfour + "\n" +
+                        "Agetdosefive " + ssedagetfive + "\n" +
+                        "doseunittone " + unitdoseone + "\n" +
+                        "doseunitttwo " + unitdosetwo + "\n" +
+                        "doseunitthree " + unitdosethree + "\n" +
+                        "doseunitfour " + unitdosefour + "\n" +
+                        "doseunitfive " + unitdosefive + "\n");
+
 
                 llagents.setVisibility(View.GONE);
                 llInvestigation.setVisibility(View.VISIBLE);
@@ -1264,6 +1861,11 @@ public class PatientForm extends BaseActivity {
         etpco2 = findViewById(R.id.et_pco2);
         ethco3 = findViewById(R.id.et_hco3);
         etbf = findViewById(R.id.et_bf);
+        etabglac = findViewById(R.id.et_abg);
+        etsao2 = findViewById(R.id.et_sao2);
+        etspo2bg = findViewById(R.id.et_spso2);
+
+
         etrefphonenumber = findViewById(R.id.et_refdoctelephone);
         etrefphonenumber.setText(userPreferences.getKeyUserMob());
         erefddesignation = findViewById(R.id.et_refdocdesignation);
@@ -1278,6 +1880,9 @@ public class PatientForm extends BaseActivity {
         etpco2.setTypeface(Helper.getSharedHelper().getNormalFont());
         ethco3.setTypeface(Helper.getSharedHelper().getNormalFont());
         etbf.setTypeface(Helper.getSharedHelper().getNormalFont());
+        etabglac.setTypeface(Helper.getSharedHelper().getNormalFont());
+        etsao2.setTypeface(Helper.getSharedHelper().getNormalFont());
+        etspo2bg.setTypeface(Helper.getSharedHelper().getNormalFont());
 
         radiodialysisGroup = (RadioGroup) findViewById(R.id.radiodialysis);
         radiodialysisGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -1292,6 +1897,119 @@ public class PatientForm extends BaseActivity {
             }
         });
 
+        rbpronposing = (RadioGroup) findViewById(R.id.rbprone);
+        rbpronposingimp = (RadioGroup) findViewById(R.id.rbproneimp);
+        rbniticacid = (RadioGroup) findViewById(R.id.rbniticacid);
+        rbniticacidimp = (RadioGroup) findViewById(R.id.rbniticacidimp);
+        rbplasmaphersis = (RadioGroup) findViewById(R.id.rbplasmaphersis);
+        rbplasmaphersisimp = (RadioGroup) findViewById(R.id.rbplasmaphersisimp);
+        rbtherapuethyp = (RadioGroup) findViewById(R.id.rbtheraphy);
+        rbtherapuethypimp = (RadioGroup) findViewById(R.id.rbtheraphyimp);
+        rbothers = (EditText) findViewById(R.id.rbothers);
+        rbothersimp = (RadioGroup) findViewById(R.id.rbothersimp);
+
+        rbpronposing.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @SuppressLint("ResourceType")
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                RadioButton rb = (RadioButton) group.findViewById(checkedId);
+                if (null != rb && checkedId > -1) {
+                    spronposing = rb.getText().toString();
+                }
+
+            }
+        });
+        rbpronposingimp.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @SuppressLint("ResourceType")
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                RadioButton rb = (RadioButton) group.findViewById(checkedId);
+                if (null != rb && checkedId > -1) {
+                    spronposingimp = rb.getText().toString();
+                }
+
+            }
+        });
+        rbniticacid.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @SuppressLint("ResourceType")
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                RadioButton rb = (RadioButton) group.findViewById(checkedId);
+                if (null != rb && checkedId > -1) {
+                    sniticacid = rb.getText().toString();
+                }
+
+            }
+        });
+        rbniticacidimp.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @SuppressLint("ResourceType")
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                RadioButton rb = (RadioButton) group.findViewById(checkedId);
+                if (null != rb && checkedId > -1) {
+                    sniticacidimp = rb.getText().toString();
+                }
+
+            }
+        });
+        rbplasmaphersis.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @SuppressLint("ResourceType")
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                RadioButton rb = (RadioButton) group.findViewById(checkedId);
+                if (null != rb && checkedId > -1) {
+                    splasmaphersis = rb.getText().toString();
+                }
+
+            }
+        });
+        rbplasmaphersisimp.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @SuppressLint("ResourceType")
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                RadioButton rb = (RadioButton) group.findViewById(checkedId);
+                if (null != rb && checkedId > -1) {
+                    splasmaphersisimp = rb.getText().toString();
+                }
+
+            }
+        });
+        rbtherapuethyp.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @SuppressLint("ResourceType")
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                RadioButton rb = (RadioButton) group.findViewById(checkedId);
+                if (null != rb && checkedId > -1) {
+                    stherapuethyp = rb.getText().toString();
+                }
+
+            }
+        });
+        rbtherapuethypimp.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @SuppressLint("ResourceType")
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                RadioButton rb = (RadioButton) group.findViewById(checkedId);
+                if (null != rb && checkedId > -1) {
+                    stherapuethypimp = rb.getText().toString();
+                }
+
+            }
+        });
+
+
+
+        rbothersimp.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @SuppressLint("ResourceType")
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                RadioButton rb = (RadioButton) group.findViewById(checkedId);
+                if (null != rb && checkedId > -1) {
+                    sothersimp = rb.getText().toString();
+                }
+
+            }
+        });
 
         fabscreensixnext = (FloatingActionButton) findViewById(R.id.fag_investigation_next);
         fabscreensixnext.setOnClickListener(new View.OnClickListener() {
@@ -1326,6 +2044,9 @@ public class PatientForm extends BaseActivity {
                         resend = "0";
                     }
 
+
+
+
                     final PatientFormRequest patientFormRequest = new PatientFormRequest(
                             mdatahospital,
                             mdataSpeciallity,
@@ -1345,7 +2066,7 @@ public class PatientForm extends BaseActivity {
                             mdatagcsv,
                             mdatagcsM,
                             mtvtotoalgcs.getText().toString(),
-                            etventdays.getText().toString(),
+                            sdays,
                             etspo2.getText().toString(),
                             etpo2.getText().toString(),
                             sfio2,
@@ -1363,20 +2084,24 @@ public class PatientForm extends BaseActivity {
                             etco.getText().toString(),
                             scardiac,
                             slvef,
-                            etagentone.getText().toString(),
-                            etdoseone.getText().toString(),
-                            etagettwo.getText().toString(),
-                            etdosetwo.getText().toString(),
-                            wtagentthree.getText().toString(),
-                            etdosethree.getText().toString(),
-                            etsedagentone.getText().toString(),
-                            etseddoseone.getText().toString(),
-                            etsedagettwo.getText().toString(),
-                            etseddosetwo.getText().toString(),
-                            wtsedagentthree.getText().toString(),
-                            etseddosethree.getText().toString(),
-                            etmuscelagent.getText().toString(),
-                            etmuscledose.getText().toString(),
+                            sagentone,
+                            unitdoseone,
+                            sagettwo,
+                            unitdosetwo,
+                            sagentthree,
+                            unitdosethree,
+                            sagentfour,
+                            unitdosefour,
+                            ssedagentone,
+                            unitsedadoseone,
+                            ssedagettwo,
+                            unitsedadosetwo,
+                            ssedagentthree,
+                            unitsedadosethree,
+                            ssedagentfour,
+                            unitsedadosefour,
+                            "",
+                            "",
                             eturea.getText().toString(),
                             etcr.getText().toString(),
                             etlactate.getText().toString(),
@@ -1394,7 +2119,20 @@ public class PatientForm extends BaseActivity {
                             userPreferences.getSession(),
                             metage.getText().toString().trim(),
                             resend,
-                            etmurrayscore.getText().toString()
+                            etmurrayscore.getText().toString(),
+                            spronposing,
+                            spronposingimp,
+                            sniticacid,
+                            sniticacidimp,
+                            splasmaphersis,
+                            splasmaphersisimp,
+                            stherapuethyp,
+                            stherapuethypimp,
+                            rbothers.getText().toString(),
+                            sothersimp,
+                            etabglac.getText().toString(),
+                            etsao2.getText().toString(),
+                            etspo2bg.getText().toString()
                     );
 
                     Submitalert(patientFormRequest);
@@ -1633,7 +2371,6 @@ public class PatientForm extends BaseActivity {
 
         //Ventilation
 
-        etventdays.setText(formdata.getDurOfConventianalMechanicalVentination());
         etspo2.setText(formdata.getSpO2());
         etpo2.setText(formdata.getPO2());
         ettv.setText(formdata.getTv());
@@ -1645,6 +2382,7 @@ public class PatientForm extends BaseActivity {
         spinnerlungcompliance.setText(formdata.getLungCompliance());
         spinnercxr.setSelection(getspinnerIndexvalue(spinnercxr, formdata.getCxrquadrants()));
         etfio2.setSelection(getspinnerIndexvalue(etfio2, formdata.getFiO2()));
+        etventdays.setSelection(getspinnerIndexvalue(etventdays, formdata.getDurOfConventianalMechanicalVentination()));
 
         //cardiovascular
 
@@ -1663,7 +2401,9 @@ public class PatientForm extends BaseActivity {
         spinnerlvef.setText(formdata.getLeftventricularejectionfraction());
 
         //agents
-        etagentone.setText(formdata.getInotropesagent1());
+        etagentone.setSelection(getspinnerIndexvalue(etagentone, formdata.getInotropesagent1()));
+
+       /* etagentone.setText(formdata.getInotropesagent1());
         etagettwo.setText(formdata.getInotropesagent2());
         wtagentthree.setText(formdata.getInotropesagent3());
         etdoseone.setText(formdata.getInotropesdose1());
@@ -1675,10 +2415,7 @@ public class PatientForm extends BaseActivity {
         wtsedagentthree.setText(formdata.getSedationagent3());
         etseddoseone.setText(formdata.getSedationdose1());
         etseddosetwo.setText(formdata.getSedationdose2());
-        etseddosethree.setText(formdata.getSedationdose3());
-
-        etmuscelagent.setText(formdata.getMusclerelaxantsagent1());
-        etmuscledose.setText(formdata.getMusclerelaxantsdose1());
+        etseddosethree.setText(formdata.getSedationdose3());*/
 
         //investigation
 
@@ -2058,17 +2795,13 @@ public class PatientForm extends BaseActivity {
     }
 
 
-    public void murryscore()
-    {
-        if(spinnerpafio2.getText().toString().isEmpty()||spinnerpeep.getText().toString().isEmpty()||spinnerlungcompliance.getText().toString().isEmpty()||scrx.isEmpty())
-        {
-            Log.d("score caluation","pending");
-        }
-        else
-        {
-            double score =scorepao2fio2+scorecxr+scorepeep+scorelung;
-            score = score*0.250;
-            etmurrayscore.setText(score+"");
+    public void murryscore() {
+        if (spinnerpafio2.getText().toString().isEmpty() || spinnerpeep.getText().toString().isEmpty() || spinnerlungcompliance.getText().toString().isEmpty() || scrx.isEmpty()) {
+            Log.d("score caluation", "pending");
+        } else {
+            double score = scorepao2fio2 + scorecxr + scorepeep + scorelung;
+            score = score * 0.250;
+            etmurrayscore.setText(score + "");
         }
 
 

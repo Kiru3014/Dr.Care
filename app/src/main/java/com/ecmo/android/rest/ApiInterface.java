@@ -1,5 +1,6 @@
 package com.ecmo.android.rest;
 
+import com.ecmo.android.model.request.AgentsReq;
 import com.ecmo.android.model.request.ChangepasswordRequest;
 import com.ecmo.android.model.request.CommonRequest;
 import com.ecmo.android.model.request.DrApproveRejectRequest;
@@ -136,6 +137,14 @@ public interface ApiInterface
     @Multipart
     @POST("SavePatientFile")
     Call<CommonResponse> postFile(@Part MultipartBody.Part file, @Part("guid") RequestBody guid, @Part("filetype") RequestBody filetype, @Part("docid") RequestBody docid);
+
+
+    @POST("GetCommonDropdownList")
+    @Headers({
+            "Accept: application/json",
+            "Content-Type: application/json"
+    })
+    Call<HospitalList> getallInotrop(@Body AgentsReq hospreq);
 
 
 }
