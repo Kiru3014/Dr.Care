@@ -136,11 +136,8 @@ public class ViewReferalForm extends BaseActivity {
             if(pat_data.getStatus().equalsIgnoreCase("Reject")|| pat_data.getStatus().equalsIgnoreCase("4")
                     || pat_data.getStatus().equalsIgnoreCase("Hold")|| pat_data.getStatus().equalsIgnoreCase("2"))
             {
-                if(mresend.equalsIgnoreCase("1"))
-                {
-                    resend.setVisibility(View.VISIBLE);
-                }
 
+                    resend.setVisibility(View.VISIBLE);
             }
         }
         else if(userPreferences.getDocType().equalsIgnoreCase("1") &&( pat_data.getStatus().equalsIgnoreCase("New")|| pat_data.getStatus().equalsIgnoreCase("0")
@@ -299,26 +296,70 @@ public class ViewReferalForm extends BaseActivity {
         mtvothers= findViewById(R.id.tvothers);
         mtvothersimp= findViewById(R.id.tvothersimp);
 
-        magentone.setText(pat_data.getInotropesagent1());
-        magenttwo.setText(pat_data.getInotropesagent2());
-        magentthree.setText(pat_data.getInotropesagent3());
-        magentfour.setText(pat_data.getInotropesagent4());
+        if(pat_data.getInotropesagent1().equalsIgnoreCase("Others"))
+            magentone.setText(pat_data.getInotropesAgent1Others());
+        else
+            magentone.setText(pat_data.getInotropesagent1());
 
-        msagentone.setText(pat_data.getSedationagent1());
-        msagentwo.setText(pat_data.getSedationagent2());
-        msagentthree.setText(pat_data.getSedationagent3());
-        msagentfour.setText(pat_data.getSedationagent4());
+        if(pat_data.getInotropesagent2().equalsIgnoreCase("others"))
+            magenttwo.setText(pat_data.getInotropesAgent2Others());
+        else
+            magenttwo.setText(pat_data.getInotropesagent2());
+
+        if(pat_data.getInotropesagent3().equalsIgnoreCase("others"))
+            magentthree.setText(pat_data.getInotropesAgent3Others());
+        else
+            magentthree.setText(pat_data.getInotropesagent3());
+
+        if(pat_data.getInotropesagent4().equalsIgnoreCase("others"))
+            magentfour.setText(pat_data.getInotropesAgent4Others());
+        else
+            magentfour.setText(pat_data.getInotropesagent4());
+
+        if(pat_data.getInotropesagent5().equalsIgnoreCase("others"))
+            magentfive.setText(pat_data.getInotropesAgent5Others());
+        else
+            magentfive.setText(pat_data.getInotropesagent5());
+
+        if(pat_data.getSedationagent1().equalsIgnoreCase("others"))
+            msagentone.setText(pat_data.getSedationAgent1Others());
+        else
+            msagentone.setText(pat_data.getSedationagent1());
+
+        if(pat_data.getSedationagent2().equalsIgnoreCase("others"))
+            msagentwo.setText(pat_data.getSedationAgent2Others());
+        else
+            msagentwo.setText(pat_data.getSedationagent2());
+
+        if(pat_data.getSedationagent3().equalsIgnoreCase("others"))
+            msagentthree.setText(pat_data.getSedationAgent3Others());
+        else
+            msagentthree.setText(pat_data.getSedationagent3());
+
+        if(pat_data.getSedationagent4().equalsIgnoreCase("others"))
+            msagentfour.setText(pat_data.getSedationAgent4Others());
+        else
+            msagentfour.setText(pat_data.getSedationagent4());
+
+        if(pat_data.getSedationagent5().equalsIgnoreCase("others"))
+            msagentfive.setText(pat_data.getSedationAgent5Others());
+        else
+            msagentfive.setText(pat_data.getSedationagent5());
 
 
-        mdoseone.setText(pat_data.getInotropesdose1());
-        mdosetwo.setText(pat_data.getInotropesdose2());
-        mdosethree.setText(pat_data.getInotropesdose3());
-        mdosefour.setText(pat_data.getInotropesdose4());
 
-        msdoseone.setText(pat_data.getSedationdose1());
-        msdosewo.setText(pat_data.getSedationdose2());
-        msdosethree.setText(pat_data.getSedationdose3());
-        msdosefour.setText(pat_data.getSedationdose4());
+
+        mdoseone.setText(pat_data.getInotropesDose1Value() +" "+pat_data.getInotropesdose1());
+        mdosetwo.setText(pat_data.getInotropesDose2Value() +" "+pat_data.getInotropesdose2());
+        mdosethree.setText(pat_data.getInotropesDose3Value() +" "+pat_data.getInotropesdose3());
+        mdosefour.setText(pat_data.getInotropesDose4Value() +" "+pat_data.getInotropesdose4());
+        mdosefive.setText(pat_data.getInotropesDose5Value() +" "+pat_data.getInotropesdose5());
+
+        msdoseone.setText(pat_data.getSedationDose1Value()+" "+pat_data.getSedationdose1());
+        msdosewo.setText(pat_data.getSedationDose2Value()+" "+pat_data.getSedationdose2());
+        msdosethree.setText(pat_data.getSedationDose3Value()+" "+pat_data.getSedationdose3());
+        msdosefour.setText(pat_data.getSedationDose4Value()+" "+pat_data.getSedationdose4());
+        msdosefive.setText(pat_data.getSedationDose5Value()+" "+pat_data.getSedationdose5());
 
         mtvprone.setText(pat_data.getPronePositioning());
         mtvproneimp.setText(pat_data.getPronePositioningImprov());
@@ -328,7 +369,7 @@ public class ViewReferalForm extends BaseActivity {
         mtvplasmapimp.setText(pat_data.getPronePositioningImprov());
         mtvteraphyp.setText(pat_data.getTherapueticHypothermia());
         mtvteraphypimp.setText(pat_data.getTherapueticHypothermiaImprov());
-        mtvothers.setText(pat_data.getOthers());
+        mtvothers.setText(pat_data.getImprovothers());
         mtvothersimp.setText(pat_data.getOthersImprov());
     }
 

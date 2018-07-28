@@ -240,25 +240,68 @@ public class FormPreviewActivity extends BaseActivity {
         mtvothers= findViewById(R.id.tvothers);
         mtvothersimp= findViewById(R.id.tvothersimp);
 
-        magentone.setText(dene.getInotropesagent1());
-        magenttwo.setText(dene.getInotropesagent2());
-        magentthree.setText(dene.getInotropesagent3());
-        magentfour.setText(dene.getInotropesagent4());
+          if(dene.getInotropesagent1().equalsIgnoreCase("Others"))
+            magentone.setText(dene.getInotropesAgent1Others());
+        else
+            magentone.setText(dene.getInotropesagent1());
 
-        msagentone.setText(dene.getSedationagent1());
-        msagentwo.setText(dene.getSedationagent2());
-        msagentthree.setText(dene.getSedationagent3());
-        msagentfour.setText(dene.getSedationagent4());
+        if(dene.getInotropesagent2().equalsIgnoreCase("others"))
+            magenttwo.setText(dene.getInotropesAgent2Others());
+        else
+            magenttwo.setText(dene.getInotropesagent2());
 
-        mdoseone.setText(dene.getInotropesdose1());
-        mdosetwo.setText(dene.getInotropesdose2());
-        mdosethree.setText(dene.getInotropesdose3());
-        mdosefour.setText(dene.getInotropesdose4());
+        if(dene.getInotropesagent3().equalsIgnoreCase("others"))
+            magentthree.setText(dene.getInotropesAgent3Others());
+        else
+            magentthree.setText(dene.getInotropesagent3());
 
-        msdoseone.setText(dene.getSedationdose1());
-        msdosewo.setText(dene.getSedationdose2());
-        msdosethree.setText(dene.getSedationdose3());
-        msdosefour.setText(dene.getSedationdose4());
+        if(dene.getInotropesagent4().equalsIgnoreCase("others"))
+            magentfour.setText(dene.getInotropesAgent4Others());
+        else
+            magentfour.setText(dene.getInotropesagent4());
+
+        if(dene.getInotropesagent5().equalsIgnoreCase("others"))
+            magentfive.setText(dene.getInotropesAgent5Others());
+        else
+            magentfive.setText(dene.getInotropesagent5());
+        
+
+        mdoseone.setText(dene.getInotropesDose1Value() +""+ dene.getInotropesdose1());
+        mdosetwo.setText(dene.getInotropesDose2Value() +""+dene.getInotropesdose2());
+        mdosethree.setText(dene.getInotropesDose3Value() +""+dene.getInotropesdose3());
+        mdosefour.setText(dene.getInotropesDose4Value() +""+dene.getInotropesdose4());
+        mdosefive.setText(dene.getInotropesDose5Value() +""+dene.getInotropesdose5());
+
+        if(dene.getSedationagent1().equalsIgnoreCase("others"))
+            msagentone.setText(dene.getSedationAgent1Others());
+        else
+            msagentone.setText(dene.getSedationagent1());
+
+        if(dene.getSedationagent2().equalsIgnoreCase("others"))
+            msagentwo.setText(dene.getSedationAgent2Others());
+        else
+            msagentwo.setText(dene.getSedationagent2());
+
+        if(dene.getSedationagent3().equalsIgnoreCase("others"))
+            msagentthree.setText(dene.getSedationAgent3Others());
+        else
+            msagentthree.setText(dene.getSedationagent3());
+
+        if(dene.getSedationagent4().equalsIgnoreCase("others"))
+            msagentfour.setText(dene.getSedationAgent4Others());
+        else
+            msagentfour.setText(dene.getSedationagent4());
+
+        if(dene.getSedationagent5().equalsIgnoreCase("others"))
+            msagentfive.setText(dene.getSedationAgent5Others());
+        else
+            msagentfive.setText(dene.getSedationagent5());
+
+        msdoseone.setText(dene.getSedationDose1Value()+" "+dene.getSedationdose1());
+        msdosewo.setText(dene.getSedationDose2Value()+" "+dene.getSedationdose2());
+        msdosethree.setText(dene.getSedationDose3Value()+" "+dene.getSedationdose3());
+        msdosefour.setText(dene.getSedationDose4Value()+" "+dene.getSedationdose4());
+        msdosefive.setText(dene.getSedationDose5Value()+" "+dene.getSedationdose5());
 
         mtvprone.setText(dene.getPronePositioning());
         mtvproneimp.setText(dene.getPronePositioningImprov());
@@ -268,7 +311,7 @@ public class FormPreviewActivity extends BaseActivity {
         mtvplasmapimp.setText(dene.getPronePositioningImprov());
         mtvteraphyp.setText(dene.getTherapueticHypothermia());
         mtvteraphypimp.setText(dene.getTherapueticHypothermiaImprov());
-        mtvothers.setText(dene.getOthers());
+        mtvothers.setText(dene.getImprovothers());
         mtvothersimp.setText(dene.getOthersImprov());
 
     }

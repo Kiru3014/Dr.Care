@@ -297,7 +297,82 @@ public class referalformResponse implements Serializable {
     @SerializedName("bg_spo2")
     @Expose
     private String bgSpo2;
+    @SerializedName("Inotropes_dose_1_value")
+    @Expose
+    private String inotropesDose1Value;
+    @SerializedName("Inotropes_dose_2_value")
+    @Expose
+    private String inotropesDose2Value;
+    @SerializedName("Inotropes_dose_3_value")
+    @Expose
+    private String inotropesDose3Value;
+    @SerializedName("Inotropes_dose_4_value")
+    @Expose
+    private String inotropesDose4Value;
+    @SerializedName("Inotropes_dose_5_value")
+    @Expose
+    private String inotropesDose5Value;
+    @SerializedName("Sedation_dose_1_value")
+    @Expose
+    private String sedationDose1Value;
+    @SerializedName("Sedation_dose_2_value")
+    @Expose
+    private String sedationDose2Value;
+    @SerializedName("Sedation_dose_3_value")
+    @Expose
+    private String sedationDose3Value;
+    @SerializedName("Sedation_dose_4_value")
+    @Expose
+    private String sedationDose4Value;
+    @SerializedName("Sedation_dose_5_value")
+    @Expose
+    private String sedationDose5Value;
+    @SerializedName("Inotropes_agent_1_others")
+    @Expose
+    private String inotropesAgent1Others;
+    @SerializedName("Inotropes_agent_2_others")
+    @Expose
+    private String inotropesAgent2Others;
+    @SerializedName("Inotropes_agent_3_others")
+    @Expose
+    private String inotropesAgent3Others;
+    @SerializedName("Inotropes_agent_4_others")
+    @Expose
+    private String inotropesAgent4Others;
+    @SerializedName("Inotropes_agent_5_others")
+    @Expose
+    private String inotropesAgent5Others;
+    @SerializedName("Sedation_agent_1_others")
+    @Expose
+    private String sedationAgent1Others;
+    @SerializedName("Sedation_agent_2_others")
+    @Expose
+    private String sedationAgent2Others;
+    @SerializedName("Sedation_agent_3_others")
+    @Expose
+    private String sedationAgent3Others;
+    @SerializedName("Sedation_agent_4_others")
+    @Expose
+    private String sedationAgent4Others;
+    @SerializedName("Sedation_agent_5_others")
+    @Expose
+    private String sedationAgent5Others;
+    @SerializedName("improvothers")
+    @Expose
+    private String improvothers;
 
+    @SerializedName("Sedationagent5")
+    @Expose
+    private String sedationagent5;
+    @SerializedName("Sedationdose5")
+    @Expose
+    private String sedationdose5;
+    @SerializedName("Inotropesagent5")
+    @Expose
+    private String inotropesagent5;
+    @SerializedName("Inotropesdose5")
+    @Expose
+    private String inotropesdose5;
 
 
     public String getComment() {
@@ -1119,5 +1194,205 @@ public class referalformResponse implements Serializable {
 
     public void setBgSpo2(String bgSpo2) {
         this.bgSpo2 = bgSpo2;
+    }
+
+    public String getInotropesDose1Value() {
+        return inotropesDose1Value;
+    }
+
+    public void setInotropesDose1Value(String inotropesDose1Value) {
+        this.inotropesDose1Value = inotropesDose1Value;
+    }
+
+    public String getInotropesDose2Value() {
+        return inotropesDose2Value;
+    }
+
+    public void setInotropesDose2Value(String inotropesDose2Value) {
+        this.inotropesDose2Value = inotropesDose2Value;
+    }
+
+    public String getInotropesDose3Value() {
+        return inotropesDose3Value;
+    }
+
+    public void setInotropesDose3Value(String inotropesDose3Value) {
+        this.inotropesDose3Value = inotropesDose3Value;
+    }
+
+    public String getInotropesDose4Value() {
+        return inotropesDose4Value;
+    }
+
+    public void setInotropesDose4Value(String inotropesDose4Value) {
+        this.inotropesDose4Value = inotropesDose4Value;
+    }
+
+    public String getInotropesDose5Value() {
+        return inotropesDose5Value;
+    }
+
+    public void setInotropesDose5Value(String inotropesDose5Value) {
+        this.inotropesDose5Value = inotropesDose5Value;
+    }
+
+    public String getSedationDose1Value() {
+        return sedationDose1Value;
+    }
+
+    public void setSedationDose1Value(String sedationDose1Value) {
+        this.sedationDose1Value = sedationDose1Value;
+    }
+
+    public String getSedationDose2Value() {
+        return sedationDose2Value;
+    }
+
+    public void setSedationDose2Value(String sedationDose2Value) {
+        this.sedationDose2Value = sedationDose2Value;
+    }
+
+    public String getSedationDose3Value() {
+        return sedationDose3Value;
+    }
+
+    public void setSedationDose3Value(String sedationDose3Value) {
+        this.sedationDose3Value = sedationDose3Value;
+    }
+
+    public String getSedationDose4Value() {
+        return sedationDose4Value;
+    }
+
+    public void setSedationDose4Value(String sedationDose4Value) {
+        this.sedationDose4Value = sedationDose4Value;
+    }
+
+    public String getSedationDose5Value() {
+        return sedationDose5Value;
+    }
+
+    public void setSedationDose5Value(String sedationDose5Value) {
+        this.sedationDose5Value = sedationDose5Value;
+    }
+
+    public String getInotropesAgent1Others() {
+        return inotropesAgent1Others;
+    }
+
+    public void setInotropesAgent1Others(String inotropesAgent1Others) {
+        this.inotropesAgent1Others = inotropesAgent1Others;
+    }
+
+    public String getInotropesAgent2Others() {
+        return inotropesAgent2Others;
+    }
+
+    public void setInotropesAgent2Others(String inotropesAgent2Others) {
+        this.inotropesAgent2Others = inotropesAgent2Others;
+    }
+
+    public String getInotropesAgent3Others() {
+        return inotropesAgent3Others;
+    }
+
+    public void setInotropesAgent3Others(String inotropesAgent3Others) {
+        this.inotropesAgent3Others = inotropesAgent3Others;
+    }
+
+    public String getInotropesAgent4Others() {
+        return inotropesAgent4Others;
+    }
+
+    public void setInotropesAgent4Others(String inotropesAgent4Others) {
+        this.inotropesAgent4Others = inotropesAgent4Others;
+    }
+
+    public String getInotropesAgent5Others() {
+        return inotropesAgent5Others;
+    }
+
+    public void setInotropesAgent5Others(String inotropesAgent5Others) {
+        this.inotropesAgent5Others = inotropesAgent5Others;
+    }
+
+    public String getSedationAgent1Others() {
+        return sedationAgent1Others;
+    }
+
+    public void setSedationAgent1Others(String sedationAgent1Others) {
+        this.sedationAgent1Others = sedationAgent1Others;
+    }
+
+    public String getSedationAgent2Others() {
+        return sedationAgent2Others;
+    }
+
+    public void setSedationAgent2Others(String sedationAgent2Others) {
+        this.sedationAgent2Others = sedationAgent2Others;
+    }
+
+    public String getSedationAgent3Others() {
+        return sedationAgent3Others;
+    }
+
+    public void setSedationAgent3Others(String sedationAgent3Others) {
+        this.sedationAgent3Others = sedationAgent3Others;
+    }
+
+    public String getSedationAgent4Others() {
+        return sedationAgent4Others;
+    }
+
+    public void setSedationAgent4Others(String sedationAgent4Others) {
+        this.sedationAgent4Others = sedationAgent4Others;
+    }
+
+    public String getSedationAgent5Others() {
+        return sedationAgent5Others;
+    }
+
+    public void setSedationAgent5Others(String sedationAgent5Others) {
+        this.sedationAgent5Others = sedationAgent5Others;
+    }
+
+    public String getImprovothers() {
+        return improvothers;
+    }
+
+    public void setImprovothers(String improvothers) {
+        this.improvothers = improvothers;
+    }
+
+    public String getSedationagent5() {
+        return sedationagent5;
+    }
+
+    public void setSedationagent5(String sedationagent5) {
+        this.sedationagent5 = sedationagent5;
+    }
+
+    public String getSedationdose5() {
+        return sedationdose5;
+    }
+
+    public void setSedationdose5(String sedationdose5) {
+        this.sedationdose5 = sedationdose5;
+    }
+
+    public String getInotropesagent5() {
+        return inotropesagent5;
+    }
+
+    public void setInotropesagent5(String inotropesagent5) {
+        this.inotropesagent5 = inotropesagent5;
+    }
+
+    public String getInotropesdose5() {
+        return inotropesdose5;
+    }
+
+    public void setInotropesdose5(String inotropesdose5) {
+        this.inotropesdose5 = inotropesdose5;
     }
 }

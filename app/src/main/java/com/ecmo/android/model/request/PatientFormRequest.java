@@ -5,8 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
-public class PatientFormRequest implements Serializable
-{
+public class PatientFormRequest implements Serializable {
     @SerializedName("referHospitalId")
     @Expose
     private String referHospitalId;
@@ -139,6 +138,12 @@ public class PatientFormRequest implements Serializable
     @SerializedName("Inotropesdose4")
     @Expose
     private String inotropesdose4;
+    @SerializedName("Inotropesagent5")
+    @Expose
+    private String inotropesagent5;
+    @SerializedName("Inotropesdose5")
+    @Expose
+    private String inotropesdose5;
     @SerializedName("Sedationagent1")
     @Expose
     private String sedationagent1;
@@ -163,6 +168,12 @@ public class PatientFormRequest implements Serializable
     @SerializedName("Sedationdose4")
     @Expose
     private String sedationdose4;
+    @SerializedName("Sedationagent5")
+    @Expose
+    private String sedationagent5;
+    @SerializedName("Sedationdose5")
+    @Expose
+    private String sedationdose5;
     @SerializedName("musclerelaxantsagent1")
     @Expose
     private String musclerelaxantsagent1;
@@ -262,10 +273,73 @@ public class PatientFormRequest implements Serializable
     @SerializedName("bg_spo2")
     @Expose
     private String bgSpo2;
+    @SerializedName("Inotropes_dose_1_value")
+    @Expose
+    private String inotropesDose1Value;
+    @SerializedName("Inotropes_dose_2_value")
+    @Expose
+    private String inotropesDose2Value;
+    @SerializedName("Inotropes_dose_3_value")
+    @Expose
+    private String inotropesDose3Value;
+    @SerializedName("Inotropes_dose_4_value")
+    @Expose
+    private String inotropesDose4Value;
+    @SerializedName("Inotropes_dose_5_value")
+    @Expose
+    private String inotropesDose5Value;
+    @SerializedName("Sedation_dose_1_value")
+    @Expose
+    private String sedationDose1Value;
+    @SerializedName("Sedation_dose_2_value")
+    @Expose
+    private String sedationDose2Value;
+    @SerializedName("Sedation_dose_3_value")
+    @Expose
+    private String sedationDose3Value;
+    @SerializedName("Sedation_dose_4_value")
+    @Expose
+    private String sedationDose4Value;
+    @SerializedName("Sedation_dose_5_value")
+    @Expose
+    private String sedationDose5Value;
+    @SerializedName("Inotropes_agent_1_others")
+    @Expose
+    private String inotropesAgent1Others;
+    @SerializedName("Inotropes_agent_2_others")
+    @Expose
+    private String inotropesAgent2Others;
+    @SerializedName("Inotropes_agent_3_others")
+    @Expose
+    private String inotropesAgent3Others;
+    @SerializedName("Inotropes_agent_4_others")
+    @Expose
+    private String inotropesAgent4Others;
+    @SerializedName("Inotropes_agent_5_others")
+    @Expose
+    private String inotropesAgent5Others;
+    @SerializedName("Sedation_agent_1_others")
+    @Expose
+    private String sedationAgent1Others;
+    @SerializedName("Sedation_agent_2_others")
+    @Expose
+    private String sedationAgent2Others;
+    @SerializedName("Sedation_agent_3_others")
+    @Expose
+    private String sedationAgent3Others;
+    @SerializedName("Sedation_agent_4_others")
+    @Expose
+    private String sedationAgent4Others;
+    @SerializedName("Sedation_agent_5_others")
+    @Expose
+    private String sedationAgent5Others;
+    @SerializedName("improvothers")
+    @Expose
+    private String improvothers;
 
 
-    public PatientFormRequest(String referHospitalId, String speciallistId, String docId, String referConsulutantName, String admissionDiagnosis, String patientName, String civilId, String gender, String unit, String ward, String bed, String fileNo, String preMorbFunctionalStatus, String preMorbFunctionalConsciousStatus, String e, String v, String m, String totalscore, String durOfConventianalMechanicalVentination, String spO2, String pO2, String fiO2, String pao2fio2ratio, String pip, String peep, String tv, String rr, String lungCompliance, String cxrquadrants, String hr, String bp, String cvp, String temp, String co, String cardiacindex, String leftventricularejectionfraction, String inotropesagent1, String inotropesdose1, String inotropesagent2, String inotropesdose2, String inotropesagent3, String inotropesdose3, String inotropesagent4, String inotropesdose4, String sedationagent1, String sedationdose1, String sedationagent2, String sedationdose2, String sedationagent3, String sedationdose3, String sedationagent4, String sedationdose4, String musclerelaxantsagent1, String musclerelaxantsdose1, String urea, String cr, String lactate, String uo, String dialysis, String bloodgasPH, String bloodgasPO2, String bloodgasPCO2, String bloodgasHCO3, String bloodgasBE, String refdocdesignation, String refdoctelephone, String history, String transactiontype, String sessid, String age, String mresend, String murrayscore,String pronePositioning, String pronePositioningImprov, String nitricAcid, String nitricAcidImprov, String plasmaphersis, String plasmaphersisImprov, String therapueticHypothermia, String therapueticHypothermiaImprov, String others, String othersImprov, String abgLactate, String bgSao2, String bgSpo2)
-    {
+
+    public PatientFormRequest(String referHospitalId, String speciallistId, String docId, String referConsulutantName, String admissionDiagnosis, String patientName, String civilId, String gender, String unit, String ward, String bed, String fileNo, String preMorbFunctionalStatus, String preMorbFunctionalConsciousStatus, String e, String v, String m, String totalscore, String durOfConventianalMechanicalVentination, String spO2, String pO2, String fiO2, String pao2fio2ratio, String pip, String peep, String tv, String rr, String lungCompliance, String cxrquadrants, String hr, String bp, String cvp, String temp, String co, String cardiacindex, String leftventricularejectionfraction, String inotropesagent1, String inotropesdose1, String inotropesagent2, String inotropesdose2, String inotropesagent3, String inotropesdose3, String inotropesagent4, String inotropesdose4, String inotropesagent5, String inotropesdose5, String sedationagent1, String sedationdose1, String sedationagent2, String sedationdose2, String sedationagent3, String sedationdose3, String sedationagent4, String sedationdose4, String sedationagent5, String sedationdose5, String musclerelaxantsagent1, String musclerelaxantsdose1, String urea, String cr, String lactate, String uo, String dialysis, String bloodgasPH, String bloodgasPO2, String bloodgasPCO2, String bloodgasHCO3, String bloodgasBE, String refdocdesignation, String refdoctelephone, String history, String transactiontype, String sessid, String age, String mresend, String murrayscore, String pronePositioning, String pronePositioningImprov, String nitricAcid, String nitricAcidImprov, String plasmaphersis, String plasmaphersisImprov, String therapueticHypothermia, String therapueticHypothermiaImprov, String others, String othersImprov, String abgLactate, String bgSao2, String bgSpo2, String inotropesDose1Value, String inotropesDose2Value, String inotropesDose3Value, String inotropesDose4Value, String inotropesDose5Value, String sedationDose1Value, String sedationDose2Value, String sedationDose3Value, String sedationDose4Value, String sedationDose5Value, String inotropesAgent1Others, String inotropesAgent2Others, String inotropesAgent3Others, String inotropesAgent4Others, String inotropesAgent5Others, String sedationAgent1Others, String sedationAgent2Others, String sedationAgent3Others, String sedationAgent4Others, String sedationAgent5Others, String improvothers) {
         this.referHospitalId = referHospitalId;
         this.speciallistId = speciallistId;
         this.docId = docId;
@@ -310,6 +384,8 @@ public class PatientFormRequest implements Serializable
         this.inotropesdose3 = inotropesdose3;
         this.inotropesagent4 = inotropesagent4;
         this.inotropesdose4 = inotropesdose4;
+        this.inotropesagent5 = inotropesagent5;
+        this.inotropesdose5 = inotropesdose5;
         this.sedationagent1 = sedationagent1;
         this.sedationdose1 = sedationdose1;
         this.sedationagent2 = sedationagent2;
@@ -318,6 +394,8 @@ public class PatientFormRequest implements Serializable
         this.sedationdose3 = sedationdose3;
         this.sedationagent4 = sedationagent4;
         this.sedationdose4 = sedationdose4;
+        this.sedationagent5 = sedationagent5;
+        this.sedationdose5 = sedationdose5;
         this.musclerelaxantsagent1 = musclerelaxantsagent1;
         this.musclerelaxantsdose1 = musclerelaxantsdose1;
         this.urea = urea;
@@ -335,9 +413,9 @@ public class PatientFormRequest implements Serializable
         this.history = history;
         this.transactiontype = transactiontype;
         this.sessid = sessid;
-        this.age=age;
-        this.mResend=mresend;
-        this.murrayscore=murrayscore;
+        this.age = age;
+        this.mResend = mresend;
+        this.murrayscore = murrayscore;
         this.pronePositioning = pronePositioning;
         this.pronePositioningImprov = pronePositioningImprov;
         this.nitricAcid = nitricAcid;
@@ -351,6 +429,27 @@ public class PatientFormRequest implements Serializable
         this.abgLactate = abgLactate;
         this.bgSao2 = bgSao2;
         this.bgSpo2 = bgSpo2;
+        this.inotropesDose1Value = inotropesDose1Value;
+        this.inotropesDose2Value = inotropesDose2Value;
+        this.inotropesDose3Value = inotropesDose3Value;
+        this.inotropesDose4Value = inotropesDose4Value;
+        this.inotropesDose5Value = inotropesDose5Value;
+        this.sedationDose1Value = sedationDose1Value;
+        this.sedationDose2Value = sedationDose2Value;
+        this.sedationDose3Value = sedationDose3Value;
+        this.sedationDose4Value = sedationDose4Value;
+        this.sedationDose5Value = sedationDose5Value;
+        this.inotropesAgent1Others = inotropesAgent1Others;
+        this.inotropesAgent2Others = inotropesAgent2Others;
+        this.inotropesAgent3Others = inotropesAgent3Others;
+        this.inotropesAgent4Others = inotropesAgent4Others;
+        this.inotropesAgent5Others = inotropesAgent5Others;
+        this.sedationAgent1Others = sedationAgent1Others;
+        this.sedationAgent2Others = sedationAgent2Others;
+        this.sedationAgent3Others = sedationAgent3Others;
+        this.sedationAgent4Others = sedationAgent4Others;
+        this.sedationAgent5Others = sedationAgent5Others;
+        this.improvothers = improvothers;
     }
 
     public String getReferHospitalId() {
@@ -1031,5 +1130,205 @@ public class PatientFormRequest implements Serializable
 
     public void setBgSpo2(String bgSpo2) {
         this.bgSpo2 = bgSpo2;
+    }
+
+    public String getInotropesagent5() {
+        return inotropesagent5;
+    }
+
+    public void setInotropesagent5(String inotropesagent5) {
+        this.inotropesagent5 = inotropesagent5;
+    }
+
+    public String getInotropesdose5() {
+        return inotropesdose5;
+    }
+
+    public void setInotropesdose5(String inotropesdose5) {
+        this.inotropesdose5 = inotropesdose5;
+    }
+
+    public String getSedationagent5() {
+        return sedationagent5;
+    }
+
+    public void setSedationagent5(String sedationagent5) {
+        this.sedationagent5 = sedationagent5;
+    }
+
+    public String getSedationdose5() {
+        return sedationdose5;
+    }
+
+    public void setSedationdose5(String sedationdose5) {
+        this.sedationdose5 = sedationdose5;
+    }
+
+    public String getInotropesDose1Value() {
+        return inotropesDose1Value;
+    }
+
+    public void setInotropesDose1Value(String inotropesDose1Value) {
+        this.inotropesDose1Value = inotropesDose1Value;
+    }
+
+    public String getInotropesDose2Value() {
+        return inotropesDose2Value;
+    }
+
+    public void setInotropesDose2Value(String inotropesDose2Value) {
+        this.inotropesDose2Value = inotropesDose2Value;
+    }
+
+    public String getInotropesDose3Value() {
+        return inotropesDose3Value;
+    }
+
+    public void setInotropesDose3Value(String inotropesDose3Value) {
+        this.inotropesDose3Value = inotropesDose3Value;
+    }
+
+    public String getInotropesDose4Value() {
+        return inotropesDose4Value;
+    }
+
+    public void setInotropesDose4Value(String inotropesDose4Value) {
+        this.inotropesDose4Value = inotropesDose4Value;
+    }
+
+    public String getInotropesDose5Value() {
+        return inotropesDose5Value;
+    }
+
+    public void setInotropesDose5Value(String inotropesDose5Value) {
+        this.inotropesDose5Value = inotropesDose5Value;
+    }
+
+    public String getSedationDose1Value() {
+        return sedationDose1Value;
+    }
+
+    public void setSedationDose1Value(String sedationDose1Value) {
+        this.sedationDose1Value = sedationDose1Value;
+    }
+
+    public String getSedationDose2Value() {
+        return sedationDose2Value;
+    }
+
+    public void setSedationDose2Value(String sedationDose2Value) {
+        this.sedationDose2Value = sedationDose2Value;
+    }
+
+    public String getSedationDose3Value() {
+        return sedationDose3Value;
+    }
+
+    public void setSedationDose3Value(String sedationDose3Value) {
+        this.sedationDose3Value = sedationDose3Value;
+    }
+
+    public String getSedationDose4Value() {
+        return sedationDose4Value;
+    }
+
+    public void setSedationDose4Value(String sedationDose4Value) {
+        this.sedationDose4Value = sedationDose4Value;
+    }
+
+    public String getSedationDose5Value() {
+        return sedationDose5Value;
+    }
+
+    public void setSedationDose5Value(String sedationDose5Value) {
+        this.sedationDose5Value = sedationDose5Value;
+    }
+
+    public String getInotropesAgent1Others() {
+        return inotropesAgent1Others;
+    }
+
+    public void setInotropesAgent1Others(String inotropesAgent1Others) {
+        this.inotropesAgent1Others = inotropesAgent1Others;
+    }
+
+    public String getInotropesAgent2Others() {
+        return inotropesAgent2Others;
+    }
+
+    public void setInotropesAgent2Others(String inotropesAgent2Others) {
+        this.inotropesAgent2Others = inotropesAgent2Others;
+    }
+
+    public String getInotropesAgent3Others() {
+        return inotropesAgent3Others;
+    }
+
+    public void setInotropesAgent3Others(String inotropesAgent3Others) {
+        this.inotropesAgent3Others = inotropesAgent3Others;
+    }
+
+    public String getInotropesAgent4Others() {
+        return inotropesAgent4Others;
+    }
+
+    public void setInotropesAgent4Others(String inotropesAgent4Others) {
+        this.inotropesAgent4Others = inotropesAgent4Others;
+    }
+
+    public String getInotropesAgent5Others() {
+        return inotropesAgent5Others;
+    }
+
+    public void setInotropesAgent5Others(String inotropesAgent5Others) {
+        this.inotropesAgent5Others = inotropesAgent5Others;
+    }
+
+    public String getSedationAgent1Others() {
+        return sedationAgent1Others;
+    }
+
+    public void setSedationAgent1Others(String sedationAgent1Others) {
+        this.sedationAgent1Others = sedationAgent1Others;
+    }
+
+    public String getSedationAgent2Others() {
+        return sedationAgent2Others;
+    }
+
+    public void setSedationAgent2Others(String sedationAgent2Others) {
+        this.sedationAgent2Others = sedationAgent2Others;
+    }
+
+    public String getSedationAgent3Others() {
+        return sedationAgent3Others;
+    }
+
+    public void setSedationAgent3Others(String sedationAgent3Others) {
+        this.sedationAgent3Others = sedationAgent3Others;
+    }
+
+    public String getSedationAgent4Others() {
+        return sedationAgent4Others;
+    }
+
+    public void setSedationAgent4Others(String sedationAgent4Others) {
+        this.sedationAgent4Others = sedationAgent4Others;
+    }
+
+    public String getSedationAgent5Others() {
+        return sedationAgent5Others;
+    }
+
+    public void setSedationAgent5Others(String sedationAgent5Others) {
+        this.sedationAgent5Others = sedationAgent5Others;
+    }
+
+    public String getImprovothers() {
+        return improvothers;
+    }
+
+    public void setImprovothers(String improvothers) {
+        this.improvothers = improvothers;
     }
 }

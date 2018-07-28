@@ -681,6 +681,7 @@
                         android:orientation="horizontal">
 
                         <RadioButton
+                            android:id="@+id/rbproneyes"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
@@ -689,6 +690,7 @@
                         <RadioButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:id="@+id/rbproneno"
                             android:layout_marginLeft="15dp"
                             android:text="No" />
 
@@ -729,6 +731,7 @@
 
                         <RadioButton
                             android:layout_width="wrap_content"
+                            android:id="@+id/rbproneimpyes"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
                             android:text="Yes" />
@@ -736,6 +739,7 @@
                         <RadioButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:id="@+id/rbproneimpno"
                             android:layout_marginLeft="15dp"
                             android:text="No" />
 
@@ -777,11 +781,13 @@
                         <RadioButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:id="@+id/rbnitrciyes"
                             android:layout_marginLeft="15dp"
                             android:text="Yes" />
 
                         <RadioButton
                             android:layout_width="wrap_content"
+                            android:id="@+id/rbnitrcino"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
                             android:text="No" />
@@ -824,12 +830,14 @@
                         <RadioButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:id="@+id/rbnitrciimpyes"
                             android:layout_marginLeft="15dp"
                             android:text="Yes" />
 
                         <RadioButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:id="@+id/rbnitrciimpno"
                             android:layout_marginLeft="15dp"
                             android:text="No" />
 
@@ -871,12 +879,14 @@
                         <RadioButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:id="@+id/rbplasmyes"
                             android:layout_marginLeft="15dp"
                             android:text="Yes" />
 
                         <RadioButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:id="@+id/rbplasmno"
                             android:layout_marginLeft="15dp"
                             android:text="No" />
 
@@ -918,11 +928,13 @@
                         <RadioButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:id="@+id/rbplasmimpyes"
                             android:layout_marginLeft="15dp"
                             android:text="Yes" />
 
                         <RadioButton
                             android:layout_width="wrap_content"
+                            android:id="@+id/rbplasmimpno"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
                             android:text="No" />
@@ -965,12 +977,14 @@
                         <RadioButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:id="@+id/rbtheryes"
                             android:layout_marginLeft="15dp"
                             android:text="Yes" />
 
                         <RadioButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:id="@+id/rbtherno"
                             android:layout_marginLeft="15dp"
                             android:text="No" />
 
@@ -1012,12 +1026,14 @@
 
                         <RadioButton
                             android:layout_width="wrap_content"
+                            android:id="@+id/rbtherimpyes"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
                             android:text="Yes" />
 
                         <RadioButton
                             android:layout_width="wrap_content"
+                            android:id="@+id/rbtherimpno"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
                             android:text="No" />
@@ -1099,6 +1115,7 @@
                         android:orientation="horizontal">
 
                         <RadioButton
+                            android:id="@+id/rbotherteyes"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
@@ -1106,6 +1123,7 @@
 
                         <RadioButton
                             android:layout_width="wrap_content"
+                            android:id="@+id/rbotherteno"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
                             android:text="No" />

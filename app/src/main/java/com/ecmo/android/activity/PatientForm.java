@@ -93,8 +93,8 @@ public class PatientForm extends BaseActivity {
 
     //Ventilation
     FloatingActionButton fabscreenthreenext, fabscreenthreeback;
-    String sdays ="" ,sfio2 = "", spac02fio2 = "", speee = "", srr = "", slung = "", scrx = "";
-    Spinner spinnercxr, etfio2,etventdays;
+    String sdays = "", sfio2 = "", spac02fio2 = "", speee = "", srr = "", slung = "", scrx = "";
+    Spinner spinnercxr, etfio2, etventdays;
     EditText etspo2, etpo2, etpipvalues, ettv, spinnerpafio2, spinnerpeep, spinnerrr, spinnerlungcompliance, etmurrayscore;
     int scorepao2fio2;
     int scorecxr;
@@ -130,12 +130,12 @@ public class PatientForm extends BaseActivity {
 
     //Investigation
     FloatingActionButton fabscreensixnext, fabscreensixback;
-    RadioGroup radiodialysisGroup, rbpronposing, rbpronposingimp, rbniticacid, rbniticacidimp, rbplasmaphersis, rbplasmaphersisimp, rbtherapuethyp, rbtherapuethypimp,rbothersimp;
+    RadioGroup radiodialysisGroup, rbpronposing, rbpronposingimp, rbniticacid, rbniticacidimp, rbplasmaphersis, rbplasmaphersisimp, rbtherapuethyp, rbtherapuethypimp, rbothersimp;
     EditText rbothers;
     String dialysis = "";
     String spronposing = "", spronposingimp = "", sniticacid = "", sniticacidimp = "", splasmaphersis = "", splasmaphersisimp = "", stherapuethyp = "", stherapuethypimp = "", sothersimp = "";
     EditText eturea, etcr, etlactate, etUo, etph, etinpo2, etpco2, ethco3, etbf, etrefphonenumber, erefddesignation;
-    EditText etabglac,etsao2,etspo2bg;
+    EditText etabglac, etsao2, etspo2bg;
 
     referalformResponse formdata;
 
@@ -679,8 +679,7 @@ public class PatientForm extends BaseActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View arg1,
                                        int pos, long arg3) {
-                if (pos != 0)
-                {
+                if (pos != 0) {
                     sdays = adapterView.getItemAtPosition(pos).toString();
 
                 } else {
@@ -1179,7 +1178,7 @@ public class PatientForm extends BaseActivity {
                 } else if (Float.valueOf(spinnerlvef.getText().toString().trim()) < 0 || Integer.parseInt(spinnerlvef.getText().toString().trim()) > 100) {
                     commonToast("Please Enter correct Left Ventricular Ejection Fraction ");
                     spinnerlvef.setError("Please Enter correct Left Ventricular Ejection Fraction ");
-                }  else {
+                } else {
                     Log.d("Cardiovascular Details\n", "HR - " + shr +
                             "\n BP - " + sbp +
                             "\n Temp - " + stemp +
@@ -1413,7 +1412,7 @@ public class PatientForm extends BaseActivity {
                                        int pos, long arg3) {
 
                 if (adapterView.getItemAtPosition(pos).toString().contains("Others")) {
-                    sagetfive = adapterView.getItemAtPosition(pos).toString() + "" + etothersdosefive.getText().toString();
+                    sagetfive = adapterView.getItemAtPosition(pos).toString();
                     etothersdosefive.setVisibility(View.VISIBLE);
                 } else {
                     sagetfive = adapterView.getItemAtPosition(pos).toString();
@@ -1699,120 +1698,6 @@ public class PatientForm extends BaseActivity {
             public void onClick(View view) {
 
 
-                //agents
-                sagentone = sagentone + "" + etothersdose.getText().toString();
-                sagettwo = sagettwo + "" + etothersdosetwo.getText().toString();
-                sagentthree = sagentthree + "" + etothersdosehree.getText().toString();
-                sagentfour = sagentfour + "" + etothersdosefour.getText().toString();
-
-                if(etdoseone.getText().toString().trim().isEmpty())
-                {
-                    unitdoseone="";
-                }
-                else
-                {
-                    unitdoseone = etdoseone.getText().toString() + " " + unitdoseone;
-
-                }
-                if(etdosetwo.getText().toString().trim().isEmpty())
-                {
-                    unitdosetwo="";
-
-                }
-                else
-                {
-                    unitdosetwo = etdosetwo.getText().toString() + " " + unitdosetwo;
-
-                }
-                if(etdosethree.getText().toString().trim().isEmpty())
-                {
-                    unitdosethree="";
-                }
-                else
-                {
-                    unitdosethree = etdosethree.getText().toString() + " " + unitdosethree;
-
-                }
-                if(etdosefour.getText().toString().trim().isEmpty())
-                {
-                    unitdosefour="";
-
-                }
-                else
-                {
-                    unitdosefour = etdosefour.getText().toString() + " " + unitdosefour;
-
-                }
-                if(etdosefive.getText().toString().trim().isEmpty())
-                {
-                    unitdosefive="";
-                }
-                else
-                {
-                    unitdosefive = etdosefive.getText().toString() + " " + unitdosefive;
-
-                }
-
-
-                //sedag
-                ssedagentone = ssedagentone + "" + etsedagenothersdose.getText().toString();
-                ssedagettwo = ssedagettwo + "" + etsedagenothersdosetwo.getText().toString();
-                ssedagentthree = ssedagentthree + "" + etsedagenothersdosehree.getText().toString();
-                ssedagentfour = ssedagentfour + "" + etsedagenothersdosefour.getText().toString();
-                ssedagetfive = ssedagetfive + "" + etsedagenothersdosefive.getText().toString();
-
-                if(etseddoseone.getText().toString().trim().isEmpty())
-                {
-                    unitsedadoseone ="";
-
-                }
-                else
-                {
-                    unitsedadoseone = etseddoseone.getText().toString() + " " + unitsedadoseone;
-
-                }
-                if(etseddosetwo.getText().toString().trim().isEmpty())
-                {
-                    unitsedadosetwo ="";
-
-                }
-                else
-                {
-                    unitsedadosetwo = etseddosetwo.getText().toString() + " " + unitsedadosetwo;
-
-                }
-                if(etseddosethree.getText().toString().trim().isEmpty())
-                {
-                    unitsedadosethree ="";
-
-                }
-                else
-                {
-                    unitsedadosethree = etseddosethree.getText().toString() + " " + unitsedadosethree;
-
-                }
-                 if(etseddosefour.getText().toString().trim().isEmpty())
-                {
-                    unitsedadosefour ="";
-
-                }
-                else
-                {
-                    unitsedadosefour = etseddosefour.getText().toString() + " " + unitsedadosefour;
-
-                }if(etseddosefive.getText().toString().trim().isEmpty())
-                {
-                    unitsedadosefive ="";
-
-                }
-                else
-                {
-                    unitsedadosefive = etseddosefive.getText().toString() + " " + unitsedadosefive;
-
-                }
-
-
-
                 Log.d("AGENTS", "Agetone " + sagentone + "\n" +
                         "Agettwo " + sagettwo + "\n" +
                         "Agetthree " + sagentthree + "\n" +
@@ -1998,7 +1883,6 @@ public class PatientForm extends BaseActivity {
         });
 
 
-
         rbothersimp.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @SuppressLint("ResourceType")
             @Override
@@ -2043,8 +1927,6 @@ public class PatientForm extends BaseActivity {
                     } else {
                         resend = "0";
                     }
-
-
 
 
                     final PatientFormRequest patientFormRequest = new PatientFormRequest(
@@ -2092,6 +1974,8 @@ public class PatientForm extends BaseActivity {
                             unitdosethree,
                             sagentfour,
                             unitdosefour,
+                            sagetfive,
+                            unitdosefive,
                             ssedagentone,
                             unitsedadoseone,
                             ssedagettwo,
@@ -2100,6 +1984,8 @@ public class PatientForm extends BaseActivity {
                             unitsedadosethree,
                             ssedagentfour,
                             unitsedadosefour,
+                            ssedagetfive,
+                            unitsedadosefive,
                             "",
                             "",
                             eturea.getText().toString(),
@@ -2132,7 +2018,29 @@ public class PatientForm extends BaseActivity {
                             sothersimp,
                             etabglac.getText().toString(),
                             etsao2.getText().toString(),
-                            etspo2bg.getText().toString()
+                            etspo2bg.getText().toString(),
+                            etdoseone.getText().toString(),
+                            etdosetwo.getText().toString(),
+                            etdosethree.getText().toString(),
+                            etdosefour.getText().toString(),
+                            etdosefive.getText().toString(),
+                            etseddoseone.getText().toString(),
+                            etseddosetwo.getText().toString(),
+                            etseddosethree.getText().toString(),
+                            etseddosefour.getText().toString(),
+                            etseddosefive.getText().toString(),
+                            etothersdose.getText().toString(),
+                            etothersdosetwo.getText().toString(),
+                            etothersdosehree.getText().toString(),
+                            etothersdosefour.getText().toString(),
+                            etothersdosefive.getText().toString(),
+                            etsedagenothersdose.getText().toString(),
+                            etsedagenothersdosetwo.getText().toString(),
+                            etsedagenothersdosehree.getText().toString(),
+                            etsedagenothersdosefour.getText().toString(),
+                            etsedagenothersdosefive.getText().toString(),
+                            rbothers.getText().toString()
+
                     );
 
                     Submitalert(patientFormRequest);
@@ -2402,20 +2310,55 @@ public class PatientForm extends BaseActivity {
 
         //agents
         etagentone.setSelection(getspinnerIndexvalue(etagentone, formdata.getInotropesagent1()));
+        etagettwo.setSelection(getspinnerIndexvalue(etagettwo, formdata.getInotropesagent2()));
+        wtagentthree.setSelection(getspinnerIndexvalue(wtagentthree, formdata.getInotropesagent3()));
+        etagentfour.setSelection(getspinnerIndexvalue(etagentfour, formdata.getInotropesagent4()));
+        etagetfive.setSelection(getspinnerIndexvalue(etagetfive, formdata.getInotropesagent5()));
 
-       /* etagentone.setText(formdata.getInotropesagent1());
-        etagettwo.setText(formdata.getInotropesagent2());
-        wtagentthree.setText(formdata.getInotropesagent3());
-        etdoseone.setText(formdata.getInotropesdose1());
-        etdosetwo.setText(formdata.getInotropesdose2());
-        etdosethree.setText(formdata.getInotropesdose3());
+        etdoseone.setText(formdata.getInotropesDose1Value());
+        etdosetwo.setText(formdata.getInotropesDose2Value());
+        etdosethree.setText(formdata.getInotropesDose3Value());
+        etdosefour.setText(formdata.getInotropesDose4Value());
+        etdosefive.setText(formdata.getInotropesDose5Value());
 
-        etsedagentone.setText(formdata.getSedationagent1());
-        etsedagettwo.setText(formdata.getSedationagent2());
-        wtsedagentthree.setText(formdata.getSedationagent3());
-        etseddoseone.setText(formdata.getSedationdose1());
-        etseddosetwo.setText(formdata.getSedationdose2());
-        etseddosethree.setText(formdata.getSedationdose3());*/
+        etothersdose.setText(formdata.getInotropesAgent1Others());
+        etothersdosetwo.setText(formdata.getInotropesAgent2Others());
+        etothersdosehree.setText(formdata.getInotropesAgent3Others());
+        etothersdosefour.setText(formdata.getInotropesAgent4Others());
+        etothersdosefive.setText(formdata.getInotropesAgent5Others());
+
+        spindoseone.setSelection(getspinnerIndexvalue(spindoseone, formdata.getInotropesdose1()));
+        spindosetwo.setSelection(getspinnerIndexvalue(spindosetwo, formdata.getInotropesdose2()));
+        spindosethree.setSelection(getspinnerIndexvalue(spindosethree, formdata.getInotropesdose3()));
+        spindosefour.setSelection(getspinnerIndexvalue(spindosefour, formdata.getInotropesdose4()));
+        spindosefive.setSelection(getspinnerIndexvalue(spindosefive, formdata.getInotropesdose5()));
+
+
+        //seducation spinner
+        etsedagentone.setSelection(getspinnerIndexvalue(etsedagentone, formdata.getSedationagent1()));
+        etsedagettwo.setSelection(getspinnerIndexvalue(etsedagettwo, formdata.getSedationagent2()));
+        wtsedagentthree.setSelection(getspinnerIndexvalue(wtsedagentthree, formdata.getSedationagent3()));
+        etsedagentfour.setSelection(getspinnerIndexvalue(etsedagentfour, formdata.getSedationagent4()));
+        etsedagetfive.setSelection(getspinnerIndexvalue(etsedagetfive, formdata.getSedationagent5()));
+
+        etseddoseone.setText(formdata.getSedationDose1Value());
+        etseddosetwo.setText(formdata.getSedationDose2Value());
+        etseddosethree.setText(formdata.getSedationDose3Value());
+        etseddosefour.setText(formdata.getSedationDose4Value());
+        etseddosefive.setText(formdata.getSedationDose5Value());
+
+        etsedagenothersdose.setText(formdata.getSedationAgent1Others());
+        etsedagenothersdosetwo.setText(formdata.getSedationAgent2Others());
+        etsedagenothersdosehree.setText(formdata.getSedationAgent3Others());
+        etsedagenothersdosefour.setText(formdata.getSedationAgent4Others());
+        etsedagenothersdosefive.setText(formdata.getSedationAgent5Others());
+
+
+        sedagenspindoseone.setSelection(getspinnerIndexvalue(sedagenspindoseone, formdata.getSedationdose1()));
+        sedagenspindosetwo.setSelection(getspinnerIndexvalue(sedagenspindosetwo, formdata.getSedationdose2()));
+        sedagenspindosethree.setSelection(getspinnerIndexvalue(sedagenspindosethree, formdata.getSedationdose3()));
+        sedagenspindosefour.setSelection(getspinnerIndexvalue(sedagenspindosefour, formdata.getSedationdose4()));
+        sedagenspindosefive.setSelection(getspinnerIndexvalue(sedagenspindosefive, formdata.getSedationdose5()));
 
         //investigation
 
@@ -2436,8 +2379,77 @@ public class PatientForm extends BaseActivity {
             radiodialysisGroup.check(R.id.no);
             dialysis = "no";
         }
+        if (formdata.getPronePositioning().equalsIgnoreCase("YES")) {
+            rbpronposing.check(R.id.rbproneyes);
+            spronposing = "yes";
+        } else {
+            rbpronposing.check(R.id.rbproneno);
+            spronposing = "no";
+        }
+
+        if (formdata.getPronePositioningImprov().equalsIgnoreCase("YES")) {
+            rbpronposingimp.check(R.id.rbproneimpyes);
+            spronposingimp = "yes";
+        } else {
+            rbpronposingimp.check(R.id.rbproneimpno);
+            spronposingimp = "no";
+        }
+        if (formdata.getNitricAcid().equalsIgnoreCase("YES")) {
+            rbniticacid.check(R.id.rbnitrciyes);
+            sniticacid = "yes";
+        } else {
+            rbniticacid.check(R.id.rbnitrcino);
+            sniticacid = "no";
+        }
+        if (formdata.getNitricAcidImprov().equalsIgnoreCase("YES")) {
+            rbniticacidimp.check(R.id.rbnitrciimpyes);
+            sniticacidimp = "yes";
+        } else {
+            rbniticacidimp.check(R.id.rbnitrciimpno);
+            sniticacidimp = "no";
+
+        }
+
+        if (formdata.getPlasmaphersis().equalsIgnoreCase("YES")) {
+            rbplasmaphersis.check(R.id.rbplasmyes);
+            splasmaphersis = "yes";
+        } else {
+            rbplasmaphersis.check(R.id.rbplasmno);
+            splasmaphersis = "no";
+        }
+        if (formdata.getPlasmaphersisImprov().equalsIgnoreCase("YES")) {
+            rbplasmaphersisimp.check(R.id.rbplasmimpyes);
+            splasmaphersisimp = "yes";
+        } else {
+            rbplasmaphersisimp.check(R.id.rbplasmimpno);
+            splasmaphersisimp = "no";
+        }
 
 
+        if (formdata.getTherapueticHypothermia().equalsIgnoreCase("YES")) {
+            rbtherapuethyp.check(R.id.rbtheryes);
+            stherapuethyp = "yes";
+        } else {
+            rbtherapuethyp.check(R.id.rbtherno);
+            stherapuethyp = "no";
+        }
+
+        if (formdata.getTherapueticHypothermiaImprov().equalsIgnoreCase("YES")) {
+            rbtherapuethypimp.check(R.id.rbtherimpyes);
+            stherapuethypimp = "yes";
+        } else {
+            rbtherapuethypimp.check(R.id.rbtherimpno);
+            stherapuethypimp = "no";
+        }
+        if (formdata.getOthersImprov().equalsIgnoreCase("YES")) {
+            rbothersimp.check(R.id.rbotherteyes);
+            sothersimp = "yes";
+        } else {
+            rbothersimp.check(R.id.rbotherteno);
+            sothersimp = "no";
+        }
+
+        rbothers.setText(formdata.getImprovothers());
     }
 
 
