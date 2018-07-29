@@ -131,6 +131,61 @@ public class BaseActivity extends AppCompatActivity
         return "Select";
     }
 
+    public String getAgentvalue(String hospital){
+        List<Hospitalitem> hosplist= getInotropeslist();
+        for (int i = 0; i < hosplist.size(); i++) {
+            if(hospital.equals(hosplist.get(i).getText()))
+                return hosplist.get(i).getValue();
+        }
+        return "-1";
+    }
+
+    public String getagentname(String hospitalvalue){
+        List<Hospitalitem> hosplist= getInotropeslist();
+        for (int i = 0; i < hosplist.size(); i++) {
+            if(hospitalvalue.equals(hosplist.get(i).getValue()))
+                return hosplist.get(i).getText();
+        }
+        return "";
+    }
+
+    public String getUnitvalue(String hospital){
+        List<Hospitalitem> hosplist= getUnitslistlist();
+        for (int i = 0; i < hosplist.size(); i++) {
+            if(hospital.equals(hosplist.get(i).getText()))
+                return hosplist.get(i).getValue();
+        }
+        return "-1";
+    }
+
+    public String getunitname(String hospitalvalue){
+        List<Hospitalitem> hosplist= getUnitslistlist();
+        for (int i = 0; i < hosplist.size(); i++) {
+            if(hospitalvalue.equals(hosplist.get(i).getValue()))
+                return hosplist.get(i).getText();
+        }
+        return "";
+    }
+
+    public String getseditionname(String hospitalvalue){
+        List<Hospitalitem> hosplist= getSedationlist();
+        for (int i = 0; i < hosplist.size(); i++) {
+            if(hospitalvalue.equals(hosplist.get(i).getValue()))
+                return hosplist.get(i).getText();
+        }
+        return "";
+    }
+
+    public String getSedationvalue(String hospital){
+        List<Hospitalitem> hosplist= getSedationlist();
+        for (int i = 0; i < hosplist.size(); i++) {
+            if(hospital.equals(hosplist.get(i).getText()))
+                return hosplist.get(i).getValue();
+        }
+        return "-1";
+    }
+
+
 
     @Override
     protected void onResume() {

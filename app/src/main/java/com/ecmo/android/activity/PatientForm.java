@@ -1203,7 +1203,9 @@ public class PatientForm extends BaseActivity {
         });
     }
 
-    /* Cardiovascular  Paramentes Form End*/
+    /* Cardio
+
+    vascular  Paramentes Form End*/
 
 
 
@@ -1254,10 +1256,10 @@ public class PatientForm extends BaseActivity {
                                        int pos, long arg3) {
 
                 if (adapterView.getItemAtPosition(pos).toString().contains("Others")) {
-                    sagentone = adapterView.getItemAtPosition(pos).toString();
+                    sagentone = Integer.toString(pos);
                     etothersdose.setVisibility(View.VISIBLE);
                 } else {
-                    sagentone = adapterView.getItemAtPosition(pos).toString();
+                    sagentone = Integer.toString(pos);
                     etothersdose.setVisibility(View.GONE);
                 }
 
@@ -1275,7 +1277,7 @@ public class PatientForm extends BaseActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View arg1,
                                        int pos, long arg3) {
-                unitdoseone = adapterView.getItemAtPosition(pos).toString();
+                unitdoseone = Integer.toString(pos);
             }
 
             @Override
@@ -1412,10 +1414,10 @@ public class PatientForm extends BaseActivity {
                                        int pos, long arg3) {
 
                 if (adapterView.getItemAtPosition(pos).toString().contains("Others")) {
-                    sagetfive = adapterView.getItemAtPosition(pos).toString();
+                    sagetfive =  Integer.toString(pos);
                     etothersdosefive.setVisibility(View.VISIBLE);
                 } else {
-                    sagetfive = adapterView.getItemAtPosition(pos).toString();
+                    sagetfive =  Integer.toString(pos);
                     etothersdosefive.setVisibility(View.GONE);
                 }
 
@@ -1433,7 +1435,7 @@ public class PatientForm extends BaseActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View arg1,
                                        int pos, long arg3) {
-                unitdosefive = adapterView.getItemAtPosition(pos).toString();
+                unitdosefive =  Integer.toString(pos);
             }
 
             @Override
